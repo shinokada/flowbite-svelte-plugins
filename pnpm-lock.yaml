@@ -15,7 +15,7 @@ importers:
         specifier: ^3.4.0
         version: 3.4.0(prettier@3.5.3)(svelte@5.33.5)
       turbo:
-        specifier: 2.5.4
+        specifier: ^2.5.4
         version: 2.5.4
 
   apps/docs:
