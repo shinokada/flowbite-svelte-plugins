@@ -16,6 +16,7 @@
     "@svitejs/changesets-changelog-github-compact": "^1.2.0",
     "prettier": "^3.5.3",
     "prettier-plugin-svelte": "^3.4.0",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "turbo": "^2.5.4"
   },
   "packageManager": "pnpm@10.0.0",
