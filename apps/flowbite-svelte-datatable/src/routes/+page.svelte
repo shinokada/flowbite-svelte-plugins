@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { DarkMode, Heading } from "flowbite-svelte"
-  import * as Examples from './examples';
+	import { DarkMode, Heading } from 'flowbite-svelte';
+	import * as Examples from './examples';
 </script>
 
 <DarkMode />
@@ -26,8 +26,4 @@
 
 <Heading tag="h2" class="my-4">Selecting Rows</Heading>
 <Examples.SelectingRows />
-
-<Heading tag="h2" class="my-4">Custom</Heading>
-<Examples.Custom />
-
 

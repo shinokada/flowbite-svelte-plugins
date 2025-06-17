@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @plugin 'flowbite/plugin';
 
@@ -7,7 +7,6 @@
 @source "../node_modules/simple-datatables/dist";
 @source "../node_modules/flowbite-svelte/dist";
 @source "../node_modules/flowbite-svelte-icons/dist";
-
 
 .datatable-pagination .datatable-active a,
 .datatable-pagination .datatable-active a:focus,
@@ -20,5 +19,5 @@
 }
 
 .datatable-wrapper .datatable-table tbody tr.selected {
-  background-color: #fff1ee !important;
+	background-color: #fff1ee !important;
 }

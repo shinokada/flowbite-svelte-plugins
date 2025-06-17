@@ -7,6 +7,12 @@
     "lint": "turbo run lint",
     "format": "prettier --write .",
     "check-types": "turbo run check-types",
+    "lib-helpers": "pnpm -r lib-helpers",
+    "lib-helpers:chart": "pnpm --filter flowbite-svelte-chart lib-helpers",
+    "lib-helpers:datatable": "pnpm --filter flowbite-svelte-datatable lib-helpers",
+    "check": "pnpm -r check",
+    "check:chart" : "pnpm --filter flowbite-svelte-chart check",
+    "check:datatable" : "pnpm --filter flowbite-svelte-datatable check",
     "ch": "npx changeset",
     "cv": "npx changeset version",
     "cp": "npx changeset publish"
