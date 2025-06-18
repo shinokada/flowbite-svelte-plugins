@@ -6,5 +6,5 @@ export { default as TablePagination } from './TablePagination.svelte';
 export { default as SelectingRows } from './SelectingRows.svelte';
 export { default as Simple } from './Simple.svelte';
 
-export { default as CustomCellRenderer } from "./CustomCellRenderer.svelte"
-export { default as Export } from "./Export.svelte"
+export { default as CustomCellRenderer } from './CustomCellRenderer.svelte';
+export { default as Export } from './Export.svelte';

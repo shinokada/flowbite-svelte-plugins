@@ -8,33 +8,31 @@
 @source "../node_modules/flowbite-svelte/dist";
 @source "../node_modules/flowbite-svelte-icons/dist";
 
-
 @theme {
-  --z-index-100: 100;
+	--z-index-100: 100;
 
-  --color-primary-50: #fff5f2;
-  --color-primary-100: #fff1ee;
-  --color-primary-200: #ffe4de;
-  --color-primary-300: #ffd5cc;
-  --color-primary-400: #ffbcad;
-  --color-primary-500: #fe795d;
-  --color-primary-600: #ef562f;
-  --color-primary-700: #eb4f27;
-  --color-primary-800: #cc4522;
-  --color-primary-900: #a5371b;
+	--color-primary-50: #fff5f2;
+	--color-primary-100: #fff1ee;
+	--color-primary-200: #ffe4de;
+	--color-primary-300: #ffd5cc;
+	--color-primary-400: #ffbcad;
+	--color-primary-500: #fe795d;
+	--color-primary-600: #ef562f;
+	--color-primary-700: #eb4f27;
+	--color-primary-800: #cc4522;
+	--color-primary-900: #a5371b;
 
-  --color-secondary-50: #f0f9ff;
-  --color-secondary-100: #e0f2fe;
-  --color-secondary-200: #bae6fd;
-  --color-secondary-300: #7dd3fc;
-  --color-secondary-400: #38bdf8;
-  --color-secondary-500: #0ea5e9;
-  --color-secondary-600: #0284c7;
-  --color-secondary-700: #0369a1;
-  --color-secondary-800: #075985;
-  --color-secondary-900: #0c4a6e;
+	--color-secondary-50: #f0f9ff;
+	--color-secondary-100: #e0f2fe;
+	--color-secondary-200: #bae6fd;
+	--color-secondary-300: #7dd3fc;
+	--color-secondary-400: #38bdf8;
+	--color-secondary-500: #0ea5e9;
+	--color-secondary-600: #0284c7;
+	--color-secondary-700: #0369a1;
+	--color-secondary-800: #075985;
+	--color-secondary-900: #0c4a6e;
 }
-
 
 .datatable-pagination .datatable-active a,
 .datatable-pagination .datatable-active a:focus,
@@ -62,9 +60,10 @@
 	color: red;
 }
 
-.currency {}
+.currency {
+}
 .currency:before {
-	content: "$ "
+	content: '$ ';
 }
 .currency--profit {
 	color: limegreen;
@@ -77,7 +76,20 @@
 }
 
 /* demo general */
-button:not(.datatable-sorter):not(.datatable-filter) { cursor: pointer; padding: 0.5em; }
+button:not(.datatable-sorter):not(.datatable-filter) {
+	cursor: pointer;
+	padding: 0.5em;
+}
 
-tbody button { background: #565656; color: white; border: none; border-radius: 4px; padding: .25rem .5rem; margin: 0 0 0 .25rem; }
-tbody button:hover, tbody button:focus { background: #3b3b3b; }
+tbody button {
+	background: #565656;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	padding: 0.25rem 0.5rem;
+	margin: 0 0 0 0.25rem;
+}
+tbody button:hover,
+tbody button:focus {
+	background: #3b3b3b;
+}

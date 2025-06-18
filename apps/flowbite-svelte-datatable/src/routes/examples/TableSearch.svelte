@@ -8,4 +8,4 @@
 	};
 </script>
 
-<Table {items} dataTableOptions={{searchable: false, sortable: false}} />
+<Table {items} dataTableOptions={{ searchable: false, sortable: false }} />

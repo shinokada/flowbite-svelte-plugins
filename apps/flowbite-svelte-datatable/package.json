@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/datatable",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Advanced datatable component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {

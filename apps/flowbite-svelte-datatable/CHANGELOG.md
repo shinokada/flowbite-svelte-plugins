@@ -1,5 +1,11 @@
 # @codewithshin/flowbite-svelte-datatable
 
+## 0.3.0
+
+### Minor Changes
+
+- feat: expose dataTableInstance
+
 ## 0.2.2
 
 ### Patch Changes

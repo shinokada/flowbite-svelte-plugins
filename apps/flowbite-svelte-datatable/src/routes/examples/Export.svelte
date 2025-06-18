@@ -1,18 +1,18 @@
 <script lang="ts">
-	import {Table}  from '$lib';
-  import { Button } from "flowbite-svelte"
-	import { exportJSON, exportCSV, exportTXT, exportSQL } from "simple-datatables";
+	import { Table } from '$lib';
+	import { Button } from 'flowbite-svelte';
+	import { exportJSON, exportCSV, exportTXT, exportSQL } from 'simple-datatables';
 
 	import items from '../data/sample.json';
-  
+
 	let tableComponent: any;
-	
+
 	const handleCSV = () => {
 		if (tableComponent?.dataTableInstance) {
 			exportCSV(tableComponent.dataTableInstance, {
 				download: true,
-				lineDelimiter: "\n",
-				columnDelimiter: ";"
+				lineDelimiter: '\n',
+				columnDelimiter: ';'
 			});
 		}
 	};
@@ -21,7 +21,7 @@
 		if (tableComponent?.dataTableInstance) {
 			exportSQL(tableComponent.dataTableInstance, {
 				download: true,
-				tableName: "export_table"
+				tableName: 'export_table'
 			});
 		}
 	};
