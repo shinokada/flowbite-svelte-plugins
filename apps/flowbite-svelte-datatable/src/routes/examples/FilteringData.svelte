@@ -1,11 +1,9 @@
 <script lang="ts">
 	import { Table } from '$lib';
-	import items from '../data/products.json';
+	import products from '../data/products.json';
 	import type { DataTableOptions } from 'simple-datatables';
 
-	const dataTableOptions: DataTableOptions = {
-		sortable: true,
-		searchable: true,
+	const filterOptions: DataTableOptions = {
 		tableRender: (data: any[], table: any, type: string) => {
 			if (type === 'print') {
 				return table;
@@ -39,4 +37,4 @@
 	};
 </script>
 
-<Table {items} {dataTableOptions} />
+<Table items={products} dataTableOptions={filterOptions} />

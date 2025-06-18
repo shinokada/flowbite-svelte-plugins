@@ -1,5 +1,11 @@
 # @codewithshin/flowbite-svelte-datatable
 
+## 0.2.2
+
+### Patch Changes
+
+- fix: change package names
+
 ## 0.2.1
 
 ### Patch Changes

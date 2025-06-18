@@ -26,4 +26,3 @@
 
 <Heading tag="h2" class="my-4">Selecting Rows</Heading>
 <Examples.SelectingRows />
-

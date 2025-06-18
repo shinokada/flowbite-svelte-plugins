@@ -2,7 +2,7 @@
 	import Table from '$lib/Table.svelte';
 	import items from '../data/sample.json';
 
-	const dataTableOptions = {
+	const selectRowsOptions = {
 		rowRender: (row: any, tr: any, _index: number) => {
 			if (!tr.attributes) {
 				tr.attributes = {};
@@ -20,4 +20,4 @@
 	};
 </script>
 
-<Table selectable {items} {dataTableOptions} />
+<Table selectable {items} dataTableOptions={selectRowsOptions} />

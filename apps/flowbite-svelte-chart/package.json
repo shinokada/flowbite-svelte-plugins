@@ -1,6 +1,6 @@
 {
-  "name": "@codewithshin/flowbite-svelte-chart",
-  "version": "0.2.1",
+  "name": "@flowbite-svelte-plugins/chart",
+  "version": "0.2.2",
   "description": "Chart and data visualization components for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {

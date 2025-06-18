@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { Table } from '$lib';
-	import items from '../data/aimodels.json';
+	import aimodels from '../data/aimodels.json';
 	import type { DataTableOptions } from 'simple-datatables';
 
-	const dataTableOptions: DataTableOptions = {
+	const paginationOptions: DataTableOptions = {
 		paging: true,
 		perPage: 5,
 		perPageSelect: [5, 10, 15, 20, 25],
@@ -11,4 +11,4 @@
 	};
 </script>
 
-<Table {items} {dataTableOptions} />
+<Table items={aimodels} dataTableOptions={paginationOptions} />
