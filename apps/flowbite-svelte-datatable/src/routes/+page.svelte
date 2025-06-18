@@ -6,6 +6,13 @@
 <DarkMode />
 <Heading tag="h1" class="my-8">@flowbite-svelte/datatable</Heading>
 
+
+<Heading tag="h2" class="my-4">Export</Heading>
+<Examples.Export />
+
+<Heading tag="h2" class="my-4">CustomCellRenderer</Heading>
+<Examples.CustomCellRenderer />
+
 <Heading tag="h2" class="my-4">Default Datatable</Heading>
 <Examples.DefaultDatatable />
 

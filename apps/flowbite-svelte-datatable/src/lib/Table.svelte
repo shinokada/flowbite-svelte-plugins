@@ -29,6 +29,9 @@
 	let tableElement = $state<HTMLTableElement>();
 	let dataTableInstance = $state<DataTable | null>(null);
 
+	// Expose dataTableInstance to parent component
+	export { dataTableInstance };
+
 	const defaultOptions: DataTableOptions = {
 		searchable: true,
 		sortable: true,
