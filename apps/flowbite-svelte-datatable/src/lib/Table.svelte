@@ -105,7 +105,9 @@
 <div class={clsx(divClass)}>
 	<table bind:this={tableElement} {...restProps}>
 		{#if captionSlot}
+		  <caption>
 			{@render captionSlot()}
+			</caption>
 		{/if}
 		{#if items && items.length > 0}
 			<TableHead {headItems} />
@@ -114,7 +116,9 @@
 			{@render children()}
 		{/if}
 		{#if footerSlot}
+		  <tfoot>
 			{@render footerSlot()}
+			</tfoot>
 		{/if}
 	</table>
 </div>
