@@ -1,12 +1,12 @@
 {
-	"name": "TableBody",
-	"type": {
-		"name": "TableBodyProps",
-		"link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L51"
-	},
-	"props": [
-		["children", ""],
-		["bodyItems", ""],
-		["class: className", ""]
-	]
+  "name": "TableBody",
+  "type": {
+    "name": "TableBodyProps",
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L51"
+  },
+  "props": [
+    ["children", ""],
+    ["bodyItems", ""],
+    ["class: className", ""]
+  ]
 }

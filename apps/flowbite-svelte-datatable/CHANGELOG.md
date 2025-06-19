@@ -1,5 +1,11 @@
 # @codewithshin/flowbite-svelte-datatable
 
+## 0.3.1
+
+### Patch Changes
+
+- fix: : add caption and tfoot to Table
+
 ## 0.3.0
 
 ### Minor Changes

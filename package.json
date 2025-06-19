@@ -11,8 +11,8 @@
     "lib-helpers:chart": "pnpm --filter flowbite-svelte-chart lib-helpers",
     "lib-helpers:datatable": "pnpm --filter flowbite-svelte-datatable lib-helpers",
     "check": "pnpm -r check",
-    "check:chart" : "pnpm --filter flowbite-svelte-chart check",
-    "check:datatable" : "pnpm --filter flowbite-svelte-datatable check",
+    "check:chart": "pnpm --filter flowbite-svelte-chart check",
+    "check:datatable": "pnpm --filter flowbite-svelte-datatable check",
     "ch": "npx changeset",
     "cv": "npx changeset version",
     "cp": "npx changeset publish"
@@ -28,5 +28,10 @@
   "packageManager": "pnpm@10.0.0",
   "engines": {
     "node": ">=18"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }

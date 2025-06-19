@@ -8,3 +8,6 @@ export { default as Simple } from './Simple.svelte';
 
 export { default as CustomCellRenderer } from './CustomCellRenderer.svelte';
 export { default as Export } from './Export.svelte';
+export { default as Scrolly } from './Scrolly.svelte';
+export { default as Andsearch } from './AndSearch.svelte';
+export { default as Slots } from './Slots.svelte';

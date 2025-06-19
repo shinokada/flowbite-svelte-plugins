@@ -1,11 +1,11 @@
 {
-	"name": "Chart",
-	"type": {
-		"name": "ChartProps",
-		"link": "https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L3"
-	},
-	"props": [
-		["options", "$bindable()"],
-		["class: classname", ""]
-	]
+  "name": "Chart",
+  "type": {
+    "name": "ChartProps",
+    "link": "https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L3"
+  },
+  "props": [
+    ["options", "$bindable()"],
+    ["class: classname", ""]
+  ]
 }

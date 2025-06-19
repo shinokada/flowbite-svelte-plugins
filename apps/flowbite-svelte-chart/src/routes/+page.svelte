@@ -1,11 +1,11 @@
 <script>
-	import { DarkMode, Heading } from 'flowbite-svelte';
-	import * as Examples from './examples';
+  import { DarkMode, Heading } from 'flowbite-svelte';
+  import * as Examples from './examples';
 </script>
 
 <DarkMode />
 
-<Heading tag="h1" class="my-8">@flowbite-svelte/chart</Heading>
+<Heading tag="h1" class="my-8">@flowbite-svelte-plugins/chart</Heading>
 
 <Heading tag="h2" class="my-4">Area chart</Heading>
 <Examples.AreaChart />
