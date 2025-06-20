@@ -57,7 +57,7 @@
           Superscript,
           TextStyle,
           FontFamily.configure({
-            types: ['textStyle'],
+            types: ['textStyle']
           }),
           Color,
           TaskList,

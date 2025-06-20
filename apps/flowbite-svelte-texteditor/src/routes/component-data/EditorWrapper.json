@@ -1,8 +1,5 @@
 {
   "name": "EditorWrapper",
   "type": null,
-  "props": [
-    ["children", ""],
-    ["class: className", ""]
-  ]
+  "props": []
 }

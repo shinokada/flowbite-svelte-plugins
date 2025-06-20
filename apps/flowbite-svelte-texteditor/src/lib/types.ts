@@ -9,19 +9,19 @@ export interface EditorProviderProps {
   editor?: Editor | null;
 }
 
-export interface EditorBasicProps extends Omit<HTMLButtonAttributes, 'class'>{
+export interface EditorBasicProps extends Omit<HTMLButtonAttributes, 'class'> {
   editor: Editor | null;
   class?: ClassValue;
 }
 
 // buttons
-export interface EditorButtonProps extends EditorBasicProps{
+export interface EditorButtonProps extends EditorBasicProps {
   tooltipText: string;
   buttonId: string;
   ariaLabel: string;
 }
 
-export interface AlignmentButtonProps extends EditorButtonProps{
+export interface AlignmentButtonProps extends EditorButtonProps {
   alignment: 'left' | 'center' | 'right' | 'justify';
 }
 
@@ -31,16 +31,16 @@ export interface FormatButtonProps extends EditorButtonProps {
 }
 
 export interface ImageButtonProps extends EditorButtonProps {
-  format: 'default' | 'advanced'
+  format: 'default' | 'advanced';
   onAdvancedClick?: () => void;
 }
 // layout
-export interface LayoutButtonProps extends EditorButtonProps{
+export interface LayoutButtonProps extends EditorButtonProps {
   format: 'blockquote' | 'codeblock' | 'horizontalrule';
 }
 
 // table
-export interface TableButtonProps extends EditorButtonProps{
+export interface TableButtonProps extends EditorButtonProps {
   format:
     | 'table'
     | 'deleteTable'
@@ -61,8 +61,6 @@ export interface TableButtonProps extends EditorButtonProps{
     | 'goToPreviousCell'
     | 'goToNextCell';
 }
-
-
 
 export interface GroupEditorBasicProps {
   editor: Editor | null;

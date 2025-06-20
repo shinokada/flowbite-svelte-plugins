@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -229,6 +229,10 @@
       "types": "./dist/groups/GroupLayout.svelte.d.ts",
       "svelte": "./dist/groups/GroupLayout.svelte"
     },
+    "./GroupMedia.svelte": {
+      "types": "./dist/groups/GroupMedia.svelte.d.ts",
+      "svelte": "./dist/groups/GroupMedia.svelte"
+    },
     "./GroupTable.svelte": {
       "types": "./dist/groups/GroupTable.svelte.d.ts",
       "svelte": "./dist/groups/GroupTable.svelte"
@@ -240,6 +244,18 @@
     "./GroupUndoRedo.svelte": {
       "types": "./dist/groups/GroupUndoRedo.svelte.d.ts",
       "svelte": "./dist/groups/GroupUndoRedo.svelte"
+    },
+    "./Image.svelte": {
+      "types": "./dist/image/Image.svelte.d.ts",
+      "svelte": "./dist/image/Image.svelte"
+    },
+    "./ImageAdvanced.svelte": {
+      "types": "./dist/image/ImageAdvanced.svelte.d.ts",
+      "svelte": "./dist/image/ImageAdvanced.svelte"
+    },
+    "./ImageButton.svelte": {
+      "types": "./dist/image/ImageButton.svelte.d.ts",
+      "svelte": "./dist/image/ImageButton.svelte"
     },
     "./Blockquote.svelte": {
       "types": "./dist/layout/Blockquote.svelte.d.ts",
@@ -276,10 +292,6 @@
     "./TaskList.svelte": {
       "types": "./dist/lists/TaskList.svelte.d.ts",
       "svelte": "./dist/lists/TaskList.svelte"
-    },
-    "./Image.svelte": {
-      "types": "./dist/media/Image.svelte.d.ts",
-      "svelte": "./dist/media/Image.svelte"
     },
     "./Youtube.svelte": {
       "types": "./dist/media/Youtube.svelte.d.ts",
@@ -360,30 +372,6 @@
     "./ToggleHeaderRow.svelte": {
       "types": "./dist/table/ToggleHeaderRow.svelte.d.ts",
       "svelte": "./dist/table/ToggleHeaderRow.svelte"
-    },
-    "./Document.svelte": {
-      "types": "./dist/text/Document.svelte.d.ts",
-      "svelte": "./dist/text/Document.svelte"
-    },
-    "./HardBreak.svelte": {
-      "types": "./dist/text/HardBreak.svelte.d.ts",
-      "svelte": "./dist/text/HardBreak.svelte"
-    },
-    "./Heading.svelte": {
-      "types": "./dist/text/Heading.svelte.d.ts",
-      "svelte": "./dist/text/Heading.svelte"
-    },
-    "./Paragraph.svelte": {
-      "types": "./dist/text/Paragraph.svelte.d.ts",
-      "svelte": "./dist/text/Paragraph.svelte"
-    },
-    "./Text.svelte": {
-      "types": "./dist/text/Text.svelte.d.ts",
-      "svelte": "./dist/text/Text.svelte"
-    },
-    "./Typography.svelte": {
-      "types": "./dist/text/Typography.svelte.d.ts",
-      "svelte": "./dist/text/Typography.svelte"
     },
     "./UndoRedo.svelte": {
       "types": "./dist/undo-redo/UndoRedo.svelte.d.ts",

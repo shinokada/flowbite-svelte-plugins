@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.4.0
+
+### Minor Changes
+
+- feat: FontFamily, Image, Table components
+
 ## 0.3.0
 
 ### Minor Changes

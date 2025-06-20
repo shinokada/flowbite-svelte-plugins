@@ -51,7 +51,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
 ## Type
-[LayoutButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L41)
+[LayoutButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L38)
 ## Props
 @prop editor
 @prop format
@@ -59,4 +59,5 @@
 @prop buttonId
 @prop ariaLabel
 @prop class: className
+@prop ...restProps
 -->

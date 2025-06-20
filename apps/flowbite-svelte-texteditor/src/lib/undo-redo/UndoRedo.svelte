@@ -49,10 +49,11 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
 ## Type
-[UndoRedoProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L61)
+[UndoRedoProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L71)
 ## Props
 @prop editor
 @prop action
 @prop buttonClass
 @prop iconClass
+@prop ...restProps
 -->
