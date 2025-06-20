@@ -7,7 +7,7 @@
   let isOpen = $state(false);
 
   // Generate unique ID for this component instance
-  const uniqueId = generateButtonId('AlignJustify');
+  const uniqueId = generateButtonId('FontFamily');
 
   // Font families with their display names and CSS values
   const fontFamilies = [
@@ -23,13 +23,10 @@
   ];
 
   function setFont(fontFamily: string) {
-    console.log('set font');
     if (fontFamily === 'Inter, ui-sans-serif, system-ui, sans-serif') {
-      console.log('default so unset');
       // For default font, unset the font family
       editor?.chain().focus().unsetFontFamily().run();
     } else {
-      console.log('fontFamily: ', fontFamily);
       editor?.chain().focus().setFontFamily(fontFamily).run();
     }
 
@@ -37,7 +34,7 @@
   }
 </script>
 
-<FormatButton {editor} format="fontFamily" tooltipText="Toggle font family" buttonId={uniqueId} ariaLabel="Font family" class={className} />
+<FormatButton {editor} format="fontFamily" tooltipText="Font family" buttonId={uniqueId} ariaLabel="Font family" class={className} />
 
 <Dropdown bind:isOpen simple triggeredBy="#{uniqueId}">
   {#each fontFamilies as font}

@@ -2,7 +2,7 @@
   import { Tooltip } from 'flowbite-svelte';
   import { type FormatButtonProps, cn } from '$lib';
 
-  let { editor, format, tooltipText, buttonId, ariaLabel, class: className, onFontFamilyClick, ...restProps }: FormatButtonProps = $props();
+  let { editor, format, tooltipText, buttonId, ariaLabel, class: className, ...restProps }: FormatButtonProps = $props();
 
   function handleClick() {
     switch (format) {
@@ -40,7 +40,8 @@
         editor?.chain().focus().unsetLink().run();
         break;
       case 'fontFamily':
-        onFontFamilyClick?.();
+        break;
+      case 'fontSize':
         break;
     }
   }

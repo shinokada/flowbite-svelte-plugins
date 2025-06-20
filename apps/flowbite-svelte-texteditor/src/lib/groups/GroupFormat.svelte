@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Bold, Italic, Underline, Strike, Highlight, Code, Link, RemoveLink, Subscript, Superscript, FontFamily, type GroupFormatProps } from '$lib';
+  import { Bold, Italic, Underline, Strike, Highlight, Code, Link, RemoveLink, Subscript, Superscript, FontFamily, FontSize,type GroupFormatProps } from '$lib';
 
   let { editor, showToolbar = true }: GroupFormatProps = $props();
 </script>
@@ -16,6 +16,7 @@
   <Link {editor} />
   <RemoveLink {editor} />
   <FontFamily {editor} />
+  <FontSize {editor} />
 {/if}
 
 <!--

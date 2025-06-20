@@ -27,7 +27,6 @@ export interface AlignmentButtonProps extends EditorButtonProps {
 
 export interface FormatButtonProps extends EditorButtonProps {
   format: 'bold' | 'italic' | 'underline' | 'strike' | 'highlight' | 'code' | 'link' | 'removeLink' | 'subscript' | 'superscript' | 'fontFamily' | 'textColor' | 'fontSize';
-  onFontFamilyClick?: () => void;
 }
 
 export interface ImageButtonProps extends EditorButtonProps {
