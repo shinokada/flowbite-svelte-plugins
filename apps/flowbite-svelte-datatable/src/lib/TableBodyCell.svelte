@@ -21,7 +21,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/datatables)
 ## Type
-[TableBodyCellProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L41)
+[TableBodyCellProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L36)
 ## Props
 @prop children
 @prop class: className

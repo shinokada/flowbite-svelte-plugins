@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.3.0
+
+### Minor Changes
+
+- feat: editor add TextEditor for structure change
+
 ## 0.2.1
 
 ### Patch Changes

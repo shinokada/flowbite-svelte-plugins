@@ -2,13 +2,7 @@
   "name": "EditorWrapper",
   "type": null,
   "props": [
-    [
-      "children",
-      ""
-    ],
-    [
-      "class: className",
-      ""
-    ]
+    ["children", ""],
+    ["class: className", ""]
   ]
 }

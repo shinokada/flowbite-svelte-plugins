@@ -45,3 +45,17 @@
   <span class="sr-only">{ariaLabel}</span>
 </button>
 <Tooltip>{tooltipText}</Tooltip>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[LayoutButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L41)
+## Props
+@prop editor
+@prop format
+@prop tooltipText
+@prop buttonId
+@prop ariaLabel
+@prop class: className
+-->

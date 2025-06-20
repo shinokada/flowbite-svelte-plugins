@@ -1,14 +1,7 @@
 <script lang="ts">
-  import { 
-    GroupAlignment, 
-    GroupUndoRedo, 
-    GroupFormat, 
-    GroupLayout,
-    TextEditor,
-    ToolbarRowWrapper, Divider 
-  } from '$lib';
+  import { GroupAlignment, GroupUndoRedo, GroupFormat, GroupLayout, TextEditor, ToolbarRowWrapper, Divider } from '$lib';
   import type { Editor } from '@tiptap/core';
-  import { Button } from "flowbite-svelte";
+  import { Button } from 'flowbite-svelte';
 
   let editorElement = $state<HTMLDivElement | null>(null);
   let editorInstance = $state<Editor | null>(null);
@@ -27,17 +20,17 @@
 
 <TextEditor bind:element={editorElement} bind:editor={editorInstance} {content}>
   <ToolbarRowWrapper>
-  <GroupFormat editor={editorInstance} />
-  <Divider />
-  <GroupAlignment editor={editorInstance} />
+    <GroupFormat editor={editorInstance} />
+    <Divider />
+    <GroupAlignment editor={editorInstance} />
   </ToolbarRowWrapper>
   <ToolbarRowWrapper top={false}>
-  <GroupUndoRedo editor={editorInstance} />
-  <GroupLayout editor={editorInstance} />
+    <GroupUndoRedo editor={editorInstance} />
+    <GroupLayout editor={editorInstance} />
   </ToolbarRowWrapper>
 </TextEditor>
 
 <div class="mt-4">
-  <Button onclick={() => console.log(getEditorContent())}> Get Content </Button>
-  <Button onclick={() => setEditorContent('<p>New content!</p>')}> Set Content </Button>
+  <Button onclick={() => console.log(getEditorContent())}>Get Content</Button>
+  <Button onclick={() => setEditorContent('<p>New content!</p>')}>Set Content</Button>
 </div>

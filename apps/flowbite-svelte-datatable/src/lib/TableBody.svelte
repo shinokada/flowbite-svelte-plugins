@@ -32,7 +32,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/datatables)
 ## Type
-[TableBodyProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L51)
+[TableBodyProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L46)
 ## Props
 @prop children
 @prop bodyItems

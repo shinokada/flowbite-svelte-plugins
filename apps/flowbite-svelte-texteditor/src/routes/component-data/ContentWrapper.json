@@ -5,17 +5,8 @@
     "link": null
   },
   "props": [
-    [
-      "children",
-      ""
-    ],
-    [
-      "containerClass",
-      ""
-    ],
-    [
-      "contentClass",
-      ""
-    ]
+    ["children", ""],
+    ["containerClass", ""],
+    ["contentClass", ""]
   ]
 }

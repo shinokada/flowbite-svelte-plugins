@@ -2,13 +2,7 @@
   "name": "ToolbarWrapper",
   "type": null,
   "props": [
-    [
-      "children",
-      ""
-    ],
-    [
-      "class:className",
-      ""
-    ]
+    ["children", ""],
+    ["class:className", ""]
   ]
 }

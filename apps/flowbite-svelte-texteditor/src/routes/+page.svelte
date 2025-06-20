@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { DarkMode, Heading } from 'flowbite-svelte';
-	import * as Examples from './examples';
+  import { DarkMode, Heading } from 'flowbite-svelte';
+  import * as Examples from './examples';
 </script>
 
 <DarkMode />

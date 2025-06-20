@@ -1,9 +1,9 @@
 <script lang="ts">
   import { Tooltip } from 'flowbite-svelte';
-  import { type UndoRedoProps } from "$lib";
+  import { type UndoRedoProps } from '$lib';
   import { cn } from '$lib';
 
-  let { editor,  action, buttonClass,  iconClass }: UndoRedoProps = $props();
+  let { editor, action, buttonClass, iconClass }: UndoRedoProps = $props();
 
   function handleAction() {
     if (editor) {
@@ -43,3 +43,15 @@
   <span class="sr-only">{currentConfig.label}</span>
 </button>
 <Tooltip>{currentConfig.label}</Tooltip>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[UndoRedoProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L61)
+## Props
+@prop editor
+@prop action
+@prop buttonClass
+@prop iconClass
+-->

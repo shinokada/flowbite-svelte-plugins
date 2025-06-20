@@ -1,9 +1,9 @@
 <script lang="ts">
-	import '../app.css';
+  import '../app.css';
 
-	let { children } = $props();
+  let { children } = $props();
 </script>
 
-<div class="max-w-5xl mx-auto">
-{@render children()}
+<div class="mx-auto max-w-5xl">
+  {@render children()}
 </div>

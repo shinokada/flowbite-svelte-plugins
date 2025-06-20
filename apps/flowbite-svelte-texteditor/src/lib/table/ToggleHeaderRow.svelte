@@ -1,15 +1,18 @@
 <script lang="ts">
-	import TableButton from './TableButton.svelte';
-	import { type EditorBasicProps } from "$lib";
+  import TableButton from './TableButton.svelte';
+  import { type EditorBasicProps } from '$lib';
 
-	let { editor, class: className }: EditorBasicProps = $props();
+  let { editor, class: className }: EditorBasicProps = $props();
 </script>
 
-<TableButton 
-	{editor}
-	format="toggleHeaderRow"
-	tooltipText="Toggle toggleHeaderRow"
-	buttonId="toggleToggleHeaderRowButton"
-	ariaLabel="Toggle header row"
-	class={className}
-/>
+<TableButton {editor} format="toggleHeaderRow" tooltipText="Toggle toggleHeaderRow" buttonId="toggleToggleHeaderRowButton" ariaLabel="Toggle header row" class={className} />
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[EditorBasicProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L11)
+## Props
+@prop editor
+@prop class: className
+-->

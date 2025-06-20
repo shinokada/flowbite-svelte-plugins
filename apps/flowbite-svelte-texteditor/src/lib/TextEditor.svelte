@@ -96,16 +96,14 @@
 </script>
 
 <EditorWrapper>
-{#if children && editor}
-  <ToolbarWrapper>
-    
-  {@render children()}
-   
-  </ToolbarWrapper>
-{/if}
+  {#if children && editor}
+    <ToolbarWrapper>
+      {@render children()}
+    </ToolbarWrapper>
+  {/if}
 
-<!-- Editor container -->
- <ContentWrapper>
-<div bind:this={editorElement}></div>
-</ContentWrapper>
+  <!-- Editor container -->
+  <ContentWrapper>
+    <div bind:this={editorElement}></div>
+  </ContentWrapper>
 </EditorWrapper>

@@ -1,6 +1,6 @@
 import type { Editor } from '@tiptap/core';
 import { type ClassValue } from 'clsx';
-  
+
 export interface EditorProviderProps {
   element?: HTMLDivElement | null;
   content?: string;
@@ -10,7 +10,7 @@ export interface EditorProviderProps {
 
 export interface EditorBasicProps {
   editor: Editor | null;
-  class?: ClassValue
+  class?: ClassValue;
 }
 
 export interface AlignmentButtonProps {
@@ -40,7 +40,7 @@ export interface FormatButtonProps {
 // layout
 export interface LayoutButtonProps {
   editor: Editor | null;
-  format: 'blockquote' | 'codeblock' | 'horizontalrule' ;
+  format: 'blockquote' | 'codeblock' | 'horizontalrule';
   tooltipText: string;
   buttonId: string;
   ariaLabel: string;
@@ -50,7 +50,25 @@ export interface LayoutButtonProps {
 // table
 export interface TableButtonProps {
   editor: Editor | null;
-  format: 'table' | 'deleteTable' | 'addColumnBefore' | 'addColumnAfter' | 'deleteColumn' | 'addRowBefore' | 'addRowAfter' | 'deleteRow' | 'mergeCells' | 'splitCell' | 'mergeOrSplit' | 'toggleHeaderColumn' | 'toggleHeaderRow' | 'toggleHeaderCell' | 'cellattribute' | 'fixTables' | 'goToPreviousCell' | 'goToNextCell';
+  format:
+    | 'table'
+    | 'deleteTable'
+    | 'addColumnBefore'
+    | 'addColumnAfter'
+    | 'deleteColumn'
+    | 'addRowBefore'
+    | 'addRowAfter'
+    | 'deleteRow'
+    | 'mergeCells'
+    | 'splitCell'
+    | 'mergeOrSplit'
+    | 'toggleHeaderColumn'
+    | 'toggleHeaderRow'
+    | 'toggleHeaderCell'
+    | 'cellattribute'
+    | 'fixTables'
+    | 'goToPreviousCell'
+    | 'goToNextCell';
   tooltipText: string;
   buttonId: string;
   ariaLabel: string;

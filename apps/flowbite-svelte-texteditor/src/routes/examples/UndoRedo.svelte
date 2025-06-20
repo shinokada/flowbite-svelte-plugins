@@ -1,11 +1,7 @@
 <script lang="ts">
-  import { 
-    GroupUndoRedo,
-    TextEditor, 
-    ToolbarRowWrapper 
-  } from '$lib';
+  import { GroupUndoRedo, TextEditor, ToolbarRowWrapper } from '$lib';
   import type { Editor } from '@tiptap/core';
-  import { Button } from "flowbite-svelte";
+  import { Button } from 'flowbite-svelte';
 
   let editorElement = $state<HTMLDivElement | null>(null);
   let editorInstance = $state<Editor | null>(null);
@@ -24,11 +20,11 @@
 
 <TextEditor bind:element={editorElement} bind:editor={editorInstance} {content}>
   <ToolbarRowWrapper>
-      <GroupUndoRedo editor={editorInstance} />
-    </ToolbarRowWrapper>
+    <GroupUndoRedo editor={editorInstance} />
+  </ToolbarRowWrapper>
 </TextEditor>
 
 <div class="mt-4">
-  <Button onclick={() => console.log(getEditorContent())}> Get Content </Button>
-  <Button onclick={() => setEditorContent('<p>New content!</p>')}> Set Content </Button>
+  <Button onclick={() => console.log(getEditorContent())}>Get Content</Button>
+  <Button onclick={() => setEditorContent('<p>New content!</p>')}>Set Content</Button>
 </div>
