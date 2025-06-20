@@ -94,6 +94,5 @@
 @prop buttonId
 @prop ariaLabel
 @prop class: className
-@prop onFontFamilyClick
 @prop ...restProps
 -->

@@ -9,11 +9,11 @@
   // Generate unique ID for this component instance
   const uniqueId = generateButtonId('FontSize');
 
-  // Font families with their display names and CSS values
+  // Font sizes with proper values
   const fontSizes = [
-    { name: '16px (Default)', value: 'Inter, ui-sans-serif, system-ui, sans-serif' },
     { name: '12px (Tiny)', value: '12px' },
     { name: '14px (Small)', value: '14px' },
+    { name: '16px (Default)', value: '16px' },
     { name: '18px (Lead)', value: '18px' },
     { name: '24px (Large)', value: '24px' },
     { name: '36px (Huge)', value: '36px' }
@@ -21,6 +21,11 @@
 
   function setFont(fontSize: string) {
     editor?.chain().focus().setMark('textStyle', { fontSize }).run();
+    isOpen = false;
+  }
+
+  function removeFormat() {
+    editor?.chain().focus().unsetMark('textStyle').run();
     isOpen = false;
   }
 </script>
@@ -33,4 +38,15 @@
       {font.name}
     </DropdownItem>
   {/each}
+  <DropdownItem onclick={removeFormat}>Remove formatting</DropdownItem>
 </Dropdown>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[EditorBasicProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L12)
+## Props
+@prop editor
+@prop class: className
+-->

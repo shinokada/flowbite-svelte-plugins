@@ -38,13 +38,31 @@
 
   const lowlight = createLowlight(common);
 
+  const FontSizeTextStyle = TextStyle.extend({
+    addAttributes() {
+      return {
+        fontSize: {
+          default: null,
+          parseHTML: (element) => element.style.fontSize,
+          renderHTML: (attributes) => {
+            if (!attributes.fontSize) {
+              return {};
+            }
+            return { style: 'font-size: ' + attributes.fontSize };
+          }
+        }
+      };
+    }
+  });
   // Use effect to watch for element changes only
   $effect(() => {
     if (editorElement && !editor) {
       editor = new Editor({
         element: editorElement,
         extensions: [
-          StarterKit,
+          StarterKit.configure({
+            codeBlock: false
+          }),
           TextAlign.configure({
             types: ['heading', 'paragraph']
           }),
@@ -55,7 +73,7 @@
           }),
           Subscript,
           Superscript,
-          TextStyle,
+          FontSizeTextStyle,
           FontFamily.configure({
             types: ['textStyle']
           }),

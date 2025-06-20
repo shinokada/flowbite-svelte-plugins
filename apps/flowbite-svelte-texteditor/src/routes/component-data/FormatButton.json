@@ -10,7 +10,6 @@
     ["tooltipText", ""],
     ["buttonId", ""],
     ["ariaLabel", ""],
-    ["class: className", ""],
-    ["onFontFamilyClick", ""]
+    ["class: className", ""]
   ]
 }

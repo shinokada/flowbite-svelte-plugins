@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -177,6 +177,10 @@
       "types": "./dist/format/FontFamily.svelte.d.ts",
       "svelte": "./dist/format/FontFamily.svelte"
     },
+    "./FontSize.svelte": {
+      "types": "./dist/format/FontSize.svelte.d.ts",
+      "svelte": "./dist/format/FontSize.svelte"
+    },
     "./FormatButton.svelte": {
       "types": "./dist/format/FormatButton.svelte.d.ts",
       "svelte": "./dist/format/FormatButton.svelte"
@@ -196,10 +200,6 @@
     "./RemoveLink.svelte": {
       "types": "./dist/format/RemoveLink.svelte.d.ts",
       "svelte": "./dist/format/RemoveLink.svelte"
-    },
-    "./Size.svelte": {
-      "types": "./dist/format/Size.svelte.d.ts",
-      "svelte": "./dist/format/Size.svelte"
     },
     "./Strike.svelte": {
       "types": "./dist/format/Strike.svelte.d.ts",

@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.5.0
+
+### Minor Changes
+
+- feat: FontSize component
+
 ## 0.4.0
 
 ### Minor Changes

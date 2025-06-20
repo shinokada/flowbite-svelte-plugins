@@ -42,7 +42,7 @@ export { default as Highlight } from './format/Highlight.svelte';
 export { default as Italic } from './format/Italic.svelte';
 export { default as Link } from './format/Link.svelte';
 export { default as RemoveLink } from './format/RemoveLink.svelte';
-export { default as FontSize } from './format/TextSize.svelte'
+export { default as FontSize } from './format/FontSize.svelte';
 export { default as Strike } from './format/Strike.svelte';
 export { default as Subscript } from './format/Subscript.svelte';
 export { default as Superscript } from './format/Superscript.svelte';
