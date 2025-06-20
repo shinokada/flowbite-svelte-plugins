@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { GroupAlignment, GroupUndoRedo, GroupFormat, GroupLayout, TextEditor, ToolbarRowWrapper, Divider } from '$lib';
+  import { GroupAlignment, GroupUndoRedo, GroupFormat, GroupLayout, GroupMedia, TextEditor, ToolbarRowWrapper, Divider } from '$lib';
   import type { Editor } from '@tiptap/core';
   import { Button } from 'flowbite-svelte';
 
@@ -27,6 +27,8 @@
   <ToolbarRowWrapper top={false}>
     <GroupUndoRedo editor={editorInstance} />
     <GroupLayout editor={editorInstance} />
+    <Divider />
+    <GroupMedia editor={editorInstance} />
   </ToolbarRowWrapper>
 </TextEditor>
 

@@ -1,5 +1,6 @@
 import type { Editor } from '@tiptap/core';
 import { type ClassValue } from 'clsx';
+import type { HTMLButtonAttributes } from 'svelte/elements';
 
 export interface EditorProviderProps {
   element?: HTMLDivElement | null;
@@ -8,48 +9,38 @@ export interface EditorProviderProps {
   editor?: Editor | null;
 }
 
-export interface EditorBasicProps {
+export interface EditorBasicProps extends Omit<HTMLButtonAttributes, 'class'>{
   editor: Editor | null;
   class?: ClassValue;
 }
 
-export interface AlignmentButtonProps {
-  editor: Editor | null;
+// buttons
+export interface EditorButtonProps extends EditorBasicProps{
+  tooltipText: string;
+  buttonId: string;
+  ariaLabel: string;
+}
+
+export interface AlignmentButtonProps extends EditorButtonProps{
   alignment: 'left' | 'center' | 'right' | 'justify';
-  tooltipText: string;
-  buttonId: string;
-  ariaLabel: string;
-  class?: ClassValue;
 }
 
-export interface GroupEditorBasicProps {
-  editor: Editor | null;
-  showToolbar?: boolean;
+export interface FormatButtonProps extends EditorButtonProps {
+  format: 'bold' | 'italic' | 'underline' | 'strike' | 'highlight' | 'code' | 'link' | 'removeLink' | 'subscript' | 'superscript' | 'fontFamily' | 'textColor' | 'fontSize';
+  onFontFamilyClick?: () => void;
 }
 
-// format
-export interface FormatButtonProps {
-  editor: Editor | null;
-  format: 'bold' | 'italic' | 'underline' | 'strike' | 'highlight' | 'code' | 'link' | 'removeLink' | 'subscript' | 'superscript';
-  tooltipText: string;
-  buttonId: string;
-  ariaLabel: string;
-  class?: ClassValue;
+export interface ImageButtonProps extends EditorButtonProps {
+  format: 'default' | 'advanced'
+  onAdvancedClick?: () => void;
 }
-
 // layout
-export interface LayoutButtonProps {
-  editor: Editor | null;
+export interface LayoutButtonProps extends EditorButtonProps{
   format: 'blockquote' | 'codeblock' | 'horizontalrule';
-  tooltipText: string;
-  buttonId: string;
-  ariaLabel: string;
-  class?: ClassValue;
 }
 
 // table
-export interface TableButtonProps {
-  editor: Editor | null;
+export interface TableButtonProps extends EditorButtonProps{
   format:
     | 'table'
     | 'deleteTable'
@@ -69,14 +60,17 @@ export interface TableButtonProps {
     | 'fixTables'
     | 'goToPreviousCell'
     | 'goToNextCell';
-  tooltipText: string;
-  buttonId: string;
-  ariaLabel: string;
-  class?: ClassValue;
+}
+
+
+
+export interface GroupEditorBasicProps {
+  editor: Editor | null;
+  showToolbar?: boolean;
 }
 
 // undoredo
-export interface UndoRedoProps {
+export interface UndoRedoProps extends HTMLButtonAttributes {
   editor: Editor | null;
   action: 'undo' | 'redo';
   buttonClass?: ClassValue;

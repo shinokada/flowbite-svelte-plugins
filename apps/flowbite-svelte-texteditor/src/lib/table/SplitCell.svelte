@@ -1,11 +1,12 @@
 <script lang="ts">
   import TableButton from './TableButton.svelte';
-  import { type EditorBasicProps } from '$lib';
+   import { type EditorBasicProps, generateButtonId } from '$lib';
 
   let { editor, class: className }: EditorBasicProps = $props();
+  const uniqueId = generateButtonId('SplitCell');
 </script>
 
-<TableButton {editor} format="splitCell" tooltipText="Toggle splitCell" buttonId="toggleSplitCellButton" ariaLabel="Split cell" class={className} />
+<TableButton {editor} format="splitCell" tooltipText="Toggle splitCell" buttonId={uniqueId} ariaLabel="Split cell" class={className} />
 
 <!--
 @component

@@ -1,11 +1,12 @@
 <script lang="ts">
   import TableButton from './TableButton.svelte';
-  import { type EditorBasicProps } from '$lib';
+   import { type EditorBasicProps, generateButtonId } from '$lib';
 
   let { editor, class: className }: EditorBasicProps = $props();
+  const uniqueId = generateButtonId('DeleteRow');
 </script>
 
-<TableButton {editor} format="deleteRow" tooltipText="Toggle deleteRow" buttonId="toggleDeleteRowButton" ariaLabel="Delete row" class={className} />
+<TableButton {editor} format="deleteRow" tooltipText="Toggle deleteRow" buttonId={uniqueId} ariaLabel="Delete row" class={className} />
 
 <!--
 @component

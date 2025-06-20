@@ -1,11 +1,13 @@
 <script lang="ts">
   import FormatButton from './FormatButton.svelte';
-  import { type EditorBasicProps } from '$lib';
+   import { type EditorBasicProps, generateButtonId } from '$lib';
 
   let { editor, class: className }: EditorBasicProps = $props();
+
+  const uniqueId = generateButtonId('Subscript');
 </script>
 
-<FormatButton {editor} format="subscript" tooltipText="Toggle subscript" buttonId="toggleSubscriptButton" ariaLabel="Subscirpt" class={className} />
+<FormatButton {editor} format="subscript" tooltipText="Toggle subscript" buttonId={uniqueId} ariaLabel="Subscirpt" class={className} />
 
 <!--
 @component

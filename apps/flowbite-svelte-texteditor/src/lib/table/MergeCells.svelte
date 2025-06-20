@@ -1,11 +1,12 @@
 <script lang="ts">
   import TableButton from './TableButton.svelte';
-  import { type EditorBasicProps } from '$lib';
+   import { type EditorBasicProps, generateButtonId } from '$lib';
 
   let { editor, class: className }: EditorBasicProps = $props();
+  const uniqueId = generateButtonId('MergeCells');
 </script>
 
-<TableButton {editor} format="mergeCells" tooltipText="Toggle mergeCells" buttonId="toggleMergeCellsButton" ariaLabel="Merge cells" class={className} />
+<TableButton {editor} format="mergeCells" tooltipText="Toggle mergeCells" buttonId={uniqueId} ariaLabel="Merge cells" class={className} />
 
 <!--
 @component

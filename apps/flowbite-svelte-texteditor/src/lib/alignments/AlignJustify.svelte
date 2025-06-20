@@ -1,11 +1,13 @@
 <script lang="ts">
   import AlignmentButton from './AlignmentButton.svelte';
-  import { type EditorBasicProps } from '$lib';
+  import { type EditorBasicProps, generateButtonId } from '$lib';
 
   let { editor, class: className }: EditorBasicProps = $props();
+
+  const uniqueId = generateButtonId('AlignJustify');
 </script>
 
-<AlignmentButton {editor} alignment="justify" tooltipText="Justify text" buttonId="toggleJustifyButton" ariaLabel="Justify" class={className} />
+<AlignmentButton {editor} alignment="justify" tooltipText="Justify text" buttonId={uniqueId} ariaLabel="Justify" class={className} />
 
 <!--
 @component

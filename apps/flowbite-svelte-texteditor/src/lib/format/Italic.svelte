@@ -1,11 +1,13 @@
 <script lang="ts">
   import FormatButton from './FormatButton.svelte';
-  import { type EditorBasicProps } from '$lib';
+   import { type EditorBasicProps, generateButtonId } from '$lib';
 
   let { editor, class: className }: EditorBasicProps = $props();
+
+  const uniqueId = generateButtonId('Italic');
 </script>
 
-<FormatButton {editor} format="italic" tooltipText="Toggle italic" buttonId="toggleItalicButton" ariaLabel="Italic" class={className} />
+<FormatButton {editor} format="italic" tooltipText="Toggle italic" buttonId={uniqueId} ariaLabel="Italic" class={className} />
 
 <!--
 @component

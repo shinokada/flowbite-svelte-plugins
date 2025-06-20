@@ -1,11 +1,13 @@
 <script lang="ts">
   import FormatButton from './FormatButton.svelte';
-  import { type EditorBasicProps } from '$lib';
+   import { type EditorBasicProps, generateButtonId } from '$lib';
 
   let { editor, class: className }: EditorBasicProps = $props();
+
+  const uniqueId = generateButtonId('Highlight');
 </script>
 
-<FormatButton {editor} format="highlight" tooltipText="Toggle highlight" buttonId="toggleHighlightButton" ariaLabel="Highlight" class={className} />
+<FormatButton {editor} format="highlight" tooltipText="Toggle highlight" buttonId={uniqueId} ariaLabel="Highlight" class={className} />
 
 <!--
 @component

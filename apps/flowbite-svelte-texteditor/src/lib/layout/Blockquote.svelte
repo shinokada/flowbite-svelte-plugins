@@ -1,11 +1,14 @@
 <script lang="ts">
   import LayoutButton from './LayoutButton.svelte';
-  import { type EditorBasicProps } from '$lib';
+   import { type EditorBasicProps, generateButtonId } from '$lib';
 
   let { editor, class: className }: EditorBasicProps = $props();
+
+  const uniqueId = generateButtonId('Blockquote');
+
 </script>
 
-<LayoutButton {editor} format="blockquote" tooltipText="Toggle blockquote" buttonId="toggleBlockquoteButton" ariaLabel="Blockquote" class={className} />
+<LayoutButton {editor} format="blockquote" tooltipText="Toggle blockquote" buttonId={uniqueId} ariaLabel="Blockquote" class={className} />
 
 <!--
 @component

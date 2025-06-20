@@ -1,11 +1,12 @@
 <script lang="ts">
   import TableButton from './TableButton.svelte';
-  import { type EditorBasicProps } from '$lib';
+   import { type EditorBasicProps, generateButtonId } from '$lib';
 
   let { editor, class: className }: EditorBasicProps = $props();
+  const uniqueId = generateButtonId('ToggleHeaderColumn');
 </script>
 
-<TableButton {editor} format="toggleHeaderColumn" tooltipText="Toggle toggleHeaderColumn" buttonId="toggleToggleHeaderColumnButton" ariaLabel="Toggle header column" class={className} />
+<TableButton {editor} format="toggleHeaderColumn" tooltipText="Toggle toggleHeaderColumn" buttonId={uniqueId} ariaLabel="Toggle header column" class={className} />
 
 <!--
 @component

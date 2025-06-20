@@ -1,9 +1,9 @@
 <script lang="ts">
   import { Tooltip } from 'flowbite-svelte';
-  import { type UndoRedoProps } from '$lib';
+  import { type UndoRedoProps, generateButtonId } from '$lib';
   import { cn } from '$lib';
 
-  let { editor, action, buttonClass, iconClass }: UndoRedoProps = $props();
+  let { editor, action, buttonClass, iconClass, ...restProps }: UndoRedoProps = $props();
 
   function handleAction() {
     if (editor) {
@@ -17,12 +17,12 @@
 
   const config = {
     undo: {
-      id: 'toggleUndoButton',
+      id: generateButtonId('Undo'),
       label: 'Undo',
       path: 'M3 9h13a5 5 0 0 1 0 10H7M3 9l4-4M3 9l4 4'
     },
     redo: {
-      id: 'toggleRedoButton',
+      id: generateButtonId('Redo'),
       label: 'Redo',
       path: 'M21 9H8a5 5 0 0 0 0 10h9m4-10-4-4m4 4-4 4'
     }
@@ -33,6 +33,7 @@
 
 <button
   onclick={handleAction}
+  {...restProps}
   id={currentConfig.id}
   type="button"
   class={cn('cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white', buttonClass)}

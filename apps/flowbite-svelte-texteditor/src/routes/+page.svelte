@@ -1,6 +1,7 @@
 <script lang="ts">
   import { DarkMode, Heading } from 'flowbite-svelte';
   import * as Examples from './examples';
+
 </script>
 
 <DarkMode />
@@ -8,6 +9,12 @@
 
 <Heading tag="h2" class="my-4">Default Text Editor</Heading>
 <Examples.DefaultTextEditor />
+
+<Heading tag="h2" class="my-4">Media</Heading>
+<Examples.Media />
+
+<Heading tag="h2" class="my-4">Layout</Heading>
+<Examples.Layout />
 
 <Heading tag="h2" class="my-4">Tables</Heading>
 <Examples.Tables />

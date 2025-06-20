@@ -3,7 +3,7 @@
   import { type LayoutButtonProps } from '$lib';
   import { cn } from '$lib';
 
-  let { editor, format, tooltipText, buttonId, ariaLabel, class: className }: LayoutButtonProps = $props();
+  let { editor, format, tooltipText, buttonId, ariaLabel, class: className, ...restProps }: LayoutButtonProps = $props();
 
   function handleClick() {
     switch (format) {
@@ -30,12 +30,13 @@
 
 <button
   onclick={handleClick}
+  {...restProps}
   id={buttonId}
   type="button"
   class={cn('cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white', className)}
 >
   <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-    {#if !Array.isArray(svgPaths[format])}
+    {#if typeof svgPaths[format] === 'string'}
       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={svgPaths[format]} />
     {:else}
       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={svgPaths[format][0]} />

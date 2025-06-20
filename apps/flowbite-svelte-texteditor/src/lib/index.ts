@@ -11,23 +11,30 @@ export { default as ToolbarRowWrapper } from './wrappers/ToolbarRowWrapper.svelt
 // groups
 export { default as GroupAlignment } from './groups/GroupAlignment.svelte';
 export { default as GroupFormat } from './groups/GroupFormat.svelte';
+export { default as GroupMedia } from './groups/GroupMedia.svelte'
 export { default as GroupUndoRedo } from './groups/GroupUndoRedo.svelte';
 export { default as GroupLayout } from './groups/GroupLayout.svelte';
 export { default as GroupTable } from './groups/GroupTable.svelte';
 export { default as GroupTable2 } from './groups/GroupTable2.svelte';
 
+// buttons
+export { default as AlignmentButton } from './alignments/AlignmentButton.svelte';
+export { default as FormatButton } from './format/FormatButton.svelte';
+export { default as ImageButton } from './image/ImageButton.svelte';
+export { default as LayoutButton } from './layout/LayoutButton.svelte';
+export { default as TableButton } from './table/TableButton.svelte';
+
+
 // alignment
 export { default as AlignCenter } from './alignments/AlignCenter.svelte';
 export { default as AlignJustify } from './alignments/AlignJustify.svelte';
 export { default as AlignLeft } from './alignments/AlignLeft.svelte';
-export { default as AlignmentButton } from './alignments/AlignmentButton.svelte';
 export { default as AlignRight } from './alignments/AlignRight.svelte';
 
 // undo-redo
 export { default as UndoRedo } from './undo-redo/UndoRedo.svelte';
 
 // format
-export { default as FormatButton } from './format/FormatButton.svelte';
 export { default as Bold } from './format/Bold.svelte';
 export { default as Code } from './format/Code.svelte';
 export { default as Color } from './format/Color.svelte';
@@ -42,8 +49,11 @@ export { default as Subscript } from './format/Subscript.svelte';
 export { default as Superscript } from './format/Superscript.svelte';
 export { default as Underline } from './format/Underline.svelte';
 
+// image
+export { default as Image } from "./image/Image.svelte";
+export { default as ImageAdvanced } from "./image/ImageAdvanced.svelte";
+
 // layout
-export { default as LayoutButton } from './layout/LayoutButton.svelte';
 export { default as Blockquote } from './layout/Blockquote.svelte';
 export { default as CodeBlock } from './layout/CodeBlock.svelte';
 export { default as HorizontalRule } from './layout/HorizontalRule.svelte';
@@ -63,11 +73,9 @@ export { default as MergeCells } from './table/MergeCells.svelte';
 export { default as MergeOrSplit } from './table/MergeOrSplit.svelte';
 export { default as SplitCell } from './table/SplitCell.svelte';
 export { default as Table } from './table/Table.svelte';
-export { default as TableButton } from './table/TableButton.svelte';
 export { default as TableCell } from './table/TableCell.svelte';
 export { default as ToggleHeaderColumn } from './table/ToggleHeaderColumn.svelte';
 export { default as ToggleHeaderRow } from './table/ToggleHeaderRow.svelte';
 export { default as ToggleHeaderCell } from './table/ToggleHeaderCell.svelte';
 
 export { default as Divider } from './Divider.svelte';
-export { default as Typograpy } from './text/Typography.svelte';

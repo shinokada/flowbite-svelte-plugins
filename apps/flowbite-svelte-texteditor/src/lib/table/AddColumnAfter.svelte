@@ -1,11 +1,12 @@
 <script lang="ts">
   import TableButton from './TableButton.svelte';
-  import { type EditorBasicProps } from '$lib';
+   import { type EditorBasicProps, generateButtonId } from '$lib';
 
   let { editor, class: className }: EditorBasicProps = $props();
+  const uniqueId = generateButtonId('AddColumnAfter');
 </script>
 
-<TableButton {editor} format="addColumnAfter" tooltipText="Toggle addColumnAfter" buttonId="toggleAddColumnAfterButton" ariaLabel="Add column after" class={className} />
+<TableButton {editor} format="addColumnAfter" tooltipText="Toggle addColumnAfter" buttonId={uniqueId} ariaLabel="Add column after" class={className} />
 
 <!--
 @component

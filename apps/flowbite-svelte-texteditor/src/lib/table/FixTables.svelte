@@ -1,11 +1,12 @@
 <script lang="ts">
   import TableButton from './TableButton.svelte';
-  import { type EditorBasicProps } from '$lib';
+   import { type EditorBasicProps, generateButtonId } from '$lib';
 
   let { editor, class: className }: EditorBasicProps = $props();
+  const uniqueId = generateButtonId('FixTables');
 </script>
 
-<TableButton {editor} format="fixTables" tooltipText="Toggle fixTables" buttonId="toggleFixTablesButton" ariaLabel="Fix tables" class={className} />
+<TableButton {editor} format="fixTables" tooltipText="Toggle fixTables" buttonId={uniqueId} ariaLabel="Fix tables" class={className} />
 
 <!--
 @component
