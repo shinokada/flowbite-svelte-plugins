@@ -6,7 +6,6 @@ Use the datatable component to search, sort, filter and paginate table data of r
 
 The datatable component examples are open-source under the MIT License and they are based on the [simple-datatables repository](https://github.com/fiduswriter/simple-datatables) from GitHub.
 
-
 ## Installation
 
 ```bash
@@ -25,12 +24,12 @@ pnpm i -D @flowbite-svelte-plugins/datatable simple-datatables
 .datatable-pagination .datatable-active button,
 .datatable-pagination .datatable-active button:focus,
 .datatable-pagination .datatable-active button:hover {
-	background-color: #ffe4de;
-	cursor: default;
+  background-color: #ffe4de;
+  cursor: default;
 }
 
 .datatable-wrapper .datatable-table tbody tr.selected {
-	background-color: #fff1ee !important;
+  background-color: #fff1ee !important;
 }
 ```
 
@@ -40,8 +39,8 @@ Use this example to show table data with default sorting and pagination function
 
 ```svelte
 <script lang="ts">
-	import { Table } from '@flowbite-svelte-plugins/datatable';
-	import items from './data/sample.json';
+  import { Table } from '@flowbite-svelte-plugins/datatable';
+  import items from './data/sample.json';
 </script>
 
 <Table {items} />

@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.5.1
+
+### Patch Changes
+
+- docs: README update
+
 ## 0.5.0
 
 ### Minor Changes

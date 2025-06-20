@@ -1,5 +1,11 @@
 # @codewithshin/flowbite-svelte-chart
 
+## 0.2.3
+
+### Patch Changes
+
+- docs: README update
+
 ## 0.2.2
 
 ### Patch Changes
