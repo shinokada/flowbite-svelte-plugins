@@ -1,58 +1,54 @@
-# Svelte library
+# @flowbite-svelte-plugins/texteditor
 
-Everything you need to build a Svelte library, powered by [`sv`](https://npmjs.com/package/sv).
+[Documentation](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 
-Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
+Use the wysiwyg text editor component to create and modify content by manipulating paragraphs, headings, images and styling them using all available options.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+## Installation
 
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+pnpm i -D @flowbite-svelte-plugins/texteditor
 ```
 
-## Developing
+## Text editor example
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+```svelte
+<script lang="ts">
+  import { GroupAlignment, GroupUndoRedo, GroupFormat, GroupLayout, GroupMedia, TextEditor, ToolbarRowWrapper, Divider } from '@flowbite-svelte-plugins/texteditor';
+  import type { Editor } from '@tiptap/core';
+  import { Button } from 'flowbite-svelte';
 
-```bash
-npm run dev
+  let editorElement = $state<HTMLDivElement | null>(null);
+  let editorInstance = $state<Editor | null>(null);
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+  function getEditorContent() {
+    return editorInstance?.getHTML() ?? '';
+  }
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+  function setEditorContent(content: string) {
+    editorInstance?.commands.setContent(content);
+  }
 
-## Building
+  const content =
+    '<p>Flowbite is an <strong>open-source library of UI components</strong> based on the utility-first Tailwind CSS framework featuring dark mode support, a Figma design system, and more.</p><p>It includes all of the commonly used components that a website requires, such as buttons, dropdowns, navigation bars, modals, datepickers, advanced charts and the list goes on.</p><p>Here is an example of a button component:</p><code>&#x3C;button type=&#x22;button&#x22; class=&#x22;text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800&#x22;&#x3E;Default&#x3C;/button&#x3E;</code><p>Learn more about all components from the <a href="https://flowbite.com/docs/getting-started/introduction/">Flowbite Docs</a>.</p>';
+</script>
 
-To build your library:
+<TextEditor bind:element={editorElement} bind:editor={editorInstance} {content}>
+  <ToolbarRowWrapper>
+    <GroupFormat editor={editorInstance} />
+    <Divider />
+    <GroupAlignment editor={editorInstance} />
+  </ToolbarRowWrapper>
+  <ToolbarRowWrapper top={false}>
+    <GroupUndoRedo editor={editorInstance} />
+    <GroupLayout editor={editorInstance} />
+    <Divider />
+    <GroupMedia editor={editorInstance} />
+  </ToolbarRowWrapper>
+</TextEditor>
 
-```bash
-npm run package
-```
-
-To create a production version of your showcase app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
-
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
+<div class="mt-4">
+  <Button onclick={() => console.log(getEditorContent())}>Get Content</Button>
+  <Button onclick={() => setEditorContent('<p>New content!</p>')}>Set Content</Button>
+</div>
 ```

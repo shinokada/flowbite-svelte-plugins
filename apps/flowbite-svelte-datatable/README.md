@@ -1,38 +1,48 @@
-# sv
+# @flowbite-svelte-plugins/datatable
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+[Documentation](https://flowbite-svelte.com/docs/plugins/datatables)
 
-## Creating a project
+Use the datatable component to search, sort, filter and paginate table data of rows and columns for your web application.
 
-If you're seeing this, you've probably already done this step. Congrats!
+The datatable component examples are open-source under the MIT License and they are based on the [simple-datatables repository](https://github.com/fiduswriter/simple-datatables) from GitHub.
 
-```bash
-# create a new project in the current directory
-npx sv create
 
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Installation
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm i -D @flowbite-svelte-plugins/datatable simple-datatables
 ```
 
-## Building
+### app.css
 
-To create a production version of your app:
+```css
+@source "../node_modules/simple-datatables/dist";
+@source "../node_modules/@flowbite-svelte-plugins/datatable/dist";
 
-```bash
-npm run build
+.datatable-pagination .datatable-active a,
+.datatable-pagination .datatable-active a:focus,
+.datatable-pagination .datatable-active a:hover,
+.datatable-pagination .datatable-active button,
+.datatable-pagination .datatable-active button:focus,
+.datatable-pagination .datatable-active button:hover {
+	background-color: #ffe4de;
+	cursor: default;
+}
+
+.datatable-wrapper .datatable-table tbody tr.selected {
+	background-color: #fff1ee !important;
+}
 ```
 
-You can preview the production build with `npm run preview`.
+## Default datatable
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Use this example to show table data with default sorting and pagination functionalities.
+
+```svelte
+<script lang="ts">
+	import { Table } from '@flowbite-svelte-plugins/datatable';
+	import items from './data/sample.json';
+</script>
+
+<Table {items} />
+```
