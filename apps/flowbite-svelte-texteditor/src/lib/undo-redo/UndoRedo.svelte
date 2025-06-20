@@ -1,20 +1,9 @@
 <script lang="ts">
   import { Tooltip } from 'flowbite-svelte';
-  import type { Editor } from '@tiptap/core';
-  import { type ClassValue } from 'clsx';
+  import { type UndoRedoProps } from "$lib";
   import { cn } from '$lib';
 
-  let {
-    editor,
-    action,
-    buttonClass,
-    iconClass
-  }: {
-    editor: Editor | null;
-    action: 'undo' | 'redo';
-    buttonClass?: ClassValue;
-    iconClass?: ClassValue;
-  } = $props();
+  let { editor,  action, buttonClass,  iconClass }: UndoRedoProps = $props();
 
   function handleAction() {
     if (editor) {

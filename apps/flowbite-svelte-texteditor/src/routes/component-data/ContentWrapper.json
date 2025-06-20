@@ -1,0 +1,21 @@
+{
+  "name": "ContentWrapper",
+  "type": {
+    "name": "{ children: Snippet, containerClass?: string, contentClass?: ClassValue  }",
+    "link": null
+  },
+  "props": [
+    [
+      "children",
+      ""
+    ],
+    [
+      "containerClass",
+      ""
+    ],
+    [
+      "contentClass",
+      ""
+    ]
+  ]
+}

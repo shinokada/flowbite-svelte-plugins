@@ -1,24 +1,9 @@
 <script lang="ts">
 	import { Tooltip } from 'flowbite-svelte';
-	import type { Editor } from '@tiptap/core';
-	import { type ClassValue } from 'clsx';
   import { cn } from '$lib';
+	import { type AlignmentButtonProps } from '$lib';
 
-	let {
-		editor,
-		alignment,
-		tooltipText,
-		buttonId,
-		ariaLabel,
-		class: className
-	}: {
-		editor: Editor | null;
-		alignment: 'left' | 'center' | 'right' | 'justify';
-		tooltipText: string;
-		buttonId: string;
-		ariaLabel: string;
-		class?: ClassValue;
-	} = $props();
+	let { editor, alignment, tooltipText, buttonId, ariaLabel, class: className }: AlignmentButtonProps = $props();
 
 	function handleClick() {
 		editor?.chain().focus().setTextAlign(alignment).run();

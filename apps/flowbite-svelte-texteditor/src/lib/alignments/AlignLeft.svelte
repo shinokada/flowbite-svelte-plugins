@@ -1,9 +1,8 @@
 <script lang="ts">
 	import AlignmentButton from './AlignmentButton.svelte';
-	import type { Editor } from '@tiptap/core';
-	import { type ClassValue } from 'clsx';
+	import { type EditorBasicProps } from "$lib";
 
-	let { editor, class: className }: { editor: Editor | null; class?:ClassValue } = $props();
+	let { editor, class: className }: EditorBasicProps = $props();
 </script>
 
 <AlignmentButton 

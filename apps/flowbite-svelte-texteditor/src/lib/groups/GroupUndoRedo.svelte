@@ -1,7 +1,6 @@
 <script lang="ts">
   import { Editor } from '@tiptap/core';
-
-  import UndoRedo from './UndoRedo.svelte';
+  import UndoRedo from '../undo-redo/UndoRedo.svelte';
 
   let {
 		editor,

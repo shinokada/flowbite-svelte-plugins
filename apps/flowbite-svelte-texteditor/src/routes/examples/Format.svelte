@@ -1,13 +1,11 @@
 <script lang="ts">
   import {
     GroupFormat, 
-    EditorProvider,
-    EditorWrapper, 
-    ContentWrapper, 
-    ToolbarWrapper, 
+    TextEditor,
     ToolbarRowWrapper 
   } from '$lib';
   import type { Editor } from '@tiptap/core';
+  import { Button } from "flowbite-svelte";
 
   let editorElement = $state<HTMLDivElement | null>(null);
   let editorInstance = $state<Editor | null>(null);
@@ -20,26 +18,16 @@
     editorInstance?.commands.setContent(content);
   }
 
-  const content =
-    '<p>Flowbite is an <strong>open-source library of UI components</strong> based on the utility-first Tailwind CSS framework featuring dark mode support, a Figma design system, and more.</p><p>It includes all of the commonly used components that a website requires, such as buttons, dropdowns, navigation bars, modals, datepickers, advanced charts and the list goes on.</p><p>Here is an example of a button component:</p><code>&#x3C;button type=&#x22;button&#x22; class=&#x22;text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800&#x22;&#x3E;Default&#x3C;/button&#x3E;</code><p>Learn more about all components from the <a href="https://flowbite.com/docs/getting-started/introduction/">Flowbite Docs</a>.</p>';
+  const content = '<p>Flowbite React is an <strong>open-source library of UI components</strong> built using React and Tailwind CSS. It supports dark mode, a Figma design system, and more.</p><p>It includes essential components for web apps like buttons, dropdowns, navigation bars, modals, datepickers, and charts, all optimized for React.</p><p>Example button component in Flowbite React:</p><code>import &#123; Button &#125; from &#39;flowbite-react&#39;; &lt;Button color&#x3D;&quot;blue&quot;&gt;Default&lt;/Button&gt;</code><p>These components can also be easily customized using the theme props from the Flowbite Docs and allows you to add your own Tailwind CSS utility classes to override the default styles.</p><p>Explore more components and props values in the Flowbite Docs.</p>';
 </script>
 
-<!-- Create the editor once -->
-<EditorProvider bind:element={editorElement} bind:editor={editorInstance} {content} />
-
-<EditorWrapper>
-  <ToolbarWrapper>
+<TextEditor bind:element={editorElement} bind:editor={editorInstance} {content}>
     <ToolbarRowWrapper>
       <GroupFormat editor={editorInstance} />
     </ToolbarRowWrapper>
-  </ToolbarWrapper>
-
-  <ContentWrapper>
-    <div bind:this={editorElement}></div>
-  </ContentWrapper>
-</EditorWrapper>
+</TextEditor>
 
 <div class="mt-4">
-  <button onclick={() => console.log(getEditorContent())}> Get Content </button>
-  <button onclick={() => setEditorContent('<p>New content!</p>')}> Set Content </button>
+  <Button onclick={() => console.log(getEditorContent())}> Get Content </Button>
+  <Button onclick={() => setEditorContent('<p>New content!</p>')}> Set Content </Button>
 </div>
