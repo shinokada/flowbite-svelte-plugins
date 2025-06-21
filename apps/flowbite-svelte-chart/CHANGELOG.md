@@ -1,5 +1,11 @@
 # @codewithshin/flowbite-svelte-chart
 
+## 0.2.4
+
+### Patch Changes
+
+- fix: dependencies update
+
 ## 0.2.3
 
 ### Patch Changes

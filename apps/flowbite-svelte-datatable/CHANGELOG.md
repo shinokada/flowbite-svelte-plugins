@@ -1,5 +1,11 @@
 # @codewithshin/flowbite-svelte-datatable
 
+## 0.3.3
+
+### Patch Changes
+
+- fix: dependencies update
+
 ## 0.3.2
 
 ### Patch Changes
