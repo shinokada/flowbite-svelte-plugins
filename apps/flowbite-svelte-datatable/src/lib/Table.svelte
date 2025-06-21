@@ -41,17 +41,17 @@
         try {
           const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
           const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-                
+
           const { DataTable } = await import('simple-datatables');
           dataTableInstance = new DataTable(tableElement, defaultOptions);
 
           // Immediately blur the table to remove focus and restore scroll position
           if (tableElement) {
-              tableElement.blur();
+            tableElement.blur();
           }
           // Restore scroll position
           requestAnimationFrame(() => {
-              window.scrollTo(scrollLeft, scrollTop);
+            window.scrollTo(scrollLeft, scrollTop);
           });
 
           if (selectable) {

@@ -9,9 +9,6 @@
 <Heading tag="h2" class="my-4">Slots</Heading>
 <Examples.Slots />
 
-
-
-
 <Heading tag="h2" class="my-4">Export</Heading>
 <Examples.Export />
 
@@ -32,7 +29,6 @@
 
 <Heading tag="h2" class="my-4">Sorting Data</Heading>
 <Examples.SortingData />
-
 
 <Heading tag="h2" class="my-4">AND Search</Heading>
 Try to search for "blossom 2014" in the two boxes. The OR-search will give you results that contain "2014" OR "Blossom", while the AND-search will only return results including both "2014" and "Blossom".

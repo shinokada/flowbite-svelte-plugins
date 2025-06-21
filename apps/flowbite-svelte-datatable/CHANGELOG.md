@@ -1,5 +1,11 @@
 # @codewithshin/flowbite-svelte-datatable
 
+## 0.3.4
+
+### Patch Changes
+
+- fix: prevent Table scroll jump to scroll-y
+
 ## 0.3.3
 
 ### Patch Changes
