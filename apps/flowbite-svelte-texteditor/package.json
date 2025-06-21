@@ -65,6 +65,7 @@
     "@tailwindcss/vite": "^4.0.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/svelte": "^5.2.4",
+    "clsx": "^2.1.1",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-svelte": "^3.0.0",
@@ -81,6 +82,7 @@
     "svelte-check": "^4.0.0",
     "svelte-doc-llm": "^0.2.2",
     "svelte-lib-helpers": "^0.4.30",
+    "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.0.0",
     "typescript-eslint": "^8.20.0",
@@ -123,10 +125,8 @@
     "@tiptap/extension-youtube": "^2.14.0",
     "@tiptap/pm": "^2.14.0",
     "@tiptap/starter-kit": "^2.14.0",
-    "clsx": "^2.1.1",
     "flowbite-typography": "^1.0.5",
-    "lowlight": "^3.3.0",
-    "tailwind-merge": "^3.3.1"
+    "lowlight": "^3.3.0"
   },
   "exports": {
     ".": {
