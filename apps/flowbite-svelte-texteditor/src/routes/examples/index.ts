@@ -1,5 +1,6 @@
 // new
 export { default as Alignments } from './Alignments.svelte';
+export { default as Export } from './Export.svelte';
 export { default as Formats } from './Formats.svelte';
 export { default as Fonts } from './Fonts.svelte';
 export { default as Lists } from './Lists.svelte';

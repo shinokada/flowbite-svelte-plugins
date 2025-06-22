@@ -18,11 +18,11 @@
     "cp": "npx changeset publish"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.29.4",
+    "@changesets/cli": "^2.29.5",
     "@svitejs/changesets-changelog-github-compact": "^1.2.0",
     "prettier": "^3.5.3",
     "prettier-plugin-svelte": "^3.4.0",
-    "prettier-plugin-tailwindcss": "^0.6.11",
+    "prettier-plugin-tailwindcss": "^0.6.13",
     "turbo": "^2.5.4"
   },
   "packageManager": "pnpm@10.0.0",

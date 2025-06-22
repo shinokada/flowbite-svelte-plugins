@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.10.0
+
+### Minor Changes
+
+- feat: add ExportButtons and GroupExports.svelte
+
 ## 0.9.5
 
 ### Patch Changes

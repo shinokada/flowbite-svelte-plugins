@@ -1,5 +1,5 @@
 {
-  "name": "GroupTables1",
+  "name": "GroupExports",
   "type": {
     "name": "GroupEditorBasicProps",
     "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L89"

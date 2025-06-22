@@ -3,9 +3,12 @@ import { type ClassValue } from 'clsx';
 import type { Snippet } from 'svelte';
 import type { HTMLButtonAttributes } from 'svelte/elements';
 
-// new
 export interface AlignmentButtonsProps extends EditorBasicProps {
   alignment: 'left' | 'center' | 'right' | 'justify';
+}
+
+export interface ExportButtonsProps extends EditorBasicProps {
+  format?: 'json' | 'html';
 }
 
 export interface FomatButtonsProps extends EditorBasicProps {

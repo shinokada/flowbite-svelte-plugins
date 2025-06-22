@@ -8,6 +8,9 @@
 
 <Heading tag="h2" class="my-4">New</Heading>
 
+<Heading tag="h3" class="my-4">Export</Heading>
+<Examples.Export />
+
 <Heading tag="h3" class="my-4">CustomTextEditor</Heading>
 <Examples.CustomTextEditor />
 
