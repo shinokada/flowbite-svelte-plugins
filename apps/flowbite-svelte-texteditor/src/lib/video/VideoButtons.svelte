@@ -146,4 +146,7 @@
 @prop id
 @prop ariaLabel
 @prop videoUrl = 'https:
+    videoWidth,
+    videoHeight,
+    modalTitle
 -->

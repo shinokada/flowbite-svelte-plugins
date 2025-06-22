@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.9.3
+
+### Patch Changes
+
+- docs: add new default text editor example
+
 ## 0.9.2
 
 ### Patch Changes

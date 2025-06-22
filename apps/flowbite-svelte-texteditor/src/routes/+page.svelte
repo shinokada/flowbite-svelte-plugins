@@ -8,8 +8,11 @@
 
 <Heading tag="h2" class="my-4">New</Heading>
 
+<Heading tag="h3" class="my-4">CustomTextEditor</Heading>
+<Examples.CustomTextEditor />
+
 <Heading tag="h3" class="my-4">New default Text editor</Heading>
-<Examples.NewDefaultTextEditor />
+<Examples.DefaultTextEditor />
 
 <Heading tag="h3" class="my-4">Tables</Heading>
 <Examples.Tables />
@@ -35,31 +38,7 @@
 <Heading tag="h3" class="my-4">Formats</Heading>
 <Examples.Formats />
 
-<Heading tag="h2" class="my-4">Default</Heading>
-
-<Heading tag="h3" class="my-4">Default Text Editor</Heading>
-<Examples.DefaultTextEditor />
-
-<Heading tag="h3" class="my-4">Video</Heading>
-<Examples.Video />
-
-<Heading tag="h3" class="my-4">Image</Heading>
-<Examples.Image />
-
-<Heading tag="h3" class="my-4">Layout</Heading>
-<Examples.Layout />
-
-<Heading tag="h3" class="my-4">Links</Heading>
-<Examples.Links />
-
-<Heading tag="h3" class="my-4">Tables</Heading>
-<Examples.Tables />
-
-<Heading tag="h3" class="my-4">Format</Heading>
-<Examples.Format />
-
 <Heading tag="h3" class="my-4">UndoRedo</Heading>
 <Examples.UndoRedo />
 
-<Heading tag="h3" class="my-4">Alignments</Heading>
-<Examples.Alignment />
+

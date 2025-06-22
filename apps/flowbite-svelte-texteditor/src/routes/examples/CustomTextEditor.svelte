@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { GroupAlignment, TextEditor } from '$lib';
+  import GroupCustom from '$lib/groups/GroupCustom.svelte';
+  import { TextEditor } from '$lib';
   import type { Editor } from '@tiptap/core';
   import { Button } from 'flowbite-svelte';
 
@@ -19,7 +20,7 @@
 </script>
 
 <TextEditor bind:element={editorElement} bind:editor={editorInstance} {content}>
-  <GroupAlignment editor={editorInstance} />
+  <GroupCustom editor={editorInstance} />
 </TextEditor>
 
 <div class="mt-4">

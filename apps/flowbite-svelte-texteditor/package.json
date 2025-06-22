@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -349,10 +349,6 @@
       "types": "./dist/lists/ListButtons.svelte.d.ts",
       "svelte": "./dist/lists/ListButtons.svelte"
     },
-    "./Youtube.svelte": {
-      "types": "./dist/media/Youtube.svelte.d.ts",
-      "svelte": "./dist/media/Youtube.svelte"
-    },
     "./AddColumnAfter.svelte": {
       "types": "./dist/table/AddColumnAfter.svelte.d.ts",
       "svelte": "./dist/table/AddColumnAfter.svelte"
@@ -432,14 +428,6 @@
     "./ToggleHeaderRow.svelte": {
       "types": "./dist/table/ToggleHeaderRow.svelte.d.ts",
       "svelte": "./dist/table/ToggleHeaderRow.svelte"
-    },
-    "./TaskItem.svelte": {
-      "types": "./dist/task/TaskItem.svelte.d.ts",
-      "svelte": "./dist/task/TaskItem.svelte"
-    },
-    "./TaskList.svelte": {
-      "types": "./dist/task/TaskList.svelte.d.ts",
-      "svelte": "./dist/task/TaskList.svelte"
     },
     "./UndoRedo.svelte": {
       "types": "./dist/undo-redo/UndoRedo.svelte.d.ts",
