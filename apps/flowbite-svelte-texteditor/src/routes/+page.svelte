@@ -8,6 +8,9 @@
 
 <Heading tag="h2" class="my-4">New</Heading>
 
+<Heading tag="h3" class="my-4">Videos</Heading>
+<Examples.Videos />
+
 <Heading tag="h3" class="my-4">Images</Heading>
 <Examples.Images />
 
@@ -31,8 +34,8 @@
 <Heading tag="h3" class="my-4">Default Text Editor</Heading>
 <Examples.DefaultTextEditor />
 
-<Heading tag="h3" class="my-4">Videos</Heading>
-<Examples.Videos />
+<Heading tag="h3" class="my-4">Video</Heading>
+<Examples.Video />
 
 <Heading tag="h3" class="my-4">Image</Heading>
 <Examples.Image />

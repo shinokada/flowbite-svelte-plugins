@@ -29,7 +29,8 @@ export { default as GroupLists } from './groups/GroupLists.svelte';
 // new tasks
 
 // new videos
-
+export { default as VideoButtons } from './video/VideoButtons.svelte';
+export { default as GroupVideos } from './groups/GroupVideos.svelte';
 // groups
 export { default as GroupAlignment } from './groups/GroupAlignment.svelte';
 export { default as GroupFormat } from './groups/GroupFormat.svelte';

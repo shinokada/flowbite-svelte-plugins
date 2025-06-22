@@ -33,6 +33,18 @@ export interface LayoutButtons extends EditorBasicProps {
   format: 'blockquote' | 'codeblock' | 'hr';
 }
 
+export interface VideoButtons extends EditorBasicProps {
+  format?: 'default' | 'advanced';
+  onAdvancedClick?: () => void;
+  videoUrl?: string;
+  videoWidth?: number | undefined;
+  videoHeight?: number | undefined;
+  modalTitle?: string;
+  modalSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
+  formId?: string;
+  modalChildren?: Snippet;
+}
+
 //  defaults
 export interface EditorProviderProps {
   element?: HTMLDivElement | null;
