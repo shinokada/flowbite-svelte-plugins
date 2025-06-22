@@ -8,6 +8,9 @@
 
 <Heading tag="h2" class="my-4">New</Heading>
 
+<Heading tag="h3" class="my-4">Lists</Heading>
+<Examples.Lists />
+
 <Heading tag="h3" class="my-4">Fonts</Heading>
 <Examples.Fonts />
 

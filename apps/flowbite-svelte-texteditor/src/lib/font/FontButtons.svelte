@@ -15,7 +15,7 @@
 
   const finalTooltipText = tooltipText ?? defaults[format].tooltip;
   const finalAriaLabel = ariaLabel ?? defaults[format].aria;
-  const uniqueId = id ?? generateButtonId(`Font${format}`);
+  const uniqueId = id ?? generateButtonId(`Font${format.charAt(0).toUpperCase() + format.slice(1)}`);
 
   // Font families with their display names and CSS values
   const fontFamilies = [

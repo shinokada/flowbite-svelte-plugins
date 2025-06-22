@@ -17,6 +17,10 @@ export interface FontButtons extends EditorBasicProps {
   colorValue?: string;
 }
 
+export interface ListButtons extends EditorBasicProps {
+  format: 'bullet' | 'ordered' ;
+}
+
 //  defaults
 export interface EditorProviderProps {
   element?: HTMLDivElement | null;

@@ -29,13 +29,14 @@ export { default as FormatButtons } from './format/FormatButtons.svelte';
 export { default as GroupFormats } from './groups/GroupFormats.svelte';
 export { default as FontButtons } from './font/FontButtons.svelte';
 export { default as GroupFonts } from './groups/GroupFonts.svelte';
+export { default as ListButtons } from './lists/ListButtons.svelte';
+export { default as GroupLists } from './groups/GroupLists.svelte';
 
 // buttons
 export { default as AlignmentButton } from './alignments/AlignmentButton.svelte';
 export { default as FormatButton } from './format/FormatButton.svelte';
 export { default as ImageButton } from './image/ImageButton.svelte';
 export { default as LayoutButton } from './layout/LayoutButton.svelte';
-export { default as ListButton } from './lists/ListButton.svelte';
 export { default as TableButton } from './table/TableButton.svelte';
 export { default as VideoButton } from './video/VideoButton.svelte';
 
@@ -70,10 +71,6 @@ export { default as ImageAdvanced } from './image/ImageAdvanced.svelte';
 export { default as Blockquote } from './layout/Blockquote.svelte';
 export { default as CodeBlock } from './layout/CodeBlock.svelte';
 export { default as HorizontalRule } from './layout/HorizontalRule.svelte';
-
-// list
-export { default as BulletList } from './lists/BulletList.svelte';
-export { default as OrderedList } from './lists/OrderedList.svelte';
 
 // table
 export { default as AddColumnAfter } from './table/AddColumnAfter.svelte';
