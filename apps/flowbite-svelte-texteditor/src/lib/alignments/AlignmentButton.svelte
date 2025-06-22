@@ -35,7 +35,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
 ## Type
-[AlignmentButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L47)
+[AlignmentButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L59)
 ## Props
 @prop editor
 @prop alignment

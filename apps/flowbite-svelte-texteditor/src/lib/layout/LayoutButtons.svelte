@@ -8,7 +8,7 @@
   const defaults = {
     blockquote: { tooltip: 'Toggle blockquote', aria: 'Blockquote' },
     codeblock: { tooltip: 'Toggle code block', aria: 'Code block' },
-    hr: { tooltip: 'Toggle horizontal rule', aria: 'Horizontal rule'}
+    hr: { tooltip: 'Toggle horizontal rule', aria: 'Horizontal rule' }
   };
 
   const finalTooltipText = tooltipText ?? defaults[format].tooltip;
@@ -55,3 +55,17 @@
 </button>
 
 <Tooltip>{finalTooltipText}</Tooltip>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[LayoutButtons](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L32)
+## Props
+@prop editor
+@prop format
+@prop tooltipText
+@prop ariaLabel
+@prop id
+@prop class: className
+-->

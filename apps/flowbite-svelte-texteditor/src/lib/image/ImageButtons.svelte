@@ -3,7 +3,19 @@
   import { cn, generateButtonId } from '$lib';
   import { type ImageButtons } from '$lib/types';
 
-  let { editor, format = 'default', tooltipText, ariaLabel, id, imageUrl = 'https://placehold.co/600x400', imageAlt, imageTitle, onAdvancedClick, class: className, ...restProps }: ImageButtons = $props();
+  let {
+    editor,
+    format = 'default',
+    tooltipText,
+    ariaLabel,
+    id,
+    imageUrl = 'https://placehold.co/600x400',
+    imageAlt,
+    imageTitle,
+    onAdvancedClick,
+    class: className,
+    ...restProps
+  }: ImageButtons = $props();
 
   let defaultModal = $state(false);
 
@@ -85,7 +97,6 @@
 </button>
 <Tooltip>{finalTooltipText}</Tooltip>
 
-
 <Modal title="Insert advanced image" bind:open={defaultModal} autoclose size="xs">
   <form class="flex flex-col space-y-6" onsubmit={handleSubmit}>
     <Label class="space-y-2">
@@ -104,3 +115,16 @@
   </form>
 </Modal>
 
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[ImageButtons](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L20)
+## Props
+@prop editor
+@prop format = 'default'
+@prop tooltipText
+@prop ariaLabel
+@prop id
+@prop imageUrl = 'https:
+-->

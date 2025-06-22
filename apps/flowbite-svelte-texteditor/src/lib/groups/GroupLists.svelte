@@ -13,7 +13,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
 ## Type
-[GroupFormatProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L112)
+[GroupFormatProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L124)
 ## Props
 @prop editor
 @prop showToolbar = true

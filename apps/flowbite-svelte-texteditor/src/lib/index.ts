@@ -30,8 +30,6 @@ export { default as GroupLists } from './groups/GroupLists.svelte';
 
 // new videos
 
-
-
 // groups
 export { default as GroupAlignment } from './groups/GroupAlignment.svelte';
 export { default as GroupFormat } from './groups/GroupFormat.svelte';

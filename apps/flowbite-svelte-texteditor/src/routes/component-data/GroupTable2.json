@@ -2,7 +2,7 @@
   "name": "GroupTable2",
   "type": {
     "name": "GroupEditorBasicProps",
-    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L98"
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L110"
   },
   "props": [
     ["editor", ""],

@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.9.1
+
+### Patch Changes
+
+- feat: add ImageButtons
+
 ## 0.9.0
 
 ### Minor Changes

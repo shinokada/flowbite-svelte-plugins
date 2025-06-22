@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -253,9 +253,17 @@
       "types": "./dist/groups/GroupImage.svelte.d.ts",
       "svelte": "./dist/groups/GroupImage.svelte"
     },
+    "./GroupImages.svelte": {
+      "types": "./dist/groups/GroupImages.svelte.d.ts",
+      "svelte": "./dist/groups/GroupImages.svelte"
+    },
     "./GroupLayout.svelte": {
       "types": "./dist/groups/GroupLayout.svelte.d.ts",
       "svelte": "./dist/groups/GroupLayout.svelte"
+    },
+    "./GroupLayouts.svelte": {
+      "types": "./dist/groups/GroupLayouts.svelte.d.ts",
+      "svelte": "./dist/groups/GroupLayouts.svelte"
     },
     "./GroupLink.svelte": {
       "types": "./dist/groups/GroupLink.svelte.d.ts",
@@ -301,6 +309,10 @@
       "types": "./dist/image/ImageButton.svelte.d.ts",
       "svelte": "./dist/image/ImageButton.svelte"
     },
+    "./ImageButtons.svelte": {
+      "types": "./dist/image/ImageButtons.svelte.d.ts",
+      "svelte": "./dist/image/ImageButtons.svelte"
+    },
     "./Blockquote.svelte": {
       "types": "./dist/layout/Blockquote.svelte.d.ts",
       "svelte": "./dist/layout/Blockquote.svelte"
@@ -316,6 +328,10 @@
     "./LayoutButton.svelte": {
       "types": "./dist/layout/LayoutButton.svelte.d.ts",
       "svelte": "./dist/layout/LayoutButton.svelte"
+    },
+    "./LayoutButtons.svelte": {
+      "types": "./dist/layout/LayoutButtons.svelte.d.ts",
+      "svelte": "./dist/layout/LayoutButtons.svelte"
     },
     "./ListButtons.svelte": {
       "types": "./dist/lists/ListButtons.svelte.d.ts",

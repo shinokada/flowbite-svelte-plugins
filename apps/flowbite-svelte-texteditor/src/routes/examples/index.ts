@@ -6,7 +6,6 @@ export { default as Lists } from './Lists.svelte';
 export { default as Layouts } from './Layouts.svelte';
 export { default as Images } from './Images.svelte';
 
-
 // default
 export { default as Alignment } from './Alignment.svelte';
 export { default as UndoRedo } from './UndoRedo.svelte';

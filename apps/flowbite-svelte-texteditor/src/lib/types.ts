@@ -30,7 +30,7 @@ export interface ListButtons extends EditorBasicProps {
 }
 
 export interface LayoutButtons extends EditorBasicProps {
-  format: 'blockquote' | 'codeblock' | 'hr'
+  format: 'blockquote' | 'codeblock' | 'hr';
 }
 
 //  defaults

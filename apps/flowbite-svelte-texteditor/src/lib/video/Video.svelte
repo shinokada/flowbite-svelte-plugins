@@ -12,7 +12,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
 ## Type
-[EditorBasicProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L32)
+[EditorBasicProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L44)
 ## Props
 @prop editor
 @prop tooltipText = 'Add video'

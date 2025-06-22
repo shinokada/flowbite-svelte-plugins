@@ -86,7 +86,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
 ## Type
-[FormatButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L51)
+[FormatButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L63)
 ## Props
 @prop editor
 @prop format

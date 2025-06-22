@@ -49,7 +49,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
 ## Type
-[ListButtons](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L20)
+[ListButtons](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L28)
 ## Props
 @prop editor
 @prop format
