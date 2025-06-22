@@ -6,13 +6,23 @@
 
 {#if editor && showToolbar}
   <TableButtons {editor} />
-  <TableButtons {editor} action="deleteTable"/>
+  <TableButtons {editor} action="deleteTable" />
   <Divider />
-  <TableButtons {editor} action='addColumnBefore' />
-  <TableButtons {editor} action='addColumnAfter'/>
-  <TableButtons {editor} action='deleteColumn'/>
+  <TableButtons {editor} action="addColumnBefore" />
+  <TableButtons {editor} action="addColumnAfter" />
+  <TableButtons {editor} action="deleteColumn" />
   <Divider />
-  <TableButtons {editor} action='addRowBefore'/>
-  <TableButtons {editor} action='addRowAfter' />
-  <TableButtons {editor} action='deleteRow'/>
+  <TableButtons {editor} action="addRowBefore" />
+  <TableButtons {editor} action="addRowAfter" />
+  <TableButtons {editor} action="deleteRow" />
 {/if}
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[GroupEditorBasicProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L144)
+## Props
+@prop editor
+@prop showToolbar = true
+-->

@@ -7,6 +7,7 @@ export { default as Layouts } from './Layouts.svelte';
 export { default as Images } from './Images.svelte';
 export { default as Tables } from './Tables.svelte';
 export { default as Videos } from './Videos.svelte';
+export { default as NewDefaultTextEditor } from './NewDefaultTextEditor.svelte';
 
 // default
 export { default as Alignment } from './Alignment.svelte';

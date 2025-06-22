@@ -8,22 +8,22 @@
   const defaults = {
     table: { tooltip: 'Add table', aria: 'Add table' },
     deleteTable: { tooltip: 'Delete table', aria: 'Delete table' },
-    addColumnBefore: {tooltip: 'Add column before', aria:'Add column before'},
-    addColumnAfter:{tooltip:'Add column after', aria:'Add column after'},
-    deleteColumn:{tooltip:'Delete column', aria:'Delete column'},
-    addRowBefore: {tooltip:'Add row before', aria:'Add row before'},
-    addRowAfter:{tooltip:'Add row after', aria:'Add row after'},
-    deleteRow:{tooltip:'Delete row', aria:'Delete row'},
-    mergeCells:{tooltip:'Merge cells', aria:'Merge cells'},
-    splitCell:{tooltip:'Split cell', aria:'Split cell'},
-    mergeOrSplit:{tooltip:'Merge or split', aria:'Merge or split'},
-    toggleHeaderColumn:{tooltip:'Toggle header column', aria:'Toggle header column'},
-    toggleHeaderRow: {tooltip:'Toggle header row', aria:'Toggle header row'},
-    toggleHeaderCell: {tooltip:'Toggle header cell', aria:'Toggle header cell'},
+    addColumnBefore: { tooltip: 'Add column before', aria: 'Add column before' },
+    addColumnAfter: { tooltip: 'Add column after', aria: 'Add column after' },
+    deleteColumn: { tooltip: 'Delete column', aria: 'Delete column' },
+    addRowBefore: { tooltip: 'Add row before', aria: 'Add row before' },
+    addRowAfter: { tooltip: 'Add row after', aria: 'Add row after' },
+    deleteRow: { tooltip: 'Delete row', aria: 'Delete row' },
+    mergeCells: { tooltip: 'Merge cells', aria: 'Merge cells' },
+    splitCell: { tooltip: 'Split cell', aria: 'Split cell' },
+    mergeOrSplit: { tooltip: 'Merge or split', aria: 'Merge or split' },
+    toggleHeaderColumn: { tooltip: 'Toggle header column', aria: 'Toggle header column' },
+    toggleHeaderRow: { tooltip: 'Toggle header row', aria: 'Toggle header row' },
+    toggleHeaderCell: { tooltip: 'Toggle header cell', aria: 'Toggle header cell' },
     // cellattribute: {tooltip:'Cell attribute', aria:'Cell attribute'},
-    fixTables: {tooltip:'Fix tables', aria:'Fix tables'},
-    goToPreviousCell: {tooltip:'Go to previous cell', aria:'Go to previous cell'},
-    goToNextCell: {tooltip:'Go to next cell', aria:'Go to next cell'},
+    fixTables: { tooltip: 'Fix tables', aria: 'Fix tables' },
+    goToPreviousCell: { tooltip: 'Go to previous cell', aria: 'Go to previous cell' },
+    goToNextCell: { tooltip: 'Go to next cell', aria: 'Go to next cell' }
   };
 
   const finalTooltipText = tooltipText ?? defaults[action].tooltip;
@@ -139,3 +139,17 @@
   <span class="sr-only">{finalAriaLabel}</span>
 </button>
 <Tooltip>{finalTooltipText}</Tooltip>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[TableButtons](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L36)
+## Props
+@prop editor
+@prop action = 'table'
+@prop tooltipText
+@prop id
+@prop ariaLabel
+@prop class: className
+-->

@@ -3,7 +3,23 @@
   import { cn, generateButtonId, generateUniqueId } from '$lib';
   import { type VideoButtons } from '$lib/types';
 
-  let { modalChildren, editor, format = 'default', tooltipText, id, ariaLabel, videoUrl = 'https://www.youtube.com/watch?v=KaLxCiilHns', videoWidth,  videoHeight, modalTitle = 'Insert advanced video',modalSize = 'xs', formId, class: className, onAdvancedClick, ...restProps }: VideoButtons = $props();
+  let {
+    modalChildren,
+    editor,
+    format = 'default',
+    tooltipText,
+    id,
+    ariaLabel,
+    videoUrl = 'https://www.youtube.com/watch?v=KaLxCiilHns',
+    videoWidth,
+    videoHeight,
+    modalTitle = 'Insert advanced video',
+    modalSize = 'xs',
+    formId,
+    class: className,
+    onAdvancedClick,
+    ...restProps
+  }: VideoButtons = $props();
 
   let defaultModal = $state(false);
 
@@ -91,7 +107,6 @@
 </button>
 <Tooltip>{finalTooltipText}</Tooltip>
 
-
 <Modal title={modalTitle} bind:open={defaultModal} autoclose size={modalSize}>
   {#if modalChildren}
     {@render modalChildren()}
@@ -117,3 +132,18 @@
     </form>
   {/if}
 </Modal>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[VideoButtons](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L58)
+## Props
+@prop modalChildren
+@prop editor
+@prop format = 'default'
+@prop tooltipText
+@prop id
+@prop ariaLabel
+@prop videoUrl = 'https:
+-->

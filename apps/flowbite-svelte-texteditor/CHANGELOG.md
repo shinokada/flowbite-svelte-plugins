@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.9.2
+
+### Patch Changes
+
+- feat: add VidoButtons and TableButtons
+
 ## 0.9.1
 
 ### Patch Changes

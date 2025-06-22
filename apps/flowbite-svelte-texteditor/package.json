@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -285,6 +285,14 @@
       "types": "./dist/groups/GroupTable2.svelte.d.ts",
       "svelte": "./dist/groups/GroupTable2.svelte"
     },
+    "./GroupTables1.svelte": {
+      "types": "./dist/groups/GroupTables1.svelte.d.ts",
+      "svelte": "./dist/groups/GroupTables1.svelte"
+    },
+    "./GroupTables2.svelte": {
+      "types": "./dist/groups/GroupTables2.svelte.d.ts",
+      "svelte": "./dist/groups/GroupTables2.svelte"
+    },
     "./GroupTask.svelte": {
       "types": "./dist/groups/GroupTask.svelte.d.ts",
       "svelte": "./dist/groups/GroupTask.svelte"
@@ -296,6 +304,10 @@
     "./GroupVideo.svelte": {
       "types": "./dist/groups/GroupVideo.svelte.d.ts",
       "svelte": "./dist/groups/GroupVideo.svelte"
+    },
+    "./GroupVideos.svelte": {
+      "types": "./dist/groups/GroupVideos.svelte.d.ts",
+      "svelte": "./dist/groups/GroupVideos.svelte"
     },
     "./Image.svelte": {
       "types": "./dist/image/Image.svelte.d.ts",
@@ -401,6 +413,10 @@
       "types": "./dist/table/TableButton.svelte.d.ts",
       "svelte": "./dist/table/TableButton.svelte"
     },
+    "./TableButtons.svelte": {
+      "types": "./dist/table/TableButtons.svelte.d.ts",
+      "svelte": "./dist/table/TableButtons.svelte"
+    },
     "./TableCell.svelte": {
       "types": "./dist/table/TableCell.svelte.d.ts",
       "svelte": "./dist/table/TableCell.svelte"
@@ -440,6 +456,10 @@
     "./VideoButton.svelte": {
       "types": "./dist/video/VideoButton.svelte.d.ts",
       "svelte": "./dist/video/VideoButton.svelte"
+    },
+    "./VideoButtons.svelte": {
+      "types": "./dist/video/VideoButtons.svelte.d.ts",
+      "svelte": "./dist/video/VideoButtons.svelte"
     },
     "./ContentWrapper.svelte": {
       "types": "./dist/wrappers/ContentWrapper.svelte.d.ts",

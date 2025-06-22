@@ -127,4 +127,9 @@
 @prop ariaLabel
 @prop id
 @prop imageUrl = 'https:
+    imageAlt,
+    imageTitle,
+    onAdvancedClick,
+    class: className,
+    ...restProps
 -->

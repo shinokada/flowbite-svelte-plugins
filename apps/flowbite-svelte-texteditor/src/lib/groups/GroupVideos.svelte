@@ -6,5 +6,15 @@
 
 {#if editor && showToolbar}
   <VideoButtons {editor} />
-  <VideoButtons {editor} format="advanced"/>
+  <VideoButtons {editor} format="advanced" />
 {/if}
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[GroupEditorBasicProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L144)
+## Props
+@prop editor
+@prop showToolbar = true
+-->

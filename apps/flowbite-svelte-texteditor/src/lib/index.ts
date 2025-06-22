@@ -22,14 +22,9 @@ export { default as LayoutButtons } from './layout/LayoutButtons.svelte';
 export { default as GroupLayouts } from './groups/GroupLayouts.svelte';
 export { default as ListButtons } from './lists/ListButtons.svelte';
 export { default as GroupLists } from './groups/GroupLists.svelte';
-// new media
-
-// new tables
 export { default as TableButtons } from './table/TableButtons.svelte';
 export { default as GroupTables1 } from './groups/GroupTables1.svelte';
 export { default as GroupTables2 } from './groups/GroupTables2.svelte';
-// new tasks
-
 export { default as VideoButtons } from './video/VideoButtons.svelte';
 export { default as GroupVideos } from './groups/GroupVideos.svelte';
 
@@ -106,9 +101,6 @@ export { default as TableCell } from './table/TableCell.svelte';
 export { default as ToggleHeaderColumn } from './table/ToggleHeaderColumn.svelte';
 export { default as ToggleHeaderRow } from './table/ToggleHeaderRow.svelte';
 export { default as ToggleHeaderCell } from './table/ToggleHeaderCell.svelte';
-
-//
-export { default as TaskList } from './task/TaskList.svelte';
 
 // video
 export { default as Video } from './video/Video.svelte';
