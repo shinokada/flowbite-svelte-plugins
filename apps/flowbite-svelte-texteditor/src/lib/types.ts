@@ -99,7 +99,7 @@ export interface VideoAdvancedProps extends VideoProps {
   videoWidth?: number | undefined;
   videoHeight?: number | undefined;
   modalTitle?: string;
-  modalSize?: "xs" | "sm" | "md" | "lg" | "xl" | undefined;
+  modalSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
   formId?: string;
   modalChildren?: Snippet;
 }

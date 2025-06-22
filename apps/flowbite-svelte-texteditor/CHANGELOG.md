@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.7.0
+
+### Minor Changes
+
+- feat: video components
+
 ## 0.6.0
 
 ### Minor Changes

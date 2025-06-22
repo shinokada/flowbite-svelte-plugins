@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Table } from '$lib';
   import { Button } from 'flowbite-svelte';
-   import { exportJSON, exportCSV, exportTXT, exportSQL } from 'simple-datatables';
+  import { exportJSON, exportCSV, exportTXT, exportSQL } from 'simple-datatables';
 
   import items from './data/sample.json';
 

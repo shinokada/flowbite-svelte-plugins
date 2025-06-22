@@ -11,10 +11,10 @@
         const url = window.prompt('Enter YouTube URL:', 'https://www.youtube.com/watch?v=KaLxCiilHns');
         if (url) {
           editor?.commands.setYoutubeVideo({
-                src: url,
-                width: 640,
-                height: 480,
-            })
+            src: url,
+            width: 640,
+            height: 480
+          });
         }
         break;
       case 'advanced':
@@ -25,9 +25,7 @@
 
   // SVG paths for different formats
   const svgPaths = {
-    default: [
-      'M14 7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7Zm2 9.387 4.684 1.562A1 1 0 0 0 22 17V7a1 1 0 0 0-1.316-.949L16 7.613v8.774Z'
-    ],
+    default: ['M14 7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7Zm2 9.387 4.684 1.562A1 1 0 0 0 22 17V7a1 1 0 0 0-1.316-.949L16 7.613v8.774Z'],
     advanced:
       'M9 7V2.221a2 2 0 0 0-.5.365L4.586 6.5a2 2 0 0 0-.365.5H9Zm2 0V2h7a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9h5a2 2 0 0 0 2-2Zm-2 4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2H9Zm0 2h2v2H9v-2Zm7.965-.557a1 1 0 0 0-1.692-.72l-1.268 1.218a1 1 0 0 0-.308.721v.733a1 1 0 0 0 .37.776l1.267 1.032a1 1 0 0 0 1.631-.776v-2.984Z'
   };
@@ -51,3 +49,19 @@
   <span class="sr-only">{ariaLabel}</span>
 </button>
 <Tooltip>{tooltipText}</Tooltip>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[VideoButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L38)
+## Props
+@prop editor
+@prop format
+@prop tooltipText
+@prop buttonId
+@prop ariaLabel
+@prop class: className
+@prop onAdvancedClick
+@prop ...restProps
+-->

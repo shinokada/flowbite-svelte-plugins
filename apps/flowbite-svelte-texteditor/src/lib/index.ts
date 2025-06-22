@@ -18,7 +18,7 @@ export { default as GroupUndoRedo } from './groups/GroupUndoRedo.svelte';
 export { default as GroupLayout } from './groups/GroupLayout.svelte';
 export { default as GroupTable } from './groups/GroupTable.svelte';
 export { default as GroupTable2 } from './groups/GroupTable2.svelte';
-export { default as GroupVideo } from './groups/GroupVideo.svelte'
+export { default as GroupVideo } from './groups/GroupVideo.svelte';
 
 // buttons
 export { default as AlignmentButton } from './alignments/AlignmentButton.svelte';

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Table} from '$lib';
+  import { Table } from '$lib';
   import type { DataTableOptions } from 'simple-datatables';
 
   // Define types for the render function parameters
@@ -125,8 +125,8 @@
 
   const cellRendererOptions: DataTableOptions = {
     data: {
-        headings: [...data.headings], 
-        data: data.data.map(row => [...row]) 
+      headings: [...data.headings],
+      data: data.data.map((row) => [...row])
     },
     rowRender: (row: TableRow, tr: TableRow, _index: number) => {
       if ([true, false].includes(row.cells[3].data)) {

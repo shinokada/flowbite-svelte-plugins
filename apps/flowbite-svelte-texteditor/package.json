@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -225,6 +225,10 @@
       "types": "./dist/groups/GroupFormat.svelte.d.ts",
       "svelte": "./dist/groups/GroupFormat.svelte"
     },
+    "./GroupImage.svelte": {
+      "types": "./dist/groups/GroupImage.svelte.d.ts",
+      "svelte": "./dist/groups/GroupImage.svelte"
+    },
     "./GroupLayout.svelte": {
       "types": "./dist/groups/GroupLayout.svelte.d.ts",
       "svelte": "./dist/groups/GroupLayout.svelte"
@@ -232,10 +236,6 @@
     "./GroupLink.svelte": {
       "types": "./dist/groups/GroupLink.svelte.d.ts",
       "svelte": "./dist/groups/GroupLink.svelte"
-    },
-    "./GroupMedia.svelte": {
-      "types": "./dist/groups/GroupMedia.svelte.d.ts",
-      "svelte": "./dist/groups/GroupMedia.svelte"
     },
     "./GroupTable.svelte": {
       "types": "./dist/groups/GroupTable.svelte.d.ts",
@@ -248,6 +248,10 @@
     "./GroupUndoRedo.svelte": {
       "types": "./dist/groups/GroupUndoRedo.svelte.d.ts",
       "svelte": "./dist/groups/GroupUndoRedo.svelte"
+    },
+    "./GroupVideo.svelte": {
+      "types": "./dist/groups/GroupVideo.svelte.d.ts",
+      "svelte": "./dist/groups/GroupVideo.svelte"
     },
     "./Image.svelte": {
       "types": "./dist/image/Image.svelte.d.ts",
@@ -380,6 +384,18 @@
     "./UndoRedo.svelte": {
       "types": "./dist/undo-redo/UndoRedo.svelte.d.ts",
       "svelte": "./dist/undo-redo/UndoRedo.svelte"
+    },
+    "./Video.svelte": {
+      "types": "./dist/video/Video.svelte.d.ts",
+      "svelte": "./dist/video/Video.svelte"
+    },
+    "./VideoAdvanced.svelte": {
+      "types": "./dist/video/VideoAdvanced.svelte.d.ts",
+      "svelte": "./dist/video/VideoAdvanced.svelte"
+    },
+    "./VideoButton.svelte": {
+      "types": "./dist/video/VideoButton.svelte.d.ts",
+      "svelte": "./dist/video/VideoButton.svelte"
     },
     "./ContentWrapper.svelte": {
       "types": "./dist/wrappers/ContentWrapper.svelte.d.ts",
