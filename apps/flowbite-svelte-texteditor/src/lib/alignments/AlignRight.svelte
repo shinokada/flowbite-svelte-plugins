@@ -2,19 +2,9 @@
   import AlignmentButton from './AlignmentButton.svelte';
   import { type EditorBasicProps, generateButtonId } from '$lib';
 
-  let { editor, class: className }: EditorBasicProps = $props();
+  let { editor, tooltipText = 'Align right', ariaLabel = 'Align right', id, class: className }: EditorBasicProps = $props();
 
-  const uniqueId = generateButtonId('AlignRight');
+  const uniqueId = id ?? generateButtonId('AlignRight');
 </script>
 
-<AlignmentButton {editor} alignment="right" tooltipText="Align right" buttonId={uniqueId} ariaLabel="Align right" class={className} />
-
-<!--
-@component
-[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
-## Type
-[EditorBasicProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L13)
-## Props
-@prop editor
-@prop class: className
--->
+<AlignmentButton {editor} alignment="right" {tooltipText} buttonId={uniqueId} {ariaLabel} class={className} />

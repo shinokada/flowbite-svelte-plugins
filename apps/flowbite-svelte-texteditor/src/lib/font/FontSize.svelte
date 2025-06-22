@@ -1,5 +1,5 @@
 <script lang="ts">
-  import FormatButton from './FormatButton.svelte';
+  import FormatButton from '../format/FormatButton.svelte';
   import { type EditorBasicProps, generateButtonId } from '$lib';
   import { Dropdown, DropdownItem } from 'flowbite-svelte';
 

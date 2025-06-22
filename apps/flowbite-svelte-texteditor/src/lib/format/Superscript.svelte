@@ -7,7 +7,7 @@
   const uniqueId = generateButtonId('Superscript');
 </script>
 
-<FormatButton {editor} format="superscript" tooltipText="Toggle superscript" buttonId={uniqueId} ariaLabel="Subscirpt" class={className} />
+<FormatButton {editor} format="superscript" tooltipText="Toggle superscript" buttonId={uniqueId} ariaLabel="Superscirpt" class={className} />
 
 <!--
 @component

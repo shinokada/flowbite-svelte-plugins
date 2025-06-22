@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { type VideoProps, VideoButton, generateButtonId } from '$lib';
+  import { type EditorBasicProps, VideoButton, generateButtonId } from '$lib';
 
-  let { editor, tooltipText = 'Add video', ariaLabel = 'Add video', id, class: className }: VideoProps = $props();
+  let { editor, tooltipText = 'Add video', ariaLabel = 'Add video', id, class: className }: EditorBasicProps = $props();
 
   const uniqueId = id ?? generateButtonId('Video');
 </script>

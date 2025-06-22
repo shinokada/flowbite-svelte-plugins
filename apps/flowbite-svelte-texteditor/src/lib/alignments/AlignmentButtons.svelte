@@ -1,15 +1,31 @@
 <script lang="ts">
   import { Tooltip } from 'flowbite-svelte';
-  import { cn } from '$lib';
-  import { type AlignmentButtonProps } from '$lib';
+  import { cn, generateButtonId } from '$lib';
+  import { type AlignmentButtons } from '$lib/types'
+let { 
+    editor, 
+    alignment, 
+    tooltipText, 
+    ariaLabel, 
+    id, 
+    class: className 
+  }: AlignmentButtons = $props();
 
-  let { editor, alignment, tooltipText, buttonId, ariaLabel, class: className }: AlignmentButtonProps = $props();
+  const defaults = {
+    left: { tooltip: 'Align left', aria: 'Align left' },
+    center: { tooltip: 'Align center', aria: 'Align center' },
+    right: { tooltip: 'Align right', aria: 'Align right' },
+    justify: { tooltip: 'Justify text', aria: 'Justify' }
+  };
+
+  const finalTooltipText = tooltipText ?? defaults[alignment].tooltip;
+  const finalAriaLabel = ariaLabel ?? defaults[alignment].aria;
+  const uniqueId = id ?? generateButtonId(`Align${alignment.charAt(0).toUpperCase() + alignment.slice(1)}`);
 
   function handleClick() {
     editor?.chain().focus().setTextAlign(alignment).run();
   }
 
-  // SVG paths for different alignments
   const svgPaths = {
     left: 'M6 6h8m-8 4h12M6 14h8m-8 4h12',
     center: 'M8 6h8M6 10h12M8 14h8M6 18h12',
@@ -20,13 +36,13 @@
 
 <button
   onclick={handleClick}
-  id={buttonId}
+  id={uniqueId}
   type="button"
   class={cn('cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white', className)}
 >
   <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={svgPaths[alignment]} />
   </svg>
-  <span class="sr-only">{ariaLabel}</span>
+  <span class="sr-only">{finalAriaLabel}</span>
 </button>
-<Tooltip>{tooltipText}</Tooltip>
+<Tooltip>{finalTooltipText}</Tooltip>

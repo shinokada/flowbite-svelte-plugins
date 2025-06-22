@@ -6,29 +6,42 @@
 <DarkMode />
 <Heading tag="h1" class="my-8">@flowbite-svelte-plugins/texteditor</Heading>
 
-<Heading tag="h2" class="my-4">Default Text Editor</Heading>
+<Heading tag="h2" class="my-4">New</Heading>
+
+<Heading tag="h3" class="my-4">Fonts</Heading>
+<Examples.Fonts />
+
+<Heading tag="h3" class="my-4">Alignments</Heading>
+<Examples.Alignments />
+
+<Heading tag="h3" class="my-4">Formats</Heading>
+<Examples.Formats />
+
+<Heading tag="h2" class="my-4">Default</Heading>
+
+ <Heading tag="h3" class="my-4">Default Text Editor</Heading>
 <Examples.DefaultTextEditor />
 
-<Heading tag="h2" class="my-4">Videos</Heading>
+ <Heading tag="h3" class="my-4">Videos</Heading>
 <Examples.Videos />
 
-<Heading tag="h2" class="my-4">Images</Heading>
+ <Heading tag="h3" class="my-4">Images</Heading>
 <Examples.Images />
 
-<Heading tag="h2" class="my-4">Layout</Heading>
+ <Heading tag="h3" class="my-4">Layout</Heading>
 <Examples.Layout />
 
-<Heading tag="h2" class="my-4">Links</Heading>
+ <Heading tag="h3" class="my-4">Links</Heading>
 <Examples.Links />
 
-<Heading tag="h2" class="my-4">Tables</Heading>
+ <Heading tag="h3" class="my-4">Tables</Heading>
 <Examples.Tables />
 
-<Heading tag="h2" class="my-4">Format</Heading>
+ <Heading tag="h3" class="my-4">Format</Heading>
 <Examples.Format />
 
-<Heading tag="h2" class="my-4">UndoRedo</Heading>
+ <Heading tag="h3" class="my-4">UndoRedo</Heading>
 <Examples.UndoRedo />
 
-<Heading tag="h2" class="my-4">Alignments</Heading>
+ <Heading tag="h3" class="my-4">Alignments</Heading>
 <Examples.Alignment />

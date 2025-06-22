@@ -3,6 +3,21 @@ import { type ClassValue } from 'clsx';
 import type { Snippet } from 'svelte';
 import type { HTMLButtonAttributes } from 'svelte/elements';
 
+// new
+export interface AlignmentButtons extends EditorBasicProps {
+  alignment: 'left' | 'center' | 'right' | 'justify';
+}
+
+export interface FomatButtons extends EditorBasicProps {
+  format: 'bold' | 'code' | 'highlight' | 'italic' | 'link' | 'removeLink' | 'strike' | 'subscript' | 'superscript' | 'underline'
+}
+
+export interface FontButtons extends EditorBasicProps {
+  format: 'fontFamily' | 'fontSize' | 'textColor';
+  colorValue?: string;
+}
+
+//  defaults
 export interface EditorProviderProps {
   element?: HTMLDivElement | null;
   content?: string;
@@ -13,13 +28,16 @@ export interface EditorProviderProps {
 export interface EditorBasicProps extends Omit<HTMLButtonAttributes, 'class'> {
   editor: Editor | null;
   class?: ClassValue;
+  tooltipText?: string;
+  ariaLabel?: string;
+  id?: string;
 }
 
 // buttons
 export interface EditorButtonProps extends EditorBasicProps {
-  tooltipText: string;
-  buttonId: string;
-  ariaLabel: string;
+  tooltipText?: string;
+  buttonId?: string;
+  ariaLabel?: string;
 }
 
 export interface AlignmentButtonProps extends EditorButtonProps {
@@ -35,10 +53,16 @@ export interface ImageButtonProps extends EditorButtonProps {
   onAdvancedClick?: () => void;
 }
 
+export interface ListButtonProps extends EditorButtonProps {
+  format: 'bullet' | 'ordered';
+  onAdvancedClick?: () => void;
+}
+
 export interface VideoButtonProps extends EditorButtonProps {
   format: 'default' | 'advanced';
   onAdvancedClick?: () => void;
 }
+
 // layout
 export interface LayoutButtonProps extends EditorButtonProps {
   format: 'blockquote' | 'codeblock' | 'horizontalrule';
@@ -86,15 +110,8 @@ export interface GroupFormatProps {
   showToolbar?: boolean;
 }
 
-// video
-export interface VideoProps extends EditorBasicProps {
-  tooltipText?: string;
-  ariaLabel?: string;
-  id?: string;
-}
-
 // videoadvanced
-export interface VideoAdvancedProps extends VideoProps {
+export interface VideoAdvancedProps extends EditorBasicProps {
   videoUrl?: string;
   videoWidth?: number | undefined;
   videoHeight?: number | undefined;
