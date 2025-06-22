@@ -33,6 +33,28 @@ export interface LayoutButtons extends EditorBasicProps {
   format: 'blockquote' | 'codeblock' | 'hr';
 }
 
+export interface TableButtons extends EditorBasicProps {
+  action?:
+    | 'table'
+    | 'deleteTable'
+    | 'addColumnBefore'
+    | 'addColumnAfter'
+    | 'deleteColumn'
+    | 'addRowBefore'
+    | 'addRowAfter'
+    | 'deleteRow'
+    | 'mergeCells'
+    | 'splitCell'
+    | 'mergeOrSplit'
+    | 'toggleHeaderColumn'
+    | 'toggleHeaderRow'
+    | 'toggleHeaderCell'
+    // | 'cellattribute'
+    | 'fixTables'
+    | 'goToPreviousCell'
+    | 'goToNextCell';
+}
+
 export interface VideoButtons extends EditorBasicProps {
   format?: 'default' | 'advanced';
   onAdvancedClick?: () => void;

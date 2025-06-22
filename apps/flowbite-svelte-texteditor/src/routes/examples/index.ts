@@ -5,7 +5,7 @@ export { default as Fonts } from './Fonts.svelte';
 export { default as Lists } from './Lists.svelte';
 export { default as Layouts } from './Layouts.svelte';
 export { default as Images } from './Images.svelte';
-
+export { default as Tables } from './Tables.svelte';
 export { default as Videos } from './Videos.svelte';
 
 // default
@@ -15,6 +15,6 @@ export { default as DefaultTextEditor } from './DefaultTextEditor.svelte';
 export { default as Format } from './Format.svelte';
 export { default as Links } from './Links.svelte';
 export { default as Image } from './Image.svelte';
-export { default as Tables } from './Tables.svelte';
+export { default as Table } from './Table.svelte';
 export { default as Layout } from './Layout.svelte';
 export { default as Video } from './Video.svelte';

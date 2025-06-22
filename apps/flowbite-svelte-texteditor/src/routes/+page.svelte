@@ -8,6 +8,9 @@
 
 <Heading tag="h2" class="my-4">New</Heading>
 
+<Heading tag="h3" class="my-4">Tables</Heading>
+<Examples.Tables />
+
 <Heading tag="h3" class="my-4">Videos</Heading>
 <Examples.Videos />
 

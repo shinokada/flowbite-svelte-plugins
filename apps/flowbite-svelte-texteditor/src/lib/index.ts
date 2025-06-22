@@ -25,13 +25,16 @@ export { default as GroupLists } from './groups/GroupLists.svelte';
 // new media
 
 // new tables
-
+export { default as TableButtons } from './table/TableButtons.svelte';
+export { default as GroupTables1 } from './groups/GroupTables1.svelte';
+export { default as GroupTables2 } from './groups/GroupTables2.svelte';
 // new tasks
 
-// new videos
 export { default as VideoButtons } from './video/VideoButtons.svelte';
 export { default as GroupVideos } from './groups/GroupVideos.svelte';
-// groups
+
+
+// default groups
 export { default as GroupAlignment } from './groups/GroupAlignment.svelte';
 export { default as GroupFormat } from './groups/GroupFormat.svelte';
 export { default as GroupImage } from './groups/GroupImage.svelte';
