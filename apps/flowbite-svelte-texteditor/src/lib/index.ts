@@ -13,7 +13,7 @@ export { default as ToolbarRowWrapper } from './wrappers/ToolbarRowWrapper.svelt
 export { default as GroupAlignment } from './groups/GroupAlignment.svelte';
 export { default as GroupFormat } from './groups/GroupFormat.svelte';
 export { default as GroupImage } from './groups/GroupImage.svelte';
-export { default as GroupList } from './groups/GroupList.svelte'
+export { default as GroupList } from './groups/GroupList.svelte';
 export { default as GroupLayout } from './groups/GroupLayout.svelte';
 export { default as GroupLink } from './groups/GroupLink.svelte';
 export { default as GroupTable } from './groups/GroupTable.svelte';
@@ -29,7 +29,6 @@ export { default as FormatButtons } from './format/FormatButtons.svelte';
 export { default as GroupFormats } from './groups/GroupFormats.svelte';
 export { default as FontButtons } from './font/FontButtons.svelte';
 export { default as GroupFonts } from './groups/GroupFonts.svelte';
-
 
 // buttons
 export { default as AlignmentButton } from './alignments/AlignmentButton.svelte';
@@ -96,7 +95,7 @@ export { default as ToggleHeaderColumn } from './table/ToggleHeaderColumn.svelte
 export { default as ToggleHeaderRow } from './table/ToggleHeaderRow.svelte';
 export { default as ToggleHeaderCell } from './table/ToggleHeaderCell.svelte';
 
-// 
+//
 export { default as TaskList } from './task/TaskList.svelte';
 
 // video

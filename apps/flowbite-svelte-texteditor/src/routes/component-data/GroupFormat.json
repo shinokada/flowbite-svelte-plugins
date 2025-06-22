@@ -2,7 +2,7 @@
   "name": "GroupFormat",
   "type": {
     "name": "GroupFormatProps",
-    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L84"
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L108"
   },
   "props": [
     ["editor", ""],

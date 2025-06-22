@@ -8,7 +8,7 @@
   function handleClick() {
     switch (format) {
       case 'bullet':
-        editor?.chain().focus().toggleBulletList().run();        
+        editor?.chain().focus().toggleBulletList().run();
         break;
       case 'ordered':
         editor?.chain().focus().toggleOrderedList().run();
@@ -18,11 +18,8 @@
 
   // SVG paths for different formats
   const svgPaths = {
-    bullet: [
-      'M9 8h10M9 12h10M9 16h10M4.99 8H5m-.02 4h.01m0 4H5'
-    ],
-    ordered:
-      'M12 6h8m-8 6h8m-8 6h8M4 16a2 2 0 1 1 3.321 1.5L4 20h5M4 5l2-1v6m-2 0h4'
+    bullet: ['M9 8h10M9 12h10M9 16h10M4.99 8H5m-.02 4h.01m0 4H5'],
+    ordered: 'M12 6h8m-8 6h8m-8 6h8M4 16a2 2 0 1 1 3.321 1.5L4 20h5M4 5l2-1v6m-2 0h4'
   };
 </script>
 
@@ -45,3 +42,18 @@
 </button>
 <Tooltip>{tooltipText}</Tooltip>
 
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[ListButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L56)
+## Props
+@prop editor
+@prop format
+@prop tooltipText
+@prop buttonId
+@prop ariaLabel
+@prop class: className
+@prop onAdvancedClick
+@prop ...restProps
+-->

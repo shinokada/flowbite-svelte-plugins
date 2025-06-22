@@ -2,7 +2,7 @@
   "name": "Table",
   "type": {
     "name": "EditorBasicProps",
-    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L13"
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L28"
   },
   "props": [
     ["editor", ""],

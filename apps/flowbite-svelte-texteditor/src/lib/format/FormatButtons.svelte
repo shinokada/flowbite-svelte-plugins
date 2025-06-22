@@ -1,15 +1,8 @@
 <script lang="ts">
   import { Tooltip } from 'flowbite-svelte';
   import { cn, generateButtonId } from '$lib';
-  import { type FomatButtons } from '$lib/types'
-let { 
-    editor, 
-    format, 
-    tooltipText, 
-    ariaLabel, 
-    id, 
-    class: className 
-  }: FomatButtons = $props();
+  import { type FomatButtons } from '$lib/types';
+  let { editor, format, tooltipText, ariaLabel, id, class: className }: FomatButtons = $props();
 
   const defaults = {
     bold: { tooltip: 'Toggle bold', aria: 'Bold' },
@@ -78,7 +71,7 @@ let {
       'M13.2 9.8a3.4 3.4 0 0 0-4.8 0L5 13.2A3.4 3.4 0 0 0 9.8 18l.3-.3m-.3-4.5a3.4 3.4 0 0 0 4.8 0L18 9.8A3.4 3.4 0 0 0 13.2 5l-1 1m7.4 14-1.8-1.8m0 0L16 16.4m1.8 1.8 1.8-1.8m-1.8 1.8L16 20',
     subscript: 'M19.9999 21h-4v-.5c1.0989-1.0329 3.75-2.5 3.75-3.5v-1.0001c0-.5523-.4477-.9999-1-.9999h-1.75c-.5523 0-1 .4477-1 1M3.99986 6l9.26894 11.5765M13.1219 6 3.85303 17.5765',
     superscript:
-      'M21.0002 11h-4l-.0001-.5C18.099 9.46711 20.7502 8 20.7502 7V5.99989c0-.55228-.4478-.99989-1-.99989h-1.75c-.5523 0-1 .44772-1 1M5.37837 7.98274 14.6473 19.5593m-.5251-11.25583L4.85547 19.8773',
+      'M21.0002 11h-4l-.0001-.5C18.099 9.46711 20.7502 8 20.7502 7V5.99989c0-.55228-.4478-.99989-1-.99989h-1.75c-.5523 0-1 .44772-1 1M5.37837 7.98274 14.6473 19.5593m-.5251-11.25583L4.85547 19.8773'
   };
 </script>
 
@@ -94,3 +87,17 @@ let {
   <span class="sr-only">{finalAriaLabel}</span>
 </button>
 <Tooltip>{finalTooltipText}</Tooltip>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[FomatButtons](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L11)
+## Props
+@prop editor
+@prop format
+@prop tooltipText
+@prop ariaLabel
+@prop id
+@prop class: className
+-->

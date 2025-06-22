@@ -8,3 +8,16 @@
 </script>
 
 <AlignmentButton {editor} alignment="left" {tooltipText} buttonId={uniqueId} {ariaLabel} class={className} />
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[EditorBasicProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L28)
+## Props
+@prop editor
+@prop tooltipText = 'Align left'
+@prop ariaLabel = 'Align left'
+@prop id
+@prop class: className
+-->

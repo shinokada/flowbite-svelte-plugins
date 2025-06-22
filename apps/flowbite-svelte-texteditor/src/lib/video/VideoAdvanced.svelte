@@ -85,7 +85,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
 ## Type
-[VideoAdvancedProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L97)
+[VideoAdvancedProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L114)
 ## Props
 @prop modalChildren
 @prop editor

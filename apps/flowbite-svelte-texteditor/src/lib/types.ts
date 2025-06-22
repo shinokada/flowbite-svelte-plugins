@@ -9,7 +9,7 @@ export interface AlignmentButtons extends EditorBasicProps {
 }
 
 export interface FomatButtons extends EditorBasicProps {
-  format: 'bold' | 'code' | 'highlight' | 'italic' | 'link' | 'removeLink' | 'strike' | 'subscript' | 'superscript' | 'underline'
+  format: 'bold' | 'code' | 'highlight' | 'italic' | 'link' | 'removeLink' | 'strike' | 'subscript' | 'superscript' | 'underline';
 }
 
 export interface FontButtons extends EditorBasicProps {

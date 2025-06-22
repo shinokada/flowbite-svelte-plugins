@@ -30,3 +30,17 @@
   <span class="sr-only">{ariaLabel}</span>
 </button>
 <Tooltip>{tooltipText}</Tooltip>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[AlignmentButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L43)
+## Props
+@prop editor
+@prop alignment
+@prop tooltipText
+@prop buttonId
+@prop ariaLabel
+@prop class: className
+-->

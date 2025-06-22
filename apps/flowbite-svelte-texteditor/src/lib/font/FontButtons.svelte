@@ -1,24 +1,16 @@
 <script lang="ts">
   import { Tooltip, Dropdown, DropdownItem } from 'flowbite-svelte';
   import { cn, generateButtonId } from '$lib';
-  import { type FontButtons } from '$lib/types'
+  import { type FontButtons } from '$lib/types';
 
-  let { 
-    editor, 
-    format, 
-    tooltipText, 
-    ariaLabel, 
-    colorValue = '#e66465',
-    id, 
-    class: className 
-  }: FontButtons = $props();
+  let { editor, format, tooltipText, ariaLabel, colorValue = '#e66465', id, class: className }: FontButtons = $props();
 
   let isOpen = $state(false);
 
   const defaults = {
     fontFamily: { tooltip: 'Font family', aria: 'Font family' },
     fontSize: { tooltip: 'Font size', aria: 'Font size' },
-    textColor: { tooltip: 'Font color', aria: 'Font color'}
+    textColor: { tooltip: 'Font color', aria: 'Font color' }
   };
 
   const finalTooltipText = tooltipText ?? defaults[format].tooltip;
@@ -108,7 +100,7 @@
 
   function setTextColor(color: string) {
     editor?.chain().focus().setColor(color).run();
-    isOpen = false; 
+    isOpen = false;
   }
 
   function removeTextColorFormatting() {
@@ -117,9 +109,11 @@
   }
 
   const svgPaths = {
-    fontFamily: 'm10.6 19 4.298-10.93a.11.11 0 0 1 .204 0L19.4 19m-8.8 0H9.5m1.1 0h1.65m7.15 0h-1.65m1.65 0h1.1m-7.7-3.985h4.4M3.021 16l1.567-3.985m0 0L7.32 5.07a.11.11 0 0 1 .205 0l2.503 6.945h-5.44Z',
+    fontFamily:
+      'm10.6 19 4.298-10.93a.11.11 0 0 1 .204 0L19.4 19m-8.8 0H9.5m1.1 0h1.65m7.15 0h-1.65m1.65 0h1.1m-7.7-3.985h4.4M3.021 16l1.567-3.985m0 0L7.32 5.07a.11.11 0 0 1 .205 0l2.503 6.945h-5.44Z',
     fontSize: 'M3 6.2V5h11v1.2M8 5v14m-3 0h6m2-6.8V11h8v1.2M17 11v8m-1.5 0h3',
-    textColor: 'm6.532 15.982 1.573-4m-1.573 4h-1.1m1.1 0h1.65m-.077-4 2.725-6.93a.11.11 0 0 1 .204 0l2.725 6.93m-5.654 0H8.1m.006 0h5.654m0 0 .617 1.569m5.11 4.453c0 1.102-.854 1.996-1.908 1.996-1.053 0-1.907-.894-1.907-1.996 0-1.103 1.907-4.128 1.907-4.128s1.909 3.025 1.909 4.128Z'
+    textColor:
+      'm6.532 15.982 1.573-4m-1.573 4h-1.1m1.1 0h1.65m-.077-4 2.725-6.93a.11.11 0 0 1 .204 0l2.725 6.93m-5.654 0H8.1m.006 0h5.654m0 0 .617 1.569m5.11 4.453c0 1.102-.854 1.996-1.908 1.996-1.053 0-1.907-.894-1.907-1.996 0-1.103 1.907-4.128 1.907-4.128s1.909 3.025 1.909 4.128Z'
   };
 
   function handleClick() {
@@ -163,34 +157,46 @@
     {/each}
     <DropdownItem onclick={removeFontSizeFormatting}>Remove formatting</DropdownItem>
   {:else if format === 'textColor'}
-  <div class="p-2">
-    <div class="grid grid-cols-6 gap-2 group mb-3 items-center p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600">
-      <input 
-        type="color" 
-        id="color" 
-        bind:value={colorValue}
-        onchange={() => setTextColor(colorValue)}
-       
-        class="border-gray-200 border bg-gray-50 dark:bg-gray-700 dark:border-gray-600 rounded-md p-px px-1 hover:bg-gray-50 group-hover:bg-gray-50 dark:group-hover:bg-gray-700 w-full h-8 col-span-3"
-      />
-      <label for="color" class="text-gray-500 dark:text-gray-400 text-sm font-medium col-span-3 group-hover:text-gray-900 dark:group-hover:text-white">Pick a color</label>
+    <div class="p-2">
+      <div class="group mb-3 grid grid-cols-6 items-center gap-2 rounded-lg p-1.5 hover:bg-gray-100 dark:hover:bg-gray-600">
+        <input
+          type="color"
+          id="color"
+          bind:value={colorValue}
+          onchange={() => setTextColor(colorValue)}
+          class="col-span-3 h-8 w-full rounded-md border border-gray-200 bg-gray-50 p-px px-1 group-hover:bg-gray-50 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-700 dark:group-hover:bg-gray-700"
+        />
+        <label for="color" class="col-span-3 text-sm font-medium text-gray-500 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white">Pick a color</label>
+      </div>
+      <div class="mb-3 grid grid-cols-6 gap-1">
+        {#each textColors as color}
+          <button
+            type="button"
+            onclick={() => setTextColor(color.value)}
+            style="background-color: {color.value}"
+            class="h-6 w-6 rounded-md transition-transform duration-150 hover:scale-110"
+            title={color.name}
+          >
+            <span class="sr-only">{color.name}</span>
+          </button>
+        {/each}
+      </div>
+      <DropdownItem onclick={removeTextColorFormatting} class="text-center">Remove color</DropdownItem>
     </div>
-    <div class="grid grid-cols-6 gap-1 mb-3">
-      {#each textColors as color}
-        <button
-          type="button"
-          onclick={() => setTextColor(color.value)}
-          style="background-color: {color.value}"
-          class="w-6 h-6 rounded-md hover:scale-110 transition-transform duration-150"
-          title={color.name}
-        >
-          <span class="sr-only">{color.name}</span>
-        </button>
-      {/each}
-    </div>
-    <DropdownItem onclick={removeTextColorFormatting} class="text-center">
-      Remove color
-    </DropdownItem>
-  </div>
-{/if}
+  {/if}
 </Dropdown>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[FontButtons](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L15)
+## Props
+@prop editor
+@prop format
+@prop tooltipText
+@prop ariaLabel
+@prop colorValue = '#e66465'
+@prop id
+@prop class: className
+-->

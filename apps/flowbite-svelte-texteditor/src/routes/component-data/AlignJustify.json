@@ -2,10 +2,13 @@
   "name": "AlignJustify",
   "type": {
     "name": "EditorBasicProps",
-    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L13"
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L28"
   },
   "props": [
     ["editor", ""],
+    ["tooltipText", "'Justify text'"],
+    ["ariaLabel", "'Justify'"],
+    ["id", ""],
     ["class: className", ""]
   ]
 }

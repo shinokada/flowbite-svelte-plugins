@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.8.0
+
+### Minor Changes
+
+- feat: add textColor
+
 ## 0.7.0
 
 ### Minor Changes

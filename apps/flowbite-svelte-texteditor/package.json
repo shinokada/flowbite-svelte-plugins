@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -161,6 +161,26 @@
       "types": "./dist/alignments/AlignmentButton.svelte.d.ts",
       "svelte": "./dist/alignments/AlignmentButton.svelte"
     },
+    "./AlignmentButtons.svelte": {
+      "types": "./dist/alignments/AlignmentButtons.svelte.d.ts",
+      "svelte": "./dist/alignments/AlignmentButtons.svelte"
+    },
+    "./FontButtons.svelte": {
+      "types": "./dist/font/FontButtons.svelte.d.ts",
+      "svelte": "./dist/font/FontButtons.svelte"
+    },
+    "./FontColor.svelte": {
+      "types": "./dist/font/FontColor.svelte.d.ts",
+      "svelte": "./dist/font/FontColor.svelte"
+    },
+    "./FontFamily.svelte": {
+      "types": "./dist/font/FontFamily.svelte.d.ts",
+      "svelte": "./dist/font/FontFamily.svelte"
+    },
+    "./FontSize.svelte": {
+      "types": "./dist/font/FontSize.svelte.d.ts",
+      "svelte": "./dist/font/FontSize.svelte"
+    },
     "./Bold.svelte": {
       "types": "./dist/format/Bold.svelte.d.ts",
       "svelte": "./dist/format/Bold.svelte"
@@ -169,21 +189,13 @@
       "types": "./dist/format/Code.svelte.d.ts",
       "svelte": "./dist/format/Code.svelte"
     },
-    "./Color.svelte": {
-      "types": "./dist/format/Color.svelte.d.ts",
-      "svelte": "./dist/format/Color.svelte"
-    },
-    "./FontFamily.svelte": {
-      "types": "./dist/format/FontFamily.svelte.d.ts",
-      "svelte": "./dist/format/FontFamily.svelte"
-    },
-    "./FontSize.svelte": {
-      "types": "./dist/format/FontSize.svelte.d.ts",
-      "svelte": "./dist/format/FontSize.svelte"
-    },
     "./FormatButton.svelte": {
       "types": "./dist/format/FormatButton.svelte.d.ts",
       "svelte": "./dist/format/FormatButton.svelte"
+    },
+    "./FormatButtons.svelte": {
+      "types": "./dist/format/FormatButtons.svelte.d.ts",
+      "svelte": "./dist/format/FormatButtons.svelte"
     },
     "./Highlight.svelte": {
       "types": "./dist/format/Highlight.svelte.d.ts",
@@ -221,9 +233,21 @@
       "types": "./dist/groups/GroupAlignment.svelte.d.ts",
       "svelte": "./dist/groups/GroupAlignment.svelte"
     },
+    "./GroupAlignments.svelte": {
+      "types": "./dist/groups/GroupAlignments.svelte.d.ts",
+      "svelte": "./dist/groups/GroupAlignments.svelte"
+    },
+    "./GroupFonts.svelte": {
+      "types": "./dist/groups/GroupFonts.svelte.d.ts",
+      "svelte": "./dist/groups/GroupFonts.svelte"
+    },
     "./GroupFormat.svelte": {
       "types": "./dist/groups/GroupFormat.svelte.d.ts",
       "svelte": "./dist/groups/GroupFormat.svelte"
+    },
+    "./GroupFormats.svelte": {
+      "types": "./dist/groups/GroupFormats.svelte.d.ts",
+      "svelte": "./dist/groups/GroupFormats.svelte"
     },
     "./GroupImage.svelte": {
       "types": "./dist/groups/GroupImage.svelte.d.ts",
@@ -237,6 +261,10 @@
       "types": "./dist/groups/GroupLink.svelte.d.ts",
       "svelte": "./dist/groups/GroupLink.svelte"
     },
+    "./GroupList.svelte": {
+      "types": "./dist/groups/GroupList.svelte.d.ts",
+      "svelte": "./dist/groups/GroupList.svelte"
+    },
     "./GroupTable.svelte": {
       "types": "./dist/groups/GroupTable.svelte.d.ts",
       "svelte": "./dist/groups/GroupTable.svelte"
@@ -244,6 +272,10 @@
     "./GroupTable2.svelte": {
       "types": "./dist/groups/GroupTable2.svelte.d.ts",
       "svelte": "./dist/groups/GroupTable2.svelte"
+    },
+    "./GroupTask.svelte": {
+      "types": "./dist/groups/GroupTask.svelte.d.ts",
+      "svelte": "./dist/groups/GroupTask.svelte"
     },
     "./GroupUndoRedo.svelte": {
       "types": "./dist/groups/GroupUndoRedo.svelte.d.ts",
@@ -285,6 +317,10 @@
       "types": "./dist/lists/BulletList.svelte.d.ts",
       "svelte": "./dist/lists/BulletList.svelte"
     },
+    "./ListButton.svelte": {
+      "types": "./dist/lists/ListButton.svelte.d.ts",
+      "svelte": "./dist/lists/ListButton.svelte"
+    },
     "./ListItem.svelte": {
       "types": "./dist/lists/ListItem.svelte.d.ts",
       "svelte": "./dist/lists/ListItem.svelte"
@@ -292,14 +328,6 @@
     "./OrderedList.svelte": {
       "types": "./dist/lists/OrderedList.svelte.d.ts",
       "svelte": "./dist/lists/OrderedList.svelte"
-    },
-    "./TaskItem.svelte": {
-      "types": "./dist/lists/TaskItem.svelte.d.ts",
-      "svelte": "./dist/lists/TaskItem.svelte"
-    },
-    "./TaskList.svelte": {
-      "types": "./dist/lists/TaskList.svelte.d.ts",
-      "svelte": "./dist/lists/TaskList.svelte"
     },
     "./Youtube.svelte": {
       "types": "./dist/media/Youtube.svelte.d.ts",
@@ -380,6 +408,14 @@
     "./ToggleHeaderRow.svelte": {
       "types": "./dist/table/ToggleHeaderRow.svelte.d.ts",
       "svelte": "./dist/table/ToggleHeaderRow.svelte"
+    },
+    "./TaskItem.svelte": {
+      "types": "./dist/task/TaskItem.svelte.d.ts",
+      "svelte": "./dist/task/TaskItem.svelte"
+    },
+    "./TaskList.svelte": {
+      "types": "./dist/task/TaskList.svelte.d.ts",
+      "svelte": "./dist/task/TaskList.svelte"
     },
     "./UndoRedo.svelte": {
       "types": "./dist/undo-redo/UndoRedo.svelte.d.ts",
