@@ -10,4 +10,4 @@ export { default as Videos } from './Videos.svelte';
 export { default as DefaultTextEditor } from './DefaultTextEditor.svelte';
 export { default as UndoRedo } from './UndoRedo.svelte';
 
-export { default as CustomTextEditor } from './CustomTextEditor.svelte'
+export { default as CustomTextEditor } from './CustomTextEditor.svelte';

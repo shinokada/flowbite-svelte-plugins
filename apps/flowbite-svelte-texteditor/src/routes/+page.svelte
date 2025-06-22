@@ -40,5 +40,3 @@
 
 <Heading tag="h3" class="my-4">UndoRedo</Heading>
 <Examples.UndoRedo />
-
-
