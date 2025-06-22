@@ -8,6 +8,12 @@
 
 <Heading tag="h2" class="my-4">New</Heading>
 
+<Heading tag="h3" class="my-4">Images</Heading>
+<Examples.Images />
+
+<Heading tag="h3" class="my-4">Layouts</Heading>
+<Examples.Layouts />
+
 <Heading tag="h3" class="my-4">Lists</Heading>
 <Examples.Lists />
 
@@ -28,8 +34,8 @@
 <Heading tag="h3" class="my-4">Videos</Heading>
 <Examples.Videos />
 
-<Heading tag="h3" class="my-4">Images</Heading>
-<Examples.Images />
+<Heading tag="h3" class="my-4">Image</Heading>
+<Examples.Image />
 
 <Heading tag="h3" class="my-4">Layout</Heading>
 <Examples.Layout />

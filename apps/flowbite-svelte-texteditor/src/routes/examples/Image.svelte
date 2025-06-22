@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { GroupImages, TextEditor } from '$lib';
+  import { GroupImage, TextEditor } from '$lib';
   import type { Editor } from '@tiptap/core';
   import { Button } from 'flowbite-svelte';
 
@@ -19,7 +19,7 @@
 </script>
 
 <TextEditor bind:element={editorElement} bind:editor={editorInstance} {content}>
-  <GroupImages editor={editorInstance} />
+  <GroupImage editor={editorInstance} />
 </TextEditor>
 
 <div class="mt-4">

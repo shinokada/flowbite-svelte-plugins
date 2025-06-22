@@ -9,6 +9,29 @@ export { default as ContentWrapper } from './wrappers/ContentWrapper.svelte';
 export { default as ToolbarWrapper } from './wrappers/ToolbarWrapper.svelte';
 export { default as ToolbarRowWrapper } from './wrappers/ToolbarRowWrapper.svelte';
 
+// new buttons and group
+export { default as AlignmentButtons } from './alignments/AlignmentButtons.svelte';
+export { default as GroupAlignments } from './groups/GroupAlignments.svelte';
+export { default as FontButtons } from './font/FontButtons.svelte';
+export { default as GroupFonts } from './groups/GroupFonts.svelte';
+export { default as FormatButtons } from './format/FormatButtons.svelte';
+export { default as GroupFormats } from './groups/GroupFormats.svelte';
+export { default as ImageButtons } from './image/ImageButtons.svelte';
+export { default as GroupImages } from './groups/GroupImages.svelte';
+export { default as LayoutButtons } from './layout/LayoutButtons.svelte';
+export { default as GroupLayouts } from './groups/GroupLayouts.svelte';
+export { default as ListButtons } from './lists/ListButtons.svelte';
+export { default as GroupLists } from './groups/GroupLists.svelte';
+// new media
+
+// new tables
+
+// new tasks
+
+// new videos
+
+
+
 // groups
 export { default as GroupAlignment } from './groups/GroupAlignment.svelte';
 export { default as GroupFormat } from './groups/GroupFormat.svelte';
@@ -21,16 +44,6 @@ export { default as GroupTable2 } from './groups/GroupTable2.svelte';
 export { default as GroupTask } from './groups/GroupTask.svelte';
 export { default as GroupVideo } from './groups/GroupVideo.svelte';
 export { default as GroupUndoRedo } from './groups/GroupUndoRedo.svelte';
-
-// new buttons and group
-export { default as AlignmentButtons } from './alignments/AlignmentButtons.svelte';
-export { default as GroupAlignments } from './groups/GroupAlignments.svelte';
-export { default as FormatButtons } from './format/FormatButtons.svelte';
-export { default as GroupFormats } from './groups/GroupFormats.svelte';
-export { default as FontButtons } from './font/FontButtons.svelte';
-export { default as GroupFonts } from './groups/GroupFonts.svelte';
-export { default as ListButtons } from './lists/ListButtons.svelte';
-export { default as GroupLists } from './groups/GroupLists.svelte';
 
 // buttons
 export { default as AlignmentButton } from './alignments/AlignmentButton.svelte';

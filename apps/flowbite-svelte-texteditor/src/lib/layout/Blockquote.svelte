@@ -1,5 +1,5 @@
 <script lang="ts">
-  import LayoutButton from './LayoutButton.svelte';
+  import {LayoutButton} from '$lib';
   import { type EditorBasicProps, generateButtonId } from '$lib';
 
   let { editor, class: className }: EditorBasicProps = $props();

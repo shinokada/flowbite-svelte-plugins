@@ -17,8 +17,20 @@ export interface FontButtons extends EditorBasicProps {
   colorValue?: string;
 }
 
+export interface ImageButtons extends EditorBasicProps {
+  format?: 'default' | 'advanced';
+  imageUrl?: string;
+  imageAlt?: string;
+  imageTitle?: string;
+  onAdvancedClick?: () => void;
+}
+
 export interface ListButtons extends EditorBasicProps {
   format: 'bullet' | 'ordered';
+}
+
+export interface LayoutButtons extends EditorBasicProps {
+  format: 'blockquote' | 'codeblock' | 'hr'
 }
 
 //  defaults
