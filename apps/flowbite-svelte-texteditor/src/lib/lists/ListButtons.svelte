@@ -7,19 +7,16 @@
 
   const defaults = {
     bullet: { tooltip: 'Toggle list', aria: 'Toggle list' },
-    ordered: { tooltip: 'Create ordered list', aria: 'Create ordered list' },
+    ordered: { tooltip: 'Create ordered list', aria: 'Create ordered list' }
   };
 
   const finalTooltipText = tooltipText ?? defaults[format].tooltip;
   const finalAriaLabel = ariaLabel ?? defaults[format].aria;
   const uniqueId = id ?? generateButtonId(`List${format.charAt(0).toUpperCase() + format.slice(1)}`);
 
-  
   const svgPaths = {
-    bullet:
-      'M9 8h10M9 12h10M9 16h10M4.99 8H5m-.02 4h.01m0 4H5',
-    ordered:
-      'M12 6h8m-8 6h8m-8 6h8M4 16a2 2 0 1 1 3.321 1.5L4 20h5M4 5l2-1v6m-2 0h4'
+    bullet: 'M9 8h10M9 12h10M9 16h10M4.99 8H5m-.02 4h.01m0 4H5',
+    ordered: 'M12 6h8m-8 6h8m-8 6h8M4 16a2 2 0 1 1 3.321 1.5L4 20h5M4 5l2-1v6m-2 0h4'
   };
 
   function handleClick() {
@@ -47,3 +44,17 @@
 </button>
 
 <Tooltip>{finalTooltipText}</Tooltip>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[ListButtons](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L20)
+## Props
+@prop editor
+@prop format
+@prop tooltipText
+@prop ariaLabel
+@prop id
+@prop class: className
+-->

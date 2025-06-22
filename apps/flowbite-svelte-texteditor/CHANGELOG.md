@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.9.0
+
+### Minor Changes
+
+- feat: add Lists
+
 ## 0.8.0
 
 ### Minor Changes

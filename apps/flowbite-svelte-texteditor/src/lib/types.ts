@@ -18,7 +18,7 @@ export interface FontButtons extends EditorBasicProps {
 }
 
 export interface ListButtons extends EditorBasicProps {
-  format: 'bullet' | 'ordered' ;
+  format: 'bullet' | 'ordered';
 }
 
 //  defaults

@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -265,6 +265,10 @@
       "types": "./dist/groups/GroupList.svelte.d.ts",
       "svelte": "./dist/groups/GroupList.svelte"
     },
+    "./GroupLists.svelte": {
+      "types": "./dist/groups/GroupLists.svelte.d.ts",
+      "svelte": "./dist/groups/GroupLists.svelte"
+    },
     "./GroupTable.svelte": {
       "types": "./dist/groups/GroupTable.svelte.d.ts",
       "svelte": "./dist/groups/GroupTable.svelte"
@@ -313,21 +317,9 @@
       "types": "./dist/layout/LayoutButton.svelte.d.ts",
       "svelte": "./dist/layout/LayoutButton.svelte"
     },
-    "./BulletList.svelte": {
-      "types": "./dist/lists/BulletList.svelte.d.ts",
-      "svelte": "./dist/lists/BulletList.svelte"
-    },
-    "./ListButton.svelte": {
-      "types": "./dist/lists/ListButton.svelte.d.ts",
-      "svelte": "./dist/lists/ListButton.svelte"
-    },
-    "./ListItem.svelte": {
-      "types": "./dist/lists/ListItem.svelte.d.ts",
-      "svelte": "./dist/lists/ListItem.svelte"
-    },
-    "./OrderedList.svelte": {
-      "types": "./dist/lists/OrderedList.svelte.d.ts",
-      "svelte": "./dist/lists/OrderedList.svelte"
+    "./ListButtons.svelte": {
+      "types": "./dist/lists/ListButtons.svelte.d.ts",
+      "svelte": "./dist/lists/ListButtons.svelte"
     },
     "./Youtube.svelte": {
       "types": "./dist/media/Youtube.svelte.d.ts",
