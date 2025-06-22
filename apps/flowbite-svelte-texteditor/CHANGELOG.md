@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.6.0
+
+### Minor Changes
+
+- feat: add GroupLink
+
 ## 0.5.2
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -228,6 +228,10 @@
     "./GroupLayout.svelte": {
       "types": "./dist/groups/GroupLayout.svelte.d.ts",
       "svelte": "./dist/groups/GroupLayout.svelte"
+    },
+    "./GroupLink.svelte": {
+      "types": "./dist/groups/GroupLink.svelte.d.ts",
+      "svelte": "./dist/groups/GroupLink.svelte"
     },
     "./GroupMedia.svelte": {
       "types": "./dist/groups/GroupMedia.svelte.d.ts",

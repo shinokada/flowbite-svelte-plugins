@@ -8,3 +8,13 @@
   <Link {editor} />
   <RemoveLink {editor} />
 {/if}
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[GroupEditorBasicProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L64)
+## Props
+@prop editor
+@prop showToolbar = true
+-->

@@ -1,6 +1,7 @@
 export * from './types';
 export * from './utils';
 export { default as TextEditor } from './TextEditor.svelte';
+export { default as Divider } from './Divider.svelte';
 
 // wrappers
 export { default as EditorWrapper } from './wrappers/EditorWrapper.svelte';
@@ -12,11 +13,12 @@ export { default as ToolbarRowWrapper } from './wrappers/ToolbarRowWrapper.svelt
 export { default as GroupAlignment } from './groups/GroupAlignment.svelte';
 export { default as GroupFormat } from './groups/GroupFormat.svelte';
 export { default as GroupLink } from './groups/GroupLink.svelte';
-export { default as GroupMedia } from './groups/GroupMedia.svelte';
+export { default as GroupImage } from './groups/GroupImage.svelte';
 export { default as GroupUndoRedo } from './groups/GroupUndoRedo.svelte';
 export { default as GroupLayout } from './groups/GroupLayout.svelte';
 export { default as GroupTable } from './groups/GroupTable.svelte';
 export { default as GroupTable2 } from './groups/GroupTable2.svelte';
+export { default as GroupVideo } from './groups/GroupVideo.svelte'
 
 // buttons
 export { default as AlignmentButton } from './alignments/AlignmentButton.svelte';
@@ -24,6 +26,7 @@ export { default as FormatButton } from './format/FormatButton.svelte';
 export { default as ImageButton } from './image/ImageButton.svelte';
 export { default as LayoutButton } from './layout/LayoutButton.svelte';
 export { default as TableButton } from './table/TableButton.svelte';
+export { default as VideoButton } from './video/VideoButton.svelte';
 
 // alignment
 export { default as AlignCenter } from './alignments/AlignCenter.svelte';
@@ -78,4 +81,6 @@ export { default as ToggleHeaderColumn } from './table/ToggleHeaderColumn.svelte
 export { default as ToggleHeaderRow } from './table/ToggleHeaderRow.svelte';
 export { default as ToggleHeaderCell } from './table/ToggleHeaderCell.svelte';
 
-export { default as Divider } from './Divider.svelte';
+// video
+export { default as Video } from './video/Video.svelte';
+export { default as VideoAdvanced } from './video/VideoAdvanced.svelte';

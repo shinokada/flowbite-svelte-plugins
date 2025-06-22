@@ -1,5 +1,6 @@
 import type { Editor } from '@tiptap/core';
 import { type ClassValue } from 'clsx';
+import type { Snippet } from 'svelte';
 import type { HTMLButtonAttributes } from 'svelte/elements';
 
 export interface EditorProviderProps {
@@ -30,6 +31,11 @@ export interface FormatButtonProps extends EditorButtonProps {
 }
 
 export interface ImageButtonProps extends EditorButtonProps {
+  format: 'default' | 'advanced';
+  onAdvancedClick?: () => void;
+}
+
+export interface VideoButtonProps extends EditorButtonProps {
   format: 'default' | 'advanced';
   onAdvancedClick?: () => void;
 }
@@ -78,4 +84,22 @@ export interface UndoRedoProps extends HTMLButtonAttributes {
 export interface GroupFormatProps {
   editor: Editor | null;
   showToolbar?: boolean;
+}
+
+// video
+export interface VideoProps extends EditorBasicProps {
+  tooltipText?: string;
+  ariaLabel?: string;
+  id?: string;
+}
+
+// videoadvanced
+export interface VideoAdvancedProps extends VideoProps {
+  videoUrl?: string;
+  videoWidth?: number | undefined;
+  videoHeight?: number | undefined;
+  modalTitle?: string;
+  modalSize?: "xs" | "sm" | "md" | "lg" | "xl" | undefined;
+  formId?: string;
+  modalChildren?: Snippet;
 }
