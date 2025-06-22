@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.10.1
+
+### Patch Changes
+
+- fix: index.ts ExportButtons
+
 ## 0.10.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {

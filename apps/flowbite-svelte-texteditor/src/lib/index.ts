@@ -13,7 +13,7 @@ export { default as ToolbarRowWrapper } from './wrappers/ToolbarRowWrapper.svelt
 // alignments
 export { default as AlignmentButtons } from './alignments/AlignmentButtons.svelte';
 export { default as GroupAlignments } from './groups/GroupAlignments.svelte';
-// export
+// Exportbuttons
 export { default as ExportButtons } from './export/ExportButtons.svelte';
 export { default as GroupExports } from './groups/GroupExports.svelte';
 // font
