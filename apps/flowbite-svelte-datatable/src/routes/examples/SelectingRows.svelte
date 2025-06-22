@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Table from '$lib/Table.svelte';
-  import items from '../data/sample.json';
+  import {Table} from '$lib';
+  import items from './data/sample.json';
 
   const selectRowsOptions = {
     rowRender: (row: any, tr: any, _index: number) => {

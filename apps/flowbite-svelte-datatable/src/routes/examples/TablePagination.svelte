@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Table } from '$lib';
-  import aimodels from '../data/aimodels.json';
+  import aimodels from './data/aimodels.json';
   import type { DataTableOptions } from 'simple-datatables';
 
   const paginationOptions: DataTableOptions = {

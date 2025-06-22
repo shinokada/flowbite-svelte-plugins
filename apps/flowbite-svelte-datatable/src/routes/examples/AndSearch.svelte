@@ -1,7 +1,31 @@
 <script lang="ts">
   import { Table } from '$lib';
-  import andsearch from '../data/andsearch.json';
+  import andsearch from './data/andsearch.json';
   import type { DataTableOptions } from 'simple-datatables';
+
+  // Define the types for the template function parameters
+  interface TemplateOptions {
+    classes: {
+      top: string;
+      dropdown: string;
+      selector: string;
+      search: string;
+      input: string;
+      container: string;
+      bottom: string;
+      info: string;
+      pagination: string;
+    };
+    labels: {
+      perPage: string;
+      searchTitle: string;
+    };
+    scrollY: string;
+  }
+
+  interface TemplateDom {
+    id?: string;
+  }
 
   const andsearchOptions: DataTableOptions = {
     perPageSelect: [5, 10, 15, ['All', -1]],
@@ -25,7 +49,7 @@
         headerClass: 'red'
       }
     ],
-    template: (options, dom) => `<div class='${options.classes.top}'>
+    template: (options: TemplateOptions, dom: TemplateDom) => `<div class='${options.classes.top}'>
         <div class='${options.classes.dropdown}'>
             <label>
                 <select class='${options.classes.selector}'></select> ${options.labels.perPage}

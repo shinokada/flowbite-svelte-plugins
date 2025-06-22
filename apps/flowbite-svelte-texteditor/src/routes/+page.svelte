@@ -15,6 +15,9 @@
 <Heading tag="h2" class="my-4">Layout</Heading>
 <Examples.Layout />
 
+<Heading tag="h2" class="my-4">Links</Heading>
+<Examples.Links />
+
 <Heading tag="h2" class="my-4">Tables</Heading>
 <Examples.Tables />
 

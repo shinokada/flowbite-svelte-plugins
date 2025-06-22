@@ -2,7 +2,7 @@
   import { onMount, setContext } from 'svelte';
   import clsx from 'clsx';
   import { type DataTableProps, TableHead, TableBody } from '$lib';
-  import type { DataTable, DataTableOptions } from 'simple-datatables';
+  import type { DataTable, DataTableOptions, SelectableDataRow } from 'simple-datatables';
 
   let {
     children,
@@ -57,20 +57,20 @@
           if (selectable) {
             if (dataTableInstance.data && dataTableInstance.data.data) {
               dataTableInstance.data.data.forEach((data: any) => {
-                data.selected = false;
+                (data as SelectableDataRow).selected = false;
               });
             }
 
             dataTableInstance.on('datatable.selectrow', (rowIndex: number, event: Event) => {
               event.preventDefault();
               if (dataTableInstance?.data?.data) {
-                const row = dataTableInstance.data.data[rowIndex];
+                const row = dataTableInstance.data.data[rowIndex] as SelectableDataRow;
                 if (row.selected) {
                   row.selected = false;
                 } else {
                   if (!multiSelect) {
                     dataTableInstance.data.data.forEach((data: any) => {
-                      data.selected = false;
+                      (data as SelectableDataRow).selected = false;
                     });
                   }
                   row.selected = true;

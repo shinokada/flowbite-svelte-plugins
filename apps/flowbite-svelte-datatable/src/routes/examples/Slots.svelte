@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Table } from '$lib';
   import { P, Heading } from 'flowbite-svelte';
-  import items from '../data/sample.json';
+  import items from './data/sample.json';
 </script>
 
 <Table {items}>

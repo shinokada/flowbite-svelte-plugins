@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Table } from '$lib';
-  import items from '../data/stock.json';
+  import items from './data/stock.json';
   import type { DataTableOptions } from 'simple-datatables';
 
   const dataTableOptions: DataTableOptions = {

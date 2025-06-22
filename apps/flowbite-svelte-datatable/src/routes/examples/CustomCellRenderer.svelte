@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Table from '$lib/Table.svelte';
+  import {Table} from '$lib';
   import type { DataTableOptions } from 'simple-datatables';
 
   // Define types for the render function parameters
@@ -124,7 +124,10 @@
   } as const;
 
   const cellRendererOptions: DataTableOptions = {
-    data,
+    data: {
+        headings: [...data.headings], 
+        data: data.data.map(row => [...row]) 
+    },
     rowRender: (row: TableRow, tr: TableRow, _index: number) => {
       if ([true, false].includes(row.cells[3].data)) {
         if (!tr.attributes) {

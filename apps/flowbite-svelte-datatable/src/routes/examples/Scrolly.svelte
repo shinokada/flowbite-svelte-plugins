@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Table } from '$lib';
-  import products from '../data/products.json';
+  import products from './data/products.json';
   import type { DataTableOptions } from 'simple-datatables';
 
   const scrollyOptions: DataTableOptions = {

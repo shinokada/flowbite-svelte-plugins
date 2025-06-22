@@ -11,6 +11,7 @@ export { default as ToolbarRowWrapper } from './wrappers/ToolbarRowWrapper.svelt
 // groups
 export { default as GroupAlignment } from './groups/GroupAlignment.svelte';
 export { default as GroupFormat } from './groups/GroupFormat.svelte';
+export { default as GroupLink } from './groups/GroupLink.svelte';
 export { default as GroupMedia } from './groups/GroupMedia.svelte';
 export { default as GroupUndoRedo } from './groups/GroupUndoRedo.svelte';
 export { default as GroupLayout } from './groups/GroupLayout.svelte';
