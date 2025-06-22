@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Tooltip } from 'flowbite-svelte';
   import { cn, generateButtonId } from '$lib';
-  import { type FomatButtons } from '$lib/types';
-  let { editor, format, tooltipText, ariaLabel, id, class: className }: FomatButtons = $props();
+  import { type FomatButtonsProps } from '$lib/types';
+  let { editor, format, tooltipText, ariaLabel, id, class: className }: FomatButtonsProps = $props();
 
   const defaults = {
     bold: { tooltip: 'Toggle bold', aria: 'Bold' },
@@ -92,7 +92,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
 ## Type
-[FomatButtons](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L11)
+[FomatButtonsProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L11)
 ## Props
 @prop editor
 @prop format

@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.9.5
+
+### Patch Changes
+
+- fix: update type names
+
 ## 0.9.4
 
 ### Patch Changes

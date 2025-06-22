@@ -1,9 +1,9 @@
 <script lang="ts">
   import { Tooltip } from 'flowbite-svelte';
   import { cn, generateButtonId } from '$lib';
-  import { type ListButtons } from '$lib/types';
+  import { type ListButtonsProps } from '$lib/types';
 
-  let { editor, format, tooltipText, ariaLabel, id, class: className }: ListButtons = $props();
+  let { editor, format, tooltipText, ariaLabel, id, class: className }: ListButtonsProps = $props();
 
   const defaults = {
     bullet: { tooltip: 'Toggle list', aria: 'Toggle list' },
@@ -49,7 +49,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
 ## Type
-[ListButtons](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L28)
+[ListButtonsProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L28)
 ## Props
 @prop editor
 @prop format

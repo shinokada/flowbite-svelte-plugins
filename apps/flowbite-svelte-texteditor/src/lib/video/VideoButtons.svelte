@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Tooltip, Modal, Label, Input, Button } from 'flowbite-svelte';
   import { cn, generateButtonId, generateUniqueId } from '$lib';
-  import { type VideoButtons } from '$lib/types';
+  import { type VideoButtonsProps } from '$lib/types';
 
   let {
     modalChildren,
@@ -19,7 +19,7 @@
     class: className,
     onAdvancedClick,
     ...restProps
-  }: VideoButtons = $props();
+  }: VideoButtonsProps = $props();
 
   let defaultModal = $state(false);
 
@@ -137,7 +137,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
 ## Type
-[VideoButtons](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L58)
+[VideoButtonsProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L58)
 ## Props
 @prop modalChildren
 @prop editor

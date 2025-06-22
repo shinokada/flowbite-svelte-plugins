@@ -1,7 +1,7 @@
 {
   "name": "LayoutButtons",
   "type": {
-    "name": "LayoutButtons",
+    "name": "LayoutButtonsProps",
     "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L32"
   },
   "props": [

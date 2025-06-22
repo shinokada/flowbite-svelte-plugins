@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Tooltip, Modal, Label, Input, Button } from 'flowbite-svelte';
   import { cn, generateButtonId } from '$lib';
-  import { type ImageButtons } from '$lib/types';
+  import { type ImageButtonsProps } from '$lib/types';
 
   let {
     editor,
@@ -15,7 +15,7 @@
     onAdvancedClick,
     class: className,
     ...restProps
-  }: ImageButtons = $props();
+  }: ImageButtonsProps = $props();
 
   let defaultModal = $state(false);
 
@@ -119,7 +119,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
 ## Type
-[ImageButtons](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L20)
+[ImageButtonsProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L20)
 ## Props
 @prop editor
 @prop format = 'default'

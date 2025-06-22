@@ -1,9 +1,9 @@
 <script lang="ts">
   import { Tooltip, Dropdown, DropdownItem } from 'flowbite-svelte';
   import { cn, generateButtonId } from '$lib';
-  import { type FontButtons } from '$lib/types';
+  import { type FontButtonsProps } from '$lib/types';
 
-  let { editor, format, tooltipText, ariaLabel, colorValue = '#e66465', id, class: className }: FontButtons = $props();
+  let { editor, format, tooltipText, ariaLabel, colorValue = '#e66465', id, class: className }: FontButtonsProps = $props();
 
   let isOpen = $state(false);
 
@@ -190,7 +190,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
 ## Type
-[FontButtons](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L15)
+[FontButtonsProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L15)
 ## Props
 @prop editor
 @prop format

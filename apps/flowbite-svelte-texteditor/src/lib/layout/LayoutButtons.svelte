@@ -1,9 +1,9 @@
 <script lang="ts">
   import { Tooltip } from 'flowbite-svelte';
   import { cn, generateButtonId } from '$lib';
-  import { type LayoutButtons } from '$lib/types';
+  import { type LayoutButtonsProps } from '$lib/types';
 
-  let { editor, format, tooltipText, ariaLabel, id, class: className }: LayoutButtons = $props();
+  let { editor, format, tooltipText, ariaLabel, id, class: className }: LayoutButtonsProps = $props();
 
   const defaults = {
     blockquote: { tooltip: 'Toggle blockquote', aria: 'Blockquote' },
@@ -60,7 +60,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
 ## Type
-[LayoutButtons](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L32)
+[LayoutButtonsProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L32)
 ## Props
 @prop editor
 @prop format
