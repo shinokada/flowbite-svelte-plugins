@@ -15,7 +15,7 @@
     subscript: { tooltip: 'Toggle subscript', aria: 'Subscript' },
     superscript: { tooltip: 'Toggle superscript', aria: 'Superscript' },
     underline: { tooltip: 'Toggle underline', aria: 'Underline' },
-    br: { tooltip: 'Set <br>', aria: '<br>'}
+    br: { tooltip: 'Set <br>', aria: '<br>' }
   };
 
   const finalTooltipText = tooltipText ?? defaults[format].tooltip;

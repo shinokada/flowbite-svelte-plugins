@@ -10,7 +10,7 @@
   import DetailsSummary from '@tiptap/extension-details-summary';
   import Focus from '@tiptap/extension-focus';
   import FontFamily from '@tiptap/extension-font-family';
-  import HardBreak from '@tiptap/extension-hard-break'
+  import HardBreak from '@tiptap/extension-hard-break';
   import Highlight from '@tiptap/extension-highlight';
   import Link from '@tiptap/extension-link';
   import Image from '@tiptap/extension-image';

@@ -16,6 +16,7 @@
     ["strike", "true"],
     ["subscript", "true"],
     ["superscript", "true"],
-    ["underline", "true"]
+    ["underline", "true"],
+    ["br", "true"]
   ]
 }

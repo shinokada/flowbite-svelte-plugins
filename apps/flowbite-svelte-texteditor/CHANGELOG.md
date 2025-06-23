@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.12.2
+
+### Patch Changes
+
+- feat: editor: add br, line break to format
+
 ## 0.12.1
 
 ### Patch Changes

@@ -58,4 +58,5 @@
 @prop subscript = true
 @prop superscript = true
 @prop underline = true
+@prop br = true
 -->

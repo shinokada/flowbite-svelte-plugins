@@ -2,7 +2,7 @@
   "name": "ListButton",
   "type": {
     "name": "ListButtonProps",
-    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L116"
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L117"
   },
   "props": [
     ["editor", ""],
