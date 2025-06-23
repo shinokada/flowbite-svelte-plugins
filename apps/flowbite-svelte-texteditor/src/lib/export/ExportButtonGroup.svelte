@@ -1,19 +1,25 @@
 <script lang="ts">
-  import { ExportButton, type GroupEditorBasicProps } from '$lib';
-  let { editor, showToolbar = true }: GroupEditorBasicProps = $props();
+  import { ExportButton, type ExportButtonGroupProps } from '$lib';
+  let { editor, showToolbar = true, json = true, html = true }: ExportButtonGroupProps = $props();
 </script>
 
 {#if editor && showToolbar}
-  <ExportButton {editor} />
-  <ExportButton {editor} format="html" />
+  {#if json}
+    <ExportButton {editor} />
+  {/if}
+  {#if html}
+    <ExportButton {editor} format="html" />
+  {/if}
 {/if}
 
 <!--
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
 ## Type
-[GroupEditorBasicProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L90)
+[ExportButtonGroupProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L117)
 ## Props
 @prop editor
 @prop showToolbar = true
+@prop json = true
+@prop html = true
 -->

@@ -3,12 +3,12 @@
   import { cn, generateButtonId } from '$lib';
   import { type ImageButtonsProps } from '$lib/types';
 
-  let { editor, format = 'default', tooltipText, ariaLabel, id, imageUrl = 'https://placehold.co/600x400', imageAlt, imageTitle, onAdvancedClick, class: className, ...restProps }: ImageButtonsProps = $props();
+  let { editor, format = 'basic', tooltipText, ariaLabel, id, imageUrl = 'https://placehold.co/600x400', imageAlt, imageTitle, onAdvancedClick, class: className, ...restProps }: ImageButtonsProps = $props();
 
   let defaultModal = $state(false);
 
   const defaults = {
-    default: { tooltip: 'Add image', aria: 'Add image' },
+    basic: { tooltip: 'Add image', aria: 'Add image' },
     advanced: { tooltip: 'Image with settings', aria: 'Add image with settings' }
   };
 
@@ -18,7 +18,7 @@
 
   function handleClick() {
     switch (format) {
-      case 'default':
+      case 'basic':
         const url = window.prompt('Enter image URL:', 'https://placehold.co/600x400');
         if (url) {
           editor?.chain().focus().setImage({ src: url }).run();
@@ -31,7 +31,7 @@
   }
 
   const svgPaths = {
-    default: [
+    basic: [
       'M13 10a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H14a1 1 0 0 1-1-1Z',
       'M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12c0 .556-.227 1.06-.593 1.422A.999.999 0 0 1 20.5 20H4a2.002 2.002 0 0 1-2-2V6Zm6.892 12 3.833-5.356-3.99-4.322a1 1 0 0 0-1.549.097L4 12.879V6h16v9.95l-3.257-3.619a1 1 0 0 0-1.557.088L11.2 18H8.892Z'
     ],
@@ -101,10 +101,10 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
 ## Type
-[ImageButtonsProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L23)
+[ImageButtonsProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L25)
 ## Props
 @prop editor
-@prop format = 'default'
+@prop format = 'basic'
 @prop tooltipText
 @prop ariaLabel
 @prop id

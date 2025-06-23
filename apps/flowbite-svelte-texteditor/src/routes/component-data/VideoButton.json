@@ -2,7 +2,7 @@
   "name": "VideoButton",
   "type": {
     "name": "VideoButtonsProps",
-    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L61"
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L63"
   },
   "props": [
     ["modalChildren", ""],

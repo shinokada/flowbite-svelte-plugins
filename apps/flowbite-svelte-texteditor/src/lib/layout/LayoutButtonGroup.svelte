@@ -1,21 +1,30 @@
 <script lang="ts">
-  import { LayoutButton, type GroupFormatProps } from '$lib';
+  import { LayoutButton, type LayoutButtonGroupProps } from '$lib';
 
-  let { editor, showToolbar = true }: GroupFormatProps = $props();
+  let { editor, showToolbar = true, blockquote = true, codeblock = true, hr = true }: LayoutButtonGroupProps = $props();
 </script>
 
 {#if editor && showToolbar}
-  <LayoutButton {editor} format="blockquote" />
-  <LayoutButton {editor} format="codeblock" />
-  <LayoutButton {editor} format="hr" />
+  {#if blockquote}
+    <LayoutButton {editor} format="blockquote" />
+  {/if}
+  {#if codeblock}
+    <LayoutButton {editor} format="codeblock" />
+  {/if}
+  {#if hr}
+    <LayoutButton {editor} format="hr" />
+  {/if}
 {/if}
 
 <!--
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
 ## Type
-[GroupFormatProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L104)
+[LayoutButtonGroupProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L146)
 ## Props
 @prop editor
 @prop showToolbar = true
+@prop blockquote = true
+@prop codeblock = true
+@prop hr = true
 -->

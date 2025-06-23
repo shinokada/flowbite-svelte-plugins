@@ -1,28 +1,54 @@
 <script lang="ts">
-  import { type GroupEditorBasicProps, TableButton, Divider } from '$lib';
+  import { type TableButtonGroupProps, TableButton, Divider } from '$lib';
 
-  let { editor, showToolbar = true }: GroupEditorBasicProps = $props();
+  let { editor, showToolbar = true, table = true, deleteTable = true, addColumnBefore = true, addColumnAfter = true, deleteColumn = true, addRowBefore = true, addRowAfter = true, deleteRow = true }: TableButtonGroupProps = $props();
 </script>
 
 {#if editor && showToolbar}
-  <TableButton {editor} />
-  <TableButton {editor} action="deleteTable" />
+  {#if table}
+    <TableButton {editor} />
+  {/if}
+  {#if deleteTable}
+    <TableButton {editor} action="deleteTable" />
+  {/if}
+
   <Divider />
-  <TableButton {editor} action="addColumnBefore" />
-  <TableButton {editor} action="addColumnAfter" />
-  <TableButton {editor} action="deleteColumn" />
+  {#if addColumnBefore}
+    <TableButton {editor} action="addColumnBefore" />
+  {/if}
+  {#if addColumnAfter}
+    <TableButton {editor} action="addColumnAfter" />
+  {/if}
+  {#if deleteColumn}
+    <TableButton {editor} action="deleteColumn" />
+  {/if}
+
   <Divider />
-  <TableButton {editor} action="addRowBefore" />
-  <TableButton {editor} action="addRowAfter" />
-  <TableButton {editor} action="deleteRow" />
+  {#if addRowBefore}
+    <TableButton {editor} action="addRowBefore" />
+  {/if}
+  {#if addRowAfter}
+    <TableButton {editor} action="addRowAfter" />
+  {/if}
+  {#if deleteRow}
+    <TableButton {editor} action="deleteRow" />
+  {/if}
 {/if}
 
 <!--
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
 ## Type
-[GroupEditorBasicProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L90)
+[TableButtonGroupProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L162)
 ## Props
 @prop editor
 @prop showToolbar = true
+@prop table = true
+@prop deleteTable = true
+@prop addColumnBefore = true
+@prop addColumnAfter = true
+@prop deleteColumn = true
+@prop addRowBefore = true
+@prop addRowAfter = true
+@prop deleteRow = true
 -->

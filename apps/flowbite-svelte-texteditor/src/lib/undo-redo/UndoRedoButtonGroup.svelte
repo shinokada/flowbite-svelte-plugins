@@ -1,17 +1,27 @@
 <script lang="ts">
   import { Editor } from '@tiptap/core';
-  import UndoRedo from '../undo-redo/UndoRedo.svelte';
+  import { type UndoRedoButtonGroupProps, UndoRedo } from '$lib';
 
-  let {
-    editor,
-    showToolbar = true
-  }: {
-    editor: Editor | null;
-    showToolbar?: boolean;
-  } = $props();
+  let { editor, showToolbar = true, undo = true, redo = true }: UndoRedoButtonGroupProps = $props();
 </script>
 
 {#if editor && showToolbar}
-  <UndoRedo {editor} action="undo" />
-  <UndoRedo {editor} action="redo" />
+  {#if undo}
+    <UndoRedo {editor} action="undo" />
+  {/if}
+  {#if redo}
+    <UndoRedo {editor} action="redo" />
+  {/if}
 {/if}
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[UndoRedoButtonGroupProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L182)
+## Props
+@prop editor
+@prop showToolbar = true
+@prop undo = true
+@prop redo = true
+-->

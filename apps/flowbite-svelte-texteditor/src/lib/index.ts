@@ -21,6 +21,9 @@ export { default as FontButtonGroup } from './font/FontButtonGroup.svelte';
 // format
 export { default as FormatButton } from './format/FormatButton.svelte';
 export { default as FormatButtonGroup } from './format/FormatButtonGroup.svelte';
+// heading
+export { default as HeadingButton } from './heading/HeadingButton.svelte';
+export { default as HeadingButtonGroup } from './heading/HeadingButtonGroup.svelte';
 // image
 export { default as ImageButton } from './image/ImageButton.svelte';
 export { default as ImageButtonGroup } from './image/ImageButtonGroup.svelte';
@@ -33,6 +36,7 @@ export { default as ListButtonGroup } from './list/ListButtonGroup.svelte';
 // source
 export { default as SourceButton } from './source/SourceButton.svelte';
 export { default as HtmlCodeButton } from './source/HtmlCodeButton.svelte';
+export { default as SourceButtonGroup } from './source/SourceButtonGroup.svelte';
 // table
 export { default as TableButton } from './table/TableButton.svelte';
 export { default as TableButtonGroup1 } from './table/TableButtonGroup1.svelte';

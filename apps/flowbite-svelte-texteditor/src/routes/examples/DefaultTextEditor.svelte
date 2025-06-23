@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { AlignmentButtonGroup, FontButtonGroup, UndoRedoButtonGroup, FormatButtonGroup, LayoutButtonGroup, ImageButtonGroup, ListButtonGroup, VideoButtonGroup, TextEditor, ToolbarRowWrapper, Divider, SourceButton } from '$lib';
+  import { AlignmentButtonGroup, FontButtonGroup, UndoRedoButtonGroup, FormatButtonGroup, LayoutButtonGroup, ImageButtonGroup, ListButtonGroup, VideoButtonGroup, TextEditor, ToolbarRowWrapper, Divider, SourceButton, HeadingButtonGroup } from '$lib';
   import type { Editor } from '@tiptap/core';
   import { Button } from 'flowbite-svelte';
 
@@ -36,21 +36,22 @@
   <ToolbarRowWrapper>
     <FormatButtonGroup editor={editorInstance} />
     <Divider />
-    <FontButtonGroup editor={editorInstance} />
-    <Divider />
-    <AlignmentButtonGroup editor={editorInstance} />
+    <HeadingButtonGroup editor={editorInstance} />
   </ToolbarRowWrapper>
   <ToolbarRowWrapper top={false}>
     <UndoRedoButtonGroup editor={editorInstance} />
     <Divider />
     <LayoutButtonGroup editor={editorInstance} />
     <Divider />
-    <ListButtonGroup editor={editorInstance} />
-    <Divider />
     <ImageButtonGroup editor={editorInstance} />
     <Divider />
     <VideoButtonGroup editor={editorInstance} />
     <SourceButton editor={editorInstance} />
+  </ToolbarRowWrapper>
+  <ToolbarRowWrapper top={false}>
+    <ListButtonGroup editor={editorInstance} />
+    <Divider />
+    <AlignmentButtonGroup editor={editorInstance} />
   </ToolbarRowWrapper>
 </TextEditor>
 

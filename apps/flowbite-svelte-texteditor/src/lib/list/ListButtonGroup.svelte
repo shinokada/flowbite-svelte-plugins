@@ -1,20 +1,26 @@
 <script lang="ts">
-  import { ListButton, type GroupFormatProps } from '$lib';
+  import { ListButton, type ListButtonGroupProps } from '$lib';
 
-  let { editor, showToolbar = true }: GroupFormatProps = $props();
+  let { editor, showToolbar = true, bullet = true, ordered = true }: ListButtonGroupProps = $props();
 </script>
 
 {#if editor && showToolbar}
-  <ListButton {editor} format="bullet" />
-  <ListButton {editor} format="ordered" />
+  {#if bullet}
+    <ListButton {editor} format="bullet" />
+  {/if}
+  {#if ordered}
+    <ListButton {editor} format="ordered" />
+  {/if}
 {/if}
 
 <!--
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
 ## Type
-[GroupFormatProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L104)
+[ListButtonGroupProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L152)
 ## Props
 @prop editor
 @prop showToolbar = true
+@prop bullet = true
+@prop ordered = true
 -->

@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.11.1
+
+### Patch Changes
+
+- fix: Group components have new props for if statement to control buttons
+
 ## 0.11.0
 
 ### Minor Changes

@@ -20,8 +20,10 @@ export interface FontButtonsProps extends EditorBasicProps {
   colorValue?: string;
 }
 
+export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
+
 export interface ImageButtonsProps extends EditorBasicProps {
-  format?: 'default' | 'advanced';
+  format?: 'basic' | 'advanced';
   imageUrl?: string;
   imageAlt?: string;
   imageTitle?: string;
@@ -87,11 +89,6 @@ export interface EditorBasicProps extends Omit<HTMLButtonAttributes, 'class'> {
   id?: string;
 }
 
-export interface GroupEditorBasicProps {
-  editor: Editor | null;
-  showToolbar?: boolean;
-}
-
 // undoredo
 export interface UndoRedoProps extends HTMLButtonAttributes {
   editor: Editor | null;
@@ -101,7 +98,93 @@ export interface UndoRedoProps extends HTMLButtonAttributes {
 }
 
 // groups
+export interface GroupEditorBasicProps {
+  editor: Editor | null;
+  showToolbar?: boolean;
+}
 export interface GroupFormatProps {
   editor: Editor | null;
   showToolbar?: boolean;
+}
+
+export interface AlignmentButtonGroupProps extends GroupFormatProps {
+  left?: boolean;
+  right?: boolean;
+  center?: boolean;
+  justify?: boolean;
+}
+
+export interface ExportButtonGroupProps extends GroupFormatProps {
+  json?: boolean;
+  html?: boolean;
+}
+
+export interface FormatButtonGroupProps extends GroupFormatProps {
+  bold?: boolean;
+  code?: boolean;
+  highlight?: boolean;
+  italic?: boolean;
+  link?: boolean;
+  removeLink?: boolean;
+  strike?: boolean;
+  subscript?: boolean;
+  superscript?: boolean;
+  underline?: boolean;
+}
+
+export interface ImageButtonGroupProps extends GroupFormatProps {
+  basic?: boolean;
+  advanced?: boolean;
+}
+
+export interface HeadingButtonGroupProps extends GroupFormatProps {
+  fontFamily?: boolean;
+  fontSize?: boolean;
+  textColor?: boolean;
+}
+
+export interface LayoutButtonGroupProps extends GroupFormatProps {
+  blockquote?: boolean;
+  codeblock?: boolean;
+  hr?: boolean;
+}
+
+export interface ListButtonGroupProps extends GroupFormatProps {
+  bullet?: boolean;
+  ordered?: boolean;
+}
+
+export interface SourceButtonGroupProps extends GroupFormatProps {
+  source?: boolean;
+  html?: boolean;
+}
+
+export interface TableButtonGroupProps extends GroupFormatProps {
+  table?: boolean;
+  deleteTable?: boolean;
+  addColumnBefore?: boolean;
+  addColumnAfter?: boolean;
+  deleteColumn?: boolean;
+  addRowBefore?: boolean;
+  addRowAfter?: boolean;
+  deleteRow?: boolean;
+  mergeCells?: boolean;
+  splitCell?: boolean;
+  mergeOrSplit?: boolean;
+  toggleHeaderColumn?: boolean;
+  toggleHeaderRow?: boolean;
+  toggleHeaderCell?: boolean;
+  fixTables?: boolean;
+  goToPreviousCell?: boolean;
+  goToNextCell?: boolean;
+}
+
+export interface UndoRedoButtonGroupProps extends GroupFormatProps {
+  undo?: boolean;
+  redo?: boolean;
+}
+
+export interface VideoButtonGroupProps extends GroupFormatProps {
+  basic?: boolean;
+  advanced?: boolean;
 }

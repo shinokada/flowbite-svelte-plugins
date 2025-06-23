@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -180,6 +180,14 @@
       "types": "./dist/groups/GroupCustom.svelte.d.ts",
       "svelte": "./dist/groups/GroupCustom.svelte"
     },
+    "./HeadingButton.svelte": {
+      "types": "./dist/heading/HeadingButton.svelte.d.ts",
+      "svelte": "./dist/heading/HeadingButton.svelte"
+    },
+    "./HeadingButtonGroup.svelte": {
+      "types": "./dist/heading/HeadingButtonGroup.svelte.d.ts",
+      "svelte": "./dist/heading/HeadingButtonGroup.svelte"
+    },
     "./ImageButton.svelte": {
       "types": "./dist/image/ImageButton.svelte.d.ts",
       "svelte": "./dist/image/ImageButton.svelte"
@@ -211,6 +219,10 @@
     "./SourceButton.svelte": {
       "types": "./dist/source/SourceButton.svelte.d.ts",
       "svelte": "./dist/source/SourceButton.svelte"
+    },
+    "./SourceButtonGroup.svelte": {
+      "types": "./dist/source/SourceButtonGroup.svelte.d.ts",
+      "svelte": "./dist/source/SourceButtonGroup.svelte"
     },
     "./TableButton.svelte": {
       "types": "./dist/table/TableButton.svelte.d.ts",

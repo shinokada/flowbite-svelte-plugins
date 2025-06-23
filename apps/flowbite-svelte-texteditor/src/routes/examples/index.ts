@@ -4,6 +4,7 @@ export { default as Export } from './Export.svelte';
 export { default as Formats } from './Formats.svelte';
 export { default as Fonts } from './Fonts.svelte';
 export { default as CodeSources } from './CodeSources.svelte';
+export { default as Heading } from './Heading.svelte';
 export { default as Lists } from './Lists.svelte';
 export { default as Layouts } from './Layouts.svelte';
 export { default as Images } from './Images.svelte';

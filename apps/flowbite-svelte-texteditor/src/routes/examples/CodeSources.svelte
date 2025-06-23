@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { HtmlCodeButton, SourceButton, TextEditor, ToolbarRowWrapper } from '$lib';
+  import { SourceButtonGroup, TextEditor, ToolbarRowWrapper } from '$lib';
   import type { Editor } from '@tiptap/core';
   import { Button } from 'flowbite-svelte';
 
@@ -30,8 +30,7 @@
 
 <TextEditor bind:element={editorElement} bind:editor={editorInstance} {content}>
   <ToolbarRowWrapper>
-    <SourceButton editor={editorInstance} />
-    <HtmlCodeButton editor={editorInstance} />
+    <SourceButtonGroup editor={editorInstance} />
   </ToolbarRowWrapper>
 </TextEditor>
 

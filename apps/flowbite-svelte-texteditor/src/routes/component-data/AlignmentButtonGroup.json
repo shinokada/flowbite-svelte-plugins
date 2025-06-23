@@ -1,11 +1,15 @@
 {
   "name": "AlignmentButtonGroup",
   "type": {
-    "name": "GroupEditorBasicProps",
-    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L90"
+    "name": "AlignmentButtonGroupProps",
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L110"
   },
   "props": [
     ["editor", ""],
-    ["showToolbar", "true"]
+    ["showToolbar", "true"],
+    ["left", "true"],
+    ["center", "true"],
+    ["right", "true"],
+    ["justify", "true"]
   ]
 }

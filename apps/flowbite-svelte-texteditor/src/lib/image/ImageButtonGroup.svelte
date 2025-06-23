@@ -1,20 +1,26 @@
 <script lang="ts">
-  import { type GroupEditorBasicProps, ImageButton } from '$lib';
+  import { type ImageButtonGroupProps, ImageButton } from '$lib';
 
-  let { editor, showToolbar = true }: GroupEditorBasicProps = $props();
+  let { editor, showToolbar = true, basic = true, advanced = true }: ImageButtonGroupProps = $props();
 </script>
 
 {#if editor && showToolbar}
-  <ImageButton {editor} />
-  <ImageButton {editor} format="advanced" />
+  {#if basic}
+    <ImageButton {editor} />
+  {/if}
+  {#if advanced}
+    <ImageButton {editor} format="advanced" />
+  {/if}
 {/if}
 
 <!--
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
 ## Type
-[GroupEditorBasicProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L90)
+[ImageButtonGroupProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L135)
 ## Props
 @prop editor
 @prop showToolbar = true
+@prop basic = true
+@prop advanced = true
 -->

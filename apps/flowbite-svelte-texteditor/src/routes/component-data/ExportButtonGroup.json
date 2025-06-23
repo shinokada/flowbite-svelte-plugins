@@ -1,11 +1,13 @@
 {
   "name": "ExportButtonGroup",
   "type": {
-    "name": "GroupEditorBasicProps",
-    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L90"
+    "name": "ExportButtonGroupProps",
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L117"
   },
   "props": [
     ["editor", ""],
-    ["showToolbar", "true"]
+    ["showToolbar", "true"],
+    ["json", "true"],
+    ["html", "true"]
   ]
 }

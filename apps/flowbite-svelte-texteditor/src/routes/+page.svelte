@@ -8,6 +8,9 @@
 
 <Heading tag="h2" class="my-4">New</Heading>
 
+<Heading tag="h3" class="my-4">Heading</Heading>
+<Examples.Heading />
+
 <Heading tag="h3" class="my-4">New default Text editor</Heading>
 <Examples.DefaultTextEditor />
 
