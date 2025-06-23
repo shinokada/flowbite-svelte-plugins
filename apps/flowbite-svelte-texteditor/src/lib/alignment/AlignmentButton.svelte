@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Tooltip } from 'flowbite-svelte';
   import { cn, generateButtonId } from '$lib';
-  import { type AlignmentButtonsProps } from '$lib/types';
-  let { editor, alignment, tooltipText, ariaLabel, id, class: className }: AlignmentButtonsProps = $props();
+  import { type AlignmentButtonProps } from '$lib/types';
+  let { editor, alignment, tooltipText, ariaLabel, id, class: className }: AlignmentButtonProps = $props();
 
   const defaults = {
     left: { tooltip: 'Align left', aria: 'Align left' },

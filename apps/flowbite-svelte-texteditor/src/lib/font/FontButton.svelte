@@ -1,9 +1,9 @@
 <script lang="ts">
   import { Tooltip, Dropdown, DropdownItem } from 'flowbite-svelte';
   import { cn, generateButtonId } from '$lib';
-  import { type FontButtonsProps } from '$lib/types';
+  import { type FontButtonProps } from '$lib/types';
 
-  let { editor, format, tooltipText, ariaLabel, colorValue = '#e66465', id, class: className }: FontButtonsProps = $props();
+  let { editor, format, tooltipText, ariaLabel, colorValue = '#e66465', id, class: className }: FontButtonProps = $props();
 
   let isOpen = $state(false);
 

@@ -5,6 +5,9 @@
   import StarterKit from '@tiptap/starter-kit';
   import CharacterCount from '@tiptap/extension-character-count';
   import Color from '@tiptap/extension-color';
+  import Details from '@tiptap/extension-details';
+  import DetailsContent from '@tiptap/extension-details-content';
+  import DetailsSummary from '@tiptap/extension-details-summary';
   import Focus from '@tiptap/extension-focus';
   import FontFamily from '@tiptap/extension-font-family';
   import Highlight from '@tiptap/extension-highlight';
@@ -30,17 +33,11 @@
   import ts from 'highlight.js/lib/languages/typescript';
   import xml from 'highlight.js/lib/languages/xml';
 
-  let {
-    element = $bindable<HTMLDivElement | null>(null),
-    content = '<p>Start typing...</p>',
-    editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none',
-    editor = $bindable<Editor | null>(null),
-    children
-  }: EditorProviderProps & {
-    children?: import('svelte').Snippet;
-  } = $props();
+  let { element = $bindable<HTMLDivElement | null>(null), content = '<p>Start typing...</p>', editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none', editor = $bindable<Editor | null>(null), children }: EditorProviderProps = $props();
 
   let editorElement = $state<HTMLDivElement | null>(null);
+
+  // const finalEditorClass = $derived(editorClass?.includes('tiptap') ? editorClass : `tiptap ${editorClass || 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none'}`);
 
   const lowlight = createLowlight(common);
   // languages
@@ -103,13 +100,28 @@
           TableRow,
           TableHeader,
           TableCell,
-          Placeholder.configure({
-            placeholder: 'Write something...'
-          }),
           CharacterCount,
           Focus,
           CodeBlockLowlight.configure({
             lowlight
+          }),
+          Details.configure({
+            persist: true,
+            HTMLAttributes: {
+              class: 'details'
+            }
+          }),
+          DetailsSummary,
+          DetailsContent,
+          Placeholder.configure({
+            includeChildren: true,
+            placeholder: ({ node }) => {
+              if (node.type.name === 'detailsSummary') {
+                return 'Summary';
+              }
+
+              return 'Write something...';
+            }
           })
         ],
         content,
@@ -144,3 +156,75 @@
     <div bind:this={editorElement}></div>
   </ContentWrapper>
 </EditorWrapper>
+
+<style>
+  :global(.tiptap :first-child) {
+    margin-top: 0;
+  }
+
+  /* Details */
+  :global(.tiptap .details) {
+    display: flex;
+    gap: 0.25rem;
+    margin: 1.5rem 0;
+    border: 1px solid var(--gray-3);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  /* Details */
+  :global(.tiptap details) {
+    margin: 1.5rem 0;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  :global(.tiptap details summary) {
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin: -0.5rem -0.5rem 0.5rem -0.5rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    background-color: #f9fafb;
+    list-style: none; /* Remove default marker */
+  }
+
+  /* Remove default triangle/arrow in all browsers */
+  :global(.tiptap details summary::-webkit-details-marker) {
+    display: none;
+  }
+
+  :global(.tiptap details summary::marker) {
+    display: none;
+  }
+
+  :global(.tiptap details summary:hover) {
+    background-color: #f3f4f6;
+  }
+
+  :global(.tiptap details[open] summary) {
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 0.5rem;
+  }
+
+  :global(.tiptap details div[data-type="detailsContent"] ){
+    padding: 0.5rem 0;
+  }
+
+ :global( .tiptap details div[data-type="detailsContent"] > :last-child ){
+    margin-bottom: 0;
+  }
+
+  :global(.tiptap details>button::before ){
+    content: '▶';
+    display: inline-block;
+    margin-right: 0.5rem;
+    transition: transform 0.2s ease;
+  }
+
+  :global(.tiptap details[open] summary::before) {
+    transform: rotate(90deg);
+  }
+  /* ... rest of the CSS styles with :global() wrapper */
+</style>

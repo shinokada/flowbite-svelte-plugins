@@ -1,9 +1,9 @@
 <script lang="ts">
   import { Tooltip } from 'flowbite-svelte';
   import { cn, generateButtonId } from '$lib';
-  import { type ListButtonsProps } from '$lib/types';
+  import { type ListButtonProps } from '$lib/types';
 
-  let { editor, format, tooltipText, ariaLabel, id, class: className }: ListButtonsProps = $props();
+  let { editor, format, tooltipText, ariaLabel, id, class: className }: ListButtonProps = $props();
 
   const defaults = {
     bullet: { tooltip: 'Toggle list', aria: 'Toggle list' },

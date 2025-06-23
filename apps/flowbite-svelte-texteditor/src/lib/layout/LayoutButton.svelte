@@ -1,9 +1,9 @@
 <script lang="ts">
   import { Tooltip } from 'flowbite-svelte';
   import { cn, generateButtonId } from '$lib';
-  import { type LayoutButtonsProps } from '$lib/types';
+  import { type LayoutButtonProps } from '$lib/types';
 
-  let { editor, format, tooltipText, ariaLabel, id, class: className }: LayoutButtonsProps = $props();
+  let { editor, format, tooltipText, ariaLabel, id, class: className }: LayoutButtonProps = $props();
 
   const defaults = {
     blockquote: { tooltip: 'Toggle blockquote', aria: 'Blockquote' },

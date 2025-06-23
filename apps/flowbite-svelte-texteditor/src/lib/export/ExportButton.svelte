@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Tooltip, Modal } from 'flowbite-svelte';
   import { cn, generateButtonId } from '$lib';
-  import { type ExportButtonsProps } from '$lib/types';
-  let { editor, format = 'json', tooltipText, ariaLabel, id, class: className }: ExportButtonsProps = $props();
+  import { type ExportButtonProps } from '$lib/types';
+  let { editor, format = 'json', tooltipText, ariaLabel, id, class: className }: ExportButtonProps = $props();
 
   let defaultModal = $state(false);
   let sourceCode = $state('');

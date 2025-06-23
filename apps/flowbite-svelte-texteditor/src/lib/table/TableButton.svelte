@@ -1,9 +1,9 @@
 <script lang="ts">
   import { Tooltip } from 'flowbite-svelte';
   import { cn, generateButtonId } from '$lib';
-  import { type TableButtonsProps } from '$lib/types';
+  import { type TableButtonProps } from '$lib/types';
 
-  let { editor, action = 'table', tooltipText, id, ariaLabel, class: className }: TableButtonsProps = $props();
+  let { editor, action = 'table', tooltipText, id, ariaLabel, class: className }: TableButtonProps = $props();
 
   const defaults = {
     table: { tooltip: 'Add table', aria: 'Add table' },

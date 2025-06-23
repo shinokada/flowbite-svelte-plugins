@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Tooltip, Modal, Label, Input, Button } from 'flowbite-svelte';
   import { cn, generateButtonId, generateUniqueId } from '$lib';
-  import { type VideoButtonsProps } from '$lib/types';
+  import { type VideoButtonProps } from '$lib/types';
 
   let {
     modalChildren,
@@ -19,7 +19,7 @@
     class: className,
     onAdvancedClick,
     ...restProps
-  }: VideoButtonsProps = $props();
+  }: VideoButtonProps = $props();
 
   let defaultModal = $state(false);
 

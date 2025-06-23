@@ -15,6 +15,9 @@ export { default as AlignmentButtonGroup } from './alignment/AlignmentButtonGrou
 // Exportbuttons
 export { default as ExportButton } from './export/ExportButton.svelte';
 export { default as ExportButtonGroup } from './export/ExportButtonGroup.svelte';
+// details
+export { default as DetailsButton } from './details/DetailsButton.svelte';
+export { default as DetailsButtonGroup } from './details/DetailsButtonGroup.svelte';
 // font
 export { default as FontButton } from './font/FontButton.svelte';
 export { default as FontButtonGroup } from './font/FontButtonGroup.svelte';

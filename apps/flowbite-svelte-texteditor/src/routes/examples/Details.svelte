@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { LayoutButtonGroup, TextEditor, ToolbarRowWrapper } from '$lib';
+  import { DetailsButtonGroup, TextEditor } from '$lib';
   import type { Editor } from '@tiptap/core';
   import { Button } from 'flowbite-svelte';
 
@@ -14,13 +14,26 @@
     editorInstance?.commands.setContent(content);
   }
 
-  const content = '<p>Flowbite-Svelte is an <strong>open-source library of UI components</strong> based on the utility-first Tailwind CSS framework featuring dark mode support, a Figma design system, and more.</p><p>It includes all of the commonly used components that a website requires, such as buttons, dropdowns, navigation bars, modals, datepickers, advanced charts and the list goes on.</p>';
+  const content = `
+      <p>Look at these details</p>
+      <details>
+        <summary>This is a summary</summary>
+        <p>Surprise!</p>
+      </details>
+      <p>Nested details are also supported</p>
+      <details open>
+        <summary>This is another summary</summary>
+        <p>And there is even more.</p>
+        <details>
+          <summary>We need to go deeper</summary>
+          <p>Booya!</p>
+        </details>
+      </details>
+    `;
 </script>
 
 <TextEditor bind:element={editorElement} bind:editor={editorInstance} {content}>
-  <ToolbarRowWrapper>
-    <LayoutButtonGroup editor={editorInstance} />
-  </ToolbarRowWrapper>
+  <DetailsButtonGroup editor={editorInstance} />
 </TextEditor>
 
 <div class="mt-4">
