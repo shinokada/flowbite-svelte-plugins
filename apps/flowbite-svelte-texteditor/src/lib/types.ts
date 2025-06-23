@@ -166,6 +166,18 @@ export interface TableButtonGroupProps extends GroupFormatProps {
   goToNextCell?: boolean;
 }
 
+// task list
+export interface TaskListButtonProps extends EditorBasicProps {
+  action: 'toggle' | 'split' | 'sink' | 'lift';
+}
+
+export interface TaskListButtonGroupProps extends GroupFormatProps {
+  toggle?: boolean;
+  split?: boolean;
+  sink?: boolean;
+  lift?: boolean;
+}
+
 // video
 export interface VideoButtonProps extends EditorBasicProps {
   format?: 'default' | 'advanced';

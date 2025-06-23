@@ -37,8 +37,6 @@
 
   let editorElement = $state<HTMLDivElement | null>(null);
 
-  // const finalEditorClass = $derived(editorClass?.includes('tiptap') ? editorClass : `tiptap ${editorClass || 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none'}`);
-
   const lowlight = createLowlight(common);
   // languages
   lowlight.register('html', xml);
@@ -91,7 +89,9 @@
           }),
           Color,
           TaskList,
-          TaskItem,
+          TaskItem.configure({
+            nested: true
+          }),
           Image,
           Youtube,
           Table.configure({
@@ -162,69 +162,108 @@
     margin-top: 0;
   }
 
+  /* List styles */
+  :global(.tiptap ul),
+  :global(.tiptap ol) {
+    padding: 0 1rem;
+    margin: 1.25rem 1rem 1.25rem 0.4rem;
+  }
+
+  :global(.tiptap ul li p),
+  :global(.tiptap ol li p) {
+    margin-top: 0.15em;
+    margin-bottom: 0.15em;
+  }
+
+  /* Task list specific styles */
+  :global(.tiptap ul[data-type='taskList']) {
+    list-style: none;
+    margin-left: 0;
+    padding: 0;
+  }
+
+  :global(.tiptap ul[data-type='taskList'] li) {
+    align-items: flex-start;
+    display: flex;
+    margin: 0;
+  }
+
+  :global(.tiptap ul[data-type='taskList'] li > label) {
+    flex: 0 0 auto;
+    margin-right: 0.5rem;
+    user-select: none;
+  }
+
+  :global(.tiptap ul[data-type='taskList'] li > div) {
+    flex: 1 1 auto;
+    margin:0;
+    padding:0;
+  }
+
+  :global(.tiptap ul[data-type='taskList'] input[type='checkbox']) {
+    cursor: pointer;
+  }
+
+  :global(.tiptap ul[data-type='taskList'] ul[data-type='taskList']) {
+    margin: 0;
+  }
+
   /* Details */
   :global(.tiptap .details) {
     display: flex;
     gap: 0.25rem;
     margin: 1.5rem 0;
-    border: 1px solid var(--gray-3);
+    border: 1px solid #d4ccc7cf;
     border-radius: 0.5rem;
     padding: 0.5rem;
   }
 
-  /* Details */
-  :global(.tiptap details) {
-    margin: 1.5rem 0;
-    border: 1px solid #e5e7eb;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-  }
-
-  :global(.tiptap details summary) {
+  :global(.tiptap .details summary) {
     font-weight: 700;
-    cursor: pointer;
-    padding: 0.5rem;
-    margin: -0.5rem -0.5rem 0.5rem -0.5rem;
-    border-radius: 0.5rem 0.5rem 0 0;
-    background-color: #f9fafb;
-    list-style: none; /* Remove default marker */
+    list-style: none; 
   }
 
-  /* Remove default triangle/arrow in all browsers */
-  :global(.tiptap details summary::-webkit-details-marker) {
-    display: none;
+  :global(.tiptap .details > button) {
+    align-items: center;
+    background: transparent;
+    border-radius: 4px;
+    display: flex;
+    font-size: 0.625rem;
+    height: 1.25rem;
+    justify-content: center;
+    line-height: 1;
+    margin-top: 0.1rem;
+    padding: 0;
+    width: 1.25rem;
   }
 
-  :global(.tiptap details summary::marker) {
-    display: none;
+  :global(.tiptap .details > button:hover) {
+    background-color: #dedad8d8;
   }
 
-  :global(.tiptap details summary:hover) {
-    background-color: #f3f4f6;
+  :global(.tiptap .details > button::before) {
+    content: '\25B6';
+    display: inline-block;
+    position: relative;
+    top: 3px;
   }
 
-  :global(.tiptap details[open] summary) {
-    border-bottom: 1px solid #e5e7eb;
+  :global(.tiptap .details.is-open > button::before) {
+    transform: rotate(90deg);
+  }
+
+  :global(.tiptap .details > div) {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  :global(.tiptap .details > div > [data-type='detailsContent']) > :last-child {
     margin-bottom: 0.5rem;
   }
 
-  :global(.tiptap details div[data-type="detailsContent"] ){
-    padding: 0.5rem 0;
+  :global(.tiptap .details .details) {
+    margin: 0.5rem 0;
   }
-
- :global( .tiptap details div[data-type="detailsContent"] > :last-child ){
-    margin-bottom: 0;
-  }
-
-  :global(.tiptap details>button::before ){
-    content: '▶';
-    display: inline-block;
-    margin-right: 0.5rem;
-    transition: transform 0.2s ease;
-  }
-
-  :global(.tiptap details[open] summary::before) {
-    transform: rotate(90deg);
-  }
-  /* ... rest of the CSS styles with :global() wrapper */
 </style>
