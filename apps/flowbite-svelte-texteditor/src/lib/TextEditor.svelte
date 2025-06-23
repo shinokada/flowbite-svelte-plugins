@@ -171,7 +171,6 @@
 -->
 
 <style>
-
   /* List styles */
   :global(.tiptap ul),
   :global(.tiptap ol) {

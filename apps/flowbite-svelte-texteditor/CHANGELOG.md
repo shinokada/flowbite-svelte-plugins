@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.12.1
+
+### Patch Changes
+
+- fix: texteditor: list style update
+
 ## 0.12.0
 
 ### Minor Changes
