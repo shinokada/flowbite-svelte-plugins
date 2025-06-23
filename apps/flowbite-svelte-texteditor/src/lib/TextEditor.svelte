@@ -171,9 +171,6 @@
 -->
 
 <style>
-  :global(.tiptap :first-child) {
-    margin-top: 0;
-  }
 
   /* List styles */
   :global(.tiptap ul),
@@ -184,7 +181,6 @@
 
   :global(.tiptap ul li p),
   :global(.tiptap ol li p) {
-    margin-top: 0.15em;
     margin-bottom: 0.15em;
   }
 
@@ -199,25 +195,42 @@
     align-items: flex-start;
     display: flex;
     margin: 0;
+    gap: 0.5rem;
   }
 
   :global(.tiptap ul[data-type='taskList'] li > label) {
     flex: 0 0 auto;
-    margin-right: 0.5rem;
     user-select: none;
+    margin-top: -0.1em;
   }
 
   :global(.tiptap ul[data-type='taskList'] li > div) {
     flex: 1 1 auto;
     margin: 0;
     padding: 0;
+    /* Prevent content from overflowing */
+    min-width: 0;
   }
 
   :global(.tiptap ul[data-type='taskList'] input[type='checkbox']) {
     cursor: pointer;
+    /* Ensure consistent checkbox sizing */
+    margin: 0;
+    flex-shrink: 0;
   }
 
   :global(.tiptap ul[data-type='taskList'] ul[data-type='taskList']) {
+    margin: 0;
+  }
+
+  /* Optional: Handle the span element in your label if it's for custom styling */
+  :global(.tiptap ul[data-type='taskList'] li > label span) {
+    display: inline-block;
+    /* Add custom checkbox styles here if needed */
+  }
+
+  /* Ensure paragraphs in task list items don't add extra spacing */
+  :global(.tiptap ul[data-type='taskList'] li p) {
     margin: 0;
   }
 
