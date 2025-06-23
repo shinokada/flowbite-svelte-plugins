@@ -25,6 +25,10 @@
   import Youtube from '@tiptap/extension-youtube';
   import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
   import { common, createLowlight } from 'lowlight';
+  import css from 'highlight.js/lib/languages/css'
+  import js from 'highlight.js/lib/languages/javascript'
+  import ts from 'highlight.js/lib/languages/typescript'
+  import xml from 'highlight.js/lib/languages/xml'
 
   let {
     element = $bindable<HTMLDivElement | null>(null),
@@ -32,11 +36,21 @@
     editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none',
     editor = $bindable<Editor | null>(null),
     children
-  }: EditorProviderProps & { children?: import('svelte').Snippet } = $props();
+  }: EditorProviderProps & { 
+    children?: import('svelte').Snippet 
+  } = $props();
 
   let editorElement = $state<HTMLDivElement | null>(null);
 
   const lowlight = createLowlight(common);
+  // languages
+  lowlight.register('html', xml)
+  lowlight.register('xml', xml)
+  lowlight.register('css', css)
+  lowlight.register('js', js)
+  lowlight.register('javascript', js)
+  lowlight.register('ts', ts)
+  lowlight.register('typescript', ts)
 
   const FontSizeTextStyle = TextStyle.extend({
     addAttributes() {
@@ -54,6 +68,7 @@
       };
     }
   });
+
   // Use effect to watch for element changes only
   $effect(() => {
     if (editorElement && !editor) {

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { GroupUndoRedo, TextEditor, ToolbarRowWrapper } from '$lib';
+  import { UndoRedoButtonGroup, TextEditor, ToolbarRowWrapper } from '$lib';
   import type { Editor } from '@tiptap/core';
   import { Button } from 'flowbite-svelte';
 
@@ -20,7 +20,7 @@
 
 <TextEditor bind:element={editorElement} bind:editor={editorInstance} {content}>
   <ToolbarRowWrapper>
-    <GroupUndoRedo editor={editorInstance} />
+    <UndoRedoButtonGroup editor={editorInstance} />
   </ToolbarRowWrapper>
 </TextEditor>
 

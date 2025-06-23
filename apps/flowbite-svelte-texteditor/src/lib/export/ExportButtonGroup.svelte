@@ -1,12 +1,11 @@
 <script lang="ts">
-  import { type GroupEditorBasicProps, VideoButtons } from '$lib';
-
+  import { ExportButton, type GroupEditorBasicProps } from '$lib';
   let { editor, showToolbar = true }: GroupEditorBasicProps = $props();
 </script>
 
 {#if editor && showToolbar}
-  <VideoButtons {editor} />
-  <VideoButtons {editor} format="advanced" />
+  <ExportButton {editor} />
+  <ExportButton {editor} format="html" />
 {/if}
 
 <!--

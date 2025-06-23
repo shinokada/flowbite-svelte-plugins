@@ -1,12 +1,13 @@
 <script lang="ts">
-  import { ListButtons, type GroupFormatProps } from '$lib';
+  import { FontButton, type GroupFormatProps } from '$lib';
 
   let { editor, showToolbar = true }: GroupFormatProps = $props();
 </script>
 
 {#if editor && showToolbar}
-  <ListButtons {editor} format="bullet" />
-  <ListButtons {editor} format="ordered" />
+  <FontButton {editor} format="fontFamily" />
+  <FontButton {editor} format="fontSize" />
+  <FontButton {editor} format="textColor" />
 {/if}
 
 <!--

@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { LayoutButtons, type GroupFormatProps } from '$lib';
+  import { LayoutButton, type GroupFormatProps } from '$lib';
 
   let { editor, showToolbar = true }: GroupFormatProps = $props();
 </script>
 
 {#if editor && showToolbar}
-  <LayoutButtons {editor} format="blockquote" />
-  <LayoutButtons {editor} format="codeblock" />
-  <LayoutButtons {editor} format="hr" />
+  <LayoutButton {editor} format="blockquote" />
+  <LayoutButton {editor} format="codeblock" />
+  <LayoutButton {editor} format="hr" />
 {/if}
 
 <!--

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { GroupTables1, GroupTables2, TextEditor, ToolbarRowWrapper } from '$lib';
+  import { TableButtonGroup1, TableButtonGroup2, TextEditor, ToolbarRowWrapper } from '$lib';
   import type { Editor } from '@tiptap/core';
   import { Button } from 'flowbite-svelte';
 
@@ -20,10 +20,10 @@
 
 <TextEditor bind:element={editorElement} bind:editor={editorInstance} {content}>
   <ToolbarRowWrapper>
-    <GroupTables1 editor={editorInstance} />
+    <TableButtonGroup1 editor={editorInstance} />
   </ToolbarRowWrapper>
   <ToolbarRowWrapper top={false}>
-    <GroupTables2 editor={editorInstance} />
+    <TableButtonGroup2 editor={editorInstance} />
   </ToolbarRowWrapper>
 </TextEditor>
 

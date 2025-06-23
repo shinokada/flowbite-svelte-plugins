@@ -1,11 +1,13 @@
 <script lang="ts">
-  import { ExportButtons, type GroupEditorBasicProps } from '$lib';
+  import { AlignmentButton, type GroupEditorBasicProps } from '$lib';
   let { editor, showToolbar = true }: GroupEditorBasicProps = $props();
 </script>
 
 {#if editor && showToolbar}
-  <ExportButtons {editor} />
-  <ExportButtons {editor} format="html" />
+  <AlignmentButton {editor} alignment="left" />
+  <AlignmentButton {editor} alignment="center" />
+  <AlignmentButton {editor} alignment="right" />
+  <AlignmentButton {editor} alignment="justify" />
 {/if}
 
 <!--

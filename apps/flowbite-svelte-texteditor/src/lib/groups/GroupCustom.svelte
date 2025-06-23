@@ -1,17 +1,17 @@
 <script lang="ts">
-  import { type GroupEditorBasicProps, AlignmentButtons, FontButtons, FormatButtons, ImageButtons } from '$lib';
+  import { type GroupEditorBasicProps, AlignmentButton, FontButton, FormatButton, ImageButton } from '$lib';
 
   let { editor, showToolbar = true }: GroupEditorBasicProps = $props();
 </script>
 
 {#if editor && showToolbar}
-  <AlignmentButtons {editor} alignment="left" />
-  <AlignmentButtons {editor} alignment="right" />
-  <ImageButtons {editor} />
-  <FontButtons {editor} format="fontSize" />
-  <FormatButtons {editor} format="italic" />
-  <FormatButtons {editor} format="link" />
-  <FormatButtons {editor} format="removeLink" />
+  <AlignmentButton {editor} alignment="left" />
+  <AlignmentButton {editor} alignment="right" />
+  <ImageButton {editor} />
+  <FontButton {editor} format="fontSize" />
+  <FormatButton {editor} format="italic" />
+  <FormatButton {editor} format="link" />
+  <FormatButton {editor} format="removeLink" />
 {/if}
 
 <!--
