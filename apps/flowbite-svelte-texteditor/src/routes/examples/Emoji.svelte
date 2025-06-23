@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { FontButtonGroup, TextEditor } from '$lib';
+  import { TextEditor, EmojiButton } from '$lib';
   import type { Editor } from '@tiptap/core';
   import { Button } from 'flowbite-svelte';
 
@@ -18,7 +18,7 @@
 </script>
 
 <TextEditor bind:element={editorElement} bind:editor={editorInstance} {content}>
-  <FontButtonGroup editor={editorInstance} />
+  <EmojiButton editor={editorInstance} />
 </TextEditor>
 
 <div class="mt-4">

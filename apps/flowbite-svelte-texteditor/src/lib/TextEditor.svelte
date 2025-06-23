@@ -8,6 +8,7 @@
   import Details from '@tiptap/extension-details';
   import DetailsContent from '@tiptap/extension-details-content';
   import DetailsSummary from '@tiptap/extension-details-summary';
+  import Emoji, { gitHubEmojis } from '@tiptap/extension-emoji'
   import Focus from '@tiptap/extension-focus';
   import FontFamily from '@tiptap/extension-font-family';
   import HardBreak from '@tiptap/extension-hard-break';
@@ -33,6 +34,8 @@
   import js from 'highlight.js/lib/languages/javascript';
   import ts from 'highlight.js/lib/languages/typescript';
   import xml from 'highlight.js/lib/languages/xml';
+
+  import suggestion from './emoji/suggestion';
 
   let { element = $bindable<HTMLDivElement | null>(null), content = '<p>Start typing...</p>', editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none', editor = $bindable<Editor | null>(null), children }: EditorProviderProps = $props();
 
@@ -85,6 +88,11 @@
           Subscript,
           Superscript,
           HardBreak,
+          Emoji.configure({
+        emojis: gitHubEmojis,
+        enableEmoticons: true,
+        suggestion,
+      }),
           FontSizeTextStyle,
           FontFamily.configure({
             types: ['textStyle']

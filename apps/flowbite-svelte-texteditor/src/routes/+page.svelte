@@ -8,6 +8,9 @@
 
 <Heading tag="h2" class="my-4">New</Heading>
 
+<Heading tag="h3" class="my-4">Emoji</Heading>
+<Examples.Emoji />
+
 <Heading tag="h3" class="my-4">Task</Heading>
 <Examples.Task />
 
