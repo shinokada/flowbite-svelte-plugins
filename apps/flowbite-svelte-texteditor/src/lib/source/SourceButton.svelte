@@ -73,11 +73,7 @@
   onclick={toggleSourceView}
   id={uniqueId}
   type="button"
-  class={cn(
-    'cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white',
-    isSourceView ? 'bg-gray-200 text-gray-900 dark:bg-gray-500 dark:text-white' : '',
-    className
-  )}
+  class={cn('cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white', isSourceView ? 'bg-gray-200 text-gray-900 dark:bg-gray-500 dark:text-white' : '', className)}
 >
   <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1z" />
@@ -89,12 +85,7 @@
 <Modal title="Edit HTML Source" bind:open={showModal} autoclose={false} size="xl">
   <div class="space-y-4">
     <div class="relative">
-      <textarea
-        bind:value={sourceContent}
-        oninput={handleSourceInput}
-        class="focus:ring-primary-500 h-96 w-full resize-y rounded-md border p-4 font-mono text-sm focus:ring-1 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-white"
-        placeholder="Edit HTML source code..."
-      ></textarea>
+      <textarea bind:value={sourceContent} oninput={handleSourceInput} class="focus:ring-primary-500 h-96 w-full resize-y rounded-md border p-4 font-mono text-sm focus:ring-1 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-white" placeholder="Edit HTML source code..."></textarea>
 
       {#if sourceError}
         <div class="mt-2 rounded bg-red-50 p-2 text-sm text-red-600 dark:bg-red-900/20 dark:text-red-400">
@@ -113,11 +104,7 @@
       >
         Cancel
       </button>
-      <button
-        type="button"
-        onclick={handleModalClose}
-        class="bg-primary-700 hover:bg-primary-800 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 rounded-lg px-4 py-2 text-sm font-medium text-white focus:ring-4 focus:outline-none"
-      >
+      <button type="button" onclick={handleModalClose} class="bg-primary-700 hover:bg-primary-800 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 rounded-lg px-4 py-2 text-sm font-medium text-white focus:ring-4 focus:outline-none">
         Apply Changes
       </button>
     </div>

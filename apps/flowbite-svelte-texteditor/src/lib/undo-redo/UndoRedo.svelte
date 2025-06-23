@@ -31,13 +31,7 @@
   const currentConfig = $derived(config[action]);
 </script>
 
-<button
-  onclick={handleAction}
-  {...restProps}
-  id={currentConfig.id}
-  type="button"
-  class={cn('cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white', buttonClass)}
->
+<button onclick={handleAction} {...restProps} id={currentConfig.id} type="button" class={cn('cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white', buttonClass)}>
   <svg class={cn('h-5 w-5', iconClass)} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={currentConfig.path} />
   </svg>

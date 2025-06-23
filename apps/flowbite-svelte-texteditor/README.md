@@ -14,7 +14,7 @@ pnpm i -D @flowbite-svelte-plugins/texteditor
 
 ```svelte
 <script lang="ts">
-  import { GroupAlignment, GroupUndoRedo, GroupFormat, GroupLayout, GroupMedia, TextEditor, ToolbarRowWrapper, Divider } from '@flowbite-svelte-plugins/texteditor';
+  import { AlignmentButtonGroup, FontButtonGroup, UndoRedoButtonGroup, FormatButtonGroup, LayoutButtonGroup, ImageButtonGroup, ListButtonGroup, VideoButtonGroup, TextEditor, ToolbarRowWrapper, Divider, SourceButton } from '@flowbite-svelte-plugins/texteditor';
   import type { Editor } from '@tiptap/core';
   import { Button } from 'flowbite-svelte';
 
@@ -29,21 +29,43 @@ pnpm i -D @flowbite-svelte-plugins/texteditor
     editorInstance?.commands.setContent(content);
   }
 
-  const content =
-    '<p>Flowbite is an <strong>open-source library of UI components</strong> based on the utility-first Tailwind CSS framework featuring dark mode support, a Figma design system, and more.</p><p>It includes all of the commonly used components that a website requires, such as buttons, dropdowns, navigation bars, modals, datepickers, advanced charts and the list goes on.</p><p>Here is an example of a button component:</p><code>&#x3C;button type=&#x22;button&#x22; class=&#x22;text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800&#x22;&#x3E;Default&#x3C;/button&#x3E;</code><p>Learn more about all components from the <a href="https://flowbite.com/docs/getting-started/introduction/">Flowbite Docs</a>.</p>';
+  const content = `<p>Flowbite-Svelte is an <strong>open-source library of UI components</strong> based on the utility-first Tailwind CSS framework featuring dark mode support, a Figma design system, and more.</p><p>It includes all of the commonly used components that a website requires, such as buttons, dropdowns, navigation bars, modals, datepickers, advanced charts and the list goes on.</p>
+    <p>Here is an example of a js block:</p><pre><code class="language-javascript">for (var i=1; i <= 20; i++)
+{
+  if (i % 15 == 0)
+    console.log("FizzBuzz");
+  else if (i % 3 == 0)
+    console.log("Fizz");
+  else if (i % 5 == 0)
+    console.log("Buzz");
+  else
+    console.log(i);
+}</code></pre><p>Learn more about all components from the <a href="https://flowbite-svelte.com/docs/pages/quickstart">Flowbite-Svelte Docs</a>.</p>`;
 </script>
 
-<TextEditor bind:element={editorElement} bind:editor={editorInstance} {content}>
+<svelte:head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/google-dark.min.css" />
+</svelte:head>
+
+<TextEditor bind:element={editorElement} bind:editor={editorInstance} {content} showSourceButton={true}>
   <ToolbarRowWrapper>
-    <GroupFormat editor={editorInstance} />
+    <FormatButtonGroup editor={editorInstance} />
     <Divider />
-    <GroupAlignment editor={editorInstance} />
+    <FontButtonGroup editor={editorInstance} />
+    <Divider />
+    <AlignmentButtonGroup editor={editorInstance} />
   </ToolbarRowWrapper>
   <ToolbarRowWrapper top={false}>
-    <GroupUndoRedo editor={editorInstance} />
-    <GroupLayout editor={editorInstance} />
+    <UndoRedoButtonGroup editor={editorInstance} />
     <Divider />
-    <GroupMedia editor={editorInstance} />
+    <LayoutButtonGroup editor={editorInstance} />
+    <Divider />
+    <ListButtonGroup editor={editorInstance} />
+    <Divider />
+    <ImageButtonGroup editor={editorInstance} />
+    <Divider />
+    <VideoButtonGroup editor={editorInstance} />
+    <SourceButton editor={editorInstance} />
   </ToolbarRowWrapper>
 </TextEditor>
 

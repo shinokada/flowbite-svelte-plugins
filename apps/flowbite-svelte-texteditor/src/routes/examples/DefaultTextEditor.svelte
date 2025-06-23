@@ -1,18 +1,5 @@
 <script lang="ts">
-  import {
-    AlignmentButtonGroup,
-    FontButtonGroup,
-    UndoRedoButtonGroup,
-    FormatButtonGroup,
-    LayoutButtonGroup,
-    ImageButtonGroup,
-    ListButtonGroup,
-    VideoButtonGroup,
-    TextEditor,
-    ToolbarRowWrapper,
-    Divider,
-    SourceButton
-  } from '$lib';
+  import { AlignmentButtonGroup, FontButtonGroup, UndoRedoButtonGroup, FormatButtonGroup, LayoutButtonGroup, ImageButtonGroup, ListButtonGroup, VideoButtonGroup, TextEditor, ToolbarRowWrapper, Divider, SourceButton } from '$lib';
   import type { Editor } from '@tiptap/core';
   import { Button } from 'flowbite-svelte';
 
