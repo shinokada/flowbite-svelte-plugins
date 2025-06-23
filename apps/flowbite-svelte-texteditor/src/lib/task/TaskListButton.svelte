@@ -39,15 +39,21 @@
   };
 </script>
 
-<button 
-  onclick={handleClick} 
-  id={uniqueId} 
-  type="button"
-  class={cn(
-    'cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-600 dark:hover:bg-gray-600  bg-gray-200 dark:hover:text-white disabled:cursor-not-allowed disabled:opacity-50',
-    className
-  )}
->
+<button onclick={handleClick} id={uniqueId} type="button" class={cn('cursor-pointer rounded-sm bg-gray-200 p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 disabled:cursor-not-allowed  disabled:opacity-50 dark:text-gray-600 dark:hover:bg-gray-600 dark:hover:text-white', className)}>
   <span class="text-sm font-medium">{titles[action]}</span>
   <span class="sr-only">{finalAriaLabel}</span>
 </button>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[TaskListButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L169)
+## Props
+@prop editor
+@prop action
+@prop tooltipText
+@prop ariaLabel
+@prop id
+@prop class: className
+-->

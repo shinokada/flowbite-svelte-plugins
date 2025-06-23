@@ -1,8 +1,8 @@
 {
   "name": "AlignmentButton",
   "type": {
-    "name": "AlignmentButtonsProps",
-    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L6"
+    "name": "AlignmentButtonProps",
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L31"
   },
   "props": [
     ["editor", ""],

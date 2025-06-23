@@ -1,13 +1,6 @@
 <script lang="ts">
   import { TaskListButton, type TaskListButtonGroupProps } from '$lib';
-  let { 
-    editor, 
-    showToolbar = true, 
-    toggle = true, 
-    split = true, 
-    sink = true, 
-    lift = true 
-  }: TaskListButtonGroupProps = $props();
+  let { editor, showToolbar = true, toggle = true, split = true, sink = true, lift = true }: TaskListButtonGroupProps = $props();
 </script>
 
 {#if editor && showToolbar}
@@ -24,3 +17,17 @@
     <TaskListButton {editor} action="lift" />
   {/if}
 {/if}
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[TaskListButtonGroupProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L173)
+## Props
+@prop editor
+@prop showToolbar = true
+@prop toggle = true
+@prop split = true
+@prop sink = true
+@prop lift = true
+-->

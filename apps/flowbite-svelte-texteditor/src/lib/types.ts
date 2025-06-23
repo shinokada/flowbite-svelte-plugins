@@ -145,7 +145,6 @@ export interface TableButtonProps extends EditorBasicProps {
     | 'goToNextCell';
 }
 
-
 export interface TableButtonGroupProps extends GroupFormatProps {
   table?: boolean;
   deleteTable?: boolean;
@@ -208,7 +207,6 @@ export interface UndoRedoButtonGroupProps extends GroupFormatProps {
   undo?: boolean;
   redo?: boolean;
 }
-
 
 // groupcustom
 export interface GroupEditorBasicProps {

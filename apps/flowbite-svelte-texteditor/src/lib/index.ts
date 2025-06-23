@@ -48,7 +48,7 @@ export { default as TableButtonGroup2 } from './table/TableButtonGroup2.svelte';
 export { default as VideoButton } from './video/VideoButton.svelte';
 export { default as VideoButtonGroup } from './video/VideoButtonGroup.svelte';
 // task
-export { default as TaskListButton } from './task/TaskListButton.svelte'
+export { default as TaskListButton } from './task/TaskListButton.svelte';
 export { default as TaskListButtonGroup } from './task/TaskListButtonGroup.svelte';
 // undoredo
 export { default as UndoRedoButtonGroup } from './undo-redo/UndoRedoButtonGroup.svelte';

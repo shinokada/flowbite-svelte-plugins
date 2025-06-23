@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.12.0
+
+### Minor Changes
+
+- feat: TaskList and Details components
+
 ## 0.11.1
 
 ### Patch Changes

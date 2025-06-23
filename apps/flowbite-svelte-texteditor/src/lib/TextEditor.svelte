@@ -157,6 +157,19 @@
   </ContentWrapper>
 </EditorWrapper>
 
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+[EditorProviderProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L7)
+## Props
+@prop element = $bindable<HTMLDivElement | null>(null)
+@prop content = '<p>Start typing...</p>'
+@prop editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none'
+@prop editor = $bindable<Editor | null>(null)
+@prop children
+-->
+
 <style>
   :global(.tiptap :first-child) {
     margin-top: 0;
@@ -196,8 +209,8 @@
 
   :global(.tiptap ul[data-type='taskList'] li > div) {
     flex: 1 1 auto;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
   }
 
   :global(.tiptap ul[data-type='taskList'] input[type='checkbox']) {
@@ -220,7 +233,7 @@
 
   :global(.tiptap .details summary) {
     font-weight: 700;
-    list-style: none; 
+    list-style: none;
   }
 
   :global(.tiptap .details > button) {
