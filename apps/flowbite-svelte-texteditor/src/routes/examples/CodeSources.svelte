@@ -14,8 +14,7 @@
     editorInstance?.commands.setContent(content);
   }
 
-  const content =
-    `<p>Flowbite-Svelte is an <strong>open-source library of UI components</strong> based on the utility-first Tailwind CSS framework featuring dark mode support, a Figma design system, and more.</p>
+  const content = `<p>Flowbite-Svelte is an <strong>open-source library of UI components</strong> based on the utility-first Tailwind CSS framework featuring dark mode support, a Figma design system, and more.</p>
     <p>Here is an example of a code block:</p><pre><code class="language-js">for (var i=1; i <= 20; i++)
 {
   if (i % 15 == 0)

@@ -1,16 +1,19 @@
 {
   "name": "ImageButton",
   "type": {
-    "name": "ImageButtonProps",
-    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L101"
+    "name": "ImageButtonsProps",
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L23"
   },
   "props": [
     ["editor", ""],
-    ["format", ""],
+    ["format", "'default'"],
     ["tooltipText", ""],
-    ["buttonId", ""],
     ["ariaLabel", ""],
-    ["class: className", ""],
-    ["onAdvancedClick", ""]
+    ["id", ""],
+    ["imageUrl", "'https://placehold.co/600x400'"],
+    ["imageAlt", ""],
+    ["imageTitle", ""],
+    ["onAdvancedClick", ""],
+    ["class: className", ""]
   ]
 }

@@ -1,15 +1,15 @@
 {
   "name": "LayoutButton",
   "type": {
-    "name": "LayoutButtonProps",
-    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L117"
+    "name": "LayoutButtonsProps",
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L35"
   },
   "props": [
     ["editor", ""],
     ["format", ""],
     ["tooltipText", ""],
-    ["buttonId", ""],
     ["ariaLabel", ""],
+    ["id", ""],
     ["class: className", ""]
   ]
 }

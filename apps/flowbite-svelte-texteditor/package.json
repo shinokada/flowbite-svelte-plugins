@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.10.1",
+  "version": "0.11.0",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -144,97 +144,105 @@
       "types": "./dist/TextEditor.svelte.d.ts",
       "svelte": "./dist/TextEditor.svelte"
     },
-    "./AlignmentButtons.svelte": {
-      "types": "./dist/alignments/AlignmentButtons.svelte.d.ts",
-      "svelte": "./dist/alignments/AlignmentButtons.svelte"
+    "./AlignmentButton.svelte": {
+      "types": "./dist/alignment/AlignmentButton.svelte.d.ts",
+      "svelte": "./dist/alignment/AlignmentButton.svelte"
     },
-    "./ExportButtons.svelte": {
-      "types": "./dist/export/ExportButtons.svelte.d.ts",
-      "svelte": "./dist/export/ExportButtons.svelte"
+    "./AlignmentButtonGroup.svelte": {
+      "types": "./dist/alignment/AlignmentButtonGroup.svelte.d.ts",
+      "svelte": "./dist/alignment/AlignmentButtonGroup.svelte"
     },
-    "./FontButtons.svelte": {
-      "types": "./dist/font/FontButtons.svelte.d.ts",
-      "svelte": "./dist/font/FontButtons.svelte"
+    "./ExportButton.svelte": {
+      "types": "./dist/export/ExportButton.svelte.d.ts",
+      "svelte": "./dist/export/ExportButton.svelte"
     },
-    "./FormatButtons.svelte": {
-      "types": "./dist/format/FormatButtons.svelte.d.ts",
-      "svelte": "./dist/format/FormatButtons.svelte"
+    "./ExportButtonGroup.svelte": {
+      "types": "./dist/export/ExportButtonGroup.svelte.d.ts",
+      "svelte": "./dist/export/ExportButtonGroup.svelte"
     },
-    "./GroupAlignments.svelte": {
-      "types": "./dist/groups/GroupAlignments.svelte.d.ts",
-      "svelte": "./dist/groups/GroupAlignments.svelte"
+    "./FontButton.svelte": {
+      "types": "./dist/font/FontButton.svelte.d.ts",
+      "svelte": "./dist/font/FontButton.svelte"
+    },
+    "./FontButtonGroup.svelte": {
+      "types": "./dist/font/FontButtonGroup.svelte.d.ts",
+      "svelte": "./dist/font/FontButtonGroup.svelte"
+    },
+    "./FormatButton.svelte": {
+      "types": "./dist/format/FormatButton.svelte.d.ts",
+      "svelte": "./dist/format/FormatButton.svelte"
+    },
+    "./FormatButtonGroup.svelte": {
+      "types": "./dist/format/FormatButtonGroup.svelte.d.ts",
+      "svelte": "./dist/format/FormatButtonGroup.svelte"
     },
     "./GroupCustom.svelte": {
       "types": "./dist/groups/GroupCustom.svelte.d.ts",
       "svelte": "./dist/groups/GroupCustom.svelte"
     },
-    "./GroupExports.svelte": {
-      "types": "./dist/groups/GroupExports.svelte.d.ts",
-      "svelte": "./dist/groups/GroupExports.svelte"
+    "./ImageButton.svelte": {
+      "types": "./dist/image/ImageButton.svelte.d.ts",
+      "svelte": "./dist/image/ImageButton.svelte"
     },
-    "./GroupFonts.svelte": {
-      "types": "./dist/groups/GroupFonts.svelte.d.ts",
-      "svelte": "./dist/groups/GroupFonts.svelte"
+    "./ImageButtonGroup.svelte": {
+      "types": "./dist/image/ImageButtonGroup.svelte.d.ts",
+      "svelte": "./dist/image/ImageButtonGroup.svelte"
     },
-    "./GroupFormats.svelte": {
-      "types": "./dist/groups/GroupFormats.svelte.d.ts",
-      "svelte": "./dist/groups/GroupFormats.svelte"
+    "./LayoutButton.svelte": {
+      "types": "./dist/layout/LayoutButton.svelte.d.ts",
+      "svelte": "./dist/layout/LayoutButton.svelte"
     },
-    "./GroupImages.svelte": {
-      "types": "./dist/groups/GroupImages.svelte.d.ts",
-      "svelte": "./dist/groups/GroupImages.svelte"
+    "./LayoutButtonGroup.svelte": {
+      "types": "./dist/layout/LayoutButtonGroup.svelte.d.ts",
+      "svelte": "./dist/layout/LayoutButtonGroup.svelte"
     },
-    "./GroupLayouts.svelte": {
-      "types": "./dist/groups/GroupLayouts.svelte.d.ts",
-      "svelte": "./dist/groups/GroupLayouts.svelte"
+    "./ListButton.svelte": {
+      "types": "./dist/list/ListButton.svelte.d.ts",
+      "svelte": "./dist/list/ListButton.svelte"
     },
-    "./GroupLists.svelte": {
-      "types": "./dist/groups/GroupLists.svelte.d.ts",
-      "svelte": "./dist/groups/GroupLists.svelte"
+    "./ListButtonGroup.svelte": {
+      "types": "./dist/list/ListButtonGroup.svelte.d.ts",
+      "svelte": "./dist/list/ListButtonGroup.svelte"
     },
-    "./GroupTables1.svelte": {
-      "types": "./dist/groups/GroupTables1.svelte.d.ts",
-      "svelte": "./dist/groups/GroupTables1.svelte"
+    "./HtmlCodeButton.svelte": {
+      "types": "./dist/source/HtmlCodeButton.svelte.d.ts",
+      "svelte": "./dist/source/HtmlCodeButton.svelte"
     },
-    "./GroupTables2.svelte": {
-      "types": "./dist/groups/GroupTables2.svelte.d.ts",
-      "svelte": "./dist/groups/GroupTables2.svelte"
+    "./SourceButton.svelte": {
+      "types": "./dist/source/SourceButton.svelte.d.ts",
+      "svelte": "./dist/source/SourceButton.svelte"
     },
-    "./GroupTask.svelte": {
-      "types": "./dist/groups/GroupTask.svelte.d.ts",
-      "svelte": "./dist/groups/GroupTask.svelte"
+    "./TableButton.svelte": {
+      "types": "./dist/table/TableButton.svelte.d.ts",
+      "svelte": "./dist/table/TableButton.svelte"
     },
-    "./GroupUndoRedo.svelte": {
-      "types": "./dist/groups/GroupUndoRedo.svelte.d.ts",
-      "svelte": "./dist/groups/GroupUndoRedo.svelte"
+    "./TableButtonGroup1.svelte": {
+      "types": "./dist/table/TableButtonGroup1.svelte.d.ts",
+      "svelte": "./dist/table/TableButtonGroup1.svelte"
     },
-    "./GroupVideos.svelte": {
-      "types": "./dist/groups/GroupVideos.svelte.d.ts",
-      "svelte": "./dist/groups/GroupVideos.svelte"
+    "./TableButtonGroup2.svelte": {
+      "types": "./dist/table/TableButtonGroup2.svelte.d.ts",
+      "svelte": "./dist/table/TableButtonGroup2.svelte"
     },
-    "./ImageButtons.svelte": {
-      "types": "./dist/image/ImageButtons.svelte.d.ts",
-      "svelte": "./dist/image/ImageButtons.svelte"
-    },
-    "./LayoutButtons.svelte": {
-      "types": "./dist/layout/LayoutButtons.svelte.d.ts",
-      "svelte": "./dist/layout/LayoutButtons.svelte"
-    },
-    "./ListButtons.svelte": {
-      "types": "./dist/lists/ListButtons.svelte.d.ts",
-      "svelte": "./dist/lists/ListButtons.svelte"
-    },
-    "./TableButtons.svelte": {
-      "types": "./dist/table/TableButtons.svelte.d.ts",
-      "svelte": "./dist/table/TableButtons.svelte"
+    "./TaskButtonGroup.svelte": {
+      "types": "./dist/task/TaskButtonGroup.svelte.d.ts",
+      "svelte": "./dist/task/TaskButtonGroup.svelte"
     },
     "./UndoRedo.svelte": {
       "types": "./dist/undo-redo/UndoRedo.svelte.d.ts",
       "svelte": "./dist/undo-redo/UndoRedo.svelte"
     },
-    "./VideoButtons.svelte": {
-      "types": "./dist/video/VideoButtons.svelte.d.ts",
-      "svelte": "./dist/video/VideoButtons.svelte"
+    "./UndoRedoButtonGroup.svelte": {
+      "types": "./dist/undo-redo/UndoRedoButtonGroup.svelte.d.ts",
+      "svelte": "./dist/undo-redo/UndoRedoButtonGroup.svelte"
+    },
+    "./VideoButton.svelte": {
+      "types": "./dist/video/VideoButton.svelte.d.ts",
+      "svelte": "./dist/video/VideoButton.svelte"
+    },
+    "./VideoButtonGroup.svelte": {
+      "types": "./dist/video/VideoButtonGroup.svelte.d.ts",
+      "svelte": "./dist/video/VideoButtonGroup.svelte"
     },
     "./ContentWrapper.svelte": {
       "types": "./dist/wrappers/ContentWrapper.svelte.d.ts",

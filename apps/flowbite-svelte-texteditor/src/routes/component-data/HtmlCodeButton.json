@@ -1,0 +1,14 @@
+{
+  "name": "HtmlCodeButton",
+  "type": {
+    "name": "InsertHtmlCodeButtonProps",
+    "link": null
+  },
+  "props": [
+    ["editor", ""],
+    ["tooltipText", "'Insert HTML Code Block'"],
+    ["ariaLabel", "'Insert HTML Code Block'"],
+    ["id", ""],
+    ["class: className", ""]
+  ]
+}

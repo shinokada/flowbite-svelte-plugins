@@ -1,0 +1,14 @@
+{
+  "name": "SourceButton",
+  "type": {
+    "name": "SourceToggleButtonProps",
+    "link": null
+  },
+  "props": [
+    ["editor", ""],
+    ["tooltipText", "'Toggle Source View'"],
+    ["ariaLabel", "'Toggle Source View'"],
+    ["id", ""],
+    ["class: className", ""]
+  ]
+}

@@ -31,7 +31,7 @@ export { default as LayoutButtonGroup } from './layout/LayoutButtonGroup.svelte'
 export { default as ListButton } from './list/ListButton.svelte';
 export { default as ListButtonGroup } from './list/ListButtonGroup.svelte';
 // source
-export { default as SourceButton } from './source/SourceButton.svelte'
+export { default as SourceButton } from './source/SourceButton.svelte';
 export { default as HtmlCodeButton } from './source/HtmlCodeButton.svelte';
 // table
 export { default as TableButton } from './table/TableButton.svelte';

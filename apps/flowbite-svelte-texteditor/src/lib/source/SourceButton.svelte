@@ -11,13 +11,7 @@
     class?: string;
   }
 
-  let { 
-    editor, 
-    tooltipText = 'Toggle Source View', 
-    ariaLabel = 'Toggle Source View', 
-    id, 
-    class: className 
-  }: SourceToggleButtonProps = $props();
+  let { editor, tooltipText = 'Toggle Source View', ariaLabel = 'Toggle Source View', id, class: className }: SourceToggleButtonProps = $props();
 
   let isSourceView = $state(false);
   let sourceContent = $state('');
@@ -79,56 +73,66 @@
   onclick={toggleSourceView}
   id={uniqueId}
   type="button"
-  class={cn('cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white', 
-    isSourceView ? 'bg-gray-200 text-gray-900 dark:bg-gray-500 dark:text-white' : '', 
-    className)}
+  class={cn(
+    'cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white',
+    isSourceView ? 'bg-gray-200 text-gray-900 dark:bg-gray-500 dark:text-white' : '',
+    className
+  )}
 >
   <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1z"/>
-</svg>
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1z" />
+  </svg>
   <span class="sr-only">{ariaLabel}</span>
 </button>
 <Tooltip>{tooltipText}</Tooltip>
 
-<Modal 
-  title="Edit HTML Source" 
-  bind:open={showModal} 
-  autoclose={false}
-  size="xl"
->
+<Modal title="Edit HTML Source" bind:open={showModal} autoclose={false} size="xl">
   <div class="space-y-4">
     <div class="relative">
       <textarea
         bind:value={sourceContent}
         oninput={handleSourceInput}
-        class="w-full h-96 p-4 font-mono text-sm border rounded-md resize-y focus:outline-none focus:ring-1 focus:ring-primary-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+        class="focus:ring-primary-500 h-96 w-full resize-y rounded-md border p-4 font-mono text-sm focus:ring-1 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-white"
         placeholder="Edit HTML source code..."
       ></textarea>
-      
+
       {#if sourceError}
-        <div class="mt-2 p-2 text-sm text-red-600 bg-red-50 dark:bg-red-900/20 dark:text-red-400 rounded">
+        <div class="mt-2 rounded bg-red-50 p-2 text-sm text-red-600 dark:bg-red-900/20 dark:text-red-400">
           {sourceError}
         </div>
       {/if}
     </div>
   </div>
-  
- {#snippet footer()}
+
+  {#snippet footer()}
     <div class="flex justify-end space-x-2">
       <button
         type="button"
         onclick={handleCancel}
-        class="px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
+        class="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
       >
         Cancel
       </button>
       <button
         type="button"
         onclick={handleModalClose}
-        class="px-4 py-2 text-sm font-medium text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+        class="bg-primary-700 hover:bg-primary-800 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 rounded-lg px-4 py-2 text-sm font-medium text-white focus:ring-4 focus:outline-none"
       >
         Apply Changes
       </button>
     </div>
- {/snippet}
+  {/snippet}
 </Modal>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+## Type
+SourceToggleButtonProps
+## Props
+@prop editor
+@prop tooltipText = 'Toggle Source View'
+@prop ariaLabel = 'Toggle Source View'
+@prop id
+@prop class: className
+-->

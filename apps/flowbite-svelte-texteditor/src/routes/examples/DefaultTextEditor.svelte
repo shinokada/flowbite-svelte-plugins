@@ -1,5 +1,18 @@
 <script lang="ts">
-  import { AlignmentButtonGroup, FontButtonGroup, UndoRedoButtonGroup, FormatButtonGroup, LayoutButtonGroup, ImageButtonGroup, ListButtonGroup, VideoButtonGroup, TextEditor, ToolbarRowWrapper, Divider, SourceButton } from '$lib';
+  import {
+    AlignmentButtonGroup,
+    FontButtonGroup,
+    UndoRedoButtonGroup,
+    FormatButtonGroup,
+    LayoutButtonGroup,
+    ImageButtonGroup,
+    ListButtonGroup,
+    VideoButtonGroup,
+    TextEditor,
+    ToolbarRowWrapper,
+    Divider,
+    SourceButton
+  } from '$lib';
   import type { Editor } from '@tiptap/core';
   import { Button } from 'flowbite-svelte';
 
@@ -14,8 +27,7 @@
     editorInstance?.commands.setContent(content);
   }
 
-  const content =
-    `<p>Flowbite-Svelte is an <strong>open-source library of UI components</strong> based on the utility-first Tailwind CSS framework featuring dark mode support, a Figma design system, and more.</p><p>It includes all of the commonly used components that a website requires, such as buttons, dropdowns, navigation bars, modals, datepickers, advanced charts and the list goes on.</p>
+  const content = `<p>Flowbite-Svelte is an <strong>open-source library of UI components</strong> based on the utility-first Tailwind CSS framework featuring dark mode support, a Figma design system, and more.</p><p>It includes all of the commonly used components that a website requires, such as buttons, dropdowns, navigation bars, modals, datepickers, advanced charts and the list goes on.</p>
     <p>Here is an example of a js block:</p><pre><code class="language-javascript">for (var i=1; i <= 20; i++)
 {
   if (i % 15 == 0)
@@ -59,4 +71,3 @@
   <Button onclick={() => console.log(getEditorContent())}>Get Content</Button>
   <Button onclick={() => setEditorContent('<p>New content!</p>')}>Set Content</Button>
 </div>
-

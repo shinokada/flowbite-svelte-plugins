@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.11.0
+
+### Minor Changes
+
+- feat: add SourceButton, HtmlCodeButton, component name changes
+
 ## 0.10.1
 
 ### Patch Changes
