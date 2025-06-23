@@ -109,6 +109,7 @@
     "@tiptap/extension-document": "^2.22.3",
     "@tiptap/extension-focus": "^2.22.3",
     "@tiptap/extension-font-family": "^2.22.3",
+    "@tiptap/extension-hard-break": "^2.22.3",
     "@tiptap/extension-heading": "^2.22.3",
     "@tiptap/extension-highlight": "^2.22.3",
     "@tiptap/extension-image": "^2.22.3",

@@ -14,7 +14,8 @@
     strike: { tooltip: 'Toggle strike', aria: 'Strike' },
     subscript: { tooltip: 'Toggle subscript', aria: 'Subscript' },
     superscript: { tooltip: 'Toggle superscript', aria: 'Superscript' },
-    underline: { tooltip: 'Toggle underline', aria: 'Underline' }
+    underline: { tooltip: 'Toggle underline', aria: 'Underline' },
+    br: { tooltip: 'Set <br>', aria: '<br>'}
   };
 
   const finalTooltipText = tooltipText ?? defaults[format].tooltip;
@@ -47,6 +48,9 @@
       case 'superscript':
         editor?.chain().focus().toggleSuperscript().run();
         break;
+      case 'br':
+        editor?.chain().focus().setHardBreak().run();
+        break;
       case 'link':
         const url = window.prompt('URL');
         if (url) {
@@ -69,7 +73,8 @@
     link: 'M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961',
     removeLink: 'M13.2 9.8a3.4 3.4 0 0 0-4.8 0L5 13.2A3.4 3.4 0 0 0 9.8 18l.3-.3m-.3-4.5a3.4 3.4 0 0 0 4.8 0L18 9.8A3.4 3.4 0 0 0 13.2 5l-1 1m7.4 14-1.8-1.8m0 0L16 16.4m1.8 1.8 1.8-1.8m-1.8 1.8L16 20',
     subscript: 'M19.9999 21h-4v-.5c1.0989-1.0329 3.75-2.5 3.75-3.5v-1.0001c0-.5523-.4477-.9999-1-.9999h-1.75c-.5523 0-1 .4477-1 1M3.99986 6l9.26894 11.5765M13.1219 6 3.85303 17.5765',
-    superscript: 'M21.0002 11h-4l-.0001-.5C18.099 9.46711 20.7502 8 20.7502 7V5.99989c0-.55228-.4478-.99989-1-.99989h-1.75c-.5523 0-1 .44772-1 1M5.37837 7.98274 14.6473 19.5593m-.5251-11.25583L4.85547 19.8773'
+    superscript: 'M21.0002 11h-4l-.0001-.5C18.099 9.46711 20.7502 8 20.7502 7V5.99989c0-.55228-.4478-.99989-1-.99989h-1.75c-.5523 0-1 .44772-1 1M5.37837 7.98274 14.6473 19.5593m-.5251-11.25583L4.85547 19.8773',
+    br: 'M3 7v10m0-5h18m-3-3 3 3-3 3'
   };
 </script>
 

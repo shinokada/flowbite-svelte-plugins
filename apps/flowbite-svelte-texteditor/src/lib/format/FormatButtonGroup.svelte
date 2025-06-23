@@ -1,7 +1,7 @@
 <script lang="ts">
   import { FormatButton, type FormatButtonGroupProps } from '$lib';
 
-  let { editor, showToolbar = true, bold = true, code = true, highlight = true, italic = true, link = true, removeLink = true, strike = true, subscript = true, superscript = true, underline = true }: FormatButtonGroupProps = $props();
+  let { editor, showToolbar = true, bold = true, code = true, highlight = true, italic = true, link = true, removeLink = true, strike = true, subscript = true, superscript = true, underline = true, br = true }: FormatButtonGroupProps = $props();
 </script>
 
 {#if editor && showToolbar}
@@ -34,6 +34,9 @@
   {/if}
   {#if underline}
     <FormatButton {editor} format="underline" />
+  {/if}
+  {#if br}
+    <FormatButton {editor} format="br" />
   {/if}
 {/if}
 

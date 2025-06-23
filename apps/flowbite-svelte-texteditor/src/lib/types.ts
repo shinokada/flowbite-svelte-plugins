@@ -61,7 +61,7 @@ export interface ExportButtonGroupProps extends GroupFormatProps {
 
 // format
 export interface FormatButtonProps extends EditorBasicProps {
-  format: 'bold' | 'code' | 'highlight' | 'italic' | 'link' | 'removeLink' | 'strike' | 'subscript' | 'superscript' | 'underline';
+  format: 'bold' | 'code' | 'highlight' | 'italic' | 'link' | 'removeLink' | 'strike' | 'subscript' | 'superscript' | 'underline' | 'br';
 }
 
 export interface FormatButtonGroupProps extends GroupFormatProps {
@@ -75,6 +75,7 @@ export interface FormatButtonGroupProps extends GroupFormatProps {
   subscript?: boolean;
   superscript?: boolean;
   underline?: boolean;
+  br?: boolean;
 }
 
 // font
