@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.12.3
+
+### Patch Changes
+
+- fix: move style to app.css
+
 ## 0.12.2
 
 ### Patch Changes
