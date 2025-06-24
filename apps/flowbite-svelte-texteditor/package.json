@@ -8,7 +8,7 @@
     "url": "https://blog.codewithshin.com"
   },
   "bugs": "https://github.com/shinokada/flowbite-svelte-plugins/issues",
-  "homepage": "https://flowbite-svelte.com/docs/plugins/WYSIWYG",
+  "homepage": "https://flowbite-svelte.com/docs/plugins/wysiwyg",
   "license": "MIT",
   "scripts": {
     "dev": "vite dev",
@@ -93,6 +93,7 @@
   },
   "keywords": [
     "svelte",
+    "sveltekit",
     "text editor",
     "tiptap",
     "flowbite-svelte"

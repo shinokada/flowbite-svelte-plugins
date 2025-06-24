@@ -55,7 +55,7 @@
 }
 
 @layer components {
-  /* List styles */
+  /* texteditor List styles */
   .tiptap ul,
   .tiptap ol {
     padding: 0 1rem;
@@ -118,7 +118,7 @@
     margin: 0 !important;
   }
 
-  /* Details */
+  /* texteditor Details */
   .tiptap .details {
     display: flex;
     gap: 0.25rem;
