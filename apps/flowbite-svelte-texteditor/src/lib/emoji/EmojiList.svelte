@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { Editor } from '@tiptap/core';
-  import { Dropdown } from 'flowbite-svelte';
 
   interface EmojiItem {
     name: string;

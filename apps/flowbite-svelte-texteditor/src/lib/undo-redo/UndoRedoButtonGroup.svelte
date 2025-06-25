@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { Editor } from '@tiptap/core';
   import { type UndoRedoButtonGroupProps, UndoRedo } from '$lib';
 
   let { editor, showToolbar = true, undo = true, redo = true }: UndoRedoButtonGroupProps = $props();
