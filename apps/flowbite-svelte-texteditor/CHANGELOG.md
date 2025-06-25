@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.13.3
+
+### Patch Changes
+
+- fix: back groud color for text buttons
+
 ## 0.13.2
 
 ### Patch Changes
