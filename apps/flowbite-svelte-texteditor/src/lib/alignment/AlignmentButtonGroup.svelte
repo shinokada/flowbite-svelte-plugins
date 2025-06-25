@@ -20,9 +20,9 @@
 
 <!--
 @component
-[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+[Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[AlignmentButtonGroupProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L35)
+[AlignmentButtonGroupProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L37)
 ## Props
 @prop editor
 @prop showToolbar = true

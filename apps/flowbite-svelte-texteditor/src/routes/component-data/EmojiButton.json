@@ -1,8 +1,8 @@
 {
-  "name": "HeadingButton",
+  "name": "EmojiButton",
   "type": {
-    "name": "EditorBasicProps",
-    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L18"
+    "name": "EmojiButtonProps",
+    "link": null
   },
   "props": [
     ["editor", ""],

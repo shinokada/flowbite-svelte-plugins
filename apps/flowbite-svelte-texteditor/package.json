@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.12.3",
+  "version": "0.13.0",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -168,6 +168,14 @@
     "./DetailsButtonGroup.svelte": {
       "types": "./dist/details/DetailsButtonGroup.svelte.d.ts",
       "svelte": "./dist/details/DetailsButtonGroup.svelte"
+    },
+    "./EmojiButton.svelte": {
+      "types": "./dist/emoji/EmojiButton.svelte.d.ts",
+      "svelte": "./dist/emoji/EmojiButton.svelte"
+    },
+    "./EmojiList.svelte": {
+      "types": "./dist/emoji/EmojiList.svelte.d.ts",
+      "svelte": "./dist/emoji/EmojiList.svelte"
     },
     "./ExportButton.svelte": {
       "types": "./dist/export/ExportButton.svelte.d.ts",

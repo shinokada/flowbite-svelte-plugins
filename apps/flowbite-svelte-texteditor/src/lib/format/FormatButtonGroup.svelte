@@ -42,9 +42,9 @@
 
 <!--
 @component
-[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+[Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[FormatButtonGroupProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L67)
+[FormatButtonGroupProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L69)
 ## Props
 @prop editor
 @prop showToolbar = true

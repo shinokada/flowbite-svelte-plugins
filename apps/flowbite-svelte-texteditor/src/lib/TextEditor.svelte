@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onDestroy } from 'svelte';
-  import {cn} from '$lib'
+  import { cn } from '$lib';
   import { type EditorProviderProps, EditorWrapper, ContentWrapper, ToolbarWrapper } from '$lib';
   import { Editor } from '@tiptap/core';
   import StarterKit from '@tiptap/starter-kit';
@@ -103,12 +103,15 @@
         Details.configure({ persist: true, HTMLAttributes: { class: 'details' } }),
         DetailsSummary,
         DetailsContent,
-        Placeholder.configure({ includeChildren: true, placeholder: ({ node }) => {
-          if (node.type.name === 'detailsSummary') {
-            return 'Summary';
+        Placeholder.configure({
+          includeChildren: true,
+          placeholder: ({ node }) => {
+            if (node.type.name === 'detailsSummary') {
+              return 'Summary';
+            }
+            return 'Write something...';
           }
-          return 'Write something...';
-        }})
+        })
       ];
 
       // Conditionally add Emoji extension
@@ -159,7 +162,7 @@
 
 <!--
 @component
-[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+[Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
 [EditorProviderProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L7)
 ## Props
@@ -168,4 +171,6 @@
 @prop editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none'
 @prop editor = $bindable<Editor | null>(null)
 @prop children
+@prop emoji = true
+@prop class: className
 -->

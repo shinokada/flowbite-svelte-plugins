@@ -11,6 +11,4 @@
 
 <TextEditor bind:element={editorElement} bind:editor={editorInstance} {content} emoji={true} class="mb-96">
   <AlignmentButton editor={editorInstance} alignment="left" />
-  
 </TextEditor>
-

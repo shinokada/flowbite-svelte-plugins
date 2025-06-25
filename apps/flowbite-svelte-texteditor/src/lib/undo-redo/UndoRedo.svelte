@@ -41,9 +41,9 @@
 
 <!--
 @component
-[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+[Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[UndoRedoProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L200)
+[UndoRedoProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L202)
 ## Props
 @prop editor
 @prop action

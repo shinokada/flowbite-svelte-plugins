@@ -15,9 +15,9 @@
 
 <!--
 @component
-[Go to docs](https://flowbite-svelte.com/docs/plugins/WYSIWYG)
+[Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[ListButtonGroupProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L121)
+[ListButtonGroupProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L123)
 ## Props
 @prop editor
 @prop showToolbar = true

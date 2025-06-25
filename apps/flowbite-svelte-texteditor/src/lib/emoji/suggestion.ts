@@ -1,11 +1,7 @@
 import { mount, unmount } from 'svelte';
 import tippy, { type Instance as TippyInstance } from 'tippy.js';
 import type { Editor } from '@tiptap/core';
-import type {
-  SuggestionOptions,
-  SuggestionProps as TipTapSuggestionProps,
-  SuggestionKeyDownProps,
-} from '@tiptap/suggestion';
+import type { SuggestionOptions, SuggestionProps as TipTapSuggestionProps, SuggestionKeyDownProps } from '@tiptap/suggestion';
 import EmojiList from './EmojiList.svelte';
 
 interface EmojiItem {
@@ -33,14 +29,14 @@ export default {
     }
 
     const filtered = editor.storage.emoji.emojis.filter((item: EmojiItem) => {
-      return (
-        item.shortcodes.find((shortcode: string) => shortcode.toLowerCase().startsWith(cleanQuery))
-        || item.tags?.find((tag: string) => tag.toLowerCase().startsWith(cleanQuery))
-      );
+      return item.shortcodes.find((shortcode: string) => shortcode.toLowerCase().startsWith(cleanQuery)) || item.tags?.find((tag: string) => tag.toLowerCase().startsWith(cleanQuery));
     });
 
     console.log('Matching emoji count:', filtered.length);
-    console.log('Matching shortcodes:', filtered.map((e: EmojiItem) => e.shortcodes[0]));
+    console.log(
+      'Matching shortcodes:',
+      filtered.map((e: EmojiItem) => e.shortcodes[0])
+    );
 
     return filtered.slice(0, 5);
   },
@@ -60,27 +56,29 @@ export default {
           props: {
             items: props.items,
             command: props.command,
-            editor: props.editor,
-          },
+            editor: props.editor
+          }
         });
 
-        popup = [tippy(element, {
-          getReferenceClientRect: () => {
-            const rect = props.clientRect?.();
-            return rect ?? new DOMRect(0, 0, 0, 0);
-          },
-          appendTo: () => document.body,
-          content: element,
-          showOnCreate: true,
-          interactive: true,
-          trigger: 'manual',
-          placement: 'bottom-start',
-        })];
+        popup = [
+          tippy(element, {
+            getReferenceClientRect: () => {
+              const rect = props.clientRect?.();
+              return rect ?? new DOMRect(0, 0, 0, 0);
+            },
+            appendTo: () => document.body,
+            content: element,
+            showOnCreate: true,
+            interactive: true,
+            trigger: 'manual',
+            placement: 'bottom-start'
+          })
+        ];
       },
 
       onUpdate: (props: TipTapSuggestionProps) => {
         console.log('📝 Updating component with items:', props.items.length);
-        
+
         // In Svelte 5, we need to recreate the component or use exported functions
         // Let's try calling the exported updateItems function
         if (component && component.updateItems) {
@@ -90,20 +88,19 @@ export default {
           if (component) {
             unmount(component);
           }
-          
+
           component = mount(EmojiList, {
             target: element,
             props: {
               items: props.items,
               command: props.command,
-              editor: props.editor,
-            },
+              editor: props.editor
+            }
           });
         }
 
         popup[0].setProps({
-          getReferenceClientRect: () =>
-            props.clientRect?.() ?? new DOMRect(0, 0, 0, 0),
+          getReferenceClientRect: () => props.clientRect?.() ?? new DOMRect(0, 0, 0, 0)
         });
       },
 
@@ -129,7 +126,7 @@ export default {
         if (component) {
           unmount(component);
         }
-      },
+      }
     };
-  },
+  }
 } satisfies Omit<SuggestionOptions<EmojiItem, any>, 'editor'>;

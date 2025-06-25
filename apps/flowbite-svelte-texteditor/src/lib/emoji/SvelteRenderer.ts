@@ -24,7 +24,7 @@ class SvelteRenderer {
   updateProps(props: Partial<NodeViewProps>): void {
     // Update the stored props
     Object.assign(this.props, props);
-    
+
     // Update the actual Svelte component's props
     // Access the component's $set method to update props
     if (this.component && typeof (this.component as any).$set === 'function') {

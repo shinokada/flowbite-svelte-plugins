@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Tooltip, Dropdown, DropdownItem } from 'flowbite-svelte';
   import { cn, generateButtonId } from '$lib';
-  
+
   // Define props interface
   interface EmojiButtonProps {
     editor: any;
@@ -78,15 +78,11 @@
     }
   }
 
-  const emojiSvgPath = 'M12 2C6.477 2 2 6.484 2 12.017c0 5.533 4.477 10.017 10 10.017s10-4.484 10-10.017C22 6.484 17.523 2 12 2Zm-3.5 6a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm7 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm-7.5 9c0-.9.895-1.6 2-1.6h6c1.105 0 2 .7 2 1.6 0 0-.895-2.4-2-2.4h-6c-1.105 0-2 1.5-2 2.4Z';
+  const emojiSvgPath =
+    'M12 2C6.477 2 2 6.484 2 12.017c0 5.533 4.477 10.017 10 10.017s10-4.484 10-10.017C22 6.484 17.523 2 12 2Zm-3.5 6a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm7 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm-7.5 9c0-.9.895-1.6 2-1.6h6c1.105 0 2 .7 2 1.6 0 0-.895-2.4-2-2.4h-6c-1.105 0-2 1.5-2 2.4Z';
 </script>
 
-<button 
-  onclick={handleClick} 
-  id={uniqueId} 
-  type="button" 
-  class={cn('cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white', className)}
->
+<button onclick={handleClick} id={uniqueId} type="button" class={cn('cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white', className)}>
   <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
     <path d={emojiSvgPath} />
   </svg>
@@ -96,7 +92,7 @@
 <Tooltip>{finalTooltipText}</Tooltip>
 
 <Dropdown bind:isOpen simple triggeredBy="#{uniqueId}">
-  <div class="p-3 w-80">
+  <div class="w-80 p-3">
     <!-- Search input -->
     <div class="mb-3">
       <input
@@ -108,16 +104,11 @@
         class="w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
       />
     </div>
-    
+
     <!-- Emoji grid -->
-    <div class="grid grid-cols-8 gap-1 max-h-64 overflow-y-auto">
+    <div class="grid max-h-64 grid-cols-8 gap-1 overflow-y-auto">
       {#each filteredEmojis as emoji}
-        <button
-          type="button"
-          onclick={() => insertEmoji(emoji.name)}
-          class="flex h-8 w-8 items-center justify-center rounded hover:bg-gray-100 dark:hover:bg-gray-600 text-lg transition-colors duration-150"
-          title=":{emoji.name}:"
-        >
+        <button type="button" onclick={() => insertEmoji(emoji.name)} class="flex h-8 w-8 items-center justify-center rounded text-lg transition-colors duration-150 hover:bg-gray-100 dark:hover:bg-gray-600" title=":{emoji.name}:">
           {#if emoji.fallbackImage}
             <img src={emoji.fallbackImage} alt={emoji.name} style="vertical-align: middle;" class="h-5 w-5" />
           {:else}
@@ -127,17 +118,28 @@
         </button>
       {/each}
     </div>
-    
+
     {#if filteredEmojis.length === 0 && searchQuery.trim()}
       <div class="p-4 text-center text-gray-500 dark:text-gray-400">
         No emojis found for "{searchQuery}"
       </div>
     {/if}
-    
+
     {#if emojis.length === 0}
-      <div class="p-4 text-center text-gray-500 dark:text-gray-400">
-        Loading emojis...
-      </div>
+      <div class="p-4 text-center text-gray-500 dark:text-gray-400">Loading emojis...</div>
     {/if}
   </div>
 </Dropdown>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
+## Type
+EmojiButtonProps
+## Props
+@prop editor
+@prop tooltipText
+@prop ariaLabel
+@prop id
+@prop class: className
+-->

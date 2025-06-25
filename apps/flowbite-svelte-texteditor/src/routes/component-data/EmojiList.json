@@ -1,0 +1,12 @@
+{
+  "name": "EmojiList",
+  "type": {
+    "name": "Props",
+    "link": null
+  },
+  "props": [
+    ["items: initialItems", "[]"],
+    ["command", ""],
+    ["editor", ""]
+  ]
+}

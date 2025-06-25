@@ -2,7 +2,7 @@
   "name": "DetailsButtonGroup",
   "type": {
     "name": "DetailsButtonGroupProps",
-    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L47"
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L49"
   },
   "props": [
     ["editor", ""],

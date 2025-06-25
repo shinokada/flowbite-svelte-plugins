@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.13.0
+
+### Minor Changes
+
+- feat: add emoji component
+
 ## 0.12.3
 
 ### Patch Changes

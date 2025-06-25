@@ -9,6 +9,8 @@
     ["content", "'<p>Start typing...</p>'"],
     ["editorClass", "'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none'"],
     ["editor", "$bindable<Editor | null>(null)"],
-    ["children", ""]
+    ["children", ""],
+    ["emoji", "true"],
+    ["class: className", ""]
   ]
 }
