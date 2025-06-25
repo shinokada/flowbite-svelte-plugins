@@ -27,7 +27,7 @@
   };
 </script>
 
-<button onclick={handleClick} id={uniqueId} type="button" class={cn('cursor-pointer rounded-sm bg-gray-200 p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-600 dark:hover:bg-gray-600 dark:hover:text-white', className)}>
+<button onclick={handleClick} id={uniqueId} type="button" class={cn('cursor-pointer rounded-sm bg-gray-50 p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-600 dark:hover:bg-gray-600 dark:hover:text-white', className)}>
   <span class="text-sm font-medium">{titles[action]}</span>
   <span class="sr-only">{finalAriaLabel}</span>
 </button>
