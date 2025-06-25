@@ -69,11 +69,7 @@
 
 <div class="dropdown-menu">
   {#each items as item, index}
-    <button 
-      class:is-selected={index === selectedIndex} 
-      onclick={() => selectItem(index)}
-      type="button"
-    >
+    <button class:is-selected={index === selectedIndex} onclick={() => selectItem(index)} type="button">
       <span class="emoji-icon">
         {#if item.fallbackImage}
           <img src={item.fallbackImage} alt={item.name} width="20" height="20" />
@@ -83,8 +79,19 @@
           😶
         {/if}
       </span>
-      
+
       <span class="emoji-name">:{item.name}:</span>
     </button>
   {/each}
 </div>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
+## Type
+Props
+## Props
+@prop items: initialItems = []
+@prop command: initialCommand
+@prop editor
+-->

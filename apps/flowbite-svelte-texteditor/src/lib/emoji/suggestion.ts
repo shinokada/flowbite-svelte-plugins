@@ -20,21 +20,19 @@ interface SuggestionContext {
 function debugPositioning(editor: Editor) {
   const editorElement = editor.view.dom;
   let current = editorElement.parentElement;
-  
+
   console.log('🔍 CSS Debug - Editor element:', editorElement);
   console.log('🔍 Editor computed style:', {
     position: window.getComputedStyle(editorElement).position,
     transform: window.getComputedStyle(editorElement).transform,
     zoom: window.getComputedStyle(editorElement).zoom
   });
-  
+
   // Check all ancestors for positioning contexts
   let level = 0;
   while (current && level < 10) {
     const computedStyle = window.getComputedStyle(current);
-    if (computedStyle.position !== 'static' || 
-        computedStyle.transform !== 'none' ||
-        computedStyle.perspective !== 'none') {
+    if (computedStyle.position !== 'static' || computedStyle.transform !== 'none' || computedStyle.perspective !== 'none') {
       console.log(`🔍 Positioned ancestor level ${level}:`, current, {
         position: computedStyle.position,
         transform: computedStyle.transform,
@@ -116,12 +114,7 @@ export default {
                 return new DOMRect(0, 0, 0, 0);
               }
 
-              const absoluteRect = new DOMRect(
-                rect.left,
-                rect.top,
-                rect.width,
-                rect.height
-              );
+              const absoluteRect = new DOMRect(rect.left, rect.top, rect.width, rect.height);
 
               console.log('📍 Input rect:', rect);
               console.log('📍 Returning ClientRect:', absoluteRect);
@@ -149,28 +142,28 @@ export default {
                 {
                   name: 'computeStyles',
                   options: {
-                    gpuAcceleration: false,
-                  },
+                    gpuAcceleration: false
+                  }
                 },
                 {
                   name: 'preventOverflow',
                   options: {
                     boundary: 'viewport',
-                    padding: 8,
-                  },
+                    padding: 8
+                  }
                 },
                 {
                   name: 'flip',
                   options: {
-                    fallbackPlacements: ['top-start', 'bottom-end', 'top-end'],
-                  },
+                    fallbackPlacements: ['top-start', 'bottom-end', 'top-end']
+                  }
                 },
                 // Remove or adjust the offset
                 {
                   name: 'offset',
                   options: {
-                    offset: [0, 0], // Try with no offset first
-                  },
+                    offset: [0, 0] // Try with no offset first
+                  }
                 },
                 // Simplified custom positioning
                 {
@@ -186,13 +179,13 @@ export default {
                       left: computedStyle.left,
                       transform: computedStyle.transform
                     });
-                  },
-                },
-              ],
+                  }
+                }
+              ]
             },
             zIndex: 99999,
             arrow: false,
-            theme: 'light-border',
+            theme: 'light-border'
           })
         ];
       },
@@ -237,12 +230,7 @@ export default {
           const editorElement = props.editor.view.dom;
           const editorRect = editorElement.getBoundingClientRect();
 
-          const absoluteRect = new DOMRect(
-            newRect.left,
-            newRect.top,
-            newRect.width,
-            newRect.height
-          );
+          const absoluteRect = new DOMRect(newRect.left, newRect.top, newRect.width, newRect.height);
 
           console.log('📍 Updating ClientRect:', absoluteRect);
 

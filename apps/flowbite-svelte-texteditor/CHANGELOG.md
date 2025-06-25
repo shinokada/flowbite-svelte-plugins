@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.13.1
+
+### Patch Changes
+
+- fix: append the popup to the body of the document the editor is inside, not the global document in suggestion.ts
+
 ## 0.13.0
 
 ### Minor Changes
