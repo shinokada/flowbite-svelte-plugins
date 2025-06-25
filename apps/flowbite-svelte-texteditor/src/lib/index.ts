@@ -20,6 +20,7 @@ export { default as DetailsButton } from './details/DetailsButton.svelte';
 export { default as DetailsButtonGroup } from './details/DetailsButtonGroup.svelte';
 // emoji
 export { default as EmojiButton } from './emoji/EmojiButton.svelte';
+export { default as EmojiList } from './emoji/EmojiList.svelte';
 // font
 export { default as FontButton } from './font/FontButton.svelte';
 export { default as FontButtonGroup } from './font/FontButtonGroup.svelte';

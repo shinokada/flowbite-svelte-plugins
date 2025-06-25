@@ -1,107 +1,73 @@
 <script lang="ts">
-  let { items = [], command, editor } = $props()
-  let selectedIndex = $state(0)
+  import type { Editor } from '@tiptap/core';
+
+  interface EmojiItem {
+    name: string;
+    emoji?: string;
+    shortcodes: string[];
+    tags?: string[];
+    fallbackImage?: string;
+  }
+
+  interface Props {
+    items: EmojiItem[];
+    command: (args: { name: string }) => void;
+    editor: Editor;
+  }
+
+  // Use $props() but make items reactive with $state
+  let { items: initialItems = [], command, editor }: Props = $props();
   
+  // Create reactive state for items
+  let items = $state(initialItems);
+  let selectedIndex = $state(0);
+
+  // Watch for changes to initialItems and update our reactive state
   $effect(() => {
-    if (items) {
-      selectedIndex = 0
-    }
-  })
-  
-  function onKeyDown({ event }: { event: KeyboardEvent }): boolean {
-    if (event.key === 'ArrowUp') {
-      upHandler()
-      return true
-    }
+    items = initialItems;
+    selectedIndex = 0; // Reset selection when items change
+  });
 
-    if (event.key === 'ArrowDown') {
-      downHandler()
-      return true
-    }
-
-    if (event.key === 'Enter') {
-      enterHandler()
-      return true
-    }
-
-    return false
-  }
-
-  function upHandler() {
-    selectedIndex = ((selectedIndex + items.length) - 1) % items.length
-  }
-
-  function downHandler() {
-    selectedIndex = (selectedIndex + 1) % items.length
-  }
-
-  function enterHandler() {
-    selectItem(selectedIndex)
-  }
-
-  function selectItem(index: number): void {
-    const item = items[index]
-
+  function selectItem(index: number) {
+    const item = items[index];
     if (item) {
-      command({ name: item.name })
+      command({ name: item.name });
     }
   }
-  
-  // Export the onKeyDown method so it can be called from the parent
-  export { onKeyDown }
+
+  // Export a function to update items from outside
+  export function updateItems(newItems: EmojiItem[]) {
+    items = newItems;
+    selectedIndex = 0;
+  }
+
+  export function onKeyDown({ event }: { event: KeyboardEvent }) {
+    if (event.key === 'ArrowUp') {
+      selectedIndex = (selectedIndex + items.length - 1) % items.length;
+      return true;
+    } else if (event.key === 'ArrowDown') {
+      selectedIndex = (selectedIndex + 1) % items.length;
+      return true;
+    } else if (event.key === 'Enter') {
+      selectItem(selectedIndex);
+      return true;
+    }
+    return false;
+  }
 </script>
 
 <div class="dropdown-menu">
   {#each items as item, index}
-    <button
-      class:is-selected={index === selectedIndex}
-      onclick={() => selectItem(index)}
-    >
+    <button class:is-selected={index === selectedIndex} onclick={() => selectItem(index)}>
       {#if item.fallbackImage}
-        <img src={item.fallbackImage} alt={item.name} style="vertical-align: middle;" />
-      {:else}
+        <img src={item.fallbackImage} alt={item.name} width="25" height="25"/>
+      {:else if item.emoji}
         {item.emoji}
+      {:else}
+        😶
       {/if}
+
       :{item.name}:
     </button>
   {/each}
 </div>
-
-<style>
-/* Dropdown menu */
-:global(.dropdown-menu) {
-  background: var(--white);
-  border: 1px solid var(--gray-1);
-  border-radius: 0.7rem;
-  box-shadow: var(--shadow);
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-  overflow: auto;
-  padding: 0.4rem;
-  position: relative;
-}
-
-:global(.dropdown-menu button) {
-  align-items: center;
-  background-color: transparent;
-  display: flex;
-  gap: 0.25rem;
-  text-align: left;
-  width: 100%;
-}
-
-:global(.dropdown-menu button:hover),
-:global(.dropdown-menu button:hover.is-selected) {
-  background-color: var(--gray-3);
-}
-
-:global(.dropdown-menu button.is-selected) {
-  background-color: var(--gray-2);
-}
-
-:global(.dropdown-menu button img) {
-  height: 1em;
-  width: 1em;
-}
-</style>

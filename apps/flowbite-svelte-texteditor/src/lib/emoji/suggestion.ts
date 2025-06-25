@@ -1,91 +1,135 @@
-import type { SuggestionOptions } from '@tiptap/suggestion';
-import { SvelteRenderer } from '@tiptap/svelte';
+import { mount, unmount } from 'svelte';
 import tippy, { type Instance as TippyInstance } from 'tippy.js';
+import type { Editor } from '@tiptap/core';
+import type {
+  SuggestionOptions,
+  SuggestionProps as TipTapSuggestionProps,
+  SuggestionKeyDownProps,
+} from '@tiptap/suggestion';
 import EmojiList from './EmojiList.svelte';
 
-interface GitHubEmoji {
+interface EmojiItem {
   name: string;
+  emoji?: string;
+  shortcodes: string[];
+  tags?: string[];
   fallbackImage?: string;
-  url?: string;
 }
 
-interface EmojiSuggestionProps {
-  editor: any;
+interface SuggestionContext {
+  editor: Editor;
   query: string;
-  items: GitHubEmoji[];
-  command: (item: GitHubEmoji) => void;
-  clientRect: () => DOMRect;
 }
 
-const suggestion: Omit<SuggestionOptions, 'editor'> = {
-  items: ({ editor, query }): GitHubEmoji[] => {
-    return editor.storage.emoji.emojis
-      .filter((emoji: GitHubEmoji) => {
-        // GitHub emojis only have name property, no shortcodes or tags
-        return emoji.name.toLowerCase().startsWith(query.toLowerCase());
-      })
-      .slice(0, 10); // Show up to 10 suggestions
+export default {
+  items: ({ editor, query }: SuggestionContext): EmojiItem[] => {
+    const cleanQuery = query.toLowerCase().trim().replace(/^:|:$/g, '');
+
+    console.log('🔍 Raw query:', query);
+    console.log('✨ Cleaned query:', cleanQuery);
+
+    if (!cleanQuery) {
+      return editor.storage.emoji.emojis.slice(0, 5);
+    }
+
+    const filtered = editor.storage.emoji.emojis.filter((item: EmojiItem) => {
+      return (
+        item.shortcodes.find((shortcode: string) => shortcode.toLowerCase().startsWith(cleanQuery))
+        || item.tags?.find((tag: string) => tag.toLowerCase().startsWith(cleanQuery))
+      );
+    });
+
+    console.log('Matching emoji count:', filtered.length);
+    console.log('Matching shortcodes:', filtered.map((e: EmojiItem) => e.shortcodes[0]));
+
+    return filtered.slice(0, 5);
   },
 
   render: () => {
-    let component: SvelteRenderer;
+    let component: any;
     let popup: TippyInstance[];
+    let element: HTMLElement;
 
     return {
-      onStart: (props: EmojiSuggestionProps) => {
-        component = new SvelteRenderer(EmojiList, {
-          props,
-          editor: props.editor,
+      onStart: (props: TipTapSuggestionProps) => {
+        element = document.createElement('div');
+
+        // Mount the component with initial props
+        component = mount(EmojiList, {
+          target: element,
+          props: {
+            items: props.items,
+            command: props.command,
+            editor: props.editor,
+          },
         });
 
-        popup = tippy('body', {
-          getReferenceClientRect: props.clientRect,
+        popup = [tippy(element, {
+          getReferenceClientRect: () => {
+            const rect = props.clientRect?.();
+            return rect ?? new DOMRect(0, 0, 0, 0);
+          },
           appendTo: () => document.body,
-          content: component.element,
+          content: element,
           showOnCreate: true,
           interactive: true,
           trigger: 'manual',
           placement: 'bottom-start',
-          theme: 'light-border',
-          maxWidth: 'none',
+        })];
+      },
+
+      onUpdate: (props: TipTapSuggestionProps) => {
+        console.log('📝 Updating component with items:', props.items.length);
+        
+        // In Svelte 5, we need to recreate the component or use exported functions
+        // Let's try calling the exported updateItems function
+        if (component && component.updateItems) {
+          component.updateItems(props.items);
+        } else {
+          // Fallback: recreate the component
+          if (component) {
+            unmount(component);
+          }
+          
+          component = mount(EmojiList, {
+            target: element,
+            props: {
+              items: props.items,
+              command: props.command,
+              editor: props.editor,
+            },
+          });
+        }
+
+        popup[0].setProps({
+          getReferenceClientRect: () =>
+            props.clientRect?.() ?? new DOMRect(0, 0, 0, 0),
         });
       },
 
-      onUpdate(props: EmojiSuggestionProps) {
-        component.updateProps(props);
-
-        if (popup && popup[0]) {
-          popup[0].setProps({
-            getReferenceClientRect: props.clientRect,
-          });
-        }
-      },
-
-      onKeyDown(props: { event: KeyboardEvent }) {
+      onKeyDown: (props: SuggestionKeyDownProps): boolean => {
         if (props.event.key === 'Escape') {
-          if (popup && popup[0]) {
-            popup[0].hide();
-          }
+          popup[0].hide();
           if (component) {
-            component.destroy();
+            unmount(component);
           }
           return true;
         }
 
-        // Forward other key events to the component
-        return component.ref?.onKeyDown?.(props) || false;
+        // Call the exported onKeyDown function from the component
+        if (component && component.onKeyDown) {
+          return component.onKeyDown(props);
+        }
+
+        return false;
       },
 
-      onExit() {
-        if (popup && popup[0]) {
-          popup[0].destroy();
-        }
+      onExit: () => {
+        popup[0].destroy();
         if (component) {
-          component.destroy();
+          unmount(component);
         }
       },
     };
   },
-};
-
-export default suggestion;
+} satisfies Omit<SuggestionOptions<EmojiItem, any>, 'editor'>;
