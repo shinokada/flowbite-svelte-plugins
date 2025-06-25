@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Editor } from '@tiptap/core';
+  import { Dropdown } from 'flowbite-svelte';
 
   interface EmojiItem {
     name: string;
@@ -16,16 +17,22 @@
   }
 
   // Use $props() but make items reactive with $state
-  let { items: initialItems = [], command, editor }: Props = $props();
+  let { items: initialItems = [], command: initialCommand, editor }: Props = $props();
 
-  // Create reactive state for items
+  // Create reactive state for items and command
   let items = $state(initialItems);
+  let command = $state(initialCommand);
   let selectedIndex = $state(0);
 
   // Watch for changes to initialItems and update our reactive state
   $effect(() => {
     items = initialItems;
     selectedIndex = 0; // Reset selection when items change
+  });
+
+  // Watch for command changes
+  $effect(() => {
+    command = initialCommand;
   });
 
   function selectItem(index: number) {
@@ -35,10 +42,14 @@
     }
   }
 
-  // Export a function to update items from outside
+  // Export functions to update from outside
   export function updateItems(newItems: EmojiItem[]) {
     items = newItems;
     selectedIndex = 0;
+  }
+
+  export function updateCommand(newCommand: (args: { name: string }) => void) {
+    command = newCommand;
   }
 
   export function onKeyDown({ event }: { event: KeyboardEvent }) {
@@ -58,27 +69,22 @@
 
 <div class="dropdown-menu">
   {#each items as item, index}
-    <button class:is-selected={index === selectedIndex} onclick={() => selectItem(index)}>
-      {#if item.fallbackImage}
-        <img src={item.fallbackImage} alt={item.name} width="25" height="25" />
-      {:else if item.emoji}
-        {item.emoji}
-      {:else}
-        😶
-      {/if}
-
-      :{item.name}:
+    <button 
+      class:is-selected={index === selectedIndex} 
+      onclick={() => selectItem(index)}
+      type="button"
+    >
+      <span class="emoji-icon">
+        {#if item.fallbackImage}
+          <img src={item.fallbackImage} alt={item.name} width="20" height="20" />
+        {:else if item.emoji}
+          {item.emoji}
+        {:else}
+          😶
+        {/if}
+      </span>
+      
+      <span class="emoji-name">:{item.name}:</span>
     </button>
   {/each}
 </div>
-
-<!--
-@component
-[Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
-## Type
-Props
-## Props
-@prop items: initialItems = []
-@prop command
-@prop editor
--->
