@@ -21,24 +21,24 @@ function debugPositioning(editor: Editor) {
   const editorElement = editor.view.dom;
   let current = editorElement.parentElement;
 
-  console.log('🔍 CSS Debug - Editor element:', editorElement);
-  console.log('🔍 Editor computed style:', {
-    position: window.getComputedStyle(editorElement).position,
-    transform: window.getComputedStyle(editorElement).transform,
-    zoom: window.getComputedStyle(editorElement).zoom
-  });
+  // console.log('🔍 CSS Debug - Editor element:', editorElement);
+  // console.log('🔍 Editor computed style:', {
+  //   position: window.getComputedStyle(editorElement).position,
+  //   transform: window.getComputedStyle(editorElement).transform,
+  //   zoom: window.getComputedStyle(editorElement).zoom
+  // });
 
   // Check all ancestors for positioning contexts
   let level = 0;
   while (current && level < 10) {
     const computedStyle = window.getComputedStyle(current);
     if (computedStyle.position !== 'static' || computedStyle.transform !== 'none' || computedStyle.perspective !== 'none') {
-      console.log(`🔍 Positioned ancestor level ${level}:`, current, {
-        position: computedStyle.position,
-        transform: computedStyle.transform,
-        perspective: computedStyle.perspective,
-        zIndex: computedStyle.zIndex
-      });
+      // console.log(`🔍 Positioned ancestor level ${level}:`, current, {
+      //   position: computedStyle.position,
+      //   transform: computedStyle.transform,
+      //   perspective: computedStyle.perspective,
+      //   zIndex: computedStyle.zIndex
+      // });
     }
     current = current.parentElement;
     level++;
@@ -116,16 +116,16 @@ export default {
 
               const absoluteRect = new DOMRect(rect.left, rect.top, rect.width, rect.height);
 
-              console.log('📍 Input rect:', rect);
-              console.log('📍 Returning ClientRect:', absoluteRect);
+              // console.log('📍 Input rect:', rect);
+              // console.log('📍 Returning ClientRect:', absoluteRect);
 
               // Also log viewport and scroll information
-              console.log('📍 Viewport info:', {
-                scrollX: window.scrollX,
-                scrollY: window.scrollY,
-                innerWidth: window.innerWidth,
-                innerHeight: window.innerHeight
-              });
+              // console.log('📍 Viewport info:', {
+              //   scrollX: window.scrollX,
+              //   scrollY: window.scrollY,
+              //   innerWidth: window.innerWidth,
+              //   innerHeight: window.innerHeight
+              // });
 
               return absoluteRect;
             },
@@ -171,14 +171,13 @@ export default {
                   enabled: true,
                   phase: 'write',
                   fn: ({ state }) => {
-                    console.log('🎯 Final computed position:', state.elements.popper.style.transform);
-                    // Log the actual computed position
+                    // console.log('🎯 Final computed position:', state.elements.popper.style.transform);
                     const computedStyle = window.getComputedStyle(state.elements.popper);
-                    console.log('🎯 Computed styles:', {
-                      top: computedStyle.top,
-                      left: computedStyle.left,
-                      transform: computedStyle.transform
-                    });
+                    // console.log('🎯 Computed styles:', {
+                    //   top: computedStyle.top,
+                    //   left: computedStyle.left,
+                    //   transform: computedStyle.transform
+                    // });
                   }
                 }
               ]
@@ -191,7 +190,7 @@ export default {
       },
 
       onUpdate: (props: TipTapSuggestionProps) => {
-        console.log('📝 Updating component with items:', props.items.length);
+        // console.log('📝 Updating component with items:', props.items.length);
 
         // Create wrapped command for updates too
         const wrappedCommand = (args: { name: string }) => {
@@ -232,7 +231,7 @@ export default {
 
           const absoluteRect = new DOMRect(newRect.left, newRect.top, newRect.width, newRect.height);
 
-          console.log('📍 Updating ClientRect:', absoluteRect);
+          // console.log('📍 Updating ClientRect:', absoluteRect);
 
           popup[0].setProps({
             getReferenceClientRect: () => absoluteRect
