@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.13.2
+
+### Patch Changes
+
+- fix:: editor: soucebutton svg bg color
+
 ## 0.13.1
 
 ### Patch Changes
