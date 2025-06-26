@@ -189,11 +189,11 @@
   }
 
   /* mention */
-  [data-type="mention"] {
-    background-color: rgba(88, 5, 255, .05);
+  [data-type='mention'] {
+    background-color: rgba(88, 5, 255, 0.05);
     border-radius: 0.4rem;
     box-decoration-break: clone;
-    color: #6A00F5;
+    color: #6a00f5;
     padding: 0.1rem 0.3rem;
   }
 

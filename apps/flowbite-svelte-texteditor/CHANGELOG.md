@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.14.1
+
+### Patch Changes
+
+- fix: mention css
+
 ## 0.14.0
 
 ### Minor Changes
