@@ -170,10 +170,6 @@
       "types": "./dist/details/DetailsButtonGroup.svelte.d.ts",
       "svelte": "./dist/details/DetailsButtonGroup.svelte"
     },
-    "./EmojiButton.svelte": {
-      "types": "./dist/emoji/EmojiButton.svelte.d.ts",
-      "svelte": "./dist/emoji/EmojiButton.svelte"
-    },
     "./EmojiList.svelte": {
       "types": "./dist/emoji/EmojiList.svelte.d.ts",
       "svelte": "./dist/emoji/EmojiList.svelte"

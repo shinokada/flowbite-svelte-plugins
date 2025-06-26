@@ -35,7 +35,7 @@
   import js from 'highlight.js/lib/languages/javascript';
   import ts from 'highlight.js/lib/languages/typescript';
   import xml from 'highlight.js/lib/languages/xml';
-  import suggestion from './emoji/suggestion';
+  import emojiSuggestion from './emoji/emojiSuggestion';
 
   let {
     element = $bindable<HTMLDivElement | null>(null),
@@ -120,7 +120,7 @@
           Emoji.configure({
             emojis: gitHubEmojis,
             enableEmoticons: true,
-            suggestion
+            suggestion: emojiSuggestion
           })
         );
       }
