@@ -1,0 +1,11 @@
+{
+  "name": "MentionList",
+  "type": {
+    "name": "Props",
+    "link": null
+  },
+  "props": [
+    ["items: initialItems", "[]"],
+    ["command: initialCommand", ""]
+  ]
+}

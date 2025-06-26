@@ -127,12 +127,12 @@
           })
         );
       }
-      if(mentions){
+      if (mentions) {
         extensions.push(
           Mention.configure({
-            suggestion: createMentionSuggestion(mentions),
+            suggestion: createMentionSuggestion(mentions)
           })
-        )
+        );
       }
 
       editor = new Editor({
@@ -183,4 +183,5 @@
 @prop children
 @prop emoji = true
 @prop class: className
+@prop mentions
 -->

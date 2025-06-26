@@ -52,12 +52,18 @@
 
 <div class="mention-dropdown">
   {#each items as label, index}
-    <button
-      type="button"
-      class:is-selected={index === selectedIndex}
-      onclick={() => selectItem(index)}
-    >
+    <button type="button" class:is-selected={index === selectedIndex} onclick={() => selectItem(index)}>
       @{label}
     </button>
   {/each}
 </div>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
+## Type
+Props
+## Props
+@prop items: initialItems = []
+@prop command: initialCommand
+-->

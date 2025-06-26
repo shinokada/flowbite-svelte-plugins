@@ -1,20 +1,11 @@
 import { mount, unmount } from 'svelte';
 import tippy, { type Instance as TippyInstance } from 'tippy.js';
-import type {
-  SuggestionOptions,
-  SuggestionProps as TipTapSuggestionProps,
-  SuggestionKeyDownProps,
-} from '@tiptap/suggestion';
+import type { SuggestionOptions, SuggestionProps as TipTapSuggestionProps, SuggestionKeyDownProps } from '@tiptap/suggestion';
 import MentionList from './MentionList.svelte';
 
 export const createMentionSuggestion = (mentions: string[]) =>
   ({
-    items: ({ query }) =>
-      mentions
-        .filter((label) =>
-          label.toLowerCase().startsWith(query.toLowerCase())
-        )
-        .slice(0, 5),
+    items: ({ query }) => mentions.filter((label) => label.toLowerCase().startsWith(query.toLowerCase())).slice(0, 5),
 
     render: () => {
       let component: any;
@@ -32,8 +23,8 @@ export const createMentionSuggestion = (mentions: string[]) =>
           target: element,
           props: {
             items: props.items,
-            command: createWrappedCommand(props),
-          },
+            command: createWrappedCommand(props)
+          }
         });
       };
 
@@ -43,14 +34,13 @@ export const createMentionSuggestion = (mentions: string[]) =>
           mountComponent(props);
 
           popup = tippy(element, {
-            getReferenceClientRect: () =>
-              props.clientRect?.() ?? new DOMRect(0, 0, 0, 0),
+            getReferenceClientRect: () => props.clientRect?.() ?? new DOMRect(0, 0, 0, 0),
             appendTo: () => props.editor.view.dom.ownerDocument.body,
             content: element,
             showOnCreate: true,
             interactive: true,
             trigger: 'manual',
-            placement: 'bottom-start',
+            placement: 'bottom-start'
           });
         },
 
@@ -59,8 +49,7 @@ export const createMentionSuggestion = (mentions: string[]) =>
           component?.updateCommand?.(createWrappedCommand(props));
 
           popup.setProps({
-            getReferenceClientRect: () =>
-              props.clientRect?.() ?? new DOMRect(0, 0, 0, 0),
+            getReferenceClientRect: () => props.clientRect?.() ?? new DOMRect(0, 0, 0, 0)
           });
         },
 
@@ -76,7 +65,7 @@ export const createMentionSuggestion = (mentions: string[]) =>
         onExit: () => {
           popup?.destroy();
           if (component) unmount(component);
-        },
+        }
       };
-    },
+    }
   }) satisfies Omit<SuggestionOptions<string, any>, 'editor'>;

@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.13.3",
+  "version": "0.14.0",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -234,6 +234,10 @@
     "./ListButtonGroup.svelte": {
       "types": "./dist/list/ListButtonGroup.svelte.d.ts",
       "svelte": "./dist/list/ListButtonGroup.svelte"
+    },
+    "./MentionList.svelte": {
+      "types": "./dist/mention/MentionList.svelte.d.ts",
+      "svelte": "./dist/mention/MentionList.svelte"
     },
     "./HtmlCodeButton.svelte": {
       "types": "./dist/source/HtmlCodeButton.svelte.d.ts",

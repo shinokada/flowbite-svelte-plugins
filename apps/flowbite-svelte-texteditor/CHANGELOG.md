@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.14.0
+
+### Minor Changes
+
+- feat: mention components
+
 ## 0.13.3
 
 ### Patch Changes

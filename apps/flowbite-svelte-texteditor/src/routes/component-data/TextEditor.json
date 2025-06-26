@@ -11,6 +11,7 @@
     ["editor", "$bindable<Editor | null>(null)"],
     ["children", ""],
     ["emoji", "true"],
-    ["class: className", ""]
+    ["class: className", ""],
+    ["mentions", ""]
   ]
 }

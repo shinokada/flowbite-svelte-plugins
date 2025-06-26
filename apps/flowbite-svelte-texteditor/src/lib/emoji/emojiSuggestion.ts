@@ -1,11 +1,7 @@
 import { mount, unmount } from 'svelte';
 import tippy, { type Instance as TippyInstance } from 'tippy.js';
 import type { Editor } from '@tiptap/core';
-import type {
-  SuggestionOptions,
-  SuggestionProps as TipTapSuggestionProps,
-  SuggestionKeyDownProps,
-} from '@tiptap/suggestion';
+import type { SuggestionOptions, SuggestionProps as TipTapSuggestionProps, SuggestionKeyDownProps } from '@tiptap/suggestion';
 import EmojiList from './EmojiList.svelte';
 
 interface EmojiItem {
@@ -30,10 +26,7 @@ export default {
     }
 
     const filtered = editor.storage.emoji.emojis.filter((item: EmojiItem) => {
-      return (
-        item.shortcodes.some((shortcode: string) => shortcode.toLowerCase().startsWith(cleanQuery)) ||
-        item.tags?.some((tag: string) => tag.toLowerCase().startsWith(cleanQuery))
-      );
+      return item.shortcodes.some((shortcode: string) => shortcode.toLowerCase().startsWith(cleanQuery)) || item.tags?.some((tag: string) => tag.toLowerCase().startsWith(cleanQuery));
     });
 
     return filtered.slice(0, 5);
@@ -58,14 +51,14 @@ export default {
       if (component) {
         unmount(component);
       }
-      
+
       component = mount(EmojiList, {
         target: element,
         props: {
           items: props.items,
           command: createWrappedCommand(props),
-          editor: props.editor,
-        },
+          editor: props.editor
+        }
       });
     };
 
@@ -81,7 +74,7 @@ export default {
           showOnCreate: true,
           interactive: true,
           trigger: 'manual',
-          placement: 'bottom-start',
+          placement: 'bottom-start'
         });
       },
 
@@ -94,7 +87,7 @@ export default {
         }
 
         popup.setProps({
-          getReferenceClientRect: () => props.clientRect?.() ?? new DOMRect(0, 0, 0, 0),
+          getReferenceClientRect: () => props.clientRect?.() ?? new DOMRect(0, 0, 0, 0)
         });
       },
 
@@ -112,7 +105,7 @@ export default {
         if (component) {
           unmount(component);
         }
-      },
+      }
     };
-  },
+  }
 } satisfies Omit<SuggestionOptions<EmojiItem, any>, 'editor'>;

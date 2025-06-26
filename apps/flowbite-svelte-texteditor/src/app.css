@@ -190,7 +190,7 @@
 
   /*  mention and emoji */
   .tippy-box .tippy-content .dropdown-menu button,
-  .tippy-box .tippy-content .mention-dropdown button{
+  .tippy-box .tippy-content .mention-dropdown button {
     align-items: center;
     background-color: transparent;
     display: flex;
@@ -202,12 +202,12 @@
   .tippy-box .tippy-content .dropdown-menu button:hover,
   .tippy-box .tippy-content .dropdown-menu button:hover.is-selected,
   .tippy-box .tippy-content .mention-dropdown button:hover,
-  .tippy-box .tippy-content .mention-dropdown button:hover.is-selected{
+  .tippy-box .tippy-content .mention-dropdown button:hover.is-selected {
     background-color: rgba(61, 37, 20, 0.12);
   }
 
   .tippy-box .tippy-content .dropdown-menu button.is-selected,
-  .tippy-box .tippy-content .mention-dropdown button.is-selected{
+  .tippy-box .tippy-content .mention-dropdown button.is-selected {
     background-color: rgba(61, 37, 20, 0.08);
   }
 
@@ -220,7 +220,7 @@
     transform-origin: center !important;
   }
 
-  .tippy-box .tippy-content .dropdown-menu, 
+  .tippy-box .tippy-content .dropdown-menu,
   .tippy-box .tippy-content .mention-dropdown {
     background: #fff;
     border: 1px solid rgba(61, 37, 20, 0.05);
@@ -238,5 +238,4 @@
     max-width: 300px;
     width: max-content;
   }
-
 }
