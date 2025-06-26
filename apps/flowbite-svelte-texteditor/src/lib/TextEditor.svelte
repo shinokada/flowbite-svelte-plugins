@@ -36,6 +36,8 @@
   import ts from 'highlight.js/lib/languages/typescript';
   import xml from 'highlight.js/lib/languages/xml';
   import emojiSuggestion from './emoji/emojiSuggestion';
+  import Mention from '@tiptap/extension-mention';
+  import { createMentionSuggestion } from './mention/mentionSuggestion';
 
   let {
     element = $bindable<HTMLDivElement | null>(null),
@@ -44,7 +46,8 @@
     editor = $bindable<Editor | null>(null),
     children,
     emoji = true,
-    class: className
+    class: className,
+    mentions
   }: EditorProviderProps = $props();
 
   let editorElement = $state<HTMLDivElement | null>(null);
@@ -123,6 +126,13 @@
             suggestion: emojiSuggestion
           })
         );
+      }
+      if(mentions){
+        extensions.push(
+          Mention.configure({
+            suggestion: createMentionSuggestion(mentions),
+          })
+        )
       }
 
       editor = new Editor({

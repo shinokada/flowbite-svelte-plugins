@@ -38,6 +38,8 @@ export { default as LayoutButtonGroup } from './layout/LayoutButtonGroup.svelte'
 // list
 export { default as ListButton } from './list/ListButton.svelte';
 export { default as ListButtonGroup } from './list/ListButtonGroup.svelte';
+// mention
+export { default as MentionList } from './mention/MentionList.svelte';
 // source
 export { default as SourceButton } from './source/SourceButton.svelte';
 export { default as HtmlCodeButton } from './source/HtmlCodeButton.svelte';

@@ -1,3 +1,5 @@
+// this component can be used for bubble menu or floating menu
+
 import { mount, unmount } from 'svelte';
 import type { NodeViewProps } from '@tiptap/core';
 

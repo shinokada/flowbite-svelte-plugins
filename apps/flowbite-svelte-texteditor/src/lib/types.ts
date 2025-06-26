@@ -13,6 +13,7 @@ export interface EditorProviderProps {
   showSourceButton?: boolean;
   emoji?: boolean;
   class?: ClassValue;
+  mentions?: string[];
 }
 
 export interface EditorBasicProps extends Omit<HTMLButtonAttributes, 'class'> {

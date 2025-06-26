@@ -8,6 +8,9 @@
 
 <Heading tag="h2" class="my-4">New</Heading>
 
+<Heading tag="h3" class="my-4">MentionEx</Heading>
+<Examples.MentionEx />
+
 <Heading tag="h3" class="my-4">Emoji</Heading>
 <Examples.Emoji />
 
