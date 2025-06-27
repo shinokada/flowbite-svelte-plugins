@@ -44,8 +44,7 @@
 <Heading tag="h3" class="my-4">Images</Heading>
 <Examples.Images />
 
-<Heading tag="h3" class="my-4">Layouts</Heading>
-<Examples.Layouts />
+
 
 <Heading tag="h3" class="my-4">Lists</Heading>
 <Examples.Lists />
@@ -61,3 +60,6 @@
 
 <Heading tag="h3" class="my-4">UndoRedo</Heading>
 <Examples.UndoRedo />
+
+<Heading tag="h3" class="my-4">Layouts</Heading>
+<Examples.Layouts />

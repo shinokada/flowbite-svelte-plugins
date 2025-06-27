@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { runFormatCommand, type FormatAction } from '$lib';
   import { Tooltip } from 'flowbite-svelte';
   import { cn, generateButtonId } from '$lib';
   import { type FormatButtonProps } from '$lib/types';
@@ -22,44 +23,12 @@
   const finalAriaLabel = ariaLabel ?? defaults[format].aria;
   const uniqueId = id ?? generateButtonId(`Align${format.charAt(0).toUpperCase() + format.slice(1)}`);
 
-  function handleClick() {
-    switch (format) {
-      case 'bold':
-        editor?.chain().focus().toggleBold().run();
-        break;
-      case 'italic':
-        editor?.chain().focus().toggleItalic().run();
-        break;
-      case 'underline':
-        editor?.chain().focus().toggleUnderline().run();
-        break;
-      case 'strike':
-        editor?.chain().focus().toggleStrike().run();
-        break;
-      case 'highlight':
-        editor?.chain().focus().toggleHighlight().run();
-        break;
-      case 'code':
-        editor?.chain().focus().toggleCode().run();
-        break;
-      case 'subscript':
-        editor?.chain().focus().toggleSubscript().run();
-        break;
-      case 'superscript':
-        editor?.chain().focus().toggleSuperscript().run();
-        break;
-      case 'br':
-        editor?.chain().focus().setHardBreak().run();
-        break;
-      case 'link':
-        const url = window.prompt('URL');
-        if (url) {
-          editor?.chain().focus().toggleLink({ href: url }).run();
-        }
-        break;
-      case 'removeLink':
-        editor?.chain().focus().unsetLink().run();
-        break;
+  function handleClick(format: FormatAction) {
+    if (format === 'link') {
+      const url = window.prompt('Enter a URL');
+      if (url) runFormatCommand(editor, format, { href: url });
+    } else {
+      runFormatCommand(editor, format);
     }
   }
 
@@ -78,7 +47,7 @@
   };
 </script>
 
-<button onclick={handleClick} id={uniqueId} type="button" class={cn('cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white', className)}>
+<button onclick={()=>handleClick(format)} id={uniqueId} type="button" class={cn('cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white', className)}>
   <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={svgPaths[format]} />
   </svg>

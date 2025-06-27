@@ -55,67 +55,36 @@
 }
 
 @layer components {
-  /* texteditor List styles */
-  .tiptap ul,
-  .tiptap ol {
-    padding: 0 1rem;
-    margin: 1.25rem 1rem 1.25rem 0.4rem;
+  :root {
+    --white: #FFF;
+    --black: #2E2B29;
+    --black-contrast: #110F0E;
+    --gray-1: rgba(61, 37, 20, .05);
+    --gray-2: rgba(61, 37, 20, .08);
+    --gray-3: rgba(61, 37, 20, .12);
+    --gray-4: rgba(53, 38, 28, .3);
+    --gray-5: rgba(28, 25, 23, .6);
+    --green: #22C55E;
+    --purple: #6A00F5;
+    --purple-contrast: #5800CC;
+    --purple-light: rgba(88, 5, 255, .05);
+    --yellow-contrast: #FACC15;
+    --yellow: rgba(250, 204, 21, .4);
+    --yellow-light: #FFFAE5;
+    --red: #FF5C33;
+    --red-light: #FFEBE5;
+    --shadow: 0px 12px 33px 0px rgba(0, 0, 0, .06), 0px 3.618px 9.949px 0px rgba(0, 0, 0, .04);
   }
 
-  .tiptap ul li p,
-  .tiptap ol li p {
-    margin-bottom: 0.15em;
+  .tiptap:first-child {
+    margin-top: 0;
   }
 
-  /* Task list specific styles */
-  .tiptap ul[data-type='taskList'] {
-    list-style: none;
-    margin-left: 0;
-    padding: 1em;
-  }
-
-  .tiptap ul[data-type='taskList'] li {
-    align-items: flex-start;
-    display: flex;
-    margin: 0 !important;
-    padding: 0.3em !important;
-    gap: 0.5rem;
-  }
-
-  .tiptap ul[data-type='taskList'] li > label {
-    flex: 0 0 auto;
-    user-select: none;
-    margin-top: -0.1em !important;
-  }
-
-  .tiptap ul[data-type='taskList'] li > div {
-    flex: 1 1 auto;
-    margin: 0 !important;
-    padding: 0 !important;
-    /* Prevent content from overflowing */
-    min-width: 0;
-  }
-
-  .tiptap ul[data-type='taskList'] input[type='checkbox'] {
-    cursor: pointer;
-    /* Ensure consistent checkbox sizing */
-    margin: 0;
-    flex-shrink: 0;
-  }
-
-  .tiptap ul[data-type='taskList'] ul[data-type='taskList'] {
-    margin: 0;
-  }
-
-  /* Optional: Handle the span element in your label if it's for custom styling */
-  .tiptap ul[data-type='taskList'] li > label span {
-    display: inline-block;
-    /* Add custom checkbox styles here if needed */
-  }
-
-  /* Ensure paragraphs in task list items don't add extra spacing */
-  .tiptap ul[data-type='taskList'] li p {
-    margin: 0 !important;
+  /* blockquote */
+  .tiptap blockquote {
+    border-left: 3px solid var(--gray-3);
+    margin: 1.5rem 0;
+    padding-left: 1rem;
   }
 
   /* texteditor Details */
@@ -247,4 +216,168 @@
     max-width: 300px;
     width: max-content;
   }
+
+  /* highlight */
+  .tiptap mark {
+    background-color: #FAF594;
+    border-radius: 0.4rem;
+    box-decoration-break: clone;
+    padding: 0.1rem 0.3rem;
+  }
+
+  /* hr: horizontal rule */
+  .tiptap hr {
+    border: none;
+    border-top: 1px solid var(--gray-2);
+    cursor: pointer;
+    margin: 2rem 0;
+  }
+
+  .tiptap hr.ProseMirror-selectednode {
+      border-top: 1px solid var(--purple) !important;
+    }
+
+  /* Table-specific styling */
+  .tiptap table {
+    border-collapse: collapse;
+    margin: 0;
+    overflow: hidden;
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  .tiptap table td,
+  .tiptap table th {
+    border: 1px solid var(--gray-3);
+    box-sizing: border-box;
+    min-width: 1em;
+    padding: 6px 8px;
+    position: relative;
+    vertical-align: top;
+  }
+
+  .tiptap table td > *,
+  .tiptap table th > * {
+    margin-bottom: 0;
+  }
+
+  .tiptap table th {
+    background-color: var(--gray-1);
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .tiptap table .selectedCell:after {
+    background: var(--gray-2);
+    content: "";
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: 2;
+  }
+
+  .tiptap table .column-resize-handle {
+    background-color: var(--purple);
+    bottom: -2px;
+    pointer-events: none;
+    position: absolute;
+    right: -2px;
+    top: 0;
+    width: 4px;
+  }
+
+  .tiptap .tableWrapper {
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+
+  .tiptap.resize-cursor {
+    cursor: col-resize;
+  }
+
+  /* List styles */
+  .tiptap ul,
+  .tiptap ol {
+    padding: 0 1rem;
+    margin: 1.25rem 1rem 1.25rem 0.4rem;
+  }
+
+  .tiptap ul li p,
+  .tiptap ol li p {
+    margin-bottom: 0.15em;
+  }
+
+  /* Task list specific styles */
+  .tiptap ul[data-type='taskList'] {
+    list-style: none;
+    margin-left: 0;
+    padding: 1em;
+  }
+
+  .tiptap ul[data-type='taskList'] li {
+    align-items: flex-start;
+    display: flex;
+    margin: 0 !important;
+    padding: 0.3em !important;
+    gap: 0.5rem;
+  }
+
+  .tiptap ul[data-type='taskList'] li > label {
+    flex: 0 0 auto;
+    user-select: none;
+    margin-top: -0.1em !important;
+  }
+
+  .tiptap ul[data-type='taskList'] li > div {
+    flex: 1 1 auto;
+    margin: 0 !important;
+    padding: 0 !important;
+    /* Prevent content from overflowing */
+    min-width: 0;
+  }
+
+  .tiptap ul[data-type='taskList'] input[type='checkbox'] {
+    cursor: pointer;
+    /* Ensure consistent checkbox sizing */
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  .tiptap ul[data-type='taskList'] ul[data-type='taskList'] {
+    margin: 0;
+  }
+
+  /* Optional: Handle the span element in your label if it's for custom styling */
+  .tiptap ul[data-type='taskList'] li > label span {
+    display: inline-block;
+    /* Add custom checkbox styles here if needed */
+  }
+
+  /* Ensure paragraphs in task list items don't add extra spacing */
+  .tiptap ul[data-type='taskList'] li p {
+    margin: 0 !important;
+  }
+
+  /* Youtube embed */
+  .tiptap div[data-youtube-video] {
+    cursor: move;
+    padding-right: 1.5rem;
+  }
+
+  .tiptap div[data-youtube-video] iframe {
+    border: 0.5rem solid var(--black-contrast);
+    display: block;
+    min-height: 200px;
+    min-width: 200px;
+    outline: 0px solid transparent;
+  }
+
+  .tiptap div[data-youtube-video].ProseMirror-selectednode iframe {
+    outline: 3px solid var(--purple);
+    transition: outline 0.15s;
+  }
+  
 }

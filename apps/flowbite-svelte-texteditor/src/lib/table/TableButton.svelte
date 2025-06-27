@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { runTableCommand, type TableAction } from '$lib';
   import { Tooltip } from 'flowbite-svelte';
   import { cn, generateButtonId } from '$lib';
   import { type TableButtonProps } from '$lib/types';
@@ -31,63 +32,7 @@
   const uniqueId = id ?? generateButtonId(`Image${action.charAt(0).toUpperCase() + action.slice(1)}`);
 
   function handleClick() {
-    switch (action) {
-      // 'table' | 'deleteTable' | 'addColumnBefore' | 'addColumnAfter' | 'deleteColumn' | 'addRowBefore' | 'addRowAfter' | 'deleteRow' | 'mergeCells' | 'splitCell' | 'mergeOrSplit' | 'toggleHeaderColumn' | 'toggleHeaderRow' | 'toggleHeaderCell' | 'cellattribute' | 'fixTables' | 'goToPreviousCell' | 'goToNextCell';
-      case 'table':
-        editor?.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run();
-        break;
-      case 'deleteTable':
-        editor?.chain().focus().deleteTable().run();
-        break;
-      case 'addColumnBefore':
-        editor?.chain().focus().addColumnBefore().run();
-        break;
-      case 'addColumnAfter':
-        editor?.chain().focus().addColumnAfter().run();
-        break;
-      case 'deleteColumn':
-        editor?.chain().focus().deleteColumn().run();
-        break;
-      case 'addRowBefore':
-        editor?.chain().focus().addRowBefore().run();
-        break;
-      case 'addRowAfter':
-        editor?.chain().focus().addRowAfter().run();
-        break;
-      case 'deleteRow':
-        editor?.chain().focus().deleteRow().run();
-        break;
-      case 'mergeCells':
-        editor?.chain().focus().mergeCells().run();
-        break;
-      case 'splitCell':
-        editor?.chain().focus().splitCell().run();
-        break;
-      case 'mergeOrSplit':
-        editor?.chain().focus().mergeOrSplit().run();
-        break;
-      case 'toggleHeaderColumn':
-        editor?.chain().focus().toggleHeaderColumn().run();
-        break;
-      case 'toggleHeaderRow':
-        editor?.chain().focus().toggleHeaderRow().run();
-        break;
-      case 'toggleHeaderCell':
-        editor?.chain().focus().toggleHeaderCell().run();
-        break;
-      // case 'cellattribute':
-      //   editor?.chain().focus().setHorizontalRule().run();
-      //   break;
-      case 'fixTables':
-        editor?.chain().focus().fixTables().run();
-        break;
-      case 'goToPreviousCell':
-        editor?.chain().focus().goToPreviousCell().run();
-        break;
-      case 'goToNextCell':
-        editor?.chain().focus().goToNextCell().run();
-        break;
-    }
+    runTableCommand(editor, action);
   }
 
   // SVG paths for different formats
