@@ -157,7 +157,7 @@
   }
 
   .tiptap .details > button::before {
-    content: '\25B6';
+    content: '▶';
     display: inline-block;
     position: relative;
     top: 3px;

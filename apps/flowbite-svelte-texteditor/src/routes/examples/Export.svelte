@@ -1,7 +1,7 @@
 <script lang="ts">
   import { ExportButtonGroup, TextEditor } from '$lib';
   import type { Editor } from '@tiptap/core';
-  
+
   let editorInstance = $state<Editor | null>(null);
 
   const content =

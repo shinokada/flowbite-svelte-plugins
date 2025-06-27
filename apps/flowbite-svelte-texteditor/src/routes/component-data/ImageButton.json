@@ -10,6 +10,6 @@
     ["tooltipText", ""],
     ["ariaLabel", ""],
     ["id", ""],
-    ["imageOptions", "{src: 'https://placehold.co/600x400', alt: 'image alt', title : 'image title'"]
+    ["imageOptions", "{ src: 'https://placehold.co/600x400', alt: 'image alt', title: 'image title'"]
   ]
 }
