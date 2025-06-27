@@ -17,8 +17,7 @@ pnpm i -D @flowbite-svelte-plugins/texteditor
   import { AlignmentButtonGroup, FontButtonGroup, UndoRedoButtonGroup, FormatButtonGroup, LayoutButtonGroup, ImageButtonGroup, ListButtonGroup, VideoButtonGroup, TextEditor, ToolbarRowWrapper, Divider, SourceButton } from '@flowbite-svelte-plugins/texteditor';
   import type { Editor } from '@tiptap/core';
   import { Button } from 'flowbite-svelte';
-
-  let editorElement = $state<HTMLDivElement | null>(null);
+  
   let editorInstance = $state<Editor | null>(null);
 
   function getEditorContent() {

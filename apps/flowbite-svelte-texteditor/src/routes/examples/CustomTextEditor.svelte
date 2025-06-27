@@ -3,8 +3,7 @@
   import { TextEditor } from '$lib';
   import type { Editor } from '@tiptap/core';
   import { Button } from 'flowbite-svelte';
-
-  let editorElement = $state<HTMLDivElement | null>(null);
+  
   let editorInstance = $state<Editor | null>(null);
 
   function getEditorContent() {

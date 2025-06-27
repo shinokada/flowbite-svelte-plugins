@@ -4,7 +4,7 @@
   import type { Editor } from '@tiptap/core';
 
   // let editor: Editor | null = $state(null);
-  // let editorElement = $state<HTMLDivElement | null>(null);
+  // 
   let editorInstance = $state<Editor | null>(null);
 
   function getEditorContent() {
