@@ -1,6 +1,10 @@
 <script lang="ts">
   import { Tooltip, Dropdown, DropdownItem } from 'flowbite-svelte';
-  import { cn, generateButtonId } from '$lib';
+  import { setFontFamily,
+    setFontSize,
+    removeFontSizeFormatting,
+    setTextColor,
+    removeTextColorFormatting, cn, generateButtonId } from '$lib';
   import { type FontButtonProps } from '$lib/types';
 
   let { editor, format, tooltipText, ariaLabel, colorValue = '#e66465', id, class: className }: FontButtonProps = $props();
@@ -78,36 +82,6 @@
     { name: 'Heaven Gray', value: '#F9FAFB' }
   ];
 
-  function setFontFamily(fontFamily: string) {
-    if (fontFamily === 'Inter, ui-sans-serif, system-ui, sans-serif') {
-      // For default font, unset the font family
-      editor?.chain().focus().unsetFontFamily().run();
-    } else {
-      editor?.chain().focus().setFontFamily(fontFamily).run();
-    }
-    isOpen = false;
-  }
-
-  function setFontSize(fontSize: string) {
-    editor?.chain().focus().setMark('textStyle', { fontSize }).run();
-    isOpen = false;
-  }
-
-  function removeFontSizeFormatting() {
-    editor?.chain().focus().unsetMark('textStyle').run();
-    isOpen = false;
-  }
-
-  function setTextColor(color: string) {
-    editor?.chain().focus().setColor(color).run();
-    isOpen = false;
-  }
-
-  function removeTextColorFormatting() {
-    editor?.chain().focus().unsetColor().run();
-    isOpen = false;
-  }
-
   const svgPaths = {
     fontFamily: 'm10.6 19 4.298-10.93a.11.11 0 0 1 .204 0L19.4 19m-8.8 0H9.5m1.1 0h1.65m7.15 0h-1.65m1.65 0h1.1m-7.7-3.985h4.4M3.021 16l1.567-3.985m0 0L7.32 5.07a.11.11 0 0 1 .205 0l2.503 6.945h-5.44Z',
     fontSize: 'M3 6.2V5h11v1.2M8 5v14m-3 0h6m2-6.8V11h8v1.2M17 11v8m-1.5 0h3',
@@ -138,31 +112,31 @@
 <Dropdown bind:isOpen simple triggeredBy="#{uniqueId}">
   {#if format === 'fontFamily'}
     {#each fontFamilies as font}
-      <DropdownItem onclick={() => setFontFamily(font.value)} style="font-family: {font.value};">
+      <DropdownItem onclick={() => setFontFamily(editor, font.value)} style="font-family: {font.value};">
         {font.name}
       </DropdownItem>
     {/each}
   {:else if format === 'fontSize'}
     {#each fontSizes as font}
-      <DropdownItem onclick={() => setFontSize(font.value)} style="font-size: {font.value};">
+      <DropdownItem onclick={() => setFontSize(editor, font.value)} style="font-size: {font.value};">
         {font.name}
       </DropdownItem>
     {/each}
-    <DropdownItem onclick={removeFontSizeFormatting}>Remove formatting</DropdownItem>
+    <DropdownItem onclick={()=>removeFontSizeFormatting(editor)}>Remove formatting</DropdownItem>
   {:else if format === 'textColor'}
     <div class="p-2">
       <div class="group mb-3 grid grid-cols-6 items-center gap-2 rounded-lg p-1.5 hover:bg-gray-100 dark:hover:bg-gray-600">
-        <input type="color" id="color" bind:value={colorValue} onchange={() => setTextColor(colorValue)} class="col-span-3 h-8 w-full rounded-md border border-gray-200 bg-gray-50 p-px px-1 group-hover:bg-gray-50 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-700 dark:group-hover:bg-gray-700" />
+        <input type="color" id="color" bind:value={colorValue} onchange={() => setTextColor(editor, colorValue)} class="col-span-3 h-8 w-full rounded-md border border-gray-200 bg-gray-50 p-px px-1 group-hover:bg-gray-50 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-700 dark:group-hover:bg-gray-700" />
         <label for="color" class="col-span-3 text-sm font-medium text-gray-500 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white">Pick a color</label>
       </div>
       <div class="mb-3 grid grid-cols-6 gap-1">
         {#each textColors as color}
-          <button type="button" onclick={() => setTextColor(color.value)} style="background-color: {color.value}" class="h-6 w-6 rounded-md transition-transform duration-150 hover:scale-110" title={color.name}>
+          <button type="button" onclick={() => setTextColor(editor, color.value)} style="background-color: {color.value}" class="h-6 w-6 rounded-md transition-transform duration-150 hover:scale-110" title={color.name}>
             <span class="sr-only">{color.name}</span>
           </button>
         {/each}
       </div>
-      <DropdownItem onclick={removeTextColorFormatting} class="text-center">Remove color</DropdownItem>
+      <DropdownItem onclick={()=>removeTextColorFormatting(editor)} class="text-center">Remove color</DropdownItem>
     </div>
   {/if}
 </Dropdown>

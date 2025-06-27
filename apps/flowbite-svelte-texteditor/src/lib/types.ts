@@ -87,8 +87,9 @@ export interface FormatButtonGroupProps extends GroupFormatProps {
 }
 
 // font
+export type FontFormat = 'fontFamily' | 'fontSize' | 'textColor';
 export interface FontButtonProps extends EditorBasicProps {
-  format: 'fontFamily' | 'fontSize' | 'textColor';
+  format: FontFormat;
   colorValue?: string;
 }
 

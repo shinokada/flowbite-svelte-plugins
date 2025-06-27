@@ -51,6 +51,36 @@ function escapeHTML(raw: string): string {
     .replace(/'/g, '&#039;');
 }
 
+// font
+export function setFontFamily(editor: Editor | null, fontFamily: string) {
+  if (!editor) return;
+  if (fontFamily === 'Inter, ui-sans-serif, system-ui, sans-serif') {
+    editor.chain().focus().unsetFontFamily().run();
+  } else {
+    editor.chain().focus().setFontFamily(fontFamily).run();
+  }
+}
+
+export function setFontSize(editor: Editor | null, fontSize: string) {
+  if (!editor) return;
+  editor.chain().focus().setMark('textStyle', { fontSize }).run();
+}
+
+export function removeFontSizeFormatting(editor: Editor | null) {
+  if (!editor) return;
+  editor.chain().focus().unsetMark('textStyle').run();
+}
+
+export function setTextColor(editor: Editor | null, color: string) {
+  if (!editor) return;
+  editor.chain().focus().setColor(color).run();
+}
+
+export function removeTextColorFormatting(editor: Editor | null) {
+  if (!editor) return;
+  editor.chain().focus().unsetColor().run();
+}
+
 // format
 export type FormatAction =
   | 'bold'
