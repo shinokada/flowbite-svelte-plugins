@@ -30,16 +30,14 @@
   <span class="sr-only">{finalAriaLabel}</span>
 </button>
 
-
 <!--
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[TaskListButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L173)
+[TaskListButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L205)
 ## Props
 @prop editor
 @prop action
-@prop tooltipText
 @prop ariaLabel
 @prop id
 @prop class: className

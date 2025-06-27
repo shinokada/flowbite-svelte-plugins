@@ -14,6 +14,7 @@ export interface EditorProviderProps {
   emoji?: boolean;
   class?: ClassValue;
   mentions?: string[];
+  bubbleMenu?: boolean;
 }
 
 export interface EditorBasicProps extends Omit<HTMLButtonAttributes, 'class'> {
@@ -255,4 +256,3 @@ export interface GroupEditorBasicProps {
   editor: Editor | null;
   showToolbar?: boolean;
 }
-

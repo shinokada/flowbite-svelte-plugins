@@ -1,0 +1,12 @@
+{
+  "name": "BubbleMenu",
+  "type": {
+    "name": "BubbleMenuProps",
+    "link": null
+  },
+  "props": [
+    ["editor", ""],
+    ["underline", "true"],
+    ["highlight", "true"]
+  ]
+}

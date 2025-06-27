@@ -31,11 +31,10 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[DetailsButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L46)
+[DetailsButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L51)
 ## Props
 @prop editor
 @prop action
-@prop tooltipText
 @prop ariaLabel
 @prop id
 @prop class: className

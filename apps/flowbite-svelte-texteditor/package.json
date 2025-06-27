@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.14.1",
+  "version": "0.15.0",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -163,6 +163,10 @@
     "./AlignmentButtonGroup.svelte": {
       "types": "./dist/alignment/AlignmentButtonGroup.svelte.d.ts",
       "svelte": "./dist/alignment/AlignmentButtonGroup.svelte"
+    },
+    "./BubbleMenu.svelte": {
+      "types": "./dist/bubble-menu/BubbleMenu.svelte.d.ts",
+      "svelte": "./dist/bubble-menu/BubbleMenu.svelte"
     },
     "./DetailsButton.svelte": {
       "types": "./dist/details/DetailsButton.svelte.d.ts",

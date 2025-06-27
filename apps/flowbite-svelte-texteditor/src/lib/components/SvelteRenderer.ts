@@ -14,7 +14,7 @@ class SvelteRenderer {
     this.component = component;
     this.target = target;
     this.instance = mount(this.component, { target, props });
-    this.target.classList.add('svelte-renderer');
+    // this.target.classList.add('svelte-renderer');
   }
 
   updateProps(props: Record<string, any>): void {

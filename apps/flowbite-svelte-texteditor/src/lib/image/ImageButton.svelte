@@ -3,7 +3,7 @@
   import { runImageCommand, cn, generateButtonId } from '$lib';
   import { type ImageButtonsProps } from '$lib/types';
 
-  let { editor, format = 'basic', tooltipText, ariaLabel, id, imageOptions = {src: 'https://placehold.co/600x400', alt: 'image alt', title : 'image title'}, onAdvancedClick, class: className, ...restProps }: ImageButtonsProps = $props();
+  let { editor, format = 'basic', tooltipText, ariaLabel, id, imageOptions = { src: 'https://placehold.co/600x400', alt: 'image alt', title: 'image title' }, onAdvancedClick, class: className, ...restProps }: ImageButtonsProps = $props();
 
   // let { src: imageUrl = 'https://placehold.co/600x400', alt: imageAlt, title: imageTitle } = $derived(imageOptions);
 

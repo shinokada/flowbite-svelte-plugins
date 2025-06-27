@@ -2,7 +2,7 @@
   "name": "ImageButton",
   "type": {
     "name": "ImageButtonsProps",
-    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L106"
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L120"
   },
   "props": [
     ["editor", ""],
@@ -10,10 +10,6 @@
     ["tooltipText", ""],
     ["ariaLabel", ""],
     ["id", ""],
-    ["imageUrl", "'https://placehold.co/600x400'"],
-    ["imageAlt", ""],
-    ["imageTitle", ""],
-    ["onAdvancedClick", ""],
-    ["class: className", ""]
+    ["imageOptions", "{src: 'https://placehold.co/600x400', alt: 'image alt', title : 'image title'"]
   ]
 }

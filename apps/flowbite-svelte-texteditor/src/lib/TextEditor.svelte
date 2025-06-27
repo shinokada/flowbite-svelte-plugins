@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onDestroy } from 'svelte';
   import { cn } from '$lib';
-  import { type EditorProviderProps, EditorWrapper, ContentWrapper, ToolbarWrapper } from '$lib';
+  import { type EditorProviderProps, EditorWrapper, ContentWrapper, ToolbarWrapper, SvelteRenderer, BubbleMenu } from '$lib';
   import { Editor } from '@tiptap/core';
   import StarterKit from '@tiptap/starter-kit';
   import CharacterCount from '@tiptap/extension-character-count';
@@ -38,18 +38,14 @@
   import emojiSuggestion from './emoji/emojiSuggestion';
   import Mention from '@tiptap/extension-mention';
   import { createMentionSuggestion } from './mention/mentionSuggestion';
+  import { BubbleMenuPlugin } from '@tiptap/extension-bubble-menu';
 
-  let {
-    content = '<p>Start typing...</p>',
-    editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none',
-    editor = $bindable<Editor | null>(null),
-    children,
-    emoji = true,
-    class: className,
-    mentions
-  }: EditorProviderProps = $props();
+  let { content = '<p>Start typing...</p>', editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none', editor = $bindable<Editor | null>(null), children, emoji = true, class: className, mentions, bubbleMenu = false }: EditorProviderProps = $props();
 
   let editorElement = $state<HTMLDivElement | null>(null);
+  // for bubble menu
+  let bubbleElement: HTMLDivElement | null = null;
+  let bubbleMenuRenderer: SvelteRenderer | null = null;
 
   const lowlight = createLowlight(common);
   lowlight.register('html', xml);
@@ -144,13 +140,34 @@
           }
         }
       });
+      if (bubbleMenu) {
+        bubbleElement = document.createElement('div');
+        document.body.appendChild(bubbleElement);
+
+        const plugin = BubbleMenuPlugin({
+          editor,
+          element: bubbleElement,
+          pluginKey: 'bubbleMenu',
+          tippyOptions: {
+            duration: 150,
+            theme: 'light'
+          }
+        });
+
+        editor.registerPlugin(plugin);
+
+        bubbleMenuRenderer = new SvelteRenderer(BubbleMenu, {
+          target: bubbleElement,
+          props: { editor }
+        });
+      }
     }
   });
 
   onDestroy(() => {
-    if (editor) {
-      editor.destroy();
-    }
+    editor?.destroy();
+    bubbleMenuRenderer?.destroy();
+    bubbleElement?.remove();
   });
 </script>
 
@@ -173,7 +190,6 @@
 ## Type
 [EditorProviderProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L7)
 ## Props
-@prop element = $bindable<HTMLDivElement | null>(null)
 @prop content = '<p>Start typing...</p>'
 @prop editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none'
 @prop editor = $bindable<Editor | null>(null)
@@ -181,4 +197,5 @@
 @prop emoji = true
 @prop class: className
 @prop mentions
+@prop bubbleMenu = false
 -->

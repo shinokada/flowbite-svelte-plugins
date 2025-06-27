@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { BubbleEditor, AlignmentButtonGroup, UndoRedoButtonGroup } from '$lib';
-    import { Button } from 'flowbite-svelte';
+  import { TextEditor, AlignmentButtonGroup, UndoRedoButtonGroup } from '$lib';
+  import { Button } from 'flowbite-svelte';
   import type { Editor } from '@tiptap/core';
 
   // let editor: Editor | null = $state(null);
   // let editorElement = $state<HTMLDivElement | null>(null);
   let editorInstance = $state<Editor | null>(null);
 
-    function getEditorContent() {
+  function getEditorContent() {
     return editorInstance?.getHTML() ?? '';
   }
 
@@ -17,13 +17,12 @@
 
   const content =
     '<p>Flowbite-Svelte is an <strong>open-source library of UI components</strong> based on the utility-first Tailwind CSS framework featuring dark mode support, a Figma design system, and more.</p><p>It includes all of the commonly used components that a website requires, such as buttons, dropdowns, navigation bars, modals, datepickers, advanced charts and the list goes on.</p>';
-
 </script>
 
-<BubbleEditor bind:editor={editorInstance} {content}>
+<TextEditor bind:editor={editorInstance} {content} bubbleMenu>
   <UndoRedoButtonGroup editor={editorInstance} />
   <AlignmentButtonGroup editor={editorInstance} />
-</BubbleEditor>
+</TextEditor>
 
 <div class="mt-4">
   <Button onclick={() => console.log(getEditorContent())}>Get Content</Button>

@@ -1,10 +1,6 @@
 <script lang="ts">
   import { Tooltip, Dropdown, DropdownItem } from 'flowbite-svelte';
-  import { setFontFamily,
-    setFontSize,
-    removeFontSizeFormatting,
-    setTextColor,
-    removeTextColorFormatting, cn, generateButtonId } from '$lib';
+  import { setFontFamily, setFontSize, removeFontSizeFormatting, setTextColor, removeTextColorFormatting, cn, generateButtonId } from '$lib';
   import { type FontButtonProps } from '$lib/types';
 
   let { editor, format, tooltipText, ariaLabel, colorValue = '#e66465', id, class: className }: FontButtonProps = $props();
@@ -111,11 +107,17 @@
         {font.name}
       </DropdownItem>
     {/each}
-    <DropdownItem onclick={()=>removeFontSizeFormatting(editor)}>Remove formatting</DropdownItem>
+    <DropdownItem onclick={() => removeFontSizeFormatting(editor)}>Remove formatting</DropdownItem>
   {:else if format === 'textColor'}
     <div class="p-2">
       <div class="group mb-3 grid grid-cols-6 items-center gap-2 rounded-lg p-1.5 hover:bg-gray-100 dark:hover:bg-gray-600">
-        <input type="color" id="color" bind:value={colorValue} onchange={() => setTextColor(editor, colorValue)} class="col-span-3 h-8 w-full rounded-md border border-gray-200 bg-gray-50 p-px px-1 group-hover:bg-gray-50 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-700 dark:group-hover:bg-gray-700" />
+        <input
+          type="color"
+          id="color"
+          bind:value={colorValue}
+          onchange={() => setTextColor(editor, colorValue)}
+          class="col-span-3 h-8 w-full rounded-md border border-gray-200 bg-gray-50 p-px px-1 group-hover:bg-gray-50 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-700 dark:group-hover:bg-gray-700"
+        />
         <label for="color" class="col-span-3 text-sm font-medium text-gray-500 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white">Pick a color</label>
       </div>
       <div class="mb-3 grid grid-cols-6 gap-1">
@@ -125,7 +127,7 @@
           </button>
         {/each}
       </div>
-      <DropdownItem onclick={()=>removeTextColorFormatting(editor)} class="text-center">Remove color</DropdownItem>
+      <DropdownItem onclick={() => removeTextColorFormatting(editor)} class="text-center">Remove color</DropdownItem>
     </div>
   {/if}
 </Dropdown>
@@ -134,7 +136,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[FontButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L85)
+[FontButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L73)
 ## Props
 @prop editor
 @prop format

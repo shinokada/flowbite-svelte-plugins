@@ -10,7 +10,7 @@ export function runAlignmentCommand(editor: Editor | null, alignment: AlignmentA
 // details
 const detailsCommands: Record<DetailsAction, (editor: Editor) => void> = {
   set: (editor) => editor.chain().focus().setDetails().run(),
-  unset: (editor) => editor.chain().focus().unsetDetails().run(),
+  unset: (editor) => editor.chain().focus().unsetDetails().run()
 };
 
 export function runDetailsCommand(editor: Editor | null, action: DetailsAction) {
@@ -37,12 +37,7 @@ export function exportEditorContent(editor: Editor | null, format: ExportAction)
 }
 
 function escapeHTML(raw: string): string {
-  return raw
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
+  return raw.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
 }
 
 // font
@@ -87,16 +82,11 @@ export const formatCommands: Record<FormatAction, FormatCommand> = {
   subscript: (editor) => editor.chain().focus().toggleSubscript().run(),
   superscript: (editor) => editor.chain().focus().toggleSuperscript().run(),
   br: (editor) => editor.chain().focus().setHardBreak().run(),
-  link: (editor, options) =>
-    editor.chain().focus().toggleLink({ href: options?.href }).run(),
+  link: (editor, options) => editor.chain().focus().toggleLink({ href: options?.href }).run(),
   removeLink: (editor) => editor.chain().focus().unsetLink().run()
 };
 
-export function runFormatCommand(
-  editor: Editor | null,
-  format: FormatAction,
-  options?: any
-) {
+export function runFormatCommand(editor: Editor | null, format: FormatAction, options?: any) {
   if (!editor) return;
   const command = formatCommands[format];
   if (command) {
@@ -125,11 +115,15 @@ export function runImageCommand(editor: Editor | null, format: ImageFormat, opti
       editor.chain().focus().setImage({ src: url }).run();
     }
   } else if (format === 'advanced' && options) {
-    editor.chain().focus().setImage({
+    editor
+      .chain()
+      .focus()
+      .setImage({
         src: options.src,
         alt: options.alt || '',
         title: options.title || ''
-      }).run();
+      })
+      .run();
   }
 }
 
@@ -138,12 +132,12 @@ type LayoutCommand = (editor: Editor, options?: any) => void;
 export const layoutCommands: Record<LayoutAction, LayoutCommand> = {
   blockquote: (editor) => editor.chain().focus().toggleBlockquote().run(),
   codeblock: (editor) => editor.chain().focus().toggleCodeBlock().run(),
-  hr: (editor) => editor.chain().focus().setHorizontalRule().run(),
+  hr: (editor) => editor.chain().focus().setHorizontalRule().run()
 };
 
 export function runLayoutsCommand(editor: Editor | null, action: LayoutAction) {
   if (!editor) return;
-  layoutCommands[action](editor)
+  layoutCommands[action](editor);
 }
 
 // list
@@ -161,8 +155,7 @@ export const runListCommand = (editor: Editor | null, format: ListAction) => {
 // table
 type TableCommand = (editor: Editor) => void;
 export const tableCommands: Record<TableAction, TableCommand> = {
-  table: (editor) =>
-    editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run(),
+  table: (editor) => editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run(),
   deleteTable: (editor) => editor.chain().focus().deleteTable().run(),
   addColumnBefore: (editor) => editor.chain().focus().addColumnBefore().run(),
   addColumnAfter: (editor) => editor.chain().focus().addColumnAfter().run(),
@@ -178,13 +171,10 @@ export const tableCommands: Record<TableAction, TableCommand> = {
   toggleHeaderCell: (editor) => editor.chain().focus().toggleHeaderCell().run(),
   fixTables: (editor) => editor.chain().focus().fixTables().run(),
   goToPreviousCell: (editor) => editor.chain().focus().goToPreviousCell().run(),
-  goToNextCell: (editor) => editor.chain().focus().goToNextCell().run(),
+  goToNextCell: (editor) => editor.chain().focus().goToNextCell().run()
 };
 
-export function runTableCommand(
-  editor: Editor | null,
-  action: TableAction
-) {
+export function runTableCommand(editor: Editor | null, action: TableAction) {
   if (!editor) return;
   const command = tableCommands[action];
   command?.(editor);
@@ -196,13 +186,10 @@ export const taskCommands: Record<TaskAction, TaskCommand> = {
   toggle: (editor) => editor.chain().focus().toggleTaskList().run(),
   split: (editor) => editor.chain().focus().splitListItem('taskItem').run(),
   sink: (editor) => editor.chain().focus().sinkListItem('taskItem').run(),
-  lift: (editor) => editor.chain().focus().liftListItem('taskItem').run(),
-}
+  lift: (editor) => editor.chain().focus().liftListItem('taskItem').run()
+};
 
-export function runTaskCommand(
-  editor: Editor | null,
-  action: TaskAction
-) {
+export function runTaskCommand(editor: Editor | null, action: TaskAction) {
   if (!editor) return;
   const command = taskCommands[action];
   command?.(editor);
@@ -212,13 +199,10 @@ export function runTaskCommand(
 export type UndoRedoAction = 'undo' | 'redo';
 export const undoRedoCommands: Record<UndoRedoAction, (editor: Editor) => void> = {
   undo: (editor) => editor.chain().focus().undo().run(),
-  redo: (editor) => editor.chain().focus().redo().run(),
+  redo: (editor) => editor.chain().focus().redo().run()
 };
 
-export function runUndoRedoCommand(
-  editor: Editor | null,
-  action: UndoRedoAction
-) {
+export function runUndoRedoCommand(editor: Editor | null, action: UndoRedoAction) {
   if (!editor) return;
   const command = undoRedoCommands[action];
   command?.(editor);
@@ -250,11 +234,7 @@ export const videoCommands: Record<VideoAction, VideoCommand> = {
   }
 };
 
-export function runVideoCommand(
-  editor: Editor | null,
-  format: VideoAction,
-  options?: { src: string; width?: number; height?: number }
-) {
+export function runVideoCommand(editor: Editor | null, format: VideoAction, options?: { src: string; width?: number; height?: number }) {
   if (!editor) return;
   const command = videoCommands[format];
   command?.(editor, options);

@@ -1,26 +1,61 @@
 <script lang="ts">
+  import { runFormatCommand } from '$lib';
   import type { Editor } from '@tiptap/core';
-  export let editor: Editor;
+  import { expoIn } from 'svelte/easing';
+  interface BubbleMenuProps {
+    editor: Editor | null;
+    underline?: boolean;
+    highlight?: boolean;
+  }
+  let { editor, underline = true, highlight = true }: BubbleMenuProps = $props();
+
+  let isBoldActive = $state(false);
+  let isItalicActive = $state(false);
+  let isStrikeActive = $state(false);
+  let isUnderlineActive = $state(false);
+  let isHighlightActive = $state(false);
+
+  $effect(() => {
+    if (!editor) return;
+
+    const update = () => {
+      isBoldActive = editor.isActive('bold');
+      isItalicActive = editor.isActive('italic');
+      isStrikeActive = editor.isActive('strike');
+      isUnderlineActive = editor.isActive('underline');
+      isHighlightActive = editor.isActive('highlight');
+    };
+
+    update();
+    // use Tiptap's Editor class, which extends ProseMirror’s event system
+    // the Editor instance is an EventEmitter — meaning it has .on(), .off(), and .emit() methods
+    editor.on('transaction', update);
+
+    return () => {
+      editor.off('transaction', update);
+    };
+  });
 </script>
 
-<div class="rounded bg-white dark:bg-gray-800 shadow p-1 border flex gap-1 text-sm">
-  <button onclick={() => editor.chain().focus().toggleBold().run()} class:active={editor.isActive('bold')}>
-    <strong>B</strong>
-  </button>
-  <button onclick={() => editor.chain().focus().toggleItalic().run()} class:active={editor.isActive('italic')}>
-    <em>I</em>
-  </button>
-  <button onclick={() => editor.chain().focus().toggleStrike().run()} class:active={editor.isActive('strike')}>
-    <s>S</s>
-  </button>
+<div class="bubble-menu">
+  <button onclick={() => runFormatCommand(editor, 'bold')} class:is-active={isBoldActive}> Bold </button>
+  <button onclick={() => runFormatCommand(editor, 'italic')} class:is-active={isItalicActive}> Italic </button>
+  <button onclick={() => runFormatCommand(editor, 'strike')} class:is-active={isStrikeActive}> Strike </button>
+  {#if underline}
+    <button onclick={() => runFormatCommand(editor, 'underline')} class:is-active={isUnderlineActive}> Underline </button>
+  {/if}
+  {#if highlight}
+    <button onclick={() => runFormatCommand(editor, 'highlight')} class:is-active={isHighlightActive}> Highlight </button>
+  {/if}
 </div>
 
-<style>
-  button {
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-  }
-  .active {
-    background-color: #ddd;
-  }
-</style>
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
+## Type
+BubbleMenuProps
+## Props
+@prop editor
+@prop underline = true
+@prop highlight = true
+-->

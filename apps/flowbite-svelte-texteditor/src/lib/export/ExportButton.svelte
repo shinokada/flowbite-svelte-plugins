@@ -2,7 +2,7 @@
   import { Tooltip, Modal, Clipboard } from 'flowbite-svelte';
   import { exportEditorContent, type ExportAction, cn, generateButtonId } from '$lib';
   import { type ExportButtonProps } from '$lib/types';
-  import { CheckOutline, ClipboardCleanSolid } from "flowbite-svelte-icons";
+  import { CheckOutline, ClipboardCleanSolid } from 'flowbite-svelte-icons';
 
   let { editor, format = 'json', tooltipText, ariaLabel, id, class: className }: ExportButtonProps = $props();
 
@@ -23,13 +23,13 @@
     sourceCode = exportEditorContent(editor, format as ExportAction);
   }
 
-  let value = $state("");
+  let value = $state('');
   let success = $state(false);
   function onclick(ev: MouseEvent): void {
     const target = ev.target as HTMLElement;
-    const codeBlock = target.ownerDocument.querySelector("#sourceCode");
+    const codeBlock = target.ownerDocument.querySelector('#sourceCode');
     if (codeBlock) {
-      value = codeBlock.textContent || "";
+      value = codeBlock.textContent || '';
     }
   }
 </script>
@@ -48,24 +48,24 @@
 </button>
 <Tooltip>{finalTooltipText}</Tooltip>
 
-<Modal title="JSON/HTML data export result" bind:open={defaultModal} >
+<Modal title="JSON/HTML data export result" bind:open={defaultModal}>
   <div class="format lg:format-lg dark:format-invert format-blue max-w-none p-4 focus:outline-none md:p-5">
     <pre><code id="sourceCode">{@html sourceCode}</code></pre>
   </div>
-  <Clipboard color={success ? "alternative" : "light"} bind:value bind:success size="sm" class="absolute end-20 top-4 h-8 px-2.5 font-medium focus:ring-0" {onclick}>
-      {#if success}
-        <CheckOutline class="h-3 w-3" /> Copied
-      {:else}
-        <ClipboardCleanSolid class="h-3 w-3" /> Copy code
-      {/if}
-    </Clipboard>
+  <Clipboard color={success ? 'alternative' : 'light'} bind:value bind:success size="sm" class="absolute end-20 top-4 h-8 px-2.5 font-medium focus:ring-0" {onclick}>
+    {#if success}
+      <CheckOutline class="h-3 w-3" /> Copied
+    {:else}
+      <ClipboardCleanSolid class="h-3 w-3" /> Copy code
+    {/if}
+  </Clipboard>
 </Modal>
 
 <!--
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[ExportButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L56)
+[ExportButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L62)
 ## Props
 @prop editor
 @prop format = 'json'
