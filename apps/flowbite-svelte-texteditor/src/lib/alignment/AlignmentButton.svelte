@@ -1,7 +1,8 @@
 <script lang="ts">
   import { Tooltip } from 'flowbite-svelte';
-  import { cn, generateButtonId } from '$lib';
+  import { runAlignmentCommand, type AlignmentAction, cn, generateButtonId } from '$lib';
   import { type AlignmentButtonProps } from '$lib/types';
+
   let { editor, alignment, tooltipText, ariaLabel, id, class: className }: AlignmentButtonProps = $props();
 
   const defaults = {
@@ -16,7 +17,7 @@
   const uniqueId = id ?? generateButtonId(`Align${alignment.charAt(0).toUpperCase() + alignment.slice(1)}`);
 
   function handleClick() {
-    editor?.chain().focus().setTextAlign(alignment).run();
+    runAlignmentCommand(editor, alignment as AlignmentAction);
   }
 
   const svgPaths = {

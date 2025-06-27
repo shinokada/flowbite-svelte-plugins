@@ -1,17 +1,57 @@
 import type { Editor } from '@tiptap/core';
+import type { AlignmentAction, DetailsAction, ExportAction } from './types';
 
-export function runFormatCommand(
+// alignment
+export function runAlignmentCommand(
   editor: Editor | null,
-  format: FormatAction,
-  options?: any
+  alignment: AlignmentAction
 ) {
   if (!editor) return;
-  const command = editorCommands[format];
-  if (command) {
-    command(editor, options);
+  editor.chain().focus().setTextAlign(alignment).run();
+}
+
+// details
+const detailsCommands: Record<DetailsAction, (editor: Editor) => void> = {
+  set: (editor) => editor.chain().focus().setDetails().run(),
+  unset: (editor) => editor.chain().focus().unsetDetails().run(),
+};
+
+export function runDetailsCommand(
+  editor: Editor | null,
+  action: DetailsAction
+) {
+  if (!editor) return;
+  detailsCommands[action](editor);
+}
+
+// export
+export function exportEditorContent(editor: Editor | null, format: ExportAction): string {
+  if (!editor) return 'No content available';
+
+  switch (format) {
+    case 'json': {
+      const jsonData = editor.getJSON();
+      return escapeHTML(JSON.stringify(jsonData, null, 2));
+    }
+    case 'html': {
+      const htmlData = editor.getHTML();
+      return escapeHTML(htmlData);
+    }
+    default:
+      return 'Unsupported format';
   }
 }
 
+function escapeHTML(raw: string): string {
+  return raw
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+// format
 export type FormatAction =
   | 'bold'
   | 'italic'
@@ -28,9 +68,9 @@ export type FormatAction =
   | 'codeblock'
   | 'hr';
 
-type EditorCommand = (editor: Editor, options?: any) => void;
+type FormatCommand = (editor: Editor, options?: any) => void;
 
-export const editorCommands: Record<FormatAction, EditorCommand> = {
+export const formatCommands: Record<FormatAction, FormatCommand> = {
   bold: (editor) => editor.chain().focus().toggleBold().run(),
   italic: (editor) => editor.chain().focus().toggleItalic().run(),
   underline: (editor) => editor.chain().focus().toggleUnderline().run(),
@@ -47,6 +87,18 @@ export const editorCommands: Record<FormatAction, EditorCommand> = {
   codeblock: (editor) => editor.chain().focus().toggleCodeBlock().run(),
   hr: (editor) => editor.chain().focus().setHorizontalRule().run(),
 };
+
+export function runFormatCommand(
+  editor: Editor | null,
+  format: FormatAction,
+  options?: any
+) {
+  if (!editor) return;
+  const command = formatCommands[format];
+  if (command) {
+    command(editor, options);
+  }
+}
 
 // table
 export type TableAction =
@@ -101,7 +153,6 @@ export function runTableCommand(
 }
 
 // undoredo
-
 export type UndoRedoAction = 'undo' | 'redo';
 
 export const undoRedoCommands: Record<UndoRedoAction, (editor: Editor) => void> = {

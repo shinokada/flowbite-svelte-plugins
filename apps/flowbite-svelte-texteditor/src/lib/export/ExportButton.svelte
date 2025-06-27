@@ -1,7 +1,9 @@
 <script lang="ts">
-  import { Tooltip, Modal } from 'flowbite-svelte';
-  import { cn, generateButtonId } from '$lib';
+  import { Tooltip, Modal, Clipboard } from 'flowbite-svelte';
+  import { exportEditorContent, type ExportAction, cn, generateButtonId } from '$lib';
   import { type ExportButtonProps } from '$lib/types';
+  import { CheckOutline, ClipboardCleanSolid } from "flowbite-svelte-icons";
+
   let { editor, format = 'json', tooltipText, ariaLabel, id, class: className }: ExportButtonProps = $props();
 
   let defaultModal = $state(false);
@@ -16,42 +18,18 @@
   const finalAriaLabel = ariaLabel ?? defaults[format].aria;
   const uniqueId = id ?? generateButtonId(`Align${format.charAt(0).toUpperCase() + format.slice(1)}`);
 
-  function exportJson() {
-    const jsonData = editor?.getJSON();
-    if (jsonData) {
-      sourceCode = JSON.stringify(jsonData, null, 2).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    } else {
-      sourceCode = 'No content available';
-    }
-  }
-
-  function exportHtml() {
-    const htmlData = editor?.getHTML();
-    if (htmlData) {
-      sourceCode = htmlData
-        .replace(/&/g, '&amp;') // Escape & character
-        .replace(/</g, '&lt;') // Escape < character
-        .replace(/>/g, '&gt;') // Escape > character
-        .replace(/"/g, '&quot;') // Escape " character
-        .replace(/'/g, '&#039;'); // Escape ' character
-    } else {
-      sourceCode = 'No content available';
-    }
-  }
-
-  function openModal() {
-    defaultModal = true;
-  }
-
   function handleClick() {
-    openModal();
-    switch (format) {
-      case 'json':
-        exportJson();
-        break;
-      case 'html':
-        exportHtml();
-        break;
+    defaultModal = true;
+    sourceCode = exportEditorContent(editor, format as ExportAction);
+  }
+
+  let value = $state("");
+  let success = $state(false);
+  function onclick(ev: MouseEvent): void {
+    const target = ev.target as HTMLElement;
+    const codeBlock = target.ownerDocument.querySelector("#sourceCode");
+    if (codeBlock) {
+      value = codeBlock.textContent || "";
     }
   }
 </script>
@@ -70,10 +48,17 @@
 </button>
 <Tooltip>{finalTooltipText}</Tooltip>
 
-<Modal title="JSON/HTML data export result" bind:open={defaultModal} autoclose>
+<Modal title="JSON/HTML data export result" bind:open={defaultModal} >
   <div class="format lg:format-lg dark:format-invert format-blue max-w-none p-4 focus:outline-none md:p-5">
     <pre><code id="sourceCode">{@html sourceCode}</code></pre>
   </div>
+  <Clipboard color={success ? "alternative" : "light"} bind:value bind:success size="sm" class="absolute end-20 top-4 h-8 px-2.5 font-medium focus:ring-0" {onclick}>
+      {#if success}
+        <CheckOutline class="h-3 w-3" /> Copied
+      {:else}
+        <ClipboardCleanSolid class="h-3 w-3" /> Copy code
+      {/if}
+    </Clipboard>
 </Modal>
 
 <!--

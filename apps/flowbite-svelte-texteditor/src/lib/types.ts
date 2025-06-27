@@ -31,8 +31,10 @@ export interface GroupFormatProps {
 }
 
 // alignment
+export type AlignmentAction = 'left' | 'center' | 'right' | 'justify';
+
 export interface AlignmentButtonProps extends EditorBasicProps {
-  alignment: 'left' | 'center' | 'right' | 'justify';
+  alignment: AlignmentAction;
 }
 
 export interface AlignmentButtonGroupProps extends GroupFormatProps {
@@ -43,8 +45,10 @@ export interface AlignmentButtonGroupProps extends GroupFormatProps {
 }
 
 // details
+export type DetailsAction = 'set' | 'unset';
+
 export interface DetailsButtonProps extends EditorBasicProps {
-  action: 'set' | 'unset';
+  action: DetailsAction;
 }
 
 export interface DetailsButtonGroupProps extends GroupFormatProps {
@@ -53,8 +57,9 @@ export interface DetailsButtonGroupProps extends GroupFormatProps {
 }
 
 // export
+export type ExportAction = 'json' | 'html';
 export interface ExportButtonProps extends EditorBasicProps {
-  format?: 'json' | 'html';
+  format?: ExportAction;
 }
 
 export interface ExportButtonGroupProps extends GroupFormatProps {
