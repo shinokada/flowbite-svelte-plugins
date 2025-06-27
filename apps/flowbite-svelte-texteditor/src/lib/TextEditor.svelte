@@ -40,7 +40,6 @@
   import { createMentionSuggestion } from './mention/mentionSuggestion';
 
   let {
-    element = $bindable<HTMLDivElement | null>(null),
     content = '<p>Start typing...</p>',
     editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none',
     editor = $bindable<Editor | null>(null),
@@ -145,8 +144,6 @@
           }
         }
       });
-
-      element = editorElement;
     }
   });
 

@@ -50,7 +50,7 @@
   ];
 </script>
 
-<TextEditor bind:element={editorElement} bind:editor={editorInstance} {content} {mentions}>
+<TextEditor bind:editor={editorInstance} {content} {mentions}>
   <ToolbarRowWrapper>
     <UndoRedoButtonGroup editor={editorInstance} />
   </ToolbarRowWrapper>

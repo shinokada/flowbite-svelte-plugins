@@ -2,6 +2,7 @@
 export { default as DefaultTextEditor } from './DefaultTextEditor.svelte';
 
 export { default as Alignments } from './Alignments.svelte';
+export { default as BubbleMenuEx } from './BubbleMenuEx.svelte';
 export { default as Details } from './Details.svelte';
 export { default as Emoji } from './Emoji.svelte';
 export { default as Export } from './Export.svelte';

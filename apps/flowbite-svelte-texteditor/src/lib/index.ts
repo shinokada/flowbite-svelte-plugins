@@ -3,6 +3,7 @@ export * from './utils';
 export * from './editorCommands';
 export { default as TextEditor } from './TextEditor.svelte';
 export { default as Divider } from './Divider.svelte';
+export { default as SvelteRenderer } from './components/SvelteRenderer';
 
 // wrappers
 export { default as EditorWrapper } from './wrappers/EditorWrapper.svelte';
@@ -13,6 +14,9 @@ export { default as ToolbarRowWrapper } from './wrappers/ToolbarRowWrapper.svelt
 // alignments
 export { default as AlignmentButton } from './alignment/AlignmentButton.svelte';
 export { default as AlignmentButtonGroup } from './alignment/AlignmentButtonGroup.svelte';
+// bubblemenu
+export { default as BubbleMenu } from './bubble-menu/BubbleMenu.svelte';
+export { default as BubbleEditor } from './bubble-menu/BubbleEditor.svelte'
 // Exportbuttons
 export { default as ExportButton } from './export/ExportButton.svelte';
 export { default as ExportButtonGroup } from './export/ExportButtonGroup.svelte';

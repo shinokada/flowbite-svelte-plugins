@@ -103,6 +103,7 @@
   "dependencies": {
     "@tiptap/core": "^2.22.3",
     "@tiptap/extension-bold": "^2.22.3",
+    "@tiptap/extension-bubble-menu": "^2.23.0",
     "@tiptap/extension-character-count": "^2.22.3",
     "@tiptap/extension-code-block-lowlight": "^2.22.3",
     "@tiptap/extension-color": "^2.22.3",

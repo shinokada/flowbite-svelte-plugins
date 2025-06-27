@@ -23,7 +23,7 @@
       `;
 </script>
 
-<TextEditor bind:element={editorElement} bind:editor={editorInstance} {content}>
+<TextEditor bind:editor={editorInstance} {content}>
   <TaskListButtonGroup editor={editorInstance} />
 </TextEditor>
 

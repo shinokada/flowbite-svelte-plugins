@@ -32,7 +32,7 @@
     `;
 </script>
 
-<TextEditor bind:element={editorElement} bind:editor={editorInstance} {content}>
+<TextEditor bind:editor={editorInstance} {content}>
   <DetailsButtonGroup editor={editorInstance} />
 </TextEditor>
 
