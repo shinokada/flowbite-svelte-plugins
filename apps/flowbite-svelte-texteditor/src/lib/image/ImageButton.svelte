@@ -1,9 +1,11 @@
 <script lang="ts">
   import { Tooltip, Modal, Label, Input, Button } from 'flowbite-svelte';
-  import { cn, generateButtonId } from '$lib';
+  import { runImageCommand, cn, generateButtonId } from '$lib';
   import { type ImageButtonsProps } from '$lib/types';
 
-  let { editor, format = 'basic', tooltipText, ariaLabel, id, imageUrl = 'https://placehold.co/600x400', imageAlt, imageTitle, onAdvancedClick, class: className, ...restProps }: ImageButtonsProps = $props();
+  let { editor, format = 'basic', tooltipText, ariaLabel, id, imageOptions = {src: 'https://placehold.co/600x400', alt: 'image alt', title : 'image title'}, onAdvancedClick, class: className, ...restProps }: ImageButtonsProps = $props();
+
+  // let { src: imageUrl = 'https://placehold.co/600x400', alt: imageAlt, title: imageTitle } = $derived(imageOptions);
 
   let defaultModal = $state(false);
 
@@ -17,16 +19,12 @@
   const uniqueId = id ?? generateButtonId(`Image${format.charAt(0).toUpperCase() + format.slice(1)}`);
 
   function handleClick() {
-    switch (format) {
-      case 'basic':
-        const url = window.prompt('Enter image URL:', 'https://placehold.co/600x400');
-        if (url) {
-          editor?.chain().focus().setImage({ src: url }).run();
-        }
-        break;
-      case 'advanced':
-        openModal();
-        break;
+    if (format === 'basic') {
+      if (imageOptions.src) {
+        runImageCommand(editor, 'basic', { src: imageOptions.src });
+      }
+    } else {
+      defaultModal = true;
     }
   }
 
@@ -39,30 +37,15 @@
       'M9 2.221V7H4.221a2 2 0 0 1 .365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-7Zm.394 9.553a1 1 0 0 0-1.817.062l-2.5 6A1 1 0 0 0 8 19h8a1 1 0 0 0 .894-1.447l-2-4A1 1 0 0 0 13.2 13.4l-.53.706-1.276-2.553ZM13 9.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z'
   };
 
-  function openModal() {
-    defaultModal = true;
-  }
-
   function handleSubmit(event: Event) {
     event.preventDefault();
-
-    if (imageUrl && editor) {
-      editor
-        .chain()
-        .focus()
-        .setImage({
-          src: imageUrl,
-          alt: imageAlt || '',
-          title: imageTitle || ''
-        })
-        .run();
+    if (editor && imageOptions.src) {
+      runImageCommand(editor, 'advanced', { src: imageOptions.src, alt: imageOptions.alt, title: imageOptions.title });
     }
-
-    // Close modal and reset form
     defaultModal = false;
-    imageUrl = 'https://placehold.co/600x400';
-    imageAlt = '';
-    imageTitle = '';
+    imageOptions.src = 'https://placehold.co/600x400';
+    imageOptions.alt = '';
+    imageOptions.title = '';
   }
 </script>
 
@@ -83,15 +66,15 @@
   <form class="flex flex-col space-y-6" onsubmit={handleSubmit}>
     <Label class="space-y-2">
       <span>Image URL</span>
-      <Input type="url" bind:value={imageUrl} required />
+      <Input type="url" bind:value={imageOptions.src} required />
     </Label>
     <Label class="space-y-2">
       <span>Image alt</span>
-      <Input type="text" bind:value={imageAlt} />
+      <Input type="text" bind:value={imageOptions.alt} />
     </Label>
     <Label class="space-y-2">
       <span>Image title</span>
-      <Input type="text" bind:value={imageTitle} />
+      <Input type="text" bind:value={imageOptions.title} />
     </Label>
     <Button type="submit" class="w-full">Add image</Button>
   </form>

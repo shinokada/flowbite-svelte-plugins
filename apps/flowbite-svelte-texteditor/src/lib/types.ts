@@ -67,11 +67,24 @@ export interface ExportButtonGroupProps extends GroupFormatProps {
   html?: boolean;
 }
 
-// format
-export interface FormatButtonProps extends EditorBasicProps {
-  format: 'bold' | 'code' | 'highlight' | 'italic' | 'link' | 'removeLink' | 'strike' | 'subscript' | 'superscript' | 'underline' | 'br';
+// font
+export type FontFormat = 'fontFamily' | 'fontSize' | 'textColor';
+export interface FontButtonProps extends EditorBasicProps {
+  format: FontFormat;
+  colorValue?: string;
 }
 
+export interface FontButtonGroupProps extends GroupFormatProps {
+  fontFamily?: boolean;
+  fontSize?: boolean;
+  textColor?: boolean;
+}
+
+// format
+export type FormatAction = 'bold' | 'code' | 'highlight' | 'italic' | 'link' | 'removeLink' | 'strike' | 'subscript' | 'superscript' | 'underline' | 'br';
+export interface FormatButtonProps extends EditorBasicProps {
+  format: FormatAction;
+}
 export interface FormatButtonGroupProps extends GroupFormatProps {
   bold?: boolean;
   code?: boolean;
@@ -86,19 +99,6 @@ export interface FormatButtonGroupProps extends GroupFormatProps {
   br?: boolean;
 }
 
-// font
-export type FontFormat = 'fontFamily' | 'fontSize' | 'textColor';
-export interface FontButtonProps extends EditorBasicProps {
-  format: FontFormat;
-  colorValue?: string;
-}
-
-export interface FontButtonGroupProps extends GroupFormatProps {
-  fontFamily?: boolean;
-  fontSize?: boolean;
-  textColor?: boolean;
-}
-
 // heading
 export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -109,11 +109,16 @@ export interface HeadingButtonGroupProps extends GroupFormatProps {
 }
 
 // image
+export type ImageFormat = 'basic' | 'advanced';
+export interface ImageOptions {
+  src: string;
+  alt?: string;
+  title?: string;
+}
+
 export interface ImageButtonsProps extends EditorBasicProps {
-  format?: 'basic' | 'advanced';
-  imageUrl?: string;
-  imageAlt?: string;
-  imageTitle?: string;
+  format?: ImageFormat;
+  imageOptions?: Partial<ImageOptions>;
   onAdvancedClick?: () => void;
 }
 
@@ -122,9 +127,21 @@ export interface ImageButtonGroupProps extends GroupFormatProps {
   advanced?: boolean;
 }
 
+// layout
+export type LayoutAction = 'blockquote' | 'codeblock' | 'hr';
+export interface LayoutButtonProps extends EditorBasicProps {
+  format: LayoutAction;
+}
+export interface LayoutButtonGroupProps extends GroupFormatProps {
+  blockquote?: boolean;
+  codeblock?: boolean;
+  hr?: boolean;
+}
+
 // list
+export type ListAction = 'bullet' | 'ordered';
 export interface ListButtonProps extends EditorBasicProps {
-  format: 'bullet' | 'ordered';
+  format: ListAction;
 }
 
 export interface ListButtonGroupProps extends GroupFormatProps {
@@ -132,27 +149,34 @@ export interface ListButtonGroupProps extends GroupFormatProps {
   ordered?: boolean;
 }
 
+// source
+export interface SourceButtonGroupProps extends GroupFormatProps {
+  source?: boolean;
+  html?: boolean;
+}
+
 // table
+export type TableAction =
+  | 'table'
+  | 'deleteTable'
+  | 'addColumnBefore'
+  | 'addColumnAfter'
+  | 'deleteColumn'
+  | 'addRowBefore'
+  | 'addRowAfter'
+  | 'deleteRow'
+  | 'mergeCells'
+  | 'splitCell'
+  | 'mergeOrSplit'
+  | 'toggleHeaderColumn'
+  | 'toggleHeaderRow'
+  | 'toggleHeaderCell'
+  | 'fixTables'
+  | 'goToPreviousCell'
+  | 'goToNextCell';
+
 export interface TableButtonProps extends EditorBasicProps {
-  action?:
-    | 'table'
-    | 'deleteTable'
-    | 'addColumnBefore'
-    | 'addColumnAfter'
-    | 'deleteColumn'
-    | 'addRowBefore'
-    | 'addRowAfter'
-    | 'deleteRow'
-    | 'mergeCells'
-    | 'splitCell'
-    | 'mergeOrSplit'
-    | 'toggleHeaderColumn'
-    | 'toggleHeaderRow'
-    | 'toggleHeaderCell'
-    // | 'cellattribute'
-    | 'fixTables'
-    | 'goToPreviousCell'
-    | 'goToNextCell';
+  action?: TableAction;
 }
 
 export interface TableButtonGroupProps extends GroupFormatProps {
@@ -176,8 +200,9 @@ export interface TableButtonGroupProps extends GroupFormatProps {
 }
 
 // task list
+export type TaskAction = 'toggle' | 'split' | 'sink' | 'lift';
 export interface TaskListButtonProps extends EditorBasicProps {
-  action: 'toggle' | 'split' | 'sink' | 'lift';
+  action: TaskAction;
 }
 
 export interface TaskListButtonGroupProps extends GroupFormatProps {
@@ -185,24 +210,6 @@ export interface TaskListButtonGroupProps extends GroupFormatProps {
   split?: boolean;
   sink?: boolean;
   lift?: boolean;
-}
-
-// video
-export interface VideoButtonProps extends EditorBasicProps {
-  format?: 'default' | 'advanced';
-  onAdvancedClick?: () => void;
-  videoUrl?: string;
-  videoWidth?: number | undefined;
-  videoHeight?: number | undefined;
-  modalTitle?: string;
-  modalSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
-  formId?: string;
-  modalChildren?: Snippet;
-}
-
-export interface VideoButtonGroupProps extends GroupFormatProps {
-  basic?: boolean;
-  advanced?: boolean;
 }
 
 // undoredo
@@ -218,25 +225,34 @@ export interface UndoRedoButtonGroupProps extends GroupFormatProps {
   redo?: boolean;
 }
 
+// video
+export interface VideoOptions {
+  url?: string;
+  width?: number;
+  height?: number;
+  title?: string;
+  autoplay?: boolean;
+  loop?: boolean;
+}
+export type VideoAction = 'default' | 'advanced';
+export interface VideoButtonProps extends EditorBasicProps {
+  format?: VideoAction;
+  onAdvancedClick?: () => void;
+  modalTitle?: string;
+  modalSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
+  formId?: string;
+  modalChildren?: Snippet;
+  videoOptions?: VideoOptions;
+}
+
+export interface VideoButtonGroupProps extends GroupFormatProps {
+  basic?: boolean;
+  advanced?: boolean;
+}
+
 // groupcustom
 export interface GroupEditorBasicProps {
   editor: Editor | null;
   showToolbar?: boolean;
 }
 
-// layout
-export interface LayoutButtonGroupProps extends GroupFormatProps {
-  blockquote?: boolean;
-  codeblock?: boolean;
-  hr?: boolean;
-}
-
-export interface LayoutButtonProps extends EditorBasicProps {
-  format: 'blockquote' | 'codeblock' | 'hr';
-}
-
-// source
-export interface SourceButtonGroupProps extends GroupFormatProps {
-  source?: boolean;
-  html?: boolean;
-}

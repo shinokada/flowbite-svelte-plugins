@@ -1,11 +1,8 @@
 import type { Editor } from '@tiptap/core';
-import type { AlignmentAction, DetailsAction, ExportAction } from './types';
+import type { AlignmentAction, DetailsAction, ExportAction, FormatAction, LayoutAction, HeadingLevel, ImageFormat, ImageOptions, ListAction, TableAction, TaskAction, VideoAction } from './types';
 
 // alignment
-export function runAlignmentCommand(
-  editor: Editor | null,
-  alignment: AlignmentAction
-) {
+export function runAlignmentCommand(editor: Editor | null, alignment: AlignmentAction) {
   if (!editor) return;
   editor.chain().focus().setTextAlign(alignment).run();
 }
@@ -16,10 +13,7 @@ const detailsCommands: Record<DetailsAction, (editor: Editor) => void> = {
   unset: (editor) => editor.chain().focus().unsetDetails().run(),
 };
 
-export function runDetailsCommand(
-  editor: Editor | null,
-  action: DetailsAction
-) {
+export function runDetailsCommand(editor: Editor | null, action: DetailsAction) {
   if (!editor) return;
   detailsCommands[action](editor);
 }
@@ -82,24 +76,7 @@ export function removeTextColorFormatting(editor: Editor | null) {
 }
 
 // format
-export type FormatAction =
-  | 'bold'
-  | 'italic'
-  | 'underline'
-  | 'strike'
-  | 'highlight'
-  | 'code'
-  | 'subscript'
-  | 'superscript'
-  | 'br'
-  | 'link'
-  | 'removeLink'
-  | 'blockquote'
-  | 'codeblock'
-  | 'hr';
-
 type FormatCommand = (editor: Editor, options?: any) => void;
-
 export const formatCommands: Record<FormatAction, FormatCommand> = {
   bold: (editor) => editor.chain().focus().toggleBold().run(),
   italic: (editor) => editor.chain().focus().toggleItalic().run(),
@@ -112,10 +89,7 @@ export const formatCommands: Record<FormatAction, FormatCommand> = {
   br: (editor) => editor.chain().focus().setHardBreak().run(),
   link: (editor, options) =>
     editor.chain().focus().toggleLink({ href: options?.href }).run(),
-  removeLink: (editor) => editor.chain().focus().unsetLink().run(),
-  blockquote: (editor) => editor.chain().focus().toggleBlockquote().run(),
-  codeblock: (editor) => editor.chain().focus().toggleCodeBlock().run(),
-  hr: (editor) => editor.chain().focus().setHorizontalRule().run(),
+  removeLink: (editor) => editor.chain().focus().unsetLink().run()
 };
 
 export function runFormatCommand(
@@ -130,28 +104,62 @@ export function runFormatCommand(
   }
 }
 
+// heading
+export function runHeadingCommand(editor: Editor | null, level: HeadingLevel | null) {
+  if (!editor) return;
+
+  if (level === null) {
+    editor.chain().focus().setParagraph().run();
+  } else {
+    editor.chain().focus().toggleHeading({ level }).run();
+  }
+}
+
+// image
+export function runImageCommand(editor: Editor | null, format: ImageFormat, options?: ImageOptions) {
+  if (!editor) return;
+
+  if (format === 'basic') {
+    const url = window.prompt('Enter image URL:', options?.src || 'https://placehold.co/600x400');
+    if (url) {
+      editor.chain().focus().setImage({ src: url }).run();
+    }
+  } else if (format === 'advanced' && options) {
+    editor.chain().focus().setImage({
+        src: options.src,
+        alt: options.alt || '',
+        title: options.title || ''
+      }).run();
+  }
+}
+
+// layout
+type LayoutCommand = (editor: Editor, options?: any) => void;
+export const layoutCommands: Record<LayoutAction, LayoutCommand> = {
+  blockquote: (editor) => editor.chain().focus().toggleBlockquote().run(),
+  codeblock: (editor) => editor.chain().focus().toggleCodeBlock().run(),
+  hr: (editor) => editor.chain().focus().setHorizontalRule().run(),
+};
+
+export function runLayoutsCommand(editor: Editor | null, action: LayoutAction) {
+  if (!editor) return;
+  layoutCommands[action](editor)
+}
+
+// list
+type ListCommand = (editor: Editor) => void;
+
+export const runListCommand = (editor: Editor | null, format: ListAction) => {
+  if (!editor) return;
+  const commands: Record<ListAction, ListCommand> = {
+    bullet: (editor) => editor.chain().focus().toggleBulletList().run(),
+    ordered: (editor) => editor.chain().focus().toggleOrderedList().run()
+  };
+  commands[format]?.(editor);
+};
+
 // table
-export type TableAction =
-  | 'table'
-  | 'deleteTable'
-  | 'addColumnBefore'
-  | 'addColumnAfter'
-  | 'deleteColumn'
-  | 'addRowBefore'
-  | 'addRowAfter'
-  | 'deleteRow'
-  | 'mergeCells'
-  | 'splitCell'
-  | 'mergeOrSplit'
-  | 'toggleHeaderColumn'
-  | 'toggleHeaderRow'
-  | 'toggleHeaderCell'
-  | 'fixTables'
-  | 'goToPreviousCell'
-  | 'goToNextCell';
-
 type TableCommand = (editor: Editor) => void;
-
 export const tableCommands: Record<TableAction, TableCommand> = {
   table: (editor) =>
     editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run(),
@@ -182,9 +190,26 @@ export function runTableCommand(
   command?.(editor);
 }
 
+// task
+type TaskCommand = (editor: Editor) => void;
+export const taskCommands: Record<TaskAction, TaskCommand> = {
+  toggle: (editor) => editor.chain().focus().toggleTaskList().run(),
+  split: (editor) => editor.chain().focus().splitListItem('taskItem').run(),
+  sink: (editor) => editor.chain().focus().sinkListItem('taskItem').run(),
+  lift: (editor) => editor.chain().focus().liftListItem('taskItem').run(),
+}
+
+export function runTaskCommand(
+  editor: Editor | null,
+  action: TaskAction
+) {
+  if (!editor) return;
+  const command = taskCommands[action];
+  command?.(editor);
+}
+
 // undoredo
 export type UndoRedoAction = 'undo' | 'redo';
-
 export const undoRedoCommands: Record<UndoRedoAction, (editor: Editor) => void> = {
   undo: (editor) => editor.chain().focus().undo().run(),
   redo: (editor) => editor.chain().focus().redo().run(),
@@ -197,4 +222,40 @@ export function runUndoRedoCommand(
   if (!editor) return;
   const command = undoRedoCommands[action];
   command?.(editor);
+}
+
+// video
+type VideoCommand = (editor: Editor, options?: { src: string; width?: number; height?: number }) => void;
+
+export const videoCommands: Record<VideoAction, VideoCommand> = {
+  default: (editor, options) => {
+    if (!options?.src) return;
+    editor.commands.setYoutubeVideo({
+      src: options.src,
+      width: options.width ?? 640,
+      height: options.height ?? 480
+    });
+  },
+  advanced: (editor, options) => {
+    if (!options?.src) return;
+    editor
+      .chain()
+      .focus()
+      .setYoutubeVideo({
+        src: options.src,
+        width: options.width,
+        height: options.height
+      })
+      .run();
+  }
+};
+
+export function runVideoCommand(
+  editor: Editor | null,
+  format: VideoAction,
+  options?: { src: string; width?: number; height?: number }
+) {
+  if (!editor) return;
+  const command = videoCommands[format];
+  command?.(editor, options);
 }

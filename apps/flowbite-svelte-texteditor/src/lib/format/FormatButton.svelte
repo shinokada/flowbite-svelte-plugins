@@ -1,8 +1,6 @@
 <script lang="ts">
-  import { runFormatCommand, type FormatAction } from '$lib';
+  import { runFormatCommand, type FormatAction, type FormatButtonProps, cn, generateButtonId } from '$lib';
   import { Tooltip } from 'flowbite-svelte';
-  import { cn, generateButtonId } from '$lib';
-  import { type FormatButtonProps } from '$lib/types';
   let { editor, format, tooltipText, ariaLabel, id, class: className }: FormatButtonProps = $props();
 
   const defaults = {

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Tooltip } from 'flowbite-svelte';
-  import { cn, generateButtonId } from '$lib';
+  import { runLayoutsCommand, type LayoutAction, cn, generateButtonId } from '$lib';
   import { type LayoutButtonProps } from '$lib/types';
 
   let { editor, format, tooltipText, ariaLabel, id, class: className }: LayoutButtonProps = $props();
@@ -22,17 +22,7 @@
   };
 
   function handleClick() {
-    switch (format) {
-      case 'blockquote':
-        editor?.chain().focus().toggleBlockquote().run();
-        break;
-      case 'codeblock':
-        editor?.chain().focus().toggleCodeBlock().run();
-        break;
-      case 'hr':
-        editor?.chain().focus().setHorizontalRule().run();
-        break;
-    }
+    runLayoutsCommand(editor, format);
   }
 </script>
 

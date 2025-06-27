@@ -1,8 +1,6 @@
 <script lang="ts">
-  import { runTableCommand, type TableAction } from '$lib';
   import { Tooltip } from 'flowbite-svelte';
-  import { cn, generateButtonId } from '$lib';
-  import { type TableButtonProps } from '$lib/types';
+  import { runTableCommand, cn, generateButtonId, type TableButtonProps } from '$lib';
 
   let { editor, action = 'table', tooltipText, id, ariaLabel, class: className }: TableButtonProps = $props();
 

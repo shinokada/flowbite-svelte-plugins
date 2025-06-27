@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Tooltip, Modal, Label, Input, Button } from 'flowbite-svelte';
-  import { cn, generateButtonId, generateUniqueId } from '$lib';
+  import { runVideoCommand, cn, generateButtonId, generateUniqueId } from '$lib';
   import { type VideoButtonProps } from '$lib/types';
 
   let {
@@ -10,9 +10,11 @@
     tooltipText,
     id,
     ariaLabel,
-    videoUrl = 'https://www.youtube.com/watch?v=KaLxCiilHns',
-    videoWidth,
-    videoHeight,
+    videoOptions = {
+      url: 'https://www.youtube.com/watch?v=KaLxCiilHns',
+      width: 640,
+      height: 480
+    },
     modalTitle = 'Insert advanced video',
     modalSize = 'xs',
     formId,
@@ -41,17 +43,29 @@
       case 'default':
         const url = window.prompt('Enter YouTube URL:', 'https://www.youtube.com/watch?v=KaLxCiilHns');
         if (url) {
-          editor?.commands.setYoutubeVideo({
-            src: url,
-            width: 640,
-            height: 480
-          });
+          runVideoCommand(editor, 'default', { src: url });
         }
         break;
       case 'advanced':
-        openModal();
+        defaultModal = true;
         break;
     }
+  }
+
+  function handleSubmit(event: Event) {
+    event.preventDefault();
+    if (videoOptions.url && editor) {
+      runVideoCommand(editor, 'advanced', {
+        src: videoOptions.url,
+        width: videoOptions.width,
+        height: videoOptions.height
+      });
+    }
+
+    defaultModal = false;
+    videoOptions.url = 'https://www.youtube.com/watch?v=KaLxCiilHns';
+    videoOptions.width = undefined;
+    videoOptions.height = undefined;
   }
 
   // SVG paths for different formats
@@ -60,32 +74,6 @@
     advanced:
       'M9 7V2.221a2 2 0 0 0-.5.365L4.586 6.5a2 2 0 0 0-.365.5H9Zm2 0V2h7a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9h5a2 2 0 0 0 2-2Zm-2 4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2H9Zm0 2h2v2H9v-2Zm7.965-.557a1 1 0 0 0-1.692-.72l-1.268 1.218a1 1 0 0 0-.308.721v.733a1 1 0 0 0 .37.776l1.267 1.032a1 1 0 0 0 1.631-.776v-2.984Z'
   };
-
-  function openModal() {
-    defaultModal = true;
-  }
-
-  function handleSubmit(event: Event) {
-    event.preventDefault();
-
-    if (videoUrl && editor) {
-      editor
-        .chain()
-        .focus()
-        .setYoutubeVideo({
-          src: videoUrl,
-          width: videoWidth,
-          height: videoHeight
-        })
-        .run();
-    }
-
-    // Close modal and reset form
-    defaultModal = false;
-    videoUrl = '';
-    videoWidth;
-    videoHeight;
-  }
 </script>
 
 <button onclick={handleClick} {...restProps} id={uniqueId} type="button" class={cn('cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white', className)}>
@@ -109,17 +97,17 @@
       <div>
         <Label for="URL" class="space-y-2">
           <span>Video URL</span>
-          <Input type="url" name="url" id={urlId} bind:value={videoUrl} required />
+          <Input type="url" name="url" id={urlId} bind:value={videoOptions.url} required />
         </Label>
       </div>
       <div class="grid grid-cols-2 gap-4">
         <Label for="width" class="space-y-2">
           <span>Video width</span>
-          <Input type="number" name="width" id={widthId} bind:value={videoWidth} />
+          <Input type="number" name="width" id={widthId} bind:value={videoOptions.width} />
         </Label>
         <Label for="height" class="space-y-2">
           <span>Video height</span>
-          <Input type="number" name="height" id={heightId} bind:value={videoHeight} />
+          <Input type="number" name="height" id={heightId} bind:value={videoOptions.height} />
         </Label>
       </div>
       <Button type="submit" class="w-full">Add video</Button>

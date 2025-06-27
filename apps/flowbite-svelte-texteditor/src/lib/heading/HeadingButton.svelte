@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Tooltip, Dropdown, DropdownItem } from 'flowbite-svelte';
-  import { cn, generateButtonId } from '$lib';
+  import { runHeadingCommand, cn, generateButtonId } from '$lib';
   import { type EditorBasicProps, type HeadingLevel } from '$lib/types';
 
   let { editor, tooltipText, ariaLabel, id, class: className }: EditorBasicProps = $props();
@@ -22,13 +22,7 @@
   ];
 
   function setHeading(level: HeadingLevel | null) {
-    if (level === null) {
-      // Convert to paragraph
-      editor?.chain().focus().setParagraph().run();
-    } else {
-      // Set heading level
-      editor?.chain().focus().toggleHeading({ level }).run();
-    }
+    runHeadingCommand(editor, level);
     isOpen = false;
   }
 

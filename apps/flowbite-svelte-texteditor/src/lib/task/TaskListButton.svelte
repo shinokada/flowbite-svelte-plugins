@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { cn, generateButtonId } from '$lib';
+  import { runTaskCommand, cn, generateButtonId } from '$lib';
   import { type TaskListButtonProps } from '$lib/types';
-  let { editor, action, tooltipText, ariaLabel, id, class: className }: TaskListButtonProps = $props();
+  let { editor, action, ariaLabel, id, class: className }: TaskListButtonProps = $props();
 
   const defaults = {
     toggle: { tooltip: 'Toggle task list', aria: 'Toggle task list' },
@@ -10,25 +10,11 @@
     lift: { tooltip: 'Lift list item', aria: 'Lift list item' }
   };
 
-  // const finalTooltipText = tooltipText ?? defaults[action].tooltip;
   const finalAriaLabel = ariaLabel ?? defaults[action].aria;
   const uniqueId = id ?? generateButtonId(`TaskList${action.charAt(0).toUpperCase() + action.slice(1)}`);
 
   function handleClick() {
-    switch (action) {
-      case 'toggle':
-        editor?.chain().focus().toggleTaskList().run();
-        break;
-      case 'split':
-        editor?.chain().focus().splitListItem('taskItem').run();
-        break;
-      case 'sink':
-        editor?.chain().focus().sinkListItem('taskItem').run();
-        break;
-      case 'lift':
-        editor?.chain().focus().liftListItem('taskItem').run();
-        break;
-    }
+    runTaskCommand(editor, action);
   }
 
   const titles = {
@@ -43,6 +29,7 @@
   <span class="text-sm font-medium">{titles[action]}</span>
   <span class="sr-only">{finalAriaLabel}</span>
 </button>
+
 
 <!--
 @component

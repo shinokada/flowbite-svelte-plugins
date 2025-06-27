@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Tooltip } from 'flowbite-svelte';
-  import { cn, generateButtonId } from '$lib';
+  import { runListCommand, type ListAction, cn, generateButtonId } from '$lib';
   import { type ListButtonProps } from '$lib/types';
 
   let { editor, format, tooltipText, ariaLabel, id, class: className }: ListButtonProps = $props();
@@ -20,14 +20,7 @@
   };
 
   function handleClick() {
-    switch (format) {
-      case 'bullet':
-        editor?.chain().focus().toggleBulletList().run();
-        break;
-      case 'ordered':
-        editor?.chain().focus().toggleOrderedList().run();
-        break;
-    }
+    runListCommand(editor, format as ListAction);
   }
 </script>
 

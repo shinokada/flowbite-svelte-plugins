@@ -1,18 +1,11 @@
 <script lang="ts">
   import { Tooltip } from 'flowbite-svelte';
-  import { type UndoRedoProps, generateButtonId } from '$lib';
-  import { cn } from '$lib';
+  import { runUndoRedoCommand, cn, type UndoRedoProps, generateButtonId } from '$lib';
 
   let { editor, action, buttonClass, iconClass, ...restProps }: UndoRedoProps = $props();
 
   function handleAction() {
-    if (editor) {
-      if (action === 'undo') {
-        editor.chain().focus().undo().run();
-      } else {
-        editor.chain().focus().redo().run();
-      }
-    }
+    runUndoRedoCommand(editor, action)
   }
 
   const config = {

@@ -14,11 +14,12 @@
     editorInstance?.commands.setContent(content);
   }
 
-  const content = `
+  const content = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi veniam nulla impedit, fugit similique nihil deserunt velit ea, laboriosam sequi!
         <ul data-type="taskList">
           <li data-type="taskItem" data-checked="true">A list item</li>
           <li data-type="taskItem" data-checked="false">And another one</li>
         </ul>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi veniam nulla impedit, fugit similique nihil deserunt velit ea, laboriosam sequi!
       `;
 </script>
 
