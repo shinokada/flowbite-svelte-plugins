@@ -39,29 +39,3 @@
   <UndoRedoButtonGroup editor={editorInstance} />
 </TextEditor>
 
-<style>
-  :global(.tiptap .Tiptap-mathematics-editor) {
-    background: #202020;
-    color: #fff;
-    font-family: monospace;
-    padding: 0.2rem 0.5rem;
-  }
-
-  :global(.tiptap .Tiptap-mathematics-render) {
-    padding: 0 0.25rem;
-  }
-
-  :global(.tiptap .Tiptap-mathematics-render--editable) {
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-
-  :global(.tiptap .Tiptap-mathematics-render--editable:hover) {
-    background: #eee;
-  }
-
-  :global(.tiptap .Tiptap-mathematics-editor, .tiptap .Tiptap-mathematics-render) {
-    border-radius: 0.25rem;
-    display: inline-block;
-  }
-</style>
