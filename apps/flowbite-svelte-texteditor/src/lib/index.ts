@@ -16,6 +16,8 @@ export { default as AlignmentButton } from './alignment/AlignmentButton.svelte';
 export { default as AlignmentButtonGroup } from './alignment/AlignmentButtonGroup.svelte';
 // bubblemenu
 export { default as BubbleMenu } from './bubble-menu/BubbleMenu.svelte';
+// character count
+export { default as CharacterCount } from './charcter-count/CharacterCount.svelte';
 // Exportbuttons
 export { default as ExportButton } from './export/ExportButton.svelte';
 export { default as ExportButtonGroup } from './export/ExportButtonGroup.svelte';

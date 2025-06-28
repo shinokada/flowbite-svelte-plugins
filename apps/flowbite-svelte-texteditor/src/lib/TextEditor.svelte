@@ -48,11 +48,13 @@
     editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none',
     editor = $bindable<Editor | null>(null),
     children,
+    footer,
     emoji = true,
     class: className,
     mentions,
     bubbleMenu = false,
-    math = false
+    math = false,
+    limit
   }: EditorProviderProps = $props();
 
   let editorElement = $state<HTMLDivElement | null>(null);
@@ -90,7 +92,9 @@
     if (editorElement && !editor) {
       const extensions: Extensions = [
         StarterKit.configure({ codeBlock: false }),
-        CharacterCount,
+        CharacterCount.configure({
+          limit
+        }),
         CodeBlockLowlight.configure({ lowlight }),
         Color,
         Details.configure({ persist: true, HTMLAttributes: { class: 'details' } }),
@@ -200,6 +204,9 @@
   <!-- Editor container -->
   <ContentWrapper>
     <div bind:this={editorElement}></div>
+    {#if footer}
+      {@render footer()}
+    {/if}
   </ContentWrapper>
 </EditorWrapper>
 
@@ -213,9 +220,11 @@
 @prop editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none'
 @prop editor = $bindable<Editor | null>(null)
 @prop children
+@prop footer
 @prop emoji = true
 @prop class: className
 @prop mentions
 @prop bubbleMenu = false
 @prop math = false
+@prop limit
 -->

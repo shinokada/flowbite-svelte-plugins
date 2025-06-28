@@ -9,10 +9,12 @@
     ["editorClass", "'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none'"],
     ["editor", "$bindable<Editor | null>(null)"],
     ["children", ""],
+    ["footer", ""],
     ["emoji", "true"],
     ["class: className", ""],
     ["mentions", ""],
     ["bubbleMenu", "false"],
-    ["math", "false"]
+    ["math", "false"],
+    ["limit", ""]
   ]
 }

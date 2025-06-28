@@ -6,6 +6,7 @@ import type { HTMLButtonAttributes } from 'svelte/elements';
 // TextEditor
 export interface EditorProviderProps {
   children?: Snippet;
+  footer?: Snippet;
   element?: HTMLDivElement | null;
   content?: string;
   editorClass?: string;
@@ -16,6 +17,7 @@ export interface EditorProviderProps {
   mentions?: string[];
   bubbleMenu?: boolean;
   math?: boolean;
+  limit?: number;
 }
 
 export interface EditorBasicProps extends Omit<HTMLButtonAttributes, 'class'> {
@@ -44,6 +46,15 @@ export interface AlignmentButtonGroupProps extends GroupFormatProps {
   right?: boolean;
   center?: boolean;
   justify?: boolean;
+}
+
+// character count
+export interface CharacterCountProps {
+  editor: Editor | null;
+  limit: number;
+  showWords?: boolean;
+  showCircle?: boolean;
+  class?: string;
 }
 
 // details

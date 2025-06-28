@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.18.0
+
+### Minor Changes
+
+- feat: editor: add CharacterCount
+
 ## 0.17.1
 
 ### Patch Changes

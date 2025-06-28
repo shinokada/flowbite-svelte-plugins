@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.17.1",
+  "version": "0.18.0",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -170,6 +170,10 @@
     "./BubbleMenu.svelte": {
       "types": "./dist/bubble-menu/BubbleMenu.svelte.d.ts",
       "svelte": "./dist/bubble-menu/BubbleMenu.svelte"
+    },
+    "./CharacterCount.svelte": {
+      "types": "./dist/charcter-count/CharacterCount.svelte.d.ts",
+      "svelte": "./dist/charcter-count/CharacterCount.svelte"
     },
     "./DetailsButton.svelte": {
       "types": "./dist/details/DetailsButton.svelte.d.ts",

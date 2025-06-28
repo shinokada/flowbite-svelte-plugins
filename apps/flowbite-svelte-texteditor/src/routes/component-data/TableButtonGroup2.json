@@ -2,7 +2,7 @@
   "name": "TableButtonGroup2",
   "type": {
     "name": "TableButtonGroupProps",
-    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L197"
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L208"
   },
   "props": [
     ["editor", ""],
