@@ -347,7 +347,7 @@
   }
 
   /* math */
-.tiptap .Tiptap-mathematics-editor {
+  .tiptap .Tiptap-mathematics-editor {
     background: #202020;
     color: #fff;
     font-family: monospace;
@@ -367,11 +367,12 @@
     background: #eee;
   }
 
-  .tiptap .Tiptap-mathematics-editor, .tiptap .Tiptap-mathematics-render {
+  .tiptap .Tiptap-mathematics-editor,
+  .tiptap .Tiptap-mathematics-render {
     border-radius: 0.25rem;
     display: inline-block;
   }
-  
+
   /* Task list specific styles */
   .tiptap ul[data-type='taskList'] {
     list-style: none;

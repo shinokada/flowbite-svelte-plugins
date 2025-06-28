@@ -38,4 +38,3 @@
 <TextEditor bind:editor={editorInstance} {content} math>
   <UndoRedoButtonGroup editor={editorInstance} />
 </TextEditor>
-

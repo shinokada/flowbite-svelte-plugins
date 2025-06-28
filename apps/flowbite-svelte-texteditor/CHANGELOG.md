@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.17.1
+
+### Patch Changes
+
+- fix: texteditor: move global style to app.css
+
 ## 0.17.0
 
 ### Minor Changes
