@@ -30,6 +30,9 @@
 <Heading tag="h2" class="my-4">FileHandlerEx</Heading>
 <Examples.FileHandlerEx />
 
+<Heading tag="h2" class="my-4">FloatingMenuEx</Heading>
+<Examples.FloatingMenuEx />
+
 <Heading tag="h2" class="my-4">Fonts</Heading>
 <Examples.Fonts />
 

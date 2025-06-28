@@ -1,7 +1,7 @@
 <script lang="ts">
   import { runFormatCommand } from '$lib';
   import type { Editor } from '@tiptap/core';
-  import { expoIn } from 'svelte/easing';
+
   interface BubbleMenuProps {
     editor: Editor | null;
     underline?: boolean;

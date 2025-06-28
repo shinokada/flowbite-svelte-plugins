@@ -8,6 +8,7 @@ export { default as Details } from './Details.svelte';
 export { default as Emoji } from './Emoji.svelte';
 export { default as Export } from './Export.svelte';
 export { default as FileHandlerEx } from './FileHandlerEx.svelte';
+export { default as FloatingMenuEx } from './FloatingMenuEx.svelte';
 export { default as Fonts } from './Fonts.svelte';
 export { default as Formats } from './Formats.svelte';
 export { default as Heading } from './Heading.svelte';

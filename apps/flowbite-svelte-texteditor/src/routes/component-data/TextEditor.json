@@ -14,7 +14,9 @@
     ["class: className", ""],
     ["mentions", ""],
     ["bubbleMenu", "false"],
+    ["floatingMenu", "false"],
     ["math", "false"],
-    ["limit", ""]
+    ["limit", ""],
+    ["file", ""]
   ]
 }

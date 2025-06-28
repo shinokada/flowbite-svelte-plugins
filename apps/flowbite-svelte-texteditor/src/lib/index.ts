@@ -32,6 +32,8 @@ export { default as FontButtonGroup } from './font/FontButtonGroup.svelte';
 // format
 export { default as FormatButton } from './format/FormatButton.svelte';
 export { default as FormatButtonGroup } from './format/FormatButtonGroup.svelte';
+// floating menu
+export { default as FloatingMenu } from './floating-menu/FloatingMenu.svelte';
 // heading
 export { default as HeadingButton } from './heading/HeadingButton.svelte';
 export { default as HeadingButtonGroup } from './heading/HeadingButtonGroup.svelte';

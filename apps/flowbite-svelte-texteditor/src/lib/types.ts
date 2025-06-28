@@ -16,6 +16,7 @@ export interface EditorProviderProps {
   class?: ClassValue;
   mentions?: string[];
   bubbleMenu?: boolean;
+  floatingMenu?: boolean;
   math?: boolean;
   limit?: number;
   file?: boolean;
@@ -34,6 +35,17 @@ export interface GroupFormatProps {
   editor: Editor | null;
   showToolbar?: boolean;
 }
+
+// Floating menu
+export interface TiptapNodeViewContext {
+  onDragStart: (event: DragEvent) => void;
+}
+
+export type ComponentInputProps<T> = Partial<T> & {
+  editor: Editor;
+  class?: string;
+  children?: Snippet;
+};
 
 // alignment
 export type AlignmentAction = 'left' | 'center' | 'right' | 'justify';

@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.18.0",
+  "version": "0.20.0",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -113,6 +113,7 @@
     "@tiptap/extension-document": "^2.22.3",
     "@tiptap/extension-emoji": "^2.22.3",
     "@tiptap/extension-file-handler": "^2.23.0",
+    "@tiptap/extension-floating-menu": "^2.23.0",
     "@tiptap/extension-focus": "^2.22.3",
     "@tiptap/extension-font-family": "^2.22.3",
     "@tiptap/extension-hard-break": "^2.22.3",
@@ -195,6 +196,10 @@
     "./ExportButtonGroup.svelte": {
       "types": "./dist/export/ExportButtonGroup.svelte.d.ts",
       "svelte": "./dist/export/ExportButtonGroup.svelte"
+    },
+    "./FloatingMenu.svelte": {
+      "types": "./dist/floating-menu/FloatingMenu.svelte.d.ts",
+      "svelte": "./dist/floating-menu/FloatingMenu.svelte"
     },
     "./FontButton.svelte": {
       "types": "./dist/font/FontButton.svelte.d.ts",

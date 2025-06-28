@@ -2,7 +2,7 @@
   "name": "HeadingButton",
   "type": {
     "name": "EditorBasicProps",
-    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L23"
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L25"
   },
   "props": [
     ["editor", ""],

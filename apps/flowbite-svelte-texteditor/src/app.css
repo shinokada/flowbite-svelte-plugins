@@ -142,6 +142,36 @@
     color: var(--red);
   }
 
+  /* floating menu */
+  .floating-menu {
+    display: flex;
+    min-width: 465px;
+    background-color: var(--gray-3);
+    padding: 0.1rem;
+    border-radius: 0.5rem;
+    gap: 0.1rem;
+  }
+
+  .floating-menu button {
+    background-color: unset;
+    padding: 0.275rem 0.425rem;
+    border-radius: 0.3rem;
+    flex-shrink: 0;
+  }
+
+  .floating-menu button:hover {
+    background-color: var(--gray-3);
+  }
+
+  .floating-menu button.is-active {
+    background-color: var(--white);
+    color: var(--purple);
+  }
+
+  .floating-menu button.is-active:hover {
+    color: var(--purple-contrast);
+  }
+
   /* Invisible characters */
   .Tiptap-invisible-character {
     height: 0;
@@ -162,15 +192,15 @@
   }
 
   .Tiptap-invisible-character--space::before {
-    content: '·'
+    content: '·';
   }
 
   .Tiptap-invisible-character--break::before {
-    content: '¬'
+    content: '¬';
   }
 
   .Tiptap-invisible-character--paragraph::before {
-    content: '¶'
+    content: '¶';
   }
 
   .Tiptap-invisible-character + img.ProseMirror-separator {

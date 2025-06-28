@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onDestroy } from 'svelte';
   import { cn } from '$lib';
-  import { type EditorProviderProps, EditorWrapper, ContentWrapper, ToolbarWrapper, SvelteRenderer, BubbleMenu } from '$lib';
+  import { type EditorProviderProps, EditorWrapper, ContentWrapper, ToolbarWrapper, SvelteRenderer, BubbleMenu, FloatingMenu } from '$lib';
   import { Editor } from '@tiptap/core';
   import type { Extensions } from '@tiptap/core';
   import StarterKit from '@tiptap/starter-kit';
@@ -11,7 +11,7 @@
   import DetailsContent from '@tiptap/extension-details-content';
   import DetailsSummary from '@tiptap/extension-details-summary';
   import Emoji, { gitHubEmojis } from '@tiptap/extension-emoji';
-  import FileHandler from '@tiptap/extension-file-handler'
+  import FileHandler from '@tiptap/extension-file-handler';
   import Focus from '@tiptap/extension-focus';
   import FontFamily from '@tiptap/extension-font-family';
   import HardBreak from '@tiptap/extension-hard-break';
@@ -43,6 +43,7 @@
   import Mention from '@tiptap/extension-mention';
   import { createMentionSuggestion } from './mention/mentionSuggestion';
   import { BubbleMenuPlugin } from '@tiptap/extension-bubble-menu';
+  import { FloatingMenuPlugin } from '@tiptap/extension-floating-menu';
 
   let {
     content = '<p>Start typing...</p>',
@@ -54,6 +55,7 @@
     class: className,
     mentions,
     bubbleMenu = false,
+    floatingMenu = false,
     math = false,
     limit,
     file
@@ -63,6 +65,9 @@
   // for bubble menu
   let bubbleElement: HTMLDivElement | null = null;
   let bubbleMenuRenderer: SvelteRenderer | null = null;
+  // for floating menu
+  let floatingElement: HTMLDivElement | null = null;
+  let floatingMenuRenderer: SvelteRenderer | null = null;
 
   const lowlight = createLowlight(common);
   lowlight.register('html', xml);
@@ -154,40 +159,50 @@
       if (math) {
         extensions.push(Mathematics);
       }
-      if (file){
-        extensions.push(FileHandler.configure({
-          allowedMimeTypes: ['image/png', 'image/jpeg', 'image/gif', 'image/webp'],
-          onDrop: (currentEditor, files, pos) => {
-            files.forEach(file => {
-              const fileReader = new FileReader()
+      if (file) {
+        extensions.push(
+          FileHandler.configure({
+            allowedMimeTypes: ['image/png', 'image/jpeg', 'image/gif', 'image/webp'],
+            onDrop: (currentEditor, files, pos) => {
+              files.forEach((file) => {
+                const fileReader = new FileReader();
 
-              fileReader.readAsDataURL(file)
-              fileReader.onload = () => {
-                currentEditor.chain().insertContentAt(pos, {
-                  type: 'image',
-                  attrs: {
-                    src: fileReader.result,
-                  },
-                }).focus().run()
-              }
-            })
-          },
-          onPaste: (currentEditor, files) => {
-            files.forEach(file => {
-              const fileReader = new FileReader()
+                fileReader.readAsDataURL(file);
+                fileReader.onload = () => {
+                  currentEditor
+                    .chain()
+                    .insertContentAt(pos, {
+                      type: 'image',
+                      attrs: {
+                        src: fileReader.result
+                      }
+                    })
+                    .focus()
+                    .run();
+                };
+              });
+            },
+            onPaste: (currentEditor, files) => {
+              files.forEach((file) => {
+                const fileReader = new FileReader();
 
-              fileReader.readAsDataURL(file)
-              fileReader.onload = () => {
-                currentEditor.chain().insertContentAt(currentEditor.state.selection.anchor, {
-                  type: 'image',
-                  attrs: {
-                    src: fileReader.result,
-                  },
-                }).focus().run()
-              }
-            })
-          },
-        }),)
+                fileReader.readAsDataURL(file);
+                fileReader.onload = () => {
+                  currentEditor
+                    .chain()
+                    .insertContentAt(currentEditor.state.selection.anchor, {
+                      type: 'image',
+                      attrs: {
+                        src: fileReader.result
+                      }
+                    })
+                    .focus()
+                    .run();
+                };
+              });
+            }
+          })
+        );
       }
 
       editor = new Editor({
@@ -200,11 +215,12 @@
           }
         }
       });
+
       if (bubbleMenu) {
         bubbleElement = document.createElement('div');
         document.body.appendChild(bubbleElement);
 
-        const plugin = BubbleMenuPlugin({
+        const bubblePlugin = BubbleMenuPlugin({
           editor,
           element: bubbleElement,
           pluginKey: 'bubbleMenu',
@@ -214,10 +230,32 @@
           }
         });
 
-        editor.registerPlugin(plugin);
+        editor.registerPlugin(bubblePlugin);
 
         bubbleMenuRenderer = new SvelteRenderer(BubbleMenu, {
           target: bubbleElement,
+          props: { editor }
+        });
+      }
+
+      if (floatingMenu) {
+        floatingElement = document.createElement('div');
+        document.body.appendChild(floatingElement);
+
+        const floatingPlugin = FloatingMenuPlugin({
+          editor,
+          element: floatingElement,
+          pluginKey: 'floatingMenu',
+          tippyOptions: {
+            duration: 150,
+            theme: 'light'
+          }
+        });
+
+        editor.registerPlugin(floatingPlugin);
+
+        floatingMenuRenderer = new SvelteRenderer(FloatingMenu, {
+          target: floatingElement,
           props: { editor }
         });
       }
@@ -228,6 +266,8 @@
     editor?.destroy();
     bubbleMenuRenderer?.destroy();
     bubbleElement?.remove();
+    floatingMenuRenderer?.destroy();
+    floatingElement?.remove();
   });
 </script>
 
@@ -262,6 +302,8 @@
 @prop class: className
 @prop mentions
 @prop bubbleMenu = false
+@prop floatingMenu = false
 @prop math = false
 @prop limit
+@prop file
 -->

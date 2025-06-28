@@ -1,5 +1,17 @@
 # flowbite-svelte-texteditor
 
+## 0.20.0
+
+### Minor Changes
+
+- feat: add FloatingMenu
+
+## 0.19.0
+
+### Minor Changes
+
+- feat: add FileHandler
+
 ## 0.18.0
 
 ### Minor Changes
