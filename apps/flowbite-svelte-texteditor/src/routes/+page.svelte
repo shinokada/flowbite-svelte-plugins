@@ -42,6 +42,9 @@
 <Heading tag="h2" class="my-4">Lists</Heading>
 <Examples.Lists />
 
+<Heading tag="h2" class="my-4">Math</Heading>
+<Examples.Math />
+
 <Heading tag="h2" class="my-4">MentionEx</Heading>
 <Examples.MentionEx />
 

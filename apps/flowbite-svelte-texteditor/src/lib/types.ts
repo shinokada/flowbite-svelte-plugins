@@ -15,6 +15,7 @@ export interface EditorProviderProps {
   class?: ClassValue;
   mentions?: string[];
   bubbleMenu?: boolean;
+  math?: boolean;
 }
 
 export interface EditorBasicProps extends Omit<HTMLButtonAttributes, 'class'> {

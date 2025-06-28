@@ -301,6 +301,9 @@ importers:
       '@tiptap/extension-link':
         specifier: ^2.22.3
         version: 2.22.3(@tiptap/core@2.22.3(@tiptap/pm@2.22.3))(@tiptap/pm@2.22.3)
+      '@tiptap/extension-mathematics':
+        specifier: ^2.23.0
+        version: 2.23.0(@tiptap/core@2.22.3(@tiptap/pm@2.22.3))(@tiptap/pm@2.22.3)(katex@0.16.22)
       '@tiptap/extension-mention':
         specifier: ^2.22.3
         version: 2.22.3(@tiptap/core@2.22.3(@tiptap/pm@2.22.3))(@tiptap/pm@2.22.3)(@tiptap/suggestion@2.22.3(@tiptap/core@2.22.3(@tiptap/pm@2.22.3))(@tiptap/pm@2.22.3))
@@ -364,6 +367,9 @@ importers:
       highlight.js:
         specifier: ^11.11.1
         version: 11.11.1
+      katex:
+        specifier: ^0.16.22
+        version: 0.16.22
       lowlight:
         specifier: ^3.3.0
         version: 3.3.0
@@ -1414,6 +1420,13 @@ packages:
     peerDependencies:
       '@tiptap/core': ^2.7.0
 
+  '@tiptap/extension-mathematics@2.23.0':
+    resolution: {integrity: sha512-z35XSmUgIUHs91h34OHaV2cCU6hUnFW0CCvW5Q/HWD4B+Z2kRMaqgzWxI2/OHuWl9eEEw2a91PsmOXlrJI3fCA==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+      '@tiptap/pm': ^2.7.0
+      katex: ^0.16.4
+
   '@tiptap/extension-mention@2.22.3':
     resolution: {integrity: sha512-5OX2o8Ss0PaBAZdeOjesCKwVK63Sfvw+AA1h7Yxs+i3sODofIpkjb2Y/t5mFzR1ltlBnrPmAiCMDAp1V01k+vg==}
     peerDependencies:
@@ -1805,6 +1818,10 @@ packages:
 
   color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+
+  commander@8.3.0:
+    resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
+    engines: {node: '>= 12'}
 
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
@@ -2372,6 +2389,10 @@ packages:
 
   jsonfile@4.0.0:
     resolution: {integrity: sha512-m6F1R3z8jjlf2imQHS2Qez5sjKWQzbuuhuJ/FKYFRZvPE3PuHcSMVZzfsLhGVOkfd20obL5SWEBew5ShlquNxg==}
+
+  katex@0.16.22:
+    resolution: {integrity: sha512-XCHRdUw4lf3SKBaJe4EvgqIuWwkPSo9XoeO8GjQW94Bp7TWv9hNhzZjZ+OH9yf1UmLygb7DIT5GSFQiyt16zYg==}
+    hasBin: true
 
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
@@ -4309,6 +4330,12 @@ snapshots:
     dependencies:
       '@tiptap/core': 2.22.3(@tiptap/pm@2.22.3)
 
+  '@tiptap/extension-mathematics@2.23.0(@tiptap/core@2.22.3(@tiptap/pm@2.22.3))(@tiptap/pm@2.22.3)(katex@0.16.22)':
+    dependencies:
+      '@tiptap/core': 2.22.3(@tiptap/pm@2.22.3)
+      '@tiptap/pm': 2.22.3
+      katex: 0.16.22
+
   '@tiptap/extension-mention@2.22.3(@tiptap/core@2.22.3(@tiptap/pm@2.22.3))(@tiptap/pm@2.22.3)(@tiptap/suggestion@2.22.3(@tiptap/core@2.22.3(@tiptap/pm@2.22.3))(@tiptap/pm@2.22.3))':
     dependencies:
       '@tiptap/core': 2.22.3(@tiptap/pm@2.22.3)
@@ -4746,6 +4773,8 @@ snapshots:
       color-name: 1.1.4
 
   color-name@1.1.4: {}
+
+  commander@8.3.0: {}
 
   concat-map@0.0.1: {}
 
@@ -5352,6 +5381,10 @@ snapshots:
   jsonfile@4.0.0:
     optionalDependencies:
       graceful-fs: 4.2.11
+
+  katex@0.16.22:
+    dependencies:
+      commander: 8.3.0
 
   keyv@4.5.4:
     dependencies:

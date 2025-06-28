@@ -3,6 +3,7 @@
   import { cn } from '$lib';
   import { type EditorProviderProps, EditorWrapper, ContentWrapper, ToolbarWrapper, SvelteRenderer, BubbleMenu } from '$lib';
   import { Editor } from '@tiptap/core';
+  import type { Extensions } from '@tiptap/core';
   import StarterKit from '@tiptap/starter-kit';
   import CharacterCount from '@tiptap/extension-character-count';
   import Color from '@tiptap/extension-color';
@@ -16,6 +17,7 @@
   import Highlight from '@tiptap/extension-highlight';
   import Link from '@tiptap/extension-link';
   import Image from '@tiptap/extension-image';
+  import { Mathematics } from '@tiptap/extension-mathematics'
   import Placeholder from '@tiptap/extension-placeholder';
   import Subscript from '@tiptap/extension-subscript';
   import Superscript from '@tiptap/extension-superscript';
@@ -40,7 +42,7 @@
   import { createMentionSuggestion } from './mention/mentionSuggestion';
   import { BubbleMenuPlugin } from '@tiptap/extension-bubble-menu';
 
-  let { content = '<p>Start typing...</p>', editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none', editor = $bindable<Editor | null>(null), children, emoji = true, class: className, mentions, bubbleMenu = false }: EditorProviderProps = $props();
+  let { content = '<p>Start typing...</p>', editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none', editor = $bindable<Editor | null>(null), children, emoji = true, class: className, mentions, bubbleMenu = false, math = false }: EditorProviderProps = $props();
 
   let editorElement = $state<HTMLDivElement | null>(null);
   // for bubble menu
@@ -75,7 +77,7 @@
 
   $effect(() => {
     if (editorElement && !editor) {
-      const extensions = [
+      const extensions: Extensions = [
         StarterKit.configure({ codeBlock: false }),
         TextAlign.configure({ types: ['heading', 'paragraph'] }),
         Underline,
@@ -127,6 +129,11 @@
           Mention.configure({
             suggestion: createMentionSuggestion(mentions)
           })
+        );
+      }
+      if (math){
+        extensions.push(
+          Mathematics
         );
       }
 

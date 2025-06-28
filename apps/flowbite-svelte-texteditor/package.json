@@ -119,6 +119,7 @@
     "@tiptap/extension-highlight": "^2.22.3",
     "@tiptap/extension-image": "^2.22.3",
     "@tiptap/extension-link": "^2.22.3",
+    "@tiptap/extension-mathematics": "^2.23.0",
     "@tiptap/extension-mention": "^2.22.3",
     "@tiptap/extension-paragraph": "^2.22.3",
     "@tiptap/extension-placeholder": "^2.22.3",
@@ -140,6 +141,7 @@
     "@tiptap/suggestion": "^2.22.3",
     "flowbite-typography": "^1.0.5",
     "highlight.js": "^11.11.1",
+    "katex": "^0.16.22",
     "lowlight": "^3.3.0",
     "tippy.js": "^6.3.7"
   },
