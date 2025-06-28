@@ -27,6 +27,9 @@
 <Heading tag="h2" class="my-4">Export</Heading>
 <Examples.Export />
 
+<Heading tag="h2" class="my-4">FileHandlerEx</Heading>
+<Examples.FileHandlerEx />
+
 <Heading tag="h2" class="my-4">Fonts</Heading>
 <Examples.Fonts />
 

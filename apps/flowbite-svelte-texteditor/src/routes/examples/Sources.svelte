@@ -28,9 +28,7 @@
 </script>
 
 <TextEditor bind:editor={editorInstance} {content}>
-  <ToolbarRowWrapper>
-    <SourceButtonGroup editor={editorInstance} />
-  </ToolbarRowWrapper>
+  <SourceButtonGroup editor={editorInstance} />
 </TextEditor>
 
 <div class="mt-4">

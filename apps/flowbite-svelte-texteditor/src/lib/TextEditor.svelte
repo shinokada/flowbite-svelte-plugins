@@ -11,6 +11,7 @@
   import DetailsContent from '@tiptap/extension-details-content';
   import DetailsSummary from '@tiptap/extension-details-summary';
   import Emoji, { gitHubEmojis } from '@tiptap/extension-emoji';
+  import FileHandler from '@tiptap/extension-file-handler'
   import Focus from '@tiptap/extension-focus';
   import FontFamily from '@tiptap/extension-font-family';
   import HardBreak from '@tiptap/extension-hard-break';
@@ -54,7 +55,8 @@
     mentions,
     bubbleMenu = false,
     math = false,
-    limit
+    limit,
+    file
   }: EditorProviderProps = $props();
 
   let editorElement = $state<HTMLDivElement | null>(null);
@@ -151,6 +153,41 @@
       }
       if (math) {
         extensions.push(Mathematics);
+      }
+      if (file){
+        extensions.push(FileHandler.configure({
+          allowedMimeTypes: ['image/png', 'image/jpeg', 'image/gif', 'image/webp'],
+          onDrop: (currentEditor, files, pos) => {
+            files.forEach(file => {
+              const fileReader = new FileReader()
+
+              fileReader.readAsDataURL(file)
+              fileReader.onload = () => {
+                currentEditor.chain().insertContentAt(pos, {
+                  type: 'image',
+                  attrs: {
+                    src: fileReader.result,
+                  },
+                }).focus().run()
+              }
+            })
+          },
+          onPaste: (currentEditor, files) => {
+            files.forEach(file => {
+              const fileReader = new FileReader()
+
+              fileReader.readAsDataURL(file)
+              fileReader.onload = () => {
+                currentEditor.chain().insertContentAt(currentEditor.state.selection.anchor, {
+                  type: 'image',
+                  attrs: {
+                    src: fileReader.result,
+                  },
+                }).focus().run()
+              }
+            })
+          },
+        }),)
       }
 
       editor = new Editor({

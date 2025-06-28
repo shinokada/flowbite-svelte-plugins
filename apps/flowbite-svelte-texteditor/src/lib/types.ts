@@ -18,6 +18,7 @@ export interface EditorProviderProps {
   bubbleMenu?: boolean;
   math?: boolean;
   limit?: number;
+  file?: boolean;
 }
 
 export interface EditorBasicProps extends Omit<HTMLButtonAttributes, 'class'> {
