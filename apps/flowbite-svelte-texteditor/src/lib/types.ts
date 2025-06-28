@@ -129,6 +129,19 @@ export interface ImageButtonGroupProps extends GroupFormatProps {
   advanced?: boolean;
 }
 
+// invisible
+export type InvisibleAction = 'toggle' | 'show' | 'hide';
+
+export interface InvisibleButtonProps extends EditorBasicProps {
+  action: InvisibleAction;
+}
+
+export interface InvisibleButtonGroupProps extends GroupFormatProps {
+  toggle?: boolean;
+  show?: boolean;
+  hide?: boolean;
+}
+
 // layout
 export type LayoutAction = 'blockquote' | 'codeblock' | 'hr';
 export interface LayoutButtonProps extends EditorBasicProps {

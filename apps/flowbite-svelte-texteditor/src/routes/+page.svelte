@@ -36,6 +36,9 @@
 <Heading tag="h2" class="my-4">Images</Heading>
 <Examples.Images />
 
+<Heading tag="h2" class="my-4">Invisible</Heading>
+<Examples.Invisible />
+
 <Heading tag="h2" class="my-4">Layouts</Heading>
 <Examples.Layouts />
 

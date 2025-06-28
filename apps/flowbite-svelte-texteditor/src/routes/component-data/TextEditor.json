@@ -12,6 +12,7 @@
     ["emoji", "true"],
     ["class: className", ""],
     ["mentions", ""],
-    ["bubbleMenu", "false"]
+    ["bubbleMenu", "false"],
+    ["math", "false"]
   ]
 }

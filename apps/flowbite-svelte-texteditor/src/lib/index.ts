@@ -36,6 +36,9 @@ export { default as HeadingButtonGroup } from './heading/HeadingButtonGroup.svel
 // image
 export { default as ImageButton } from './image/ImageButton.svelte';
 export { default as ImageButtonGroup } from './image/ImageButtonGroup.svelte';
+// invisible characters
+export { default as InvisibleButton } from './invisible-characters/InvisibleButton.svelte';
+export { default as InvisibleButtonGroup } from './invisible-characters/InvisibleButtonGroup.svelte';
 // layout
 export { default as LayoutButton } from './layout/LayoutButton.svelte';
 export { default as LayoutButtonGroup } from './layout/LayoutButtonGroup.svelte';

@@ -1,5 +1,17 @@
 # flowbite-svelte-texteditor
 
+## 0.17.0
+
+### Minor Changes
+
+- feat: add InvisibleButton and InvisibleButtonGroup
+
+## 0.16.0
+
+### Minor Changes
+
+- feat: add math
+
 ## 0.15.1
 
 ### Patch Changes

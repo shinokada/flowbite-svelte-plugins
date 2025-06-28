@@ -1,0 +1,14 @@
+{
+  "name": "InvisibleButtonGroup",
+  "type": {
+    "name": "InvisibleButtonGroupProps",
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L139"
+  },
+  "props": [
+    ["editor", ""],
+    ["showToolbar", "true"],
+    ["toggle", "true"],
+    ["show", "true"],
+    ["hide", "true"]
+  ]
+}

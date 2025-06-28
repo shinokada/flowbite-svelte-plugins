@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.15.1",
+  "version": "0.17.0",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -118,6 +118,7 @@
     "@tiptap/extension-heading": "^2.22.3",
     "@tiptap/extension-highlight": "^2.22.3",
     "@tiptap/extension-image": "^2.22.3",
+    "@tiptap/extension-invisible-characters": "^2.23.0",
     "@tiptap/extension-link": "^2.22.3",
     "@tiptap/extension-mathematics": "^2.23.0",
     "@tiptap/extension-mention": "^2.22.3",
@@ -225,6 +226,18 @@
     "./ImageButtonGroup.svelte": {
       "types": "./dist/image/ImageButtonGroup.svelte.d.ts",
       "svelte": "./dist/image/ImageButtonGroup.svelte"
+    },
+    "./InvisibleButton.svelte": {
+      "types": "./dist/invisible-characters/InvisibleButton.svelte.d.ts",
+      "svelte": "./dist/invisible-characters/InvisibleButton.svelte"
+    },
+    "./InvisibleButtonGroup.svelte": {
+      "types": "./dist/invisible-characters/InvisibleButtonGroup.svelte.d.ts",
+      "svelte": "./dist/invisible-characters/InvisibleButtonGroup.svelte"
+    },
+    "./Paragraph.svelte": {
+      "types": "./dist/invisible-characters/Paragraph.svelte.d.ts",
+      "svelte": "./dist/invisible-characters/Paragraph.svelte"
     },
     "./LayoutButton.svelte": {
       "types": "./dist/layout/LayoutButton.svelte.d.ts",

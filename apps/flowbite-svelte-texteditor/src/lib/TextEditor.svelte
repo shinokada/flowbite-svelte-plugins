@@ -15,9 +15,10 @@
   import FontFamily from '@tiptap/extension-font-family';
   import HardBreak from '@tiptap/extension-hard-break';
   import Highlight from '@tiptap/extension-highlight';
+  import InvisibleCharacters from '@tiptap/extension-invisible-characters';
   import Link from '@tiptap/extension-link';
   import Image from '@tiptap/extension-image';
-  import { Mathematics } from '@tiptap/extension-mathematics'
+  import { Mathematics } from '@tiptap/extension-mathematics';
   import Placeholder from '@tiptap/extension-placeholder';
   import Subscript from '@tiptap/extension-subscript';
   import Superscript from '@tiptap/extension-superscript';
@@ -42,7 +43,17 @@
   import { createMentionSuggestion } from './mention/mentionSuggestion';
   import { BubbleMenuPlugin } from '@tiptap/extension-bubble-menu';
 
-  let { content = '<p>Start typing...</p>', editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none', editor = $bindable<Editor | null>(null), children, emoji = true, class: className, mentions, bubbleMenu = false, math = false }: EditorProviderProps = $props();
+  let {
+    content = '<p>Start typing...</p>',
+    editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none',
+    editor = $bindable<Editor | null>(null),
+    children,
+    emoji = true,
+    class: className,
+    mentions,
+    bubbleMenu = false,
+    math = false
+  }: EditorProviderProps = $props();
 
   let editorElement = $state<HTMLDivElement | null>(null);
   // for bubble menu
@@ -79,30 +90,22 @@
     if (editorElement && !editor) {
       const extensions: Extensions = [
         StarterKit.configure({ codeBlock: false }),
-        TextAlign.configure({ types: ['heading', 'paragraph'] }),
-        Underline,
-        Highlight,
-        Link.configure({ openOnClick: false }),
-        Subscript,
-        Superscript,
-        HardBreak,
-        FontSizeTextStyle,
-        FontFamily.configure({ types: ['textStyle'] }),
-        Color,
-        TaskList,
-        TaskItem.configure({ nested: true }),
-        Image,
-        Youtube,
-        Table.configure({ resizable: true }),
-        TableRow,
-        TableHeader,
-        TableCell,
         CharacterCount,
-        Focus,
         CodeBlockLowlight.configure({ lowlight }),
+        Color,
         Details.configure({ persist: true, HTMLAttributes: { class: 'details' } }),
         DetailsSummary,
         DetailsContent,
+        Focus,
+        FontFamily.configure({ types: ['textStyle'] }),
+        FontSizeTextStyle,
+        HardBreak,
+        Highlight,
+        Image,
+        InvisibleCharacters.configure({
+          visible: false
+        }),
+        Link.configure({ openOnClick: false }),
         Placeholder.configure({
           includeChildren: true,
           placeholder: ({ node }) => {
@@ -111,7 +114,18 @@
             }
             return 'Write something...';
           }
-        })
+        }),
+        Subscript,
+        Superscript,
+        TaskList,
+        TaskItem.configure({ nested: true }),
+        Table.configure({ resizable: true }),
+        TableRow,
+        TableHeader,
+        TableCell,
+        TextAlign.configure({ types: ['heading', 'paragraph'] }),
+        Underline,
+        Youtube
       ];
 
       // Conditionally add Emoji extension
@@ -131,10 +145,8 @@
           })
         );
       }
-      if (math){
-        extensions.push(
-          Mathematics
-        );
+      if (math) {
+        extensions.push(Mathematics);
       }
 
       editor = new Editor({
@@ -205,4 +217,5 @@
 @prop class: className
 @prop mentions
 @prop bubbleMenu = false
+@prop math = false
 -->

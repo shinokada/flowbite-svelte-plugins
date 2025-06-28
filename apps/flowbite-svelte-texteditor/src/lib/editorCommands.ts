@@ -1,5 +1,5 @@
 import type { Editor } from '@tiptap/core';
-import type { AlignmentAction, DetailsAction, ExportAction, FormatAction, LayoutAction, HeadingLevel, ImageFormat, ImageOptions, ListAction, TableAction, TaskAction, VideoAction } from './types';
+import type { AlignmentAction, DetailsAction, ExportAction, FormatAction, LayoutAction, HeadingLevel, ImageFormat, ImageOptions, ListAction, TableAction, TaskAction, VideoAction, InvisibleAction } from './types';
 
 // alignment
 export function runAlignmentCommand(editor: Editor | null, alignment: AlignmentAction) {
@@ -124,6 +124,22 @@ export function runImageCommand(editor: Editor | null, format: ImageFormat, opti
         title: options.title || ''
       })
       .run();
+  }
+}
+
+// invisible characters
+type InvisibleCommand = (editor: Editor, options?: any) => void;
+export const invisibleCommands: Record<InvisibleAction, InvisibleCommand> = {
+  toggle: (editor) => editor.commands.toggleInvisibleCharacters(),
+  show: (editor) => editor.commands.showInvisibleCharacters(),
+  hide: (editor) => editor.commands.hideInvisibleCharacters()
+};
+
+export function runInvisibleCommand(editor: Editor | null, action: InvisibleAction) {
+  if (!editor) return;
+  const command = invisibleCommands[action];
+  if (command) {
+    command(editor);
   }
 }
 
