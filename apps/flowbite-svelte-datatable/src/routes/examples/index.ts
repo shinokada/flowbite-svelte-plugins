@@ -1,3 +1,4 @@
+export { default as Callback } from './Callback.svelte';
 export { default as DefaultDatatable } from './DefaultDatatable.svelte';
 export { default as TableSearch } from './TableSearch.svelte';
 export { default as FilteringData } from './FilteringData.svelte';

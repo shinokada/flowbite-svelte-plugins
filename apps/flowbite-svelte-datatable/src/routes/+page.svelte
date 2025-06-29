@@ -6,6 +6,9 @@
 <DarkMode />
 <Heading tag="h1" class="my-8">@flowbite-svelte-plugins/datatable</Heading>
 
+<Heading tag="h2" class="my-4">Callback</Heading>
+<Examples.Callback />
+
 <Heading tag="h2" class="my-4">Slots</Heading>
 <Examples.Slots />
 
