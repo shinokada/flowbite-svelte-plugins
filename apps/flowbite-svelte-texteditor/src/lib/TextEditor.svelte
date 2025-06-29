@@ -250,7 +250,7 @@
           pluginKey: 'floatingMenu',
           tippyOptions: {
             duration: 150,
-            theme: 'light',
+            theme: 'light'
           }
         });
 
@@ -293,7 +293,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[EditorProviderProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L7)
+[EditorProviderProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L27)
 ## Props
 @prop content = '<p>Start typing...</p>'
 @prop editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none'

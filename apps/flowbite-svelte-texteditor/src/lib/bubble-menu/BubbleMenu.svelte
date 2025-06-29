@@ -33,13 +33,13 @@
 
 <div class="bubble-menu">
   {#if showBold}
-  <button onclick={() => runFormatCommand(editor, 'bold')} class:is-active={isBoldActive}> Bold </button>
+    <button onclick={() => runFormatCommand(editor, 'bold')} class:is-active={isBoldActive}> Bold </button>
   {/if}
   {#if showItalic}
-  <button onclick={() => runFormatCommand(editor, 'italic')} class:is-active={isItalicActive}> Italic </button>
+    <button onclick={() => runFormatCommand(editor, 'italic')} class:is-active={isItalicActive}> Italic </button>
   {/if}
   {#if showStrike}
-  <button onclick={() => runFormatCommand(editor, 'strike')} class:is-active={isStrikeActive}> Strike </button>
+    <button onclick={() => runFormatCommand(editor, 'strike')} class:is-active={isStrikeActive}> Strike </button>
   {/if}
   {#if showUnderline}
     <button onclick={() => runFormatCommand(editor, 'underline')} class:is-active={isUnderlineActive}> Underline </button>
@@ -53,9 +53,12 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-BubbleMenuProps
+[BubbleMenuProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L59)
 ## Props
 @prop editor
-@prop underline = true
-@prop highlight = true
+@prop showUnderline = true
+@prop showHighlight = true
+@prop showBold = true
+@prop showItalic = true
+@prop showStrike = true
 -->

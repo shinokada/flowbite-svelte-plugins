@@ -86,12 +86,12 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-FloatingMenuProps
+[FloatingMenuProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L64)
 ## Props
 @prop editor
 @prop showHeadings = true
 @prop showList = true
-@prop showCode = true
+@prop showCodeBlock = true
 @prop showQuote = true
 @prop showHorizontalRule = true
 @prop showTable = true

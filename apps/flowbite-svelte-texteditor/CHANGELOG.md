@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.20.1
+
+### Patch Changes
+
+- fix: texteditor: apply floating and bubble menu prop
+
 ## 0.20.0
 
 ### Minor Changes

@@ -24,9 +24,9 @@ class SvelteRenderer {
     if (this.instance) {
       unmount(this.instance);
       this.currentProps = { ...this.currentProps, ...newProps };
-      this.instance = mount(this.component, { 
-        target: this.target, 
-        props: this.currentProps 
+      this.instance = mount(this.component, {
+        target: this.target,
+        props: this.currentProps
       });
     }
   }

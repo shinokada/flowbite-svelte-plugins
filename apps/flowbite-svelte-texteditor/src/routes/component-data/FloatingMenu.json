@@ -2,13 +2,13 @@
   "name": "FloatingMenu",
   "type": {
     "name": "FloatingMenuProps",
-    "link": null
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L64"
   },
   "props": [
     ["editor", ""],
     ["showHeadings", "true"],
     ["showList", "true"],
-    ["showCode", "true"],
+    ["showCodeBlock", "true"],
     ["showQuote", "true"],
     ["showHorizontalRule", "true"],
     ["showTable", "true"],
