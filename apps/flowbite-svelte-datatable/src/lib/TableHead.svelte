@@ -40,7 +40,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/datatables)
 ## Type
-[TableHeadProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L12)
+[TableHeadProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L30)
 ## Props
 @prop children
 @prop headerSlot

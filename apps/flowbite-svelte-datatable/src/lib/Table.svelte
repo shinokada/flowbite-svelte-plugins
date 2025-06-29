@@ -72,7 +72,6 @@
 
           isLoading = false;
           onInitComplete?.(dataTableInstance);
-
         } catch (error) {
           console.error('Failed to initialize DataTable:', error);
           isLoading = false;
@@ -131,10 +130,10 @@
 
         dataTableInstance.on('datatable.selectrow', (rowIndex: number, event: Event) => {
           event.preventDefault();
-          
+
           // Call the callback first
           onSelectRow?.(rowIndex, event, dataTableInstance!);
-          
+
           // Handle internal selection logic
           if (dataTableInstance?.data?.data) {
             const row = dataTableInstance.data.data[rowIndex] as SelectableDataRow;

@@ -1,5 +1,11 @@
 # @codewithshin/flowbite-svelte-datatable
 
+## 0.4.0
+
+### Minor Changes
+
+- feat: expose simple-datatables events
+
 ## 0.3.4
 
 ### Patch Changes

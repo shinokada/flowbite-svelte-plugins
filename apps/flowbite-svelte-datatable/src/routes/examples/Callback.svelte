@@ -7,35 +7,34 @@
   let tableData = items;
   let tableInstance: DataTable | null = null;
 
-  
-function handleInitStart(): void {
-  console.log('Table initialization started');
-  isTableLoading = true;
-}
+  function handleInitStart(): void {
+    console.log('Table initialization started');
+    isTableLoading = true;
+  }
 
-function handleInitComplete(dataTable: DataTable): void {
-  console.log('Table ready:', dataTable);
-  isTableLoading = false;
-}
+  function handleInitComplete(dataTable: DataTable): void {
+    console.log('Table ready:', dataTable);
+    isTableLoading = false;
+  }
 
-function handleInitError(error: Error): void {
-  console.error('Table initialization failed:', error);
-  isTableLoading = false;
-}
+  function handleInitError(error: Error): void {
+    console.error('Table initialization failed:', error);
+    isTableLoading = false;
+  }
 
-function handleSort(column: number, direction: string, dataTable: DataTable): void {
-  console.log(`Column ${column} sorted ${direction}`);
-}
+  function handleSort(column: number, direction: string, dataTable: DataTable): void {
+    console.log(`Column ${column} sorted ${direction}`);
+  }
 
-function handleSearch(query: string, matched: any[], dataTable: DataTable): void {
-  console.log(`Search: "${query}" found ${matched.length} results`);
-}
+  function handleSearch(query: string, matched: any[], dataTable: DataTable): void {
+    console.log(`Search: "${query}" found ${matched.length} results`);
+  }
 
-function handleRowSelect(rowIndex: number, event: Event, dataTable: DataTable): void {
-  console.log(`Row ${rowIndex} selected`);
-}
+  function handleRowSelect(rowIndex: number, event: Event, dataTable: DataTable): void {
+    console.log(`Row ${rowIndex} selected`);
+  }
 
-const selectRowsOptions = {
+  const selectRowsOptions = {
     rowRender: (row: any, tr: any, _index: number) => {
       if (!tr.attributes) {
         tr.attributes = {};
@@ -55,12 +54,12 @@ const selectRowsOptions = {
 
 {#if isTableLoading}
   <div class="loading-spinner">
-    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+    <div class="h-8 w-8 animate-spin rounded-full border-b-2 border-blue-600"></div>
     <span>Loading table...</span>
   </div>
 {/if}
 
-<Table 
+<Table
   items={tableData}
   bind:isLoading={isTableLoading}
   bind:dataTableInstance={tableInstance}
