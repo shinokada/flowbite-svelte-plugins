@@ -39,6 +39,7 @@ export interface EditorProviderProps {
   file?: boolean;
   bubbleMenu?: boolean | BubbleMenuConfig;
   floatingMenu?: boolean | FloatingMenuConfig;
+  dragHandle?: boolean;
 }
 
 export interface EditorBasicProps extends Omit<HTMLButtonAttributes, 'class'> {

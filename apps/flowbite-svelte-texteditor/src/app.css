@@ -276,6 +276,188 @@
     margin: 0.5rem 0;
   }
 
+/* drag handle */
+::selection {
+  background-color: #fa3785;
+}
+
+.ProseMirror {
+  padding: 1rem 1rem 1rem 0;
+  position: relative; /* Important for absolute positioning */
+}
+
+.ProseMirror * {
+  margin-top: 0.75em;
+}
+
+.ProseMirror > * {
+  margin-left: 3rem;
+}
+
+.ProseMirror .ProseMirror-widget * {
+  margin-top: auto;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding: 0 1rem;
+}
+
+.ProseMirror-noderangeselection *::selection {
+  background: transparent;
+}
+
+.ProseMirror-noderangeselection * {
+  caret-color: transparent;
+}
+
+.ProseMirror-selectednode,
+.ProseMirror-selectednoderange {
+  position: relative;
+}
+
+.ProseMirror-selectednode::before,
+.ProseMirror-selectednoderange::before {
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+  content: '';
+  top: -0.25rem;
+  left: -0.25rem;
+  right: -0.25rem;
+  bottom: -0.25rem;
+  background-color: #70CFF850;
+  border-radius: 0.2rem;
+}
+
+/* drag handle */
+/* drag handle */
+::selection {
+  background-color: #fa3785;
+}
+
+.ProseMirror {
+  padding: 1rem 1rem 1rem 0;
+  position: relative;
+}
+
+.ProseMirror * {
+  margin-top: 0.75em;
+}
+
+.ProseMirror > * {
+  margin-left: 3rem;
+}
+
+.ProseMirror .ProseMirror-widget * {
+  margin-top: auto;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding: 0 1rem;
+}
+
+.ProseMirror-noderangeselection *::selection {
+  background: transparent;
+}
+
+.ProseMirror-noderangeselection * {
+  caret-color: transparent;
+}
+
+.ProseMirror-selectednode,
+.ProseMirror-selectednoderange {
+  position: relative;
+}
+
+.ProseMirror-selectednode::before,
+.ProseMirror-selectednoderange::before {
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+  content: '';
+  top: -0.25rem;
+  left: -0.25rem;
+  right: -0.25rem;
+  bottom: -0.25rem;
+  background-color: #70CFF850;
+  border-radius: 0.2rem;
+}
+
+/* Improved drag handle styling - works with TipTap's positioning */
+.drag-handle {
+  position: absolute;
+  z-index: 50;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  /* TipTap will handle positioning, we just need to style it */
+}
+
+/* Show drag handle when TipTap makes it visible */
+.drag-handle[data-show] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Alternative: Show on hover of editor content */
+.ProseMirror:hover + .drag-handle,
+.ProseMirror-focused .drag-handle {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Default drag handle icon */
+.drag-handle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1.25rem;
+  font-weight: 700;
+  cursor: grab;
+  background: #0D0D0D10;
+  color: #0D0D0D50;
+  border-radius: 0.25rem;
+  user-select: none;
+}
+
+.drag-handle-icon:hover {
+  background: #0D0D0D20;
+  color: #0D0D0D70;
+}
+
+.drag-handle-icon:active {
+  cursor: grabbing;
+}
+
+/* Alternative: Using ::after pseudo-element (if you prefer) */
+.drag-handle.use-after::after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1.25rem;
+  content: '⠿';
+  font-weight: 700;
+  cursor: grab;
+  background: #0D0D0D10;
+  color: #0D0D0D50;
+  border-radius: 0.25rem;
+  user-select: none;
+}
+
+.drag-handle.use-after:hover::after {
+  background: #0D0D0D20;
+  color: #0D0D0D70;
+}
+
+/* Ensure proper spacing for drag handles */
+.ProseMirror .drag-handle + * {
+  margin-left: 0;
+}
+
   /* emoji */
   [data-type='emoji'] {
     img {

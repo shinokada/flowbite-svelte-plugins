@@ -101,6 +101,7 @@
     "flowbite-svelte"
   ],
   "dependencies": {
+    "@floating-ui/dom": "^1.7.2",
     "@tiptap/core": "^2.22.3",
     "@tiptap/extension-bold": "^2.22.3",
     "@tiptap/extension-bubble-menu": "^2.23.0",
@@ -111,6 +112,7 @@
     "@tiptap/extension-details-content": "^2.22.3",
     "@tiptap/extension-details-summary": "^2.22.3",
     "@tiptap/extension-document": "^2.22.3",
+    "@tiptap/extension-drag-handle": "^2.23.0",
     "@tiptap/extension-emoji": "^2.22.3",
     "@tiptap/extension-file-handler": "^2.23.0",
     "@tiptap/extension-floating-menu": "^2.23.0",
@@ -124,6 +126,7 @@
     "@tiptap/extension-link": "^2.22.3",
     "@tiptap/extension-mathematics": "^2.23.0",
     "@tiptap/extension-mention": "^2.22.3",
+    "@tiptap/extension-node-range": "^2.23.0",
     "@tiptap/extension-paragraph": "^2.22.3",
     "@tiptap/extension-placeholder": "^2.22.3",
     "@tiptap/extension-subscript": "^2.22.3",

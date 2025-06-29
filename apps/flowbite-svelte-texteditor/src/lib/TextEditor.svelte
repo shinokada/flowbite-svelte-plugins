@@ -20,6 +20,7 @@
   import Link from '@tiptap/extension-link';
   import Image from '@tiptap/extension-image';
   import { Mathematics } from '@tiptap/extension-mathematics';
+  import NodeRange from '@tiptap/extension-node-range'
   import Placeholder from '@tiptap/extension-placeholder';
   import Subscript from '@tiptap/extension-subscript';
   import Superscript from '@tiptap/extension-superscript';
@@ -44,6 +45,8 @@
   import { createMentionSuggestion } from './mention/mentionSuggestion';
   import { BubbleMenuPlugin } from '@tiptap/extension-bubble-menu';
   import { FloatingMenuPlugin } from '@tiptap/extension-floating-menu';
+  import DragHandle from '@tiptap/extension-drag-handle';
+  import DragHandleComponent from '$lib/drag-handle/DragHandleComponent.svelte';
 
   let {
     content = '<p>Start typing...</p>',
@@ -58,7 +61,8 @@
     floatingMenu = false,
     math = false,
     limit,
-    file
+    file,
+    dragHandle = false
   }: EditorProviderProps = $props();
 
   let editorElement = $state<HTMLDivElement | null>(null);
@@ -117,6 +121,11 @@
           visible: false
         }),
         Link.configure({ openOnClick: false }),
+        NodeRange.configure({
+          // allow to select only on depth 0
+          // depth: 0,
+          key: null,
+        }),
         Placeholder.configure({
           includeChildren: true,
           placeholder: ({ node }) => {
@@ -205,6 +214,19 @@
         );
       }
 
+      if (dragHandle) {
+        extensions.push(
+          DragHandle.configure({
+            render: () => {
+              const element = document.createElement('div')
+              // Use as a hook for CSS to insert an icon
+              element.classList.add('custom-drag-handle')
+              return element
+            },
+          })
+        );
+      }
+
       editor = new Editor({
         element: editorElement,
         extensions,
@@ -279,7 +301,6 @@
       {@render children()}
     </ToolbarWrapper>
   {/if}
-
   <!-- Editor container -->
   <ContentWrapper>
     <div bind:this={editorElement}></div>
@@ -288,24 +309,3 @@
     {/if}
   </ContentWrapper>
 </EditorWrapper>
-
-<!--
-@component
-[Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
-## Type
-[EditorProviderProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L27)
-## Props
-@prop content = '<p>Start typing...</p>'
-@prop editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none'
-@prop editor = $bindable<Editor | null>(null)
-@prop children
-@prop footer
-@prop emoji = true
-@prop class: className
-@prop mentions
-@prop bubbleMenu = false
-@prop floatingMenu = false
-@prop math = false
-@prop limit
-@prop file
--->

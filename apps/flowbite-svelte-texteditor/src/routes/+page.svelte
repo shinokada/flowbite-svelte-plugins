@@ -24,6 +24,9 @@
 <Heading tag="h2" class="my-4">Details</Heading>
 <Examples.Details />
 
+<Heading tag="h2" class="my-4">DragHandleEx</Heading>
+<Examples.DragHandleEx />
+
 <Heading tag="h2" class="my-4">Emoji</Heading>
 <Examples.Emoji />
 

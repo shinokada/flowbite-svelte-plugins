@@ -6,6 +6,7 @@ export { default as BubbleMenuEx } from './BubbleMenuEx.svelte';
 export { default as BubbleMenuEx2 } from './BubbleMenuEx2.svelte';
 export { default as CharacterCountEx } from './CharacterCountEx.svelte';
 export { default as Details } from './Details.svelte';
+export { default as DragHandleEx } from './DragHandleEx.svelte';
 export { default as Emoji } from './Emoji.svelte';
 export { default as Export } from './Export.svelte';
 export { default as FileHandlerEx } from './FileHandlerEx.svelte';
