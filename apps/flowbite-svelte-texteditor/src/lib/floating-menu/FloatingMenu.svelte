@@ -1,20 +1,7 @@
 <script lang="ts">
-  import { runHeadingCommand, runListCommand, runLayoutsCommand, runTableCommand, runTaskCommand, runImageCommand, runVideoCommand } from '$lib';
-  import type { Editor } from '@tiptap/core';
+  import { runHeadingCommand, runListCommand, runLayoutsCommand, runTableCommand, runTaskCommand, runImageCommand, runVideoCommand, type FloatingMenuProps } from '$lib';
 
-  interface FloatingMenuProps {
-    editor: Editor | null;
-    showHeadings?: boolean;
-    showList?: boolean;
-    showCode?: boolean;
-    showQuote?: boolean;
-    showHorizontalRule?: boolean;
-    showTable?: boolean;
-    showTasks?: boolean;
-    showImage?: boolean;
-  }
-
-  let { editor, showHeadings = true, showList = true, showCode = true, showQuote = true, showHorizontalRule = true, showTable = true, showTasks = true, showImage = true }: FloatingMenuProps = $props();
+  let { editor, showHeadings = true, showList = true, showCodeBlock = true, showQuote = true, showHorizontalRule = true, showTable = true, showTasks = true, showImage = true }: FloatingMenuProps = $props();
 
   let isHeading1Active = $state(false);
   let isHeading2Active = $state(false);
@@ -70,7 +57,7 @@
     </button>
   {/if}
 
-  {#if showCode}
+  {#if showCodeBlock}
     <button onclick={() => runLayoutsCommand(editor, 'codeblock')} class:is-active={isCodeBlockActive} title="Code Block"> Code </button>
   {/if}
 

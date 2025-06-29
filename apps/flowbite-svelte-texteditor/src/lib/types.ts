@@ -1,9 +1,29 @@
 import type { Editor } from '@tiptap/core';
+import type { BoldOptions } from '@tiptap/extension-bold';
 import { type ClassValue } from 'clsx';
 import type { Snippet } from 'svelte';
 import type { HTMLButtonAttributes } from 'svelte/elements';
 
 // TextEditor
+export interface BubbleMenuConfig {
+  showUnderline?: boolean;
+  showHighlight?: boolean;
+  showBold?: boolean;
+  showItalic?: boolean;
+  showStrike?: boolean;
+}
+
+export interface FloatingMenuConfig {
+  showHeadings?: boolean;
+  showList?: boolean;
+  showCodeBlock?: boolean;
+  showQuote?: boolean;
+  showHorizontalRule?: boolean;
+  showTable?: boolean;
+  showTasks?: boolean;
+  showImage?: boolean;
+}
+
 export interface EditorProviderProps {
   children?: Snippet;
   footer?: Snippet;
@@ -15,11 +35,11 @@ export interface EditorProviderProps {
   emoji?: boolean;
   class?: ClassValue;
   mentions?: string[];
-  bubbleMenu?: boolean;
-  floatingMenu?: boolean;
   math?: boolean;
   limit?: number;
   file?: boolean;
+  bubbleMenu?: boolean | BubbleMenuConfig;
+  floatingMenu?: boolean | FloatingMenuConfig;
 }
 
 export interface EditorBasicProps extends Omit<HTMLButtonAttributes, 'class'> {
@@ -35,8 +55,16 @@ export interface GroupFormatProps {
   editor: Editor | null;
   showToolbar?: boolean;
 }
+// Bubble menu
+export interface BubbleMenuProps extends BubbleMenuConfig {
+  editor: Editor | null;
+}
 
 // Floating menu
+export interface FloatingMenuProps extends FloatingMenuConfig {
+  editor: Editor | null;
+}
+
 export interface TiptapNodeViewContext {
   onDragStart: (event: DragEvent) => void;
 }

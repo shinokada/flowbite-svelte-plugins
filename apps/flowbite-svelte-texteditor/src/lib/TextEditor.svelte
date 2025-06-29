@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onDestroy } from 'svelte';
   import { cn } from '$lib';
-  import { type EditorProviderProps, EditorWrapper, ContentWrapper, ToolbarWrapper, SvelteRenderer, BubbleMenu, FloatingMenu } from '$lib';
+  import { type EditorProviderProps, EditorWrapper, ContentWrapper, ToolbarWrapper, SvelteRenderer, BubbleMenu, FloatingMenu, getMenuConfig } from '$lib';
   import { Editor } from '@tiptap/core';
   import type { Extensions } from '@tiptap/core';
   import StarterKit from '@tiptap/starter-kit';
@@ -217,6 +217,7 @@
       });
 
       if (bubbleMenu) {
+        const bubbleConfig = getMenuConfig(bubbleMenu);
         bubbleElement = document.createElement('div');
         document.body.appendChild(bubbleElement);
 
@@ -234,11 +235,12 @@
 
         bubbleMenuRenderer = new SvelteRenderer(BubbleMenu, {
           target: bubbleElement,
-          props: { editor }
+          props: { editor, ...bubbleConfig }
         });
       }
 
       if (floatingMenu) {
+        const floatingConfig = getMenuConfig(floatingMenu);
         floatingElement = document.createElement('div');
         document.body.appendChild(floatingElement);
 
@@ -248,7 +250,7 @@
           pluginKey: 'floatingMenu',
           tippyOptions: {
             duration: 150,
-            theme: 'light'
+            theme: 'light',
           }
         });
 
@@ -256,7 +258,7 @@
 
         floatingMenuRenderer = new SvelteRenderer(FloatingMenu, {
           target: floatingElement,
-          props: { editor }
+          props: { editor, ...floatingConfig }
         });
       }
     }

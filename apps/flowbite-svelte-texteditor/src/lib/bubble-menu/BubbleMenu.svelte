@@ -1,13 +1,7 @@
 <script lang="ts">
-  import { runFormatCommand } from '$lib';
-  import type { Editor } from '@tiptap/core';
+  import { runFormatCommand, type BubbleMenuProps } from '$lib';
 
-  interface BubbleMenuProps {
-    editor: Editor | null;
-    underline?: boolean;
-    highlight?: boolean;
-  }
-  let { editor, underline = true, highlight = true }: BubbleMenuProps = $props();
+  let { editor, showUnderline = true, showHighlight = true, showBold = true, showItalic = true, showStrike = true }: BubbleMenuProps = $props();
 
   let isBoldActive = $state(false);
   let isItalicActive = $state(false);
@@ -38,13 +32,19 @@
 </script>
 
 <div class="bubble-menu">
+  {#if showBold}
   <button onclick={() => runFormatCommand(editor, 'bold')} class:is-active={isBoldActive}> Bold </button>
+  {/if}
+  {#if showItalic}
   <button onclick={() => runFormatCommand(editor, 'italic')} class:is-active={isItalicActive}> Italic </button>
+  {/if}
+  {#if showStrike}
   <button onclick={() => runFormatCommand(editor, 'strike')} class:is-active={isStrikeActive}> Strike </button>
-  {#if underline}
+  {/if}
+  {#if showUnderline}
     <button onclick={() => runFormatCommand(editor, 'underline')} class:is-active={isUnderlineActive}> Underline </button>
   {/if}
-  {#if highlight}
+  {#if showHighlight}
     <button onclick={() => runFormatCommand(editor, 'highlight')} class:is-active={isHighlightActive}> Highlight </button>
   {/if}
 </div>

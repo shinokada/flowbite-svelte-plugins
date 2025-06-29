@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import { type BubbleMenuConfig, type FloatingMenuConfig } from '$lib';
 
 /**
  * Combines clsx and tailwind-merge for intelligent class merging
@@ -37,4 +38,11 @@ export function generateUniqueId(prefix: string, length: number = 9): string {
  */
 export function generateButtonId(buttonType: string, length: number = 9): string {
   return generateUniqueId(`${buttonType}Button`, length);
+}
+
+export function getMenuConfig(config: boolean | BubbleMenuConfig | FloatingMenuConfig): BubbleMenuConfig | FloatingMenuConfig {
+  if (typeof config === 'boolean') {
+    return config ? {} : {}; // Return default config or empty
+  }
+  return config;
 }

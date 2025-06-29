@@ -15,6 +15,9 @@
 <Heading tag="h2" class="my-4">BubbleMenuEx</Heading>
 <Examples.BubbleMenuEx />
 
+<Heading tag="h2" class="my-4">BubbleMenuEx2</Heading>
+<Examples.BubbleMenuEx2 />
+
 <Heading tag="h2" class="my-4">CharacterCountEx</Heading>
 <Examples.CharacterCountEx />
 
@@ -32,6 +35,9 @@
 
 <Heading tag="h2" class="my-4">FloatingMenuEx</Heading>
 <Examples.FloatingMenuEx />
+
+<Heading tag="h2" class="my-4">FloatingMenuEx2</Heading>
+<Examples.FloatingMenuEx2 />
 
 <Heading tag="h2" class="my-4">Fonts</Heading>
 <Examples.Fonts />
