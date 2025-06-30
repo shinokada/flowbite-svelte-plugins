@@ -334,7 +334,6 @@
     border-radius: 0.2rem;
   }
 
-  /* Enhanced drag handle styles */
   #drag-handle-wrapper .drag-handle {
     display: flex !important;
     align-items: center !important;

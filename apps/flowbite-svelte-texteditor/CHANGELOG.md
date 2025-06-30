@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.21.1
+
+### Patch Changes
+
+- fix: remove unused component
+
 ## 0.21.0
 
 ### Minor Changes

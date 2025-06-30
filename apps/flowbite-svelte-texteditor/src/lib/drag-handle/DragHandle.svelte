@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount, onDestroy, type Snippet } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
   import type { Editor } from '@tiptap/core';
   import type { Node } from '@tiptap/pm/model';
   import { DragHandlePlugin, dragHandlePluginDefaultKey, type DragHandlePluginProps } from '@tiptap/extension-drag-handle';
@@ -9,17 +9,15 @@
   type DragHandleProps = Omit<Optional<DragHandlePluginProps, 'pluginKey'>, 'element'> & {
     class?: string;
     onNodeChange?: (data: { node: Node | null; editor: Editor; pos: number }) => void;
-    children?: Snippet;
   };
 
-  let { children, editor, class: className = '', pluginKey = dragHandlePluginDefaultKey, onNodeChange }: DragHandleProps = $props();
+  let { editor, class: className = '', pluginKey = dragHandlePluginDefaultKey, onNodeChange }: DragHandleProps = $props();
 
   let dragElement: HTMLDivElement;
   let pluginInstance: any = null;
   let currentNode = $state<Node | null>(null);
   let currentPos = $state<number>(-1);
 
-  // Default drag handle appearance - remove fixed positioning, let plugin handle it
   const defaultClass = 'transition-opacity cursor-grab active:cursor-grabbing bg-gray-300 hover:bg-gray-400 rounded border border-gray-400 w-6 h-6 flex items-center justify-center shadow-sm';
 
   onMount(() => {
@@ -33,7 +31,6 @@
       return;
     }
 
-    // Wait for editor to be ready
     if (!editor.view) {
       $inspect('DragHandle onMount - Editor view not ready, waiting...');
       setTimeout(() => {
@@ -146,7 +143,7 @@
   }
 </script>
 
-<div bind:this={dragElement} class="drag-handle" aria-label="Drag to move content">⋮⋮</div>
+<div bind:this={dragElement} class="drag-handle {className}" aria-label="Drag to move content">⋮⋮</div>
 
 <!--
 @component
@@ -154,7 +151,6 @@
 ## Type
 DragHandleProps
 ## Props
-@prop children
 @prop editor
 @prop class: className = ''
 @prop pluginKey = dragHandlePluginDefaultKey

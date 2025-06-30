@@ -5,7 +5,6 @@
     "link": null
   },
   "props": [
-    ["children", ""],
     ["editor", ""],
     ["class: className", "''"],
     ["pluginKey", "dragHandlePluginDefaultKey"],

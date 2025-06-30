@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.21.0",
+  "version": "0.21.1",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -191,10 +191,6 @@
     "./DragHandle.svelte": {
       "types": "./dist/drag-handle/DragHandle.svelte.d.ts",
       "svelte": "./dist/drag-handle/DragHandle.svelte"
-    },
-    "./DragHandleComponent.svelte": {
-      "types": "./dist/drag-handle/DragHandleComponent.svelte.d.ts",
-      "svelte": "./dist/drag-handle/DragHandleComponent.svelte"
     },
     "./EmojiList.svelte": {
       "types": "./dist/emoji/EmojiList.svelte.d.ts",
