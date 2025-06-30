@@ -3,7 +3,6 @@
   import type { Editor } from '@tiptap/core';
   import type { Node } from '@tiptap/pm/model';
   import { DragHandlePlugin, dragHandlePluginDefaultKey, type DragHandlePluginProps } from '@tiptap/extension-drag-handle';
-  import type { ComputePositionConfig } from '@floating-ui/dom';
 
   type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
 
@@ -24,10 +23,10 @@
   const defaultClass = 'transition-opacity cursor-grab active:cursor-grabbing bg-gray-300 hover:bg-gray-400 rounded border border-gray-400 w-6 h-6 flex items-center justify-center shadow-sm';
 
   onMount(() => {
-    console.log('DragHandle onMount - Editor:', editor);
-    console.log('DragHandle onMount - Drag element:', dragElement);
-    console.log('DragHandle onMount - Editor editable:', editor?.isEditable);
-    console.log('DragHandle onMount - Editor view:', editor?.view);
+    $inspect('DragHandle onMount - Editor:', editor);
+    $inspect('DragHandle onMount - Drag element:', dragElement);
+    $inspect('DragHandle onMount - Editor editable:', editor?.isEditable);
+    $inspect('DragHandle onMount - Editor view:', editor?.view);
 
     if (!editor || !dragElement) {
       console.warn('DragHandle onMount - Missing editor or dragElement');
@@ -36,7 +35,7 @@
 
     // Wait for editor to be ready
     if (!editor.view) {
-      console.log('DragHandle onMount - Editor view not ready, waiting...');
+      $inspect('DragHandle onMount - Editor view not ready, waiting...');
       setTimeout(() => {
         if (editor.view) {
           initializePlugin();
@@ -52,29 +51,29 @@
 
   function initializePlugin() {
     try {
-      console.log('DragHandle - Initializing plugin...');
-      console.log('DragHandle - Drag element parent:', dragElement.parentElement);
-      console.log('DragHandle - Drag element in DOM:', document.contains(dragElement));
+      $inspect('DragHandle - Initializing plugin...');
+      $inspect('DragHandle - Drag element parent:', dragElement.parentElement);
+      $inspect('DragHandle - Drag element in DOM:', document.contains(dragElement));
 
       pluginInstance = DragHandlePlugin({
         pluginKey,
         editor,
         element: dragElement,
         onNodeChange: (data) => {
-          console.log('DragHandle - Node change:', data);
-          console.log('DragHandle - Node type:', data.node?.type?.name);
-          console.log('DragHandle - Position:', data.pos);
+          // console.log('DragHandle - Node change:', data);
+          // console.log('DragHandle - Node type:', data.node?.type?.name);
+          // console.log('DragHandle - Position:', data.pos);
 
           currentNode = data.node;
           currentPos = data.pos;
           onNodeChange?.(data);
 
           // Log final state
-          console.log('DragHandle - Element in DOM after update:', document.contains(dragElement));
+          // console.log('DragHandle - Element in DOM after update:', document.contains(dragElement));
         }
       });
 
-      console.log('DragHandle - Plugin instance created:', pluginInstance);
+      // console.log('DragHandle - Plugin instance created:', pluginInstance);
 
       let actualPlugin;
       let unbindFn;
@@ -83,24 +82,24 @@
         if ('plugin' in pluginInstance && 'unbind' in pluginInstance) {
           actualPlugin = pluginInstance.plugin;
           unbindFn = pluginInstance.unbind;
-          console.log('DragHandle - Using wrapped plugin structure');
+          // console.log('DragHandle - Using wrapped plugin structure');
         } else if (pluginInstance.key && pluginInstance.spec) {
           actualPlugin = pluginInstance;
           unbindFn = null;
-          console.log('DragHandle - Plugin returned directly');
+          // console.log('DragHandle - Plugin returned directly');
         } else {
-          console.error('DragHandle - Unexpected plugin structure:', pluginInstance);
+          // console.error('DragHandle - Unexpected plugin structure:', pluginInstance);
           return;
         }
       } else {
-        console.error('DragHandle - Invalid plugin instance:', pluginInstance);
+        // console.error('DragHandle - Invalid plugin instance:', pluginInstance);
         return;
       }
 
       if (actualPlugin) {
-        console.log('DragHandle - Registering plugin:', actualPlugin);
+        // console.log('DragHandle - Registering plugin:', actualPlugin);
         editor.registerPlugin(actualPlugin);
-        console.log('DragHandle - Plugin registered successfully');
+        // console.log('DragHandle - Plugin registered successfully');
 
         pluginInstance = {
           plugin: actualPlugin,
@@ -115,11 +114,11 @@
   }
 
   onDestroy(() => {
-    console.log('DragHandle onDestroy - Cleaning up');
+    // console.log('DragHandle onDestroy - Cleaning up');
 
     if (pluginInstance) {
       if (pluginInstance.unbind) {
-        console.log('DragHandle onDestroy - Calling unbind');
+        // console.log('DragHandle onDestroy - Calling unbind');
         try {
           pluginInstance.unbind();
         } catch (error) {
@@ -128,7 +127,7 @@
       }
 
       if (pluginInstance.plugin && editor) {
-        console.log('DragHandle onDestroy - Unregistering plugin');
+        // console.log('DragHandle onDestroy - Unregistering plugin');
         try {
           editor.unregisterPlugin(pluginKey);
         } catch (error) {
