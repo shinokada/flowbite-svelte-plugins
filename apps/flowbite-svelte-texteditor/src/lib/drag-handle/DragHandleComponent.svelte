@@ -16,7 +16,7 @@
     // The DragHandle extension should be added to the editor extensions in TextEditor.svelte
     // This component is just the visual element that the plugin will position
     console.log('[DragHandle] Component mounted with element:', element);
-    
+
     // Make sure the drag handle element is available to the editor
     if (element && editor) {
       // Store reference for the drag handle plugin to use
@@ -33,11 +33,7 @@
 </script>
 
 <!-- Drag handle element that the TipTap plugin will position and show/hide -->
-<div 
-  class={className} 
-  bind:this={element}
-  data-drag-handle
->
+<div class={className} bind:this={element} data-drag-handle>
   {#if children}
     {@render children()}
   {:else}
@@ -45,3 +41,14 @@
     <div class="drag-handle-icon">⠿</div>
   {/if}
 </div>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
+## Type
+Props
+## Props
+@prop editor
+@prop class: className = 'drag-handle'
+@prop children
+-->

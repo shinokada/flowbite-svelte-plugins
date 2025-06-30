@@ -2,7 +2,7 @@
   "name": "TextEditor",
   "type": {
     "name": "EditorProviderProps",
-    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L27"
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L26"
   },
   "props": [
     ["content", "'<p>Start typing...</p>'"],
@@ -17,6 +17,7 @@
     ["floatingMenu", "false"],
     ["math", "false"],
     ["limit", ""],
-    ["file", ""]
+    ["file", ""],
+    ["dragHandle", "false"]
   ]
 }

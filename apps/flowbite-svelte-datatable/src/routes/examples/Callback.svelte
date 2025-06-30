@@ -53,12 +53,7 @@
 </script>
 
 The DataTable component exposes callback props that allow you to hook into the underlying simple-datatables library events. These callbacks provide access to the table lifecycle and user interactions.
-### Initialization Events
-#### `onInitStart`
-Called when table initialization begins. Useful for showing loading indicators.
-```ts
-typescriptonInitStart?: () => void
-```
+### Initialization Events #### `onInitStart` Called when table initialization begins. Useful for showing loading indicators. ```ts typescriptonInitStart?: () => void ```
 
 {#if isTableLoading}
   <Spinner />

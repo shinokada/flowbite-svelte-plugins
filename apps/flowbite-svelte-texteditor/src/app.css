@@ -276,194 +276,192 @@
     margin: 0.5rem 0;
   }
 
+  /* drag handle */
+  #drag-handle-wrapper ::selection {
+    background-color: #70cff850;
+  }
 
-/* drag handle */
-#drag-handle-wrapper ::selection {
-  background-color: #70CFF850;
-}
+  #drag-handle-wrapper .ProseMirror {
+    padding: 1rem 1rem 1rem 0;
+    position: relative;
+  }
 
-#drag-handle-wrapper .ProseMirror {
-  padding: 1rem 1rem 1rem 0;
-  position: relative;
-}
+  #drag-handle-wrapper .ProseMirror * {
+    margin-top: 0.75em;
+  }
 
-#drag-handle-wrapper .ProseMirror * {
-  margin-top: 0.75em;
-}
+  #drag-handle-wrapper .ProseMirror > * {
+    margin-left: 3rem;
+  }
 
-#drag-handle-wrapper .ProseMirror > * {
-  margin-left: 3rem;
-}
+  #drag-handle-wrapper .ProseMirror .ProseMirror-widget * {
+    margin-top: auto;
+  }
 
-#drag-handle-wrapper .ProseMirror .ProseMirror-widget * {
-  margin-top: auto;
-}
+  #drag-handle-wrapper .ProseMirror ul,
+  #drag-handle-wrapper .ProseMirror ol {
+    padding: 0 1rem;
+  }
 
-#drag-handle-wrapper .ProseMirror ul,
-#drag-handle-wrapper .ProseMirror ol {
-  padding: 0 1rem;
-}
+  #drag-handle-wrapper .ProseMirror-noderangeselection *::selection {
+    background: transparent;
+  }
 
-#drag-handle-wrapper .ProseMirror-noderangeselection *::selection {
-  background: transparent;
-}
+  #drag-handle-wrapper .ProseMirror-hideselection *::selection {
+    background-color: #70cff850 !important;
+  }
 
-#drag-handle-wrapper .ProseMirror-hideselection *::selection {
-  background-color: #70CFF850 !important;
-}
+  #drag-handle-wrapper .ProseMirror-noderangeselection * {
+    caret-color: transparent;
+  }
 
+  #drag-handle-wrapper .ProseMirror-selectednode,
+  #drag-handle-wrapper .ProseMirror-selectednoderange {
+    position: relative;
+  }
 
-#drag-handle-wrapper .ProseMirror-noderangeselection * {
-  caret-color: transparent;
-}
+  #drag-handle-wrapper .ProseMirror-selectednode::before,
+  #drag-handle-wrapper .ProseMirror-selectednoderange::before {
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+    content: '';
+    top: -0.25rem;
+    left: -0.25rem;
+    right: -0.25rem;
+    bottom: -0.25rem;
+    background-color: #70cff850;
+    border-radius: 0.2rem;
+  }
 
-#drag-handle-wrapper .ProseMirror-selectednode,
-#drag-handle-wrapper .ProseMirror-selectednoderange {
-  position: relative;
-}
+  /* Enhanced drag handle styles */
+  #drag-handle-wrapper .drag-handle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 1rem;
+    height: 1.25rem;
+    content: '⠿';
+    left: -1rem;
+    top: 0.3rem;
+    font-weight: 700;
+    cursor: grab;
+    background: #0d0d0d10;
+    color: #0d0d0d;
+    border-radius: 0.25rem;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
 
-#drag-handle-wrapper .ProseMirror-selectednode::before,
-#drag-handle-wrapper .ProseMirror-selectednoderange::before {
-  position: absolute;
-  pointer-events: none;
-  z-index: -1;
-  content: '';
-  top: -0.25rem;
-  left: -0.25rem;
-  right: -0.25rem;
-  bottom: -0.25rem;
-  background-color: #70CFF850;
-  border-radius: 0.2rem;
-}
+  #drag-handle-wrapper .drag-handle:hover {
+    transform: scale(1.1) !important;
+  }
 
-/* Enhanced drag handle styles */
-#drag-handle-wrapper .drag-handle {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 1rem;
-  height: 1.25rem;
-  content: '⠿';
-  left: -1rem;
-  top: 0.3rem;
-  font-weight: 700;
-  cursor: grab;
-  background:#0D0D0D10;
-  color: #0d0d0d;
-  border-radius: 0.25rem;
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-}
+  /* Ensure drag handle doesn't get affected by ProseMirror margin rules */
+  .ProseMirror .drag-handle {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+  }
 
-#drag-handle-wrapper .drag-handle:hover {
-  transform: scale(1.1) !important;
-}
+  /* Fix for drag handle positioning in relation to content margin */
+  .ProseMirror > * {
+    position: relative;
+  }
 
-/* Ensure drag handle doesn't get affected by ProseMirror margin rules */
-.ProseMirror .drag-handle {
-  margin-left: 0 !important;
-  margin-top: 0 !important;
-}
+  /* Ensure drag handle appears in the left margin area */
+  [data-drag-handle] {
+    left: 0.5rem !important; /* Position in the left margin */
+  }
 
-/* Fix for drag handle positioning in relation to content margin */
-.ProseMirror > * {
-  position: relative;
-}
+  /* Ensure drag handle doesn't get affected by ProseMirror margin rules */
+  .ProseMirror .drag-handle {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+  }
 
-/* Ensure drag handle appears in the left margin area */
-[data-drag-handle] {
-  left: 0.5rem !important; /* Position in the left margin */
-}
+  /* Fix for drag handle positioning in relation to content margin */
+  .ProseMirror > * {
+    position: relative;
+  }
 
-/* Ensure drag handle doesn't get affected by ProseMirror margin rules */
-.ProseMirror .drag-handle {
-  margin-left: 0 !important;
-  margin-top: 0 !important;
-}
+  /* Ensure drag handle appears in the left margin area */
+  [data-drag-handle] {
+    left: 0.5rem !important; /* Position in the left margin */
+  }
 
-/* Fix for drag handle positioning in relation to content margin */
-.ProseMirror > * {
-  position: relative;
-}
+  /* Improved drag handle styling - works with TipTap's positioning */
+  .drag-handle {
+    position: absolute;
+    z-index: 50;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    /* TipTap will handle positioning, we just need to style it */
+  }
 
-/* Ensure drag handle appears in the left margin area */
-[data-drag-handle] {
-  left: 0.5rem !important; /* Position in the left margin */
-}
+  /* Show drag handle when TipTap makes it visible */
+  .drag-handle[data-show] {
+    opacity: 1;
+    pointer-events: auto;
+  }
 
-/* Improved drag handle styling - works with TipTap's positioning */
-.drag-handle {
-  position: absolute;
-  z-index: 50;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  pointer-events: none;
-  /* TipTap will handle positioning, we just need to style it */
-}
+  /* Alternative: Show on hover of editor content */
+  .ProseMirror:hover + .drag-handle,
+  .ProseMirror-focused .drag-handle {
+    opacity: 1;
+    pointer-events: auto;
+  }
 
-/* Show drag handle when TipTap makes it visible */
-.drag-handle[data-show] {
-  opacity: 1;
-  pointer-events: auto;
-}
+  /* Default drag handle icon */
+  .drag-handle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1.25rem;
+    font-weight: 700;
+    cursor: grab;
+    background: #0d0d0d10;
+    color: #0d0d0d50;
+    border-radius: 0.25rem;
+    user-select: none;
+  }
 
-/* Alternative: Show on hover of editor content */
-.ProseMirror:hover + .drag-handle,
-.ProseMirror-focused .drag-handle {
-  opacity: 1;
-  pointer-events: auto;
-}
+  .drag-handle-icon:hover {
+    background: #0d0d0d20;
+    color: #0d0d0d70;
+  }
 
-/* Default drag handle icon */
-.drag-handle-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1rem;
-  height: 1.25rem;
-  font-weight: 700;
-  cursor: grab;
-  background: #0D0D0D10;
-  color: #0D0D0D50;
-  border-radius: 0.25rem;
-  user-select: none;
-}
+  .drag-handle-icon:active {
+    cursor: grabbing;
+  }
 
-.drag-handle-icon:hover {
-  background: #0D0D0D20;
-  color: #0D0D0D70;
-}
+  /* Alternative: Using ::after pseudo-element (if you prefer) */
+  .drag-handle.use-after::after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1.25rem;
+    content: '⠿';
+    font-weight: 700;
+    cursor: grab;
+    background: #0d0d0d10;
+    color: #0d0d0d50;
+    border-radius: 0.25rem;
+    user-select: none;
+  }
 
-.drag-handle-icon:active {
-  cursor: grabbing;
-}
+  .drag-handle.use-after:hover::after {
+    background: #0d0d0d20;
+    color: #0d0d0d70;
+  }
 
-/* Alternative: Using ::after pseudo-element (if you prefer) */
-.drag-handle.use-after::after {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1rem;
-  height: 1.25rem;
-  content: '⠿';
-  font-weight: 700;
-  cursor: grab;
-  background: #0D0D0D10;
-  color: #0D0D0D50;
-  border-radius: 0.25rem;
-  user-select: none;
-}
-
-.drag-handle.use-after:hover::after {
-  background: #0D0D0D20;
-  color: #0D0D0D70;
-}
-
-/* Ensure proper spacing for drag handles */
-.ProseMirror .drag-handle + * {
-  margin-left: 0;
-}
+  /* Ensure proper spacing for drag handles */
+  .ProseMirror .drag-handle + * {
+    margin-left: 0;
+  }
 
   /* emoji */
   [data-type='emoji'] {

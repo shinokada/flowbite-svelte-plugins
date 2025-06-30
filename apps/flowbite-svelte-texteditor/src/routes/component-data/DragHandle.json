@@ -1,0 +1,14 @@
+{
+  "name": "DragHandle",
+  "type": {
+    "name": "DragHandleProps",
+    "link": null
+  },
+  "props": [
+    ["children", ""],
+    ["editor", ""],
+    ["class: className", "''"],
+    ["pluginKey", "dragHandlePluginDefaultKey"],
+    ["onNodeChange", ""]
+  ]
+}

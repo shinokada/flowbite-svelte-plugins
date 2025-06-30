@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.21.0
+
+### Minor Changes
+
+- feat: drag handle
+
 ## 0.20.1
 
 ### Patch Changes

@@ -11,4 +11,3 @@ export { default as Slots } from './Slots.svelte';
 export { default as SortingData } from './SortingData.svelte';
 export { default as TableSearch } from './TableSearch.svelte';
 export { default as TablePagination } from './TablePagination.svelte';
-

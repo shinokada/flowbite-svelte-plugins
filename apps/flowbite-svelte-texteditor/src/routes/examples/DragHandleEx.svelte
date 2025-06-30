@@ -4,8 +4,7 @@
 
   let editorInstance = $state<Editor | null>(null);
 
-  const content =
-    `
+  const content = `
         <h1>This is a demo file for our Drag Handle extension experiement.</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
         <p>Odio eu feugiat pretium nibh ipsum consequat nisl. Velit euismod in pellentesque massa placerat.</p>
@@ -28,4 +27,3 @@
 <TextEditor bind:editor={editorInstance} {content} dragHandle>
   <UndoRedoButtonGroup editor={editorInstance} />
 </TextEditor>
-

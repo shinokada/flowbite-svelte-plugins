@@ -20,7 +20,7 @@
   import Link from '@tiptap/extension-link';
   import Image from '@tiptap/extension-image';
   import { Mathematics } from '@tiptap/extension-mathematics';
-  import NodeRange from '@tiptap/extension-node-range'
+  import NodeRange from '@tiptap/extension-node-range';
   import Placeholder from '@tiptap/extension-placeholder';
   import Subscript from '@tiptap/extension-subscript';
   import Superscript from '@tiptap/extension-superscript';
@@ -124,7 +124,7 @@
         NodeRange.configure({
           // allow to select only on depth 0
           // depth: 0,
-          key: null,
+          key: null
         }),
         Placeholder.configure({
           includeChildren: true,
@@ -305,10 +305,32 @@
   <ContentWrapper id={dragHandle ? 'drag-handle-wrapper' : ''}>
     <div bind:this={editorElement}></div>
     {#if dragHandle && editor}
-    <DragHandler {editor}/>
+      <DragHandler {editor} />
     {/if}
     {#if footer}
       {@render footer()}
     {/if}
   </ContentWrapper>
 </EditorWrapper>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
+## Type
+[EditorProviderProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L26)
+## Props
+@prop content = '<p>Start typing...</p>'
+@prop editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none'
+@prop editor = $bindable<Editor | null>(null)
+@prop children
+@prop footer
+@prop emoji = true
+@prop class: className
+@prop mentions
+@prop bubbleMenu = false
+@prop floatingMenu = false
+@prop math = false
+@prop limit
+@prop file
+@prop dragHandle = false
+-->

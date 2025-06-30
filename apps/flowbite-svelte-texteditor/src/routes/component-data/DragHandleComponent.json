@@ -1,0 +1,12 @@
+{
+  "name": "DragHandleComponent",
+  "type": {
+    "name": "Props",
+    "link": null
+  },
+  "props": [
+    ["editor", ""],
+    ["class: className", "'drag-handle'"],
+    ["children", ""]
+  ]
+}
