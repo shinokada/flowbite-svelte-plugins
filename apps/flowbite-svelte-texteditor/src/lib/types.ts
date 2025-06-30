@@ -1,5 +1,4 @@
 import type { Editor } from '@tiptap/core';
-import type { BoldOptions } from '@tiptap/extension-bold';
 import { type ClassValue } from 'clsx';
 import type { Snippet } from 'svelte';
 import type { HTMLButtonAttributes } from 'svelte/elements';
