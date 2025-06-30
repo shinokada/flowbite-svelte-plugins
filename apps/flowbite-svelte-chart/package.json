@@ -85,11 +85,6 @@
   ],
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
-  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
