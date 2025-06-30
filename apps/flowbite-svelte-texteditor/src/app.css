@@ -276,48 +276,54 @@
     margin: 0.5rem 0;
   }
 
+
 /* drag handle */
-::selection {
-  background-color: #fa3785;
+#drag-handle-wrapper ::selection {
+  background-color: #70CFF850;
 }
 
-.ProseMirror {
+#drag-handle-wrapper .ProseMirror {
   padding: 1rem 1rem 1rem 0;
-  position: relative; /* Important for absolute positioning */
-}
-
-.ProseMirror * {
-  margin-top: 0.75em;
-}
-
-.ProseMirror > * {
-  margin-left: 3rem;
-}
-
-.ProseMirror .ProseMirror-widget * {
-  margin-top: auto;
-}
-
-.ProseMirror ul,
-.ProseMirror ol {
-  padding: 0 1rem;
-}
-
-.ProseMirror-noderangeselection *::selection {
-  background: transparent;
-}
-
-.ProseMirror-noderangeselection * {
-  caret-color: transparent;
-}
-
-.ProseMirror-selectednode,
-.ProseMirror-selectednoderange {
   position: relative;
 }
 
-.ProseMirror-selectednode::before,
-.ProseMirror-selectednoderange::before {
+#drag-handle-wrapper .ProseMirror * {
+  margin-top: 0.75em;
+}
+
+#drag-handle-wrapper .ProseMirror > * {
+  margin-left: 3rem;
+}
+
+#drag-handle-wrapper .ProseMirror .ProseMirror-widget * {
+  margin-top: auto;
+}
+
+#drag-handle-wrapper .ProseMirror ul,
+#drag-handle-wrapper .ProseMirror ol {
+  padding: 0 1rem;
+}
+
+#drag-handle-wrapper .ProseMirror-noderangeselection *::selection {
+  background: transparent;
+}
+
+#drag-handle-wrapper .ProseMirror-hideselection *::selection {
+  background-color: #70CFF850 !important;
+}
+
+
+#drag-handle-wrapper .ProseMirror-noderangeselection * {
+  caret-color: transparent;
+}
+
+#drag-handle-wrapper .ProseMirror-selectednode,
+#drag-handle-wrapper .ProseMirror-selectednoderange {
+  position: relative;
+}
+
+#drag-handle-wrapper .ProseMirror-selectednode::before,
+#drag-handle-wrapper .ProseMirror-selectednoderange::before {
   position: absolute;
   pointer-events: none;
   z-index: -1;
@@ -330,59 +336,60 @@
   border-radius: 0.2rem;
 }
 
-/* drag handle */
-/* drag handle */
-::selection {
-  background-color: #fa3785;
+/* Enhanced drag handle styles */
+#drag-handle-wrapper .drag-handle {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 1rem;
+  height: 1.25rem;
+  content: '⠿';
+  left: -1rem;
+  top: 0.3rem;
+  font-weight: 700;
+  cursor: grab;
+  background:#0D0D0D10;
+  color: #0d0d0d;
+  border-radius: 0.25rem;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
 }
 
-.ProseMirror {
-  padding: 1rem 1rem 1rem 0;
-  position: relative;
+#drag-handle-wrapper .drag-handle:hover {
+  transform: scale(1.1) !important;
 }
 
-.ProseMirror * {
-  margin-top: 0.75em;
+/* Ensure drag handle doesn't get affected by ProseMirror margin rules */
+.ProseMirror .drag-handle {
+  margin-left: 0 !important;
+  margin-top: 0 !important;
 }
 
+/* Fix for drag handle positioning in relation to content margin */
 .ProseMirror > * {
-  margin-left: 3rem;
-}
-
-.ProseMirror .ProseMirror-widget * {
-  margin-top: auto;
-}
-
-.ProseMirror ul,
-.ProseMirror ol {
-  padding: 0 1rem;
-}
-
-.ProseMirror-noderangeselection *::selection {
-  background: transparent;
-}
-
-.ProseMirror-noderangeselection * {
-  caret-color: transparent;
-}
-
-.ProseMirror-selectednode,
-.ProseMirror-selectednoderange {
   position: relative;
 }
 
-.ProseMirror-selectednode::before,
-.ProseMirror-selectednoderange::before {
-  position: absolute;
-  pointer-events: none;
-  z-index: -1;
-  content: '';
-  top: -0.25rem;
-  left: -0.25rem;
-  right: -0.25rem;
-  bottom: -0.25rem;
-  background-color: #70CFF850;
-  border-radius: 0.2rem;
+/* Ensure drag handle appears in the left margin area */
+[data-drag-handle] {
+  left: 0.5rem !important; /* Position in the left margin */
+}
+
+/* Ensure drag handle doesn't get affected by ProseMirror margin rules */
+.ProseMirror .drag-handle {
+  margin-left: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Fix for drag handle positioning in relation to content margin */
+.ProseMirror > * {
+  position: relative;
+}
+
+/* Ensure drag handle appears in the left margin area */
+[data-drag-handle] {
+  left: 0.5rem !important; /* Position in the left margin */
 }
 
 /* Improved drag handle styling - works with TipTap's positioning */

@@ -24,6 +24,8 @@ export { default as ExportButtonGroup } from './export/ExportButtonGroup.svelte'
 // details
 export { default as DetailsButton } from './details/DetailsButton.svelte';
 export { default as DetailsButtonGroup } from './details/DetailsButtonGroup.svelte';
+// drag handler
+export { default as DragHandler } from './drag-handle/DragHandle.svelte';
 // emoji
 export { default as EmojiList } from './emoji/EmojiList.svelte';
 // font

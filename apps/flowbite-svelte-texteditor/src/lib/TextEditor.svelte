@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onDestroy } from 'svelte';
   import { cn } from '$lib';
-  import { type EditorProviderProps, EditorWrapper, ContentWrapper, ToolbarWrapper, SvelteRenderer, BubbleMenu, FloatingMenu, getMenuConfig } from '$lib';
+  import { type EditorProviderProps, EditorWrapper, ContentWrapper, ToolbarWrapper, SvelteRenderer, BubbleMenu, FloatingMenu, getMenuConfig, DragHandler } from '$lib';
   import { Editor } from '@tiptap/core';
   import type { Extensions } from '@tiptap/core';
   import StarterKit from '@tiptap/starter-kit';
@@ -45,8 +45,8 @@
   import { createMentionSuggestion } from './mention/mentionSuggestion';
   import { BubbleMenuPlugin } from '@tiptap/extension-bubble-menu';
   import { FloatingMenuPlugin } from '@tiptap/extension-floating-menu';
-  import DragHandle from '@tiptap/extension-drag-handle';
-  import DragHandleComponent from '$lib/drag-handle/DragHandleComponent.svelte';
+  // import DragHandle from '@tiptap/extension-drag-handle';
+  // import DragHandleComponent from '$lib/drag-handle/DragHandleComponent.svelte';
 
   let {
     content = '<p>Start typing...</p>',
@@ -214,18 +214,18 @@
         );
       }
 
-      if (dragHandle) {
-        extensions.push(
-          DragHandle.configure({
-            render: () => {
-              const element = document.createElement('div')
-              // Use as a hook for CSS to insert an icon
-              element.classList.add('custom-drag-handle')
-              return element
-            },
-          })
-        );
-      }
+      // if (dragHandle) {
+      //   extensions.push(
+      //     DragHandle.configure({
+      //       render: () => {
+      //         const element = document.createElement('div')
+      //         // Use as a hook for CSS to insert an icon
+      //         element.classList.add('custom-drag-handle')
+      //         return element
+      //       },
+      //     })
+      //   );
+      // }
 
       editor = new Editor({
         element: editorElement,
@@ -302,8 +302,11 @@
     </ToolbarWrapper>
   {/if}
   <!-- Editor container -->
-  <ContentWrapper>
+  <ContentWrapper id={dragHandle ? 'drag-handle-wrapper' : ''}>
     <div bind:this={editorElement}></div>
+    {#if dragHandle && editor}
+    <DragHandler {editor}/>
+    {/if}
     {#if footer}
       {@render footer()}
     {/if}
