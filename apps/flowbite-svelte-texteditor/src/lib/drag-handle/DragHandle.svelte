@@ -56,8 +56,6 @@
       console.log('DragHandle - Drag element parent:', dragElement.parentElement);
       console.log('DragHandle - Drag element in DOM:', document.contains(dragElement));
 
-      // DON'T manually append to body - let the plugin handle DOM positioning
-
       pluginInstance = DragHandlePlugin({
         pluginKey,
         editor,
@@ -78,7 +76,6 @@
 
       console.log('DragHandle - Plugin instance created:', pluginInstance);
 
-      // Handle different plugin return structures
       let actualPlugin;
       let unbindFn;
 
@@ -150,7 +147,6 @@
   }
 </script>
 
-<!-- Remove the fixed positioning and manual styles - let the plugin handle positioning -->
 <div bind:this={dragElement} class="drag-handle" aria-label="Drag to move content">⋮⋮</div>
 
 <!--

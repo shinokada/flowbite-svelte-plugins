@@ -45,8 +45,6 @@
   import { createMentionSuggestion } from './mention/mentionSuggestion';
   import { BubbleMenuPlugin } from '@tiptap/extension-bubble-menu';
   import { FloatingMenuPlugin } from '@tiptap/extension-floating-menu';
-  // import DragHandle from '@tiptap/extension-drag-handle';
-  // import DragHandleComponent from '$lib/drag-handle/DragHandleComponent.svelte';
 
   let {
     content = '<p>Start typing...</p>',
