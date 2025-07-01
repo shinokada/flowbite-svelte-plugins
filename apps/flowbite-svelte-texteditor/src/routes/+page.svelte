@@ -3,6 +3,10 @@
   import * as Examples from './examples';
 </script>
 
+<svelte:head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/google-dark.min.css" />
+</svelte:head>
+
 <DarkMode />
 <Heading tag="h1" class="my-8">@flowbite-svelte-plugins/texteditor</Heading>
 
@@ -68,6 +72,9 @@
 
 <Heading tag="h2" class="my-4">MentionEx</Heading>
 <Examples.MentionEx />
+
+<Heading tag="h2" class="my-4">PlaceholderEx</Heading>
+<Examples.PlaceholderEx />
 
 <Heading tag="h2" class="my-4">Sources</Heading>
 <Examples.Sources />

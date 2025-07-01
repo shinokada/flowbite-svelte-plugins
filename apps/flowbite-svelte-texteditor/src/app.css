@@ -448,6 +448,15 @@
     border-top: 1px solid var(--purple) !important;
   }
 
+  /* placeholder */
+  p.is-editor-empty:first-child::before {
+    color: var(--gray-4);
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+  }
+
   /* Table-specific styling */
   .tiptap table {
     border-collapse: collapse;

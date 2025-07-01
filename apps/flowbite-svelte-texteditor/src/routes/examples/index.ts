@@ -21,6 +21,7 @@ export { default as Lists } from './Lists.svelte';
 export { default as Layouts } from './Layouts.svelte';
 export { default as Math } from './Math.svelte';
 export { default as MentionEx } from './MentionEx.svelte';
+export { default as PlaceholderEx } from './PlaceholderEx.svelte';
 export { default as Sources } from './Sources.svelte';
 export { default as Tables } from './Tables.svelte';
 export { default as Task } from './Task.svelte';

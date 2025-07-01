@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.21.2
+
+### Patch Changes
+
+- fix: texteditor: add placeholder and summary props
+
 ## 0.21.1
 
 ### Patch Changes

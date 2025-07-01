@@ -5,7 +5,7 @@
     "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L26"
   },
   "props": [
-    ["content", "'<p>Start typing...</p>'"],
+    ["content", ""],
     ["editorClass", "'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none'"],
     ["editor", "$bindable<Editor | null>(null)"],
     ["children", ""],
@@ -18,6 +18,8 @@
     ["math", "false"],
     ["limit", ""],
     ["file", ""],
-    ["dragHandle", "false"]
+    ["dragHandle", "false"],
+    ["placeholder", "'Write something ...'"],
+    ["summary", "'Summary'"]
   ]
 }

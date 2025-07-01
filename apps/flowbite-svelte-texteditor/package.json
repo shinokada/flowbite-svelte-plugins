@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.21.1",
+  "version": "0.21.2",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -141,7 +141,6 @@
     "@tiptap/starter-kit": "^2.22.3",
     "@tiptap/suggestion": "^2.22.3",
     "flowbite-typography": "^1.0.5",
-    "highlight.js": "^11.11.1",
     "katex": "^0.16.22",
     "lowlight": "^3.3.0",
     "tippy.js": "^6.3.7"

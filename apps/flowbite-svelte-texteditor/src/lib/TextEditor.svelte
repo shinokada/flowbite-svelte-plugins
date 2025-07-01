@@ -47,7 +47,7 @@
   import { FloatingMenuPlugin } from '@tiptap/extension-floating-menu';
 
   let {
-    content = '<p>Start typing...</p>',
+    content,
     editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none',
     editor = $bindable<Editor | null>(null),
     children,
@@ -60,7 +60,9 @@
     math = false,
     limit,
     file,
-    dragHandle = false
+    dragHandle = false,
+    placeholder = 'Write something ...',
+    summary = 'Summary'
   }: EditorProviderProps = $props();
 
   let editorElement = $state<HTMLDivElement | null>(null);
@@ -128,9 +130,9 @@
           includeChildren: true,
           placeholder: ({ node }) => {
             if (node.type.name === 'detailsSummary') {
-              return 'Summary';
+              return summary;
             }
-            return 'Write something...';
+            return placeholder;
           }
         }),
         Subscript,
@@ -211,19 +213,6 @@
           })
         );
       }
-
-      // if (dragHandle) {
-      //   extensions.push(
-      //     DragHandle.configure({
-      //       render: () => {
-      //         const element = document.createElement('div')
-      //         // Use as a hook for CSS to insert an icon
-      //         element.classList.add('custom-drag-handle')
-      //         return element
-      //       },
-      //     })
-      //   );
-      // }
 
       editor = new Editor({
         element: editorElement,
@@ -317,7 +306,7 @@
 ## Type
 [EditorProviderProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L26)
 ## Props
-@prop content = '<p>Start typing...</p>'
+@prop content
 @prop editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none'
 @prop editor = $bindable<Editor | null>(null)
 @prop children
@@ -331,4 +320,6 @@
 @prop limit
 @prop file
 @prop dragHandle = false
+@prop placeholder = 'Write something ...'
+@prop summary = 'Summary'
 -->
