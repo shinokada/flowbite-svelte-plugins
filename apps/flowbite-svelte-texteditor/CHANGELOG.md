@@ -1,5 +1,12 @@
 # flowbite-svelte-texteditor
 
+## 0.21.3
+
+### Patch Changes
+
+- feat: add props, summary, detailsPlaceholder, and placeholder'
+  fix: remove highlight.js from TextEditor and use common in createLowlight(common)
+
 ## 0.21.2
 
 ### Patch Changes

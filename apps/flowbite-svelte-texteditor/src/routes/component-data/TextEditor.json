@@ -20,6 +20,7 @@
     ["file", ""],
     ["dragHandle", "false"],
     ["placeholder", "'Write something ...'"],
-    ["summary", "'Summary'"]
+    ["summary", "'Summary'"],
+    ["detailsPlaceholder", "'Add details content...'"]
   ]
 }

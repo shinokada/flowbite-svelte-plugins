@@ -36,10 +36,6 @@
   import Youtube from '@tiptap/extension-youtube';
   import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
   import { common, createLowlight } from 'lowlight';
-  import css from 'highlight.js/lib/languages/css';
-  import js from 'highlight.js/lib/languages/javascript';
-  import ts from 'highlight.js/lib/languages/typescript';
-  import xml from 'highlight.js/lib/languages/xml';
   import emojiSuggestion from './emoji/emojiSuggestion';
   import Mention from '@tiptap/extension-mention';
   import { createMentionSuggestion } from './mention/mentionSuggestion';
@@ -62,7 +58,8 @@
     file,
     dragHandle = false,
     placeholder = 'Write something ...',
-    summary = 'Summary'
+    summary = 'Summary',
+    detailsPlaceholder = 'Add details content...'
   }: EditorProviderProps = $props();
 
   let editorElement = $state<HTMLDivElement | null>(null);
@@ -74,13 +71,6 @@
   let floatingMenuRenderer: SvelteRenderer | null = null;
 
   const lowlight = createLowlight(common);
-  lowlight.register('html', xml);
-  lowlight.register('xml', xml);
-  lowlight.register('css', css);
-  lowlight.register('js', js);
-  lowlight.register('javascript', js);
-  lowlight.register('ts', ts);
-  lowlight.register('typescript', ts);
 
   const FontSizeTextStyle = TextStyle.extend({
     addAttributes() {
@@ -131,6 +121,9 @@
           placeholder: ({ node }) => {
             if (node.type.name === 'detailsSummary') {
               return summary;
+            }
+            if (node.type.name === 'detailsContent') {
+              return detailsPlaceholder;
             }
             return placeholder;
           }
@@ -322,4 +315,5 @@
 @prop dragHandle = false
 @prop placeholder = 'Write something ...'
 @prop summary = 'Summary'
+@prop detailsPlaceholder = 'Add details content...'
 -->

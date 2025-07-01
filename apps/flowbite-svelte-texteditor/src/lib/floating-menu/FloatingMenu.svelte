@@ -86,7 +86,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[FloatingMenuProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L66)
+[FloatingMenuProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L67)
 ## Props
 @prop editor
 @prop showHeadings = true

@@ -42,6 +42,7 @@ export interface EditorProviderProps {
   dragHandle?: boolean;
   placeholder?: string;
   summary?: string;
+  detailsPlaceholder?: string;
 }
 
 export interface EditorBasicProps extends Omit<HTMLButtonAttributes, 'class'> {
