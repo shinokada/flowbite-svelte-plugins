@@ -81,3 +81,21 @@
     <button onclick={() => runImageCommand(editor, 'basic')} title="Insert Image"> Image </button>
   {/if}
 </div>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
+## Type
+[FloatingMenuProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L124)
+## Props
+@prop editor
+@prop headingsOnly = false
+@prop showHeadings = true
+@prop showList = true
+@prop showCodeBlock = true
+@prop showQuote = true
+@prop showHorizontalRule = true
+@prop showTable = true
+@prop showTasks = true
+@prop showImage = true
+-->

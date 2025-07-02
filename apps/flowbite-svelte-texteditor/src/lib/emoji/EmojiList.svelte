@@ -92,5 +92,4 @@ Props
 ## Props
 @prop items: initialItems = []
 @prop command: initialCommand
-@prop editor
 -->

@@ -1,5 +1,11 @@
 {
   "name": "ToolbarWrapper",
-  "type": null,
-  "props": []
+  "type": {
+    "name": "ToolbarWrapperProps",
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L84"
+  },
+  "props": [
+    ["children", ""],
+    ["class: className", ""]
+  ]
 }

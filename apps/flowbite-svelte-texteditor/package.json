@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.21.3",
+  "version": "0.22.0",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -151,10 +151,6 @@
       "types": "./dist/index.d.ts",
       "svelte": "./dist/index.js"
     },
-    "./Divider.svelte": {
-      "types": "./dist/Divider.svelte.d.ts",
-      "svelte": "./dist/Divider.svelte"
-    },
     "./TextEditor.svelte": {
       "types": "./dist/TextEditor.svelte.d.ts",
       "svelte": "./dist/TextEditor.svelte"
@@ -303,6 +299,10 @@
       "types": "./dist/task/TaskListButtonGroup.svelte.d.ts",
       "svelte": "./dist/task/TaskListButtonGroup.svelte"
     },
+    "./Toc.svelte": {
+      "types": "./dist/toc/Toc.svelte.d.ts",
+      "svelte": "./dist/toc/Toc.svelte"
+    },
     "./UndoRedo.svelte": {
       "types": "./dist/undo-redo/UndoRedo.svelte.d.ts",
       "svelte": "./dist/undo-redo/UndoRedo.svelte"
@@ -322,6 +322,10 @@
     "./ContentWrapper.svelte": {
       "types": "./dist/wrappers/ContentWrapper.svelte.d.ts",
       "svelte": "./dist/wrappers/ContentWrapper.svelte"
+    },
+    "./Divider.svelte": {
+      "types": "./dist/wrappers/Divider.svelte.d.ts",
+      "svelte": "./dist/wrappers/Divider.svelte"
     },
     "./EditorWrapper.svelte": {
       "types": "./dist/wrappers/EditorWrapper.svelte.d.ts",

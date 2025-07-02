@@ -24,6 +24,6 @@
       `;
 </script>
 
-<TextEditor bind:editor={editorInstance} {content} draghandle contentprops={{id:"drag-handle-wrapper"}}>
+<TextEditor bind:editor={editorInstance} {content} draghandle contentprops={{ id: 'drag-handle-wrapper' }}>
   <UndoRedoButtonGroup editor={editorInstance} />
 </TextEditor>

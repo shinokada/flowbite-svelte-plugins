@@ -90,7 +90,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[CharacterCountProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L96)
+[CharacterCountProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L153)
 ## Props
 @prop editor
 @prop limit

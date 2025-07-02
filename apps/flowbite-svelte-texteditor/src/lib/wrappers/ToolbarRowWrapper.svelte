@@ -16,3 +16,14 @@
     {@render children()}
   </div>
 {/if}
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
+## Type
+[ToolbarRowWrapperProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L73)
+## Props
+@prop children
+@prop toolbarrawprops
+@prop ...restProps
+-->

@@ -27,7 +27,7 @@
 }</code></pre><p>Learn more about all components from the <a href="https://flowbite-svelte.com/docs/pages/quickstart">Flowbite-Svelte Docs</a>.</p>`;
 </script>
 
-<TextEditor bind:editor={editorInstance} {content} contentprops={{id:'sources-ex'}}>
+<TextEditor bind:editor={editorInstance} {content} contentprops={{ id: 'sources-ex' }}>
   <SourceButtonGroup editor={editorInstance} />
 </TextEditor>
 

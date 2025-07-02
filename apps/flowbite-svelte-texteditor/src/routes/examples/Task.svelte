@@ -22,7 +22,7 @@
       `;
 </script>
 
-<TextEditor bind:editor={editorInstance} {content} contentprops={{id:'task-ex'}}>
+<TextEditor bind:editor={editorInstance} {content} contentprops={{ id: 'task-ex' }}>
   <TaskListButtonGroup editor={editorInstance} />
 </TextEditor>
 

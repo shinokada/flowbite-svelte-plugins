@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.22.0
+
+### Minor Changes
+
+- feat: toc
+
 ## 0.21.3
 
 ### Patch Changes

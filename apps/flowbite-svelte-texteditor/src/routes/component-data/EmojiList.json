@@ -6,7 +6,6 @@
   },
   "props": [
     ["items: initialItems", "[]"],
-    ["command: initialCommand", ""],
-    ["editor", ""]
+    ["command: initialCommand", ""]
   ]
 }

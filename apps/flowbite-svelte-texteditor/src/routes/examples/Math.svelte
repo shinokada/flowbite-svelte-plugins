@@ -35,6 +35,6 @@
         </ul>`;
 </script>
 
-<TextEditor bind:editor={editorInstance} {content} math contentprops={{id:'math-ex'}}>
+<TextEditor bind:editor={editorInstance} {content} math contentprops={{ id: 'math-ex' }}>
   <UndoRedoButtonGroup editor={editorInstance} />
 </TextEditor>

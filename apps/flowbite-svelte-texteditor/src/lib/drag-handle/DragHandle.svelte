@@ -6,19 +6,16 @@
   import { DragHandlePlugin, dragHandlePluginDefaultKey } from '@tiptap/extension-drag-handle';
 
   // Accept editor and draghandleprops as separate props
-  let { editor, draghandleprops = {} }: { 
-    editor: Editor | null, 
-    draghandleprops?: Omit<DragHandleProps, 'editor'> 
+  let {
+    editor,
+    draghandleprops = {}
+  }: {
+    editor: Editor | null;
+    draghandleprops?: Omit<DragHandleProps, 'editor'>;
   } = $props();
 
   // Extract individual props from draghandleprops with defaults
-  const { 
-    class: className = '', 
-    pluginKey = dragHandlePluginDefaultKey, 
-    onNodeChange,
-    ariaLabel = 'Drag to move content',
-    ...restProps 
-  } = draghandleprops;
+  const { class: className = '', pluginKey = dragHandlePluginDefaultKey, onNodeChange, ariaLabel = 'Drag to move content', ...restProps } = draghandleprops;
 
   let dragElement: HTMLDivElement;
   let pluginInstance: any = null;
@@ -66,7 +63,7 @@
 
       pluginInstance = DragHandlePlugin({
         pluginKey,
-        editor, 
+        editor,
         element: dragElement,
         onNodeChange: (data) => {
           // console.log('DragHandle - Node change:', data);

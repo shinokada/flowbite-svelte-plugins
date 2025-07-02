@@ -17,7 +17,7 @@
   const content = '<p>Flowbite-Svelte is an <strong>open-source library of UI components</strong> based on the utility-first Tailwind CSS framework featuring dark mode support, a Figma ...</p>';
 </script>
 
-<TextEditor bind:editor={editorInstance} {content} contentprops={{id:'custom-editor-ex'}}>
+<TextEditor bind:editor={editorInstance} {content} contentprops={{ id: 'custom-editor-ex' }}>
   <GroupCustom editor={editorInstance} />
 </TextEditor>
 

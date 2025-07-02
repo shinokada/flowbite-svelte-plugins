@@ -1,0 +1,8 @@
+{
+  "name": "Toc",
+  "type": {
+    "name": "{ editor: Editor }",
+    "link": null
+  },
+  "props": [["editor", ""]]
+}

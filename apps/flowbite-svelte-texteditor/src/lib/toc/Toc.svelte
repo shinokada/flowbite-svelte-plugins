@@ -9,7 +9,7 @@
 </script>
 
 {#if items.length === 0}
-  <p class="select-none text-gray-500">Start editing to see a table of contents …</p>
+  <p class="text-gray-500 select-none">Start editing to see a table of contents …</p>
 {:else}
   <div class="sidebar">
     <div class="sidebar-options">

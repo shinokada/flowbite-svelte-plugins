@@ -26,7 +26,7 @@
     `;
 </script>
 
-<TextEditor bind:editor={editorInstance} {content} contentprops={{id:'invisible-ex'}}>
+<TextEditor bind:editor={editorInstance} {content} contentprops={{ id: 'invisible-ex' }}>
   <InvisibleButtonGroup editor={editorInstance} />
 </TextEditor>
 

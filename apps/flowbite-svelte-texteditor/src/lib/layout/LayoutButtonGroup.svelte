@@ -20,7 +20,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[LayoutButtonGroupProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L205)
+[LayoutButtonGroupProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L262)
 ## Props
 @prop editor
 @prop showToolbar = true

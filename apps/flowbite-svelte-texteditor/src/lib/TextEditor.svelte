@@ -309,7 +309,7 @@
         <div class="main">
           <div bind:this={editorElement}></div>
           {#if draghandle && editor}
-            <DragHandle {editor} {draghandleprops}/>
+            <DragHandle {editor} {draghandleprops} />
           {/if}
           {#if footer}
             {@render footer()}
@@ -324,7 +324,7 @@
     {:else}
       <div bind:this={editorElement}></div>
       {#if draghandle && editor}
-        <DragHandle {editor} {draghandleprops}/>
+        <DragHandle {editor} {draghandleprops} />
       {/if}
       {#if footer}
         {@render footer()}
@@ -337,7 +337,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[EditorProviderProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L26)
+[EditorProviderProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L31)
 ## Props
 @prop content
 @prop editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none'
@@ -352,8 +352,11 @@
 @prop math = false
 @prop limit
 @prop file
-@prop dragHandle = false
 @prop placeholder = 'Write something ...'
 @prop summary = 'Summary'
 @prop detailsPlaceholder = 'Add details content...'
+@prop draghandle
+@prop draghandleprops
+@prop toc
+@prop contentprops
 -->

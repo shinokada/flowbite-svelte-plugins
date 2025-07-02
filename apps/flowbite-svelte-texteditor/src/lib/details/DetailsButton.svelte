@@ -31,7 +31,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[DetailsButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L107)
+[DetailsButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L164)
 ## Props
 @prop editor
 @prop action

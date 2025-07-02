@@ -76,7 +76,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[InvisibleButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L190)
+[InvisibleButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L247)
 ## Props
 @prop editor
 @prop action

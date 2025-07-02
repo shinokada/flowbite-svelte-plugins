@@ -5,7 +5,7 @@
   let editorInstance = $state<Editor | null>(null);
 </script>
 
-<TextEditor bind:editor={editorInstance} contentprops={{id:'placeholder-ex'}}>
+<TextEditor bind:editor={editorInstance} contentprops={{ id: 'placeholder-ex' }}>
   <ToolbarRowWrapper>
     <UndoRedoButtonGroup editor={editorInstance} />
   </ToolbarRowWrapper>
