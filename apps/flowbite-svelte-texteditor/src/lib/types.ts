@@ -1,7 +1,8 @@
 import type { Editor } from '@tiptap/core';
 import { type ClassValue } from 'clsx';
 import type { Snippet } from 'svelte';
-import type { HTMLButtonAttributes } from 'svelte/elements';
+import type { HTMLButtonAttributes, HTMLAttributes } from 'svelte/elements';
+ import type { DragHandlePluginProps } from '@tiptap/extension-drag-handle';
 
 // TextEditor
 export interface BubbleMenuConfig {
@@ -13,6 +14,7 @@ export interface BubbleMenuConfig {
 }
 
 export interface FloatingMenuConfig {
+  headingsOnly?: boolean;
   showHeadings?: boolean;
   showList?: boolean;
   showCodeBlock?: boolean;
@@ -22,6 +24,9 @@ export interface FloatingMenuConfig {
   showTasks?: boolean;
   showImage?: boolean;
 }
+
+// wrappers
+type WrapperClasses = Record<string, ClassValue>;
 
 export interface EditorProviderProps {
   children?: Snippet;
@@ -39,11 +44,53 @@ export interface EditorProviderProps {
   file?: boolean;
   bubbleMenu?: boolean | BubbleMenuConfig;
   floatingMenu?: boolean | FloatingMenuConfig;
-  dragHandle?: boolean;
   placeholder?: string;
   summary?: string;
   detailsPlaceholder?: string;
+  draghandle?: boolean;
+  draghandleprops?: DragHandleProps;
+  toc?: boolean;
+  contentprops?: ContentProps;
 }
+
+type ContentProps = {
+  containerClass?: ClassValue;
+  contentClass?: ClassValue;
+  id?: string;
+  dataToc?: string;
+}
+export interface ContentWrapperProps extends HTMLAttributes<HTMLDivElement> {
+  children: Snippet;
+  contentprops?: ContentProps;
+}
+
+type ToolbarRawProps = {
+  containerClass?: ClassValue;
+  contentClass?: ClassValue;
+  id?: string;
+  top?: boolean;
+}
+export interface ToolbarRowWrapperProps extends HTMLAttributes<HTMLDivElement>{
+  children: Snippet;
+  toolbarrawprops?: ToolbarRawProps;
+}
+
+export interface EditorWrapperProps extends Omit<HTMLAttributes<HTMLDivElement>, 'class'>{
+  id?: string;
+  children: Snippet;
+  class?: ClassValue;
+}
+
+export interface ToolbarWrapperProps extends Omit<HTMLAttributes<HTMLDivElement>, 'class'>{
+  children: Snippet;
+  class?: ClassValue;
+}
+
+export interface DividerProps extends HTMLAttributes<HTMLDivElement>{
+  divClass?: ClassValue;
+  spanClass?: ClassValue;
+}
+// end of wrappers
 
 export interface EditorBasicProps extends Omit<HTMLButtonAttributes, 'class'> {
   editor: Editor | null;
@@ -63,6 +110,17 @@ export interface BubbleMenuProps extends BubbleMenuConfig {
   editor: Editor | null;
 }
 
+// drag handle
+type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
+
+export type DragHandleProps = (
+  Omit<Optional<DragHandlePluginProps, 'pluginKey'>, 'element'> & {
+    class?: string;
+    onNodeChange?: (data: { node: Node | null; editor: Editor; pos: number }) => void;
+    ariaLabel?: string;
+  }
+) & Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
+  
 // Floating menu
 export interface FloatingMenuProps extends FloatingMenuConfig {
   editor: Editor | null;

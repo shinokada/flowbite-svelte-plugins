@@ -25,6 +25,7 @@ export { default as PlaceholderEx } from './PlaceholderEx.svelte';
 export { default as Sources } from './Sources.svelte';
 export { default as Tables } from './Tables.svelte';
 export { default as Task } from './Task.svelte';
+export { default as TocEx } from './TocEx.svelte';
 export { default as Videos } from './Videos.svelte';
 export { default as UndoRedo } from './UndoRedo.svelte';
 export { default as CustomTextEditor } from './CustomTextEditor.svelte';

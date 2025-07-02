@@ -85,6 +85,9 @@
 <Heading tag="h2" class="my-4">Task</Heading>
 <Examples.Task />
 
+<Heading tag="h2" class="my-4">TocEx</Heading>
+<Examples.TocEx />
+
 <Heading tag="h2" class="my-4">UndoRedo</Heading>
 <Examples.UndoRedo />
 

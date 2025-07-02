@@ -31,7 +31,7 @@
     `;
 </script>
 
-<TextEditor bind:editor={editorInstance} {content}>
+<TextEditor bind:editor={editorInstance} {content} contentprops={{id:'details-ex'}}>
   <DetailsButtonGroup editor={editorInstance} />
 </TextEditor>
 

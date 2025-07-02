@@ -1,17 +1,24 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte';
-  import type { Editor } from '@tiptap/core';
   import type { Node } from '@tiptap/pm/model';
-  import { DragHandlePlugin, dragHandlePluginDefaultKey, type DragHandlePluginProps } from '@tiptap/extension-drag-handle';
+  import type { Editor } from '@tiptap/core';
+  import { type DragHandleProps } from '$lib';
+  import { DragHandlePlugin, dragHandlePluginDefaultKey } from '@tiptap/extension-drag-handle';
 
-  type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
+  // Accept editor and draghandleprops as separate props
+  let { editor, draghandleprops = {} }: { 
+    editor: Editor | null, 
+    draghandleprops?: Omit<DragHandleProps, 'editor'> 
+  } = $props();
 
-  type DragHandleProps = Omit<Optional<DragHandlePluginProps, 'pluginKey'>, 'element'> & {
-    class?: string;
-    onNodeChange?: (data: { node: Node | null; editor: Editor; pos: number }) => void;
-  };
-
-  let { editor, class: className = '', pluginKey = dragHandlePluginDefaultKey, onNodeChange }: DragHandleProps = $props();
+  // Extract individual props from draghandleprops with defaults
+  const { 
+    class: className = '', 
+    pluginKey = dragHandlePluginDefaultKey, 
+    onNodeChange,
+    ariaLabel = 'Drag to move content',
+    ...restProps 
+  } = draghandleprops;
 
   let dragElement: HTMLDivElement;
   let pluginInstance: any = null;
@@ -34,7 +41,7 @@
     if (!editor.view) {
       $inspect('DragHandle onMount - Editor view not ready, waiting...');
       setTimeout(() => {
-        if (editor.view) {
+        if (editor && editor.view) {
           initializePlugin();
         } else {
           console.warn('DragHandle onMount - Editor view still not ready after delay');
@@ -47,6 +54,11 @@
   });
 
   function initializePlugin() {
+    if (!editor) {
+      console.warn('DragHandle - Editor is null, cannot initialize plugin');
+      return;
+    }
+
     try {
       $inspect('DragHandle - Initializing plugin...');
       $inspect('DragHandle - Drag element parent:', dragElement.parentElement);
@@ -54,7 +66,7 @@
 
       pluginInstance = DragHandlePlugin({
         pluginKey,
-        editor,
+        editor, 
         element: dragElement,
         onNodeChange: (data) => {
           // console.log('DragHandle - Node change:', data);
@@ -143,16 +155,4 @@
   }
 </script>
 
-<div bind:this={dragElement} class="drag-handle {className}" aria-label="Drag to move content">⋮⋮</div>
-
-<!--
-@component
-[Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
-## Type
-DragHandleProps
-## Props
-@prop editor
-@prop class: className = ''
-@prop pluginKey = dragHandlePluginDefaultKey
-@prop onNodeChange
--->
+<div bind:this={dragElement} class="drag-handle {className}" aria-label={ariaLabel} {...restProps}>⋮⋮</div>

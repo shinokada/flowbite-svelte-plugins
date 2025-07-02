@@ -1,7 +1,14 @@
+<script module>
+  import { writable } from 'svelte/store';
+  import type { TableOfContentData } from '@tiptap/extension-table-of-contents';
+
+  export const tocItems = writable<TableOfContentData>([]);
+</script>
+
 <script lang="ts">
   import { onDestroy } from 'svelte';
   import { cn } from '$lib';
-  import { type EditorProviderProps, EditorWrapper, ContentWrapper, ToolbarWrapper, SvelteRenderer, BubbleMenu, FloatingMenu, getMenuConfig, DragHandler } from '$lib';
+  import { type EditorProviderProps, EditorWrapper, ContentWrapper, ToolbarWrapper, SvelteRenderer, BubbleMenu, FloatingMenu, getMenuConfig, DragHandle, Toc } from '$lib';
   import { Editor } from '@tiptap/core';
   import type { Extensions } from '@tiptap/core';
   import StarterKit from '@tiptap/starter-kit';
@@ -41,6 +48,7 @@
   import { createMentionSuggestion } from './mention/mentionSuggestion';
   import { BubbleMenuPlugin } from '@tiptap/extension-bubble-menu';
   import { FloatingMenuPlugin } from '@tiptap/extension-floating-menu';
+  import TableOfContents, { getHierarchicalIndexes } from '@tiptap/extension-table-of-contents';
 
   let {
     content,
@@ -56,10 +64,13 @@
     math = false,
     limit,
     file,
-    dragHandle = false,
     placeholder = 'Write something ...',
     summary = 'Summary',
-    detailsPlaceholder = 'Add details content...'
+    detailsPlaceholder = 'Add details content...',
+    draghandle,
+    draghandleprops,
+    toc,
+    contentprops
   }: EditorProviderProps = $props();
 
   let editorElement = $state<HTMLDivElement | null>(null);
@@ -141,7 +152,17 @@
         Youtube
       ];
 
-      // Conditionally add Emoji extension
+      if (toc) {
+        extensions.push(
+          TableOfContents.configure({
+            getIndex: getHierarchicalIndexes,
+            onUpdate(content) {
+              tocItems.set(content);
+            }
+          })
+        );
+      }
+
       if (emoji) {
         extensions.push(
           Emoji.configure({
@@ -282,13 +303,32 @@
     </ToolbarWrapper>
   {/if}
   <!-- Editor container -->
-  <ContentWrapper id={dragHandle ? 'drag-handle-wrapper' : ''}>
-    <div bind:this={editorElement}></div>
-    {#if dragHandle && editor}
-      <DragHandler {editor} />
-    {/if}
-    {#if footer}
-      {@render footer()}
+  <ContentWrapper {contentprops}>
+    {#if toc}
+      <div class="col-group">
+        <div class="main">
+          <div bind:this={editorElement}></div>
+          {#if draghandle && editor}
+            <DragHandle {editor} {draghandleprops}/>
+          {/if}
+          {#if footer}
+            {@render footer()}
+          {/if}
+        </div>
+        {#if editor}
+          <Toc {editor} />
+        {:else}
+          <p class="text-gray-500 select-none">Loading editor...</p>
+        {/if}
+      </div>
+    {:else}
+      <div bind:this={editorElement}></div>
+      {#if draghandle && editor}
+        <DragHandle {editor} {draghandleprops}/>
+      {/if}
+      {#if footer}
+        {@render footer()}
+      {/if}
     {/if}
   </ContentWrapper>
 </EditorWrapper>

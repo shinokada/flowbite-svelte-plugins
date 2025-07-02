@@ -49,7 +49,7 @@
   ];
 </script>
 
-<TextEditor bind:editor={editorInstance} {content} {mentions}>
+<TextEditor bind:editor={editorInstance} {content} {mentions} contentprops={{id:'mention-ex'}}>
   <ToolbarRowWrapper>
     <UndoRedoButtonGroup editor={editorInstance} />
   </ToolbarRowWrapper>

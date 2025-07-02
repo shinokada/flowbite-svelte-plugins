@@ -9,7 +9,7 @@
   </p>`;
 </script>
 
-<TextEditor bind:editor={editorInstance} {content}>
+<TextEditor bind:editor={editorInstance} {content} contentprops={{id:'character-count-ex'}}>
   <UndoRedoButtonGroup editor={editorInstance} />
   {#snippet footer()}
     {#if editorInstance}

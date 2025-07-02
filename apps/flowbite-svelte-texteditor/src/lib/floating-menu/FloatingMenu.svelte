@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { runHeadingCommand, runListCommand, runLayoutsCommand, runTableCommand, runTaskCommand, runImageCommand, runVideoCommand, type FloatingMenuProps } from '$lib';
+  import { runHeadingCommand, runListCommand, runLayoutsCommand, runTableCommand, runTaskCommand, runImageCommand, type FloatingMenuProps } from '$lib';
 
-  let { editor, showHeadings = true, showList = true, showCodeBlock = true, showQuote = true, showHorizontalRule = true, showTable = true, showTasks = true, showImage = true }: FloatingMenuProps = $props();
+  let { editor, headingsOnly = false, showHeadings = true, showList = true, showCodeBlock = true, showQuote = true, showHorizontalRule = true, showTable = true, showTasks = true, showImage = true }: FloatingMenuProps = $props();
 
   let isHeading1Active = $state(false);
   let isHeading2Active = $state(false);
@@ -44,7 +44,7 @@
     <button onclick={() => runHeadingCommand(editor, 3)} class:is-active={isHeading3Active} title="Heading 3"> H3 </button>
   {/if}
 
-  {#if showList}
+  {#if !headingsOnly && showList}
     <button onclick={() => runListCommand(editor, 'bullet')} class:is-active={isBulletListActive} title="Bullet list" aria-label="Bullet list">
       <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={svgPaths['bullet']} />
@@ -57,44 +57,27 @@
     </button>
   {/if}
 
-  {#if showCodeBlock}
+  {#if !headingsOnly && showCodeBlock}
     <button onclick={() => runLayoutsCommand(editor, 'codeblock')} class:is-active={isCodeBlockActive} title="Code Block"> Code </button>
   {/if}
 
-  {#if showQuote}
+  {#if !headingsOnly && showQuote}
     <button onclick={() => runLayoutsCommand(editor, 'blockquote')} class:is-active={isBlockquoteActive} title="Blockquote"> Quote </button>
   {/if}
 
-  {#if showHorizontalRule}
+  {#if !headingsOnly && showHorizontalRule}
     <button onclick={() => runLayoutsCommand(editor, 'hr')} title="Horizontal Rule"> HR </button>
   {/if}
 
-  {#if showTasks}
+  {#if !headingsOnly && showTasks}
     <button onclick={() => runTaskCommand(editor, 'toggle')} title="Task List"> Tasks </button>
   {/if}
 
-  {#if showTable}
+  {#if !headingsOnly && showTable}
     <button onclick={() => runTableCommand(editor, 'table')} title="Insert Table"> Table </button>
   {/if}
 
-  {#if showImage}
+  {#if !headingsOnly && showImage}
     <button onclick={() => runImageCommand(editor, 'basic')} title="Insert Image"> Image </button>
   {/if}
 </div>
-
-<!--
-@component
-[Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
-## Type
-[FloatingMenuProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L67)
-## Props
-@prop editor
-@prop showHeadings = true
-@prop showList = true
-@prop showCodeBlock = true
-@prop showQuote = true
-@prop showHorizontalRule = true
-@prop showTable = true
-@prop showTasks = true
-@prop showImage = true
--->

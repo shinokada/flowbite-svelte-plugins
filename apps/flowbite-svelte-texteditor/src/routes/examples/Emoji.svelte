@@ -41,7 +41,7 @@
       `;
 </script>
 
-<TextEditor bind:editor={editorInstance} {content}>
+<TextEditor bind:editor={editorInstance} {content} contentprops={{id:'emoji-ex'}}>
   <ToolbarRowWrapper>
     <UndoRedoButtonGroup editor={editorInstance} />
   </ToolbarRowWrapper>

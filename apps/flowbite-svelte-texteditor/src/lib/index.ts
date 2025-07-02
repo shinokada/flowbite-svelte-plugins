@@ -2,7 +2,7 @@ export * from './types';
 export * from './utils';
 export * from './editorCommands';
 export { default as TextEditor } from './TextEditor.svelte';
-export { default as Divider } from './Divider.svelte';
+export { default as Divider } from './wrappers/Divider.svelte';
 export { default as SvelteRenderer } from './components/SvelteRenderer';
 
 // wrappers
@@ -25,7 +25,7 @@ export { default as ExportButtonGroup } from './export/ExportButtonGroup.svelte'
 export { default as DetailsButton } from './details/DetailsButton.svelte';
 export { default as DetailsButtonGroup } from './details/DetailsButtonGroup.svelte';
 // drag handler
-export { default as DragHandler } from './drag-handle/DragHandle.svelte';
+export { default as DragHandle } from './drag-handle/DragHandle.svelte';
 // emoji
 export { default as EmojiList } from './emoji/EmojiList.svelte';
 // font
@@ -67,6 +67,8 @@ export { default as VideoButtonGroup } from './video/VideoButtonGroup.svelte';
 // task
 export { default as TaskListButton } from './task/TaskListButton.svelte';
 export { default as TaskListButtonGroup } from './task/TaskListButtonGroup.svelte';
+// toc
+export { default as Toc } from './toc/Toc.svelte';
 // undoredo
 export { default as UndoRedoButtonGroup } from './undo-redo/UndoRedoButtonGroup.svelte';
 export { default as UndoRedo } from './undo-redo/UndoRedo.svelte';

@@ -16,7 +16,7 @@
   }
 
   // Use $props() but make items reactive with $state
-  let { items: initialItems = [], command: initialCommand, editor }: Props = $props();
+  let { items: initialItems = [], command: initialCommand }: Props = $props();
 
   // Create reactive state for items and command
   let items = $state(initialItems);
