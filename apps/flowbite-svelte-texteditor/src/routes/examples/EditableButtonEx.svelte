@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { TextEditor, FormatButtonGroup, UndoRedoButtonGroup, EditableButton } from '$lib';
+  import { TextEditor, AlignmentButtonGroup, FormatButtonGroup, UndoRedoButtonGroup, EditableButton } from '$lib';
   import type { Editor } from '@tiptap/core';
 
   let editorInstance = $state<Editor | null>(null);
@@ -23,8 +23,10 @@ The editable button controls if users can write into the editor. It still allows
   {content} 
   floatingMenu
   bubbleMenu
+  {isEditable}
   contentprops={{ id: 'editable-toggle-ex' }}
 >
+  <AlignmentButtonGroup editor={editorInstance} />
   <FormatButtonGroup editor={editorInstance} />
   <UndoRedoButtonGroup editor={editorInstance} />
   <EditableButton 

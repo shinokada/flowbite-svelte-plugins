@@ -6,9 +6,9 @@
 </script>
 
 <script lang="ts">
-  import { onDestroy } from 'svelte';
+  import { onDestroy, setContext } from 'svelte';
   import { cn } from '$lib';
-  import { type EditorProviderProps, EditorWrapper, ContentWrapper, ToolbarWrapper, SvelteRenderer, BubbleMenu, FloatingMenu, getMenuConfig, DragHandle, Toc } from '$lib';
+  import { type EditorProviderProps, EditorWrapper, ContentWrapper, ToolbarWrapper, SvelteRenderer, BubbleMenu, FloatingMenu, getMenuConfig, DragHandle, Toc, type EditableContext } from '$lib';
   import { Editor } from '@tiptap/core';
   import type { Extensions } from '@tiptap/core';
   import StarterKit from '@tiptap/starter-kit';
@@ -70,8 +70,14 @@
     draghandle,
     draghandleprops,
     toc,
-    contentprops
+    contentprops,
+    isEditable = true
   }: EditorProviderProps = $props();
+
+  const editableContext: EditableContext = {
+    get isEditable() { return isEditable }
+  }
+  setContext('isEditable', editableContext)
 
   let editorElement = $state<HTMLDivElement | null>(null);
   // for bubble menu
@@ -101,6 +107,7 @@
   });
 
   $effect(() => {
+    $inspect('isEdiatble in TextEditor: ', isEditable)
     if (editorElement && !editor) {
       const extensions: Extensions = [
         StarterKit.configure({ codeBlock: false }),

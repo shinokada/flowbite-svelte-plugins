@@ -1,9 +1,15 @@
 <script lang="ts">
+  import { getContext } from 'svelte';
   import { Tooltip } from 'flowbite-svelte';
-  import { runAlignmentCommand, type AlignmentAction, cn, generateButtonId } from '$lib';
-  import { type AlignmentButtonProps } from '$lib/types';
+  import { runAlignmentCommand, type AlignmentAction, cn, generateButtonId, type AlignmentButtonProps, type EditableContext } from '$lib';
 
   let { editor, alignment, tooltipText, ariaLabel, id, class: className }: AlignmentButtonProps = $props();
+
+  const editableContext = getContext<EditableContext>('isEditable')
+  const isEditableCtx = $derived(editableContext?.isEditable ?? true)
+  $effect(()=>{
+    $inspect('isEditableCtx in Alignment: ', isEditableCtx)
+  })
 
   const defaults = {
     left: { tooltip: 'Align left', aria: 'Align left' },
@@ -17,6 +23,8 @@
   const uniqueId = id ?? generateButtonId(`Align${alignment.charAt(0).toUpperCase() + alignment.slice(1)}`);
 
   function handleClick() {
+    if(!isEditableCtx) return;
+    console.log('isEditableCtx', isEditableCtx)
     runAlignmentCommand(editor, alignment as AlignmentAction);
   }
 
@@ -26,6 +34,7 @@
     right: 'M18 6h-8m8 4H6m12 4h-8m8 4H6',
     justify: 'M18 6H6m12 4H6m12 4H6m12 4H6'
   };
+
 </script>
 
 <button onclick={handleClick} id={uniqueId} type="button" class={cn('cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white', className)}>

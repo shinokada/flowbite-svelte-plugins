@@ -121,6 +121,11 @@ export type DragHandleProps = (Omit<Optional<DragHandlePluginProps, 'pluginKey'>
 }) &
   Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
 
+// editable
+export type EditableContext = {
+  isEditable: boolean;
+}
+
 // Floating menu
 export interface FloatingMenuProps extends FloatingMenuConfig {
   editor: Editor | null;
