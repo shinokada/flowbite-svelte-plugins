@@ -31,6 +31,9 @@
 <Heading tag="h2" class="my-4">DragHandleEx</Heading>
 <Examples.DragHandleEx />
 
+<Heading tag="h2" class="my-4">EditableButtonEx</Heading>
+<Examples.EditableButtonEx />
+
 <Heading tag="h2" class="my-4">Emoji</Heading>
 <Examples.Emoji />
 

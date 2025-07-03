@@ -1,6 +1,7 @@
 export * from './types';
 export * from './utils';
 export * from './editorCommands';
+
 export { default as TextEditor } from './TextEditor.svelte';
 export { default as Divider } from './wrappers/Divider.svelte';
 export { default as SvelteRenderer } from './components/SvelteRenderer';
@@ -26,16 +27,18 @@ export { default as DetailsButton } from './details/DetailsButton.svelte';
 export { default as DetailsButtonGroup } from './details/DetailsButtonGroup.svelte';
 // drag handler
 export { default as DragHandle } from './drag-handle/DragHandle.svelte';
+// editable
+export { default as EditableButton } from './editable/EditableButton.svelte';
 // emoji
 export { default as EmojiList } from './emoji/EmojiList.svelte';
+// floating menu
+export { default as FloatingMenu } from './floating-menu/FloatingMenu.svelte';
 // font
 export { default as FontButton } from './font/FontButton.svelte';
 export { default as FontButtonGroup } from './font/FontButtonGroup.svelte';
 // format
 export { default as FormatButton } from './format/FormatButton.svelte';
 export { default as FormatButtonGroup } from './format/FormatButtonGroup.svelte';
-// floating menu
-export { default as FloatingMenu } from './floating-menu/FloatingMenu.svelte';
 // heading
 export { default as HeadingButton } from './heading/HeadingButton.svelte';
 export { default as HeadingButtonGroup } from './heading/HeadingButtonGroup.svelte';

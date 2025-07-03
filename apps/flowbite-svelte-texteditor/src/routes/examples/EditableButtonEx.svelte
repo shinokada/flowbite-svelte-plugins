@@ -1,0 +1,35 @@
+<script lang="ts">
+  import { TextEditor, FormatButtonGroup, UndoRedoButtonGroup, EditableButton } from '$lib';
+  import type { Editor } from '@tiptap/core';
+
+  let editorInstance = $state<Editor | null>(null);
+  let isEditable = $state(true);
+
+  const content = `<p>
+        This is an example of a Medium-like editor. Try toggling the editable state with the button below.
+      </p>
+      <p></p>`;
+
+  function handleEditableToggle(editable: boolean) {
+    isEditable = editable;
+    console.log('Editor is now:', editable ? 'editable' : 'read-only');
+  }
+</script>
+
+The editable button controls if users can write into the editor. It still allows to format
+
+<TextEditor 
+  bind:editor={editorInstance} 
+  {content} 
+  floatingMenu
+  bubbleMenu
+  contentprops={{ id: 'editable-toggle-ex' }}
+>
+  <FormatButtonGroup editor={editorInstance} />
+  <UndoRedoButtonGroup editor={editorInstance} />
+  <EditableButton 
+    editor={editorInstance} 
+    bind:isEditable={isEditable}
+    onToggle={handleEditableToggle}
+  />
+</TextEditor>

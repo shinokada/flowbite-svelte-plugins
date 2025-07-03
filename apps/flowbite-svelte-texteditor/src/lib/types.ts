@@ -51,6 +51,7 @@ export interface EditorProviderProps {
   draghandleprops?: DragHandleProps;
   toc?: boolean;
   contentprops?: ContentProps;
+  isEditable?: boolean;
 }
 
 type ContentProps = {

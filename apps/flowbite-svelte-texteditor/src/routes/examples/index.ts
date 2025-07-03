@@ -10,6 +10,7 @@ export { default as DragHandleEx } from './DragHandleEx.svelte';
 export { default as Emoji } from './Emoji.svelte';
 export { default as Export } from './Export.svelte';
 export { default as FileHandlerEx } from './FileHandlerEx.svelte';
+export { default as EditableButtonEx } from './EditableButtonEx.svelte';
 export { default as FloatingMenuEx } from './FloatingMenuEx.svelte';
 export { default as FloatingMenuEx2 } from './FloatingMenuEx2.svelte';
 export { default as Fonts } from './Fonts.svelte';
