@@ -16,8 +16,6 @@
   }
 </script>
 
-The editable button controls if users can write into the editor. It still allows to format
-
 <TextEditor 
   bind:editor={editorInstance} 
   {content} 

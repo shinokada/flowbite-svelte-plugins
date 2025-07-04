@@ -1,9 +1,11 @@
 <script lang="ts">
   import { Tooltip } from 'flowbite-svelte';
-  import { runLayoutsCommand, cn, generateButtonId } from '$lib';
-  import { type LayoutButtonProps } from '$lib/types';
+  import { runLayoutsCommand, generateButtonId, type LayoutButtonProps, useEditableContext } from '$lib';
 
   let { editor, format, tooltipText, ariaLabel, id, class: className }: LayoutButtonProps = $props();
+
+  const { editableContext, createEditableHandler, getDefaultButtonClass } = useEditableContext();
+  const isEditableCtx = $derived(editableContext?.isEditable ?? true)
 
   const defaults = {
     blockquote: { tooltip: 'Toggle blockquote', aria: 'Blockquote' },
@@ -11,7 +13,10 @@
     hr: { tooltip: 'Toggle horizontal rule', aria: 'Horizontal rule' }
   };
 
-  const finalTooltipText = tooltipText ?? defaults[format].tooltip;
+  const displayTooltipText = $derived.by(() => {
+    const base = tooltipText ?? defaults[format].tooltip;
+    return !isEditableCtx ? `${base} (Editing disabled)` : base;
+  });
   const finalAriaLabel = ariaLabel ?? defaults[format].aria;
   const uniqueId = id ?? generateButtonId(`List${format.charAt(0).toUpperCase() + format.slice(1)}`);
 
@@ -21,12 +26,14 @@
     hr: ['M5 12h14', 'M6 9.5h12m-12 9h12M6 7.5h12m-12 9h12M6 5.5h12m-12 9h12']
   };
 
-  function handleClick() {
+  const handleClick = $derived(createEditableHandler(() => {
     runLayoutsCommand(editor, format);
-  }
+  }, isEditableCtx));
+
+  let btnCls = $derived(getDefaultButtonClass(isEditableCtx, className));
 </script>
 
-<button onclick={handleClick} id={uniqueId} type="button" class={cn('cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white', className)}>
+<button onclick={handleClick} id={uniqueId} type="button" class={btnCls}>
   <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
     {#if typeof svgPaths[format] === 'string'}
       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={svgPaths[format]} />
@@ -38,7 +45,7 @@
   <span class="sr-only">{finalAriaLabel}</span>
 </button>
 
-<Tooltip>{finalTooltipText}</Tooltip>
+<Tooltip>{displayTooltipText}</Tooltip>
 
 <!--
 @component

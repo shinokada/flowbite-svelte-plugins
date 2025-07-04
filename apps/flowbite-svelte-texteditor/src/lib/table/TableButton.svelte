@@ -1,8 +1,11 @@
 <script lang="ts">
   import { Tooltip } from 'flowbite-svelte';
-  import { runTableCommand, cn, generateButtonId, type TableButtonProps } from '$lib';
+  import { runTableCommand, cn, generateButtonId, type TableButtonProps, useEditableContext } from '$lib';
 
   let { editor, action = 'table', tooltipText, id, ariaLabel, class: className }: TableButtonProps = $props();
+
+  const { editableContext, createEditableHandler, getDefaultButtonClass } = useEditableContext();
+  const isEditableCtx = $derived(editableContext?.isEditable ?? true)
 
   const defaults = {
     table: { tooltip: 'Add table', aria: 'Add table' },
@@ -25,13 +28,16 @@
     goToNextCell: { tooltip: 'Go to next cell', aria: 'Go to next cell' }
   };
 
-  const finalTooltipText = tooltipText ?? defaults[action].tooltip;
+  const displayTooltipText = $derived.by(() => {
+    const base = tooltipText ?? defaults[action].tooltip;
+    return !isEditableCtx ? `${base} (Editing disabled)` : base;
+  });
   const finalAriaLabel = ariaLabel ?? defaults[action].aria;
   const uniqueId = id ?? generateButtonId(`Image${action.charAt(0).toUpperCase() + action.slice(1)}`);
 
-  function handleClick() {
+  const handleClick = $derived(createEditableHandler(() => {
     runTableCommand(editor, action);
-  }
+  }, isEditableCtx));
 
   // SVG paths for different formats
   const svgPaths = {
@@ -57,9 +63,11 @@
     goToPreviousCell: 'M3 15.5v3c0 .5523.44772 1 1 1h9.5M3 15.5v-4m0 4h9m-9-4v-5c0-.55228.44772-1 1-1h16c.5523 0 1 .44772 1 1v5H3Zm5 0v8m4-8v8m5.9001-1.0999L16 16.5m0 0 1.9001-1.9001M16 16.5h5',
     goToNextCell: 'M3 15.5v3c0 .5523.44772 1 1 1h9.5M3 15.5v-4m0 4h9m-9-4v-5c0-.55228.44772-1 1-1h16c.5523 0 1 .44772 1 1v5H3Zm5 0v8m4-8v8m7.0999-1.0999L21 16.5m0 0-1.9001-1.9001M21 16.5h-5'
   };
+
+  let btnCls = $derived(getDefaultButtonClass(isEditableCtx, className));
 </script>
 
-<button onclick={handleClick} id={uniqueId} type="button" class={cn('cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white', className)}>
+<button onclick={handleClick} id={uniqueId} type="button" class={btnCls}>
   <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
     {#if typeof svgPaths[action] === 'string'}
       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={svgPaths[action]} />
@@ -70,7 +78,7 @@
   </svg>
   <span class="sr-only">{finalAriaLabel}</span>
 </button>
-<Tooltip>{finalTooltipText}</Tooltip>
+<Tooltip>{displayTooltipText}</Tooltip>
 
 <!--
 @component

@@ -1,10 +1,12 @@
 <script lang="ts">
   import { Tooltip, Modal, Clipboard } from 'flowbite-svelte';
-  import { exportEditorContent, type ExportAction, cn, generateButtonId } from '$lib';
-  import { type ExportButtonProps } from '$lib/types';
+  import { exportEditorContent, type ExportAction, generateButtonId, type ExportButtonProps, useEditableContext } from '$lib';
   import { CheckOutline, ClipboardCleanSolid } from 'flowbite-svelte-icons';
 
   let { editor, format = 'json', tooltipText, ariaLabel, id, class: className }: ExportButtonProps = $props();
+
+  const { editableContext, createEditableHandler, getDefaultButtonClass } = useEditableContext();
+  const isEditableCtx = $derived(editableContext?.isEditable ?? true)
 
   let defaultModal = $state(false);
   let sourceCode = $state('');
@@ -14,14 +16,17 @@
     html: { tooltip: 'Get HTML', aria: 'Get HTML' }
   };
 
-  const finalTooltipText = tooltipText ?? defaults[format].tooltip;
+  const displayTooltipText = $derived.by(() => {
+    const base = tooltipText ?? defaults[format].tooltip;
+    return !isEditableCtx ? `${base} (Editing disabled)` : base;
+  });
   const finalAriaLabel = ariaLabel ?? defaults[format].aria;
   const uniqueId = id ?? generateButtonId(`Align${format.charAt(0).toUpperCase() + format.slice(1)}`);
 
-  function handleClick() {
+  const handleClick = $derived(createEditableHandler(() => {
     defaultModal = true;
     sourceCode = exportEditorContent(editor, format as ExportAction);
-  }
+  }, isEditableCtx));
 
   let value = $state('');
   let success = $state(false);
@@ -32,9 +37,11 @@
       value = codeBlock.textContent || '';
     }
   }
+
+  let btnCls = $derived(getDefaultButtonClass(isEditableCtx, className));
 </script>
 
-<button onclick={handleClick} id={uniqueId} type="button" class={cn('cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white', className)}>
+<button onclick={handleClick} id={uniqueId} type="button" class={btnCls}>
   {#if format === 'json'}
     <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 8v8m0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm6-2a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm0 0h-1a5 5 0 0 1-5-5v-.5" />
@@ -46,7 +53,7 @@
   {/if}
   <span class="sr-only">{finalAriaLabel}</span>
 </button>
-<Tooltip>{finalTooltipText}</Tooltip>
+<Tooltip>{displayTooltipText}</Tooltip>
 
 <Modal title="JSON/HTML data export result" bind:open={defaultModal}>
   <div class="format lg:format-lg dark:format-invert format-blue max-w-none p-4 focus:outline-none md:p-5">

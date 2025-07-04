@@ -35,7 +35,6 @@ export interface EditorProviderProps {
   content?: string;
   editorClass?: string;
   editor?: Editor | null;
-  showSourceButton?: boolean;
   emoji?: boolean;
   class?: ClassValue;
   mentions?: string[];
@@ -283,6 +282,22 @@ export interface ListButtonGroupProps extends GroupFormatProps {
 }
 
 // source
+export   interface InsertHtmlCodeButtonProps {
+  editor: Editor | null;
+  tooltipText?: string;
+  ariaLabel?: string;
+  id?: string;
+  class?: string;
+}
+
+export interface SourceToggleButtonProps {
+  editor: Editor | null;
+  tooltipText?: string;
+  ariaLabel?: string;
+  id?: string;
+  class?: string;
+}
+  
 export interface SourceButtonGroupProps extends GroupFormatProps {
   source?: boolean;
   html?: boolean;

@@ -1,13 +1,18 @@
 <script lang="ts">
   import { Tooltip, Dropdown, DropdownItem } from 'flowbite-svelte';
-  import { runHeadingCommand, cn, generateButtonId } from '$lib';
-  import { type EditorBasicProps, type HeadingLevel } from '$lib/types';
+  import { runHeadingCommand, generateButtonId, type EditorBasicProps, type HeadingLevel, useEditableContext } from '$lib';
 
   let { editor, tooltipText, ariaLabel, id, class: className }: EditorBasicProps = $props();
 
   let isOpen = $state(false);
+  const { editableContext, getDefaultButtonClass } = useEditableContext();
+  const isEditableCtx = $derived(editableContext?.isEditable ?? true)
 
-  const finalTooltipText = tooltipText ?? 'Heading';
+  // const finalTooltipText = tooltipText ?? 'Heading';
+  const displayTooltipText = $derived.by(() => {
+    const base = tooltipText ?? 'Heading';
+    return !isEditableCtx ? `${base} (Editing disabled)` : base;
+  });
   const finalAriaLabel = ariaLabel ?? 'Heading';
   const uniqueId = id ?? generateButtonId('Heading');
 
@@ -22,6 +27,7 @@
   ];
 
   function setHeading(level: HeadingLevel | null) {
+    if(!isEditableCtx) return;
     runHeadingCommand(editor, level);
     isOpen = false;
   }
@@ -39,17 +45,20 @@
   }
 
   const svgPath = 'M3 7h18M3 12h12M3 17h8';
+
+  let btnCls = $derived(getDefaultButtonClass(isEditableCtx, className));
 </script>
 
-<button id={uniqueId} type="button" class={cn('cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white', className)}>
+<button id={uniqueId} type="button" class={btnCls}>
   <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={svgPath} />
   </svg>
   <span class="sr-only">{finalAriaLabel}</span>
 </button>
 
-<Tooltip>{finalTooltipText}</Tooltip>
+<Tooltip>{displayTooltipText}</Tooltip>
 
+{#if isEditableCtx}
 <Dropdown bind:isOpen simple triggeredBy="#{uniqueId}">
   {#each headingOptions as heading}
     <DropdownItem onclick={() => setHeading(heading.value)} style={heading.level > 0 ? getHeadingStyle(heading.level) : ''}>
@@ -57,6 +66,7 @@
     </DropdownItem>
   {/each}
 </Dropdown>
+{/if}
 
 <!--
 @component

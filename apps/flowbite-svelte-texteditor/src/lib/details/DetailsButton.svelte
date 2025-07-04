@@ -1,31 +1,42 @@
 <script lang="ts">
-  import { runDetailsCommand, type DetailsAction, cn, generateButtonId } from '$lib';
-  import { type DetailsButtonProps } from '$lib/types';
+  import { Tooltip } from 'flowbite-svelte';
+  import { runDetailsCommand, type DetailsAction, generateButtonId, type DetailsButtonProps, useEditableContext } from '$lib';
 
-  let { editor, action, ariaLabel, id, class: className }: DetailsButtonProps = $props();
+  let { editor, action, ariaLabel, id, tooltipText, class: className }: DetailsButtonProps = $props();
+
+  const { editableContext, createEditableHandler, getDefaultButtonClass } = useEditableContext();
+  const isEditableCtx = $derived(editableContext?.isEditable ?? true);
 
   const defaults = {
     set: { tooltip: 'Add details', aria: 'Add details' },
     unset: { tooltip: 'Remove details', aria: 'Remove details' }
   };
 
+  const displayTooltipText = $derived.by(() => {
+    const base = tooltipText ?? defaults[action].tooltip;
+    return !isEditableCtx ? `${base} (Editing disabled)` : base;
+  });
   const finalAriaLabel = ariaLabel ?? defaults[action].aria;
   const uniqueId = id ?? generateButtonId(`Details${action.charAt(0).toUpperCase() + action.slice(1)}`);
 
-  function handleClick() {
+  const handleClick = $derived(createEditableHandler(() => {
     runDetailsCommand(editor, action as DetailsAction);
-  }
+  }, isEditableCtx));
 
   const titles = {
     set: 'Set details',
     unset: 'Unset details'
   };
+
+  let btnCls = $derived(getDefaultButtonClass(isEditableCtx, className));
 </script>
 
-<button onclick={handleClick} id={uniqueId} type="button" class={cn('cursor-pointer rounded-sm bg-gray-50 p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-600 dark:hover:bg-gray-600 dark:hover:text-white', className)}>
+<button onclick={handleClick} id={uniqueId} type="button" class={btnCls}>
   <span class="text-sm font-medium">{titles[action]}</span>
   <span class="sr-only">{finalAriaLabel}</span>
 </button>
+
+<Tooltip>{displayTooltipText}</Tooltip>
 
 <!--
 @component

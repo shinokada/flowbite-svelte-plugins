@@ -1,7 +1,10 @@
 <script lang="ts">
-  import { runTaskCommand, cn, generateButtonId } from '$lib';
-  import { type TaskListButtonProps } from '$lib/types';
+  import { runTaskCommand, generateButtonId, useEditableContext, type TaskListButtonProps } from '$lib';
+
   let { editor, action, ariaLabel, id, class: className }: TaskListButtonProps = $props();
+
+  const { editableContext, createEditableHandler, getDefaultButtonClass } = useEditableContext();
+  const isEditableCtx = $derived(editableContext?.isEditable ?? true)
 
   const defaults = {
     toggle: { tooltip: 'Toggle task list', aria: 'Toggle task list' },
@@ -10,12 +13,15 @@
     lift: { tooltip: 'Lift list item', aria: 'Lift list item' }
   };
 
-  const finalAriaLabel = ariaLabel ?? defaults[action].aria;
+  const displayTooltipText = $derived.by(() => {
+    const base = ariaLabel ?? defaults[action].aria;
+    return !isEditableCtx ? `${base} (Editing disabled)` : base;
+  });
   const uniqueId = id ?? generateButtonId(`TaskList${action.charAt(0).toUpperCase() + action.slice(1)}`);
 
-  function handleClick() {
+  const handleClick = $derived(createEditableHandler(() => {
     runTaskCommand(editor, action);
-  }
+  }, isEditableCtx));
 
   const titles = {
     toggle: 'Toggle task list',
@@ -23,11 +29,13 @@
     sink: 'Sink list item',
     lift: 'Lift list item'
   };
+  
+  let btnCls = $derived(getDefaultButtonClass(isEditableCtx, className));
 </script>
 
-<button onclick={handleClick} id={uniqueId} type="button" class={cn('cursor-pointer rounded-sm bg-gray-50 p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 disabled:cursor-not-allowed  disabled:opacity-50 dark:text-gray-600 dark:hover:bg-gray-600 dark:hover:text-white', className)}>
+<button onclick={handleClick} id={uniqueId} type="button" class={btnCls}>
   <span class="text-sm font-medium">{titles[action]}</span>
-  <span class="sr-only">{finalAriaLabel}</span>
+  <span class="sr-only">{displayTooltipText}</span>
 </button>
 
 <!--

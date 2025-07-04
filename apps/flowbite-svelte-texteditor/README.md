@@ -46,7 +46,7 @@ pnpm i -D @flowbite-svelte-plugins/texteditor
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/google-dark.min.css" />
 </svelte:head>
 
-<TextEditor bind:editor={editorInstance} {content} showSourceButton={true}>
+<TextEditor bind:editor={editorInstance} {content}>
   <ToolbarRowWrapper>
     <FormatButtonGroup editor={editorInstance} />
     <Divider />

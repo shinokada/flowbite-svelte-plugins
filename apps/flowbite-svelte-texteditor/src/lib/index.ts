@@ -1,6 +1,7 @@
 export * from './types';
 export * from './utils';
 export * from './editorCommands';
+export * from './useEditableContext.svelte';
 
 export { default as TextEditor } from './TextEditor.svelte';
 export { default as Divider } from './wrappers/Divider.svelte';

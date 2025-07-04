@@ -1,20 +1,19 @@
 <script lang="ts">
   import { Tooltip, Modal } from 'flowbite-svelte';
-  import { cn, generateButtonId } from '$lib';
-  import type { Editor } from '@tiptap/core';
+  import { generateButtonId, type InsertHtmlCodeButtonProps, useEditableContext } from '$lib';
 
-  interface InsertHtmlCodeButtonProps {
-    editor: Editor | null;
-    tooltipText?: string;
-    ariaLabel?: string;
-    id?: string;
-    class?: string;
-  }
+  let { editor, tooltipText, ariaLabel = 'Insert HTML Code Block', id, class: className }: InsertHtmlCodeButtonProps = $props();
 
-  let { editor, tooltipText = 'Insert HTML Code Block', ariaLabel = 'Insert HTML Code Block', id, class: className }: InsertHtmlCodeButtonProps = $props();
+  const { editableContext, createEditableHandler, getDefaultButtonClass } = useEditableContext();
+  const isEditableCtx = $derived(editableContext?.isEditable ?? true)
 
   let showModal = $state(false);
   let htmlInput = $state('');
+
+  const displayTooltipText = $derived.by(() => {
+    const base = tooltipText ?? 'Insert HTML Code Block';
+    return !isEditableCtx ? `${base} (Editing disabled)` : base;
+  });
 
   const uniqueId = id ?? generateButtonId('InsertHtmlCode');
 
@@ -22,10 +21,10 @@
     return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
   }
 
-  function openModal() {
+  const handleClick = $derived(createEditableHandler(() => {
     htmlInput = '';
     showModal = true;
-  }
+  }, isEditableCtx));
 
   function insertHtmlCode() {
     if (!editor || !htmlInput.trim()) return;
@@ -43,18 +42,21 @@
     showModal = false;
     htmlInput = '';
   }
+
+  let btnCls = $derived(getDefaultButtonClass(isEditableCtx, className));
 </script>
 
-<button onclick={openModal} id={uniqueId} type="button" class={cn('cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white', className)}>
+<button onclick={handleClick} id={uniqueId} type="button" class={btnCls}>
   <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
     <path d="M8.5 6L6 8.5 8.5 11l1.4-1.4L8.2 8.5l1.7-1.1L8.5 6zm7 0l-1.4 1.5L15.8 8.5l-1.7 1.1L15.5 11L18 8.5 15.5 6z" />
     <path d="M3 3v18h18V3H3zm16 16H5V5h14v14z" />
   </svg>
   <span class="sr-only">{ariaLabel}</span>
 </button>
-<Tooltip>{tooltipText}</Tooltip>
+<Tooltip>{displayTooltipText}</Tooltip>
 
-<Modal title="Insert HTML Code Block" bind:open={showModal} autoclose={false} size="lg">
+{#if isEditableCtx}
+<Modal title="Insert HTML Code Block" bind:open={showModal} autoclose={false} size="md">
   <div class="space-y-4">
     <div>
       <label for="html-input" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> HTML Code: </label>
@@ -87,6 +89,7 @@
     </div>
   {/snippet}
 </Modal>
+{/if}
 
 <!--
 @component

@@ -1,27 +1,26 @@
 <script lang="ts">
   import { Tooltip, Modal } from 'flowbite-svelte';
-  import { cn, generateButtonId } from '$lib';
-  import type { Editor } from '@tiptap/core';
+  import { generateButtonId, type SourceToggleButtonProps, useEditableContext } from '$lib';
 
-  interface SourceToggleButtonProps {
-    editor: Editor | null;
-    tooltipText?: string;
-    ariaLabel?: string;
-    id?: string;
-    class?: string;
-  }
+  let { editor, tooltipText, ariaLabel = 'Toggle Source View', id, class: className }: SourceToggleButtonProps = $props();
 
-  let { editor, tooltipText = 'Toggle Source View', ariaLabel = 'Toggle Source View', id, class: className }: SourceToggleButtonProps = $props();
+  const { editableContext, getDefaultButtonClass } = useEditableContext();
+  const isEditableCtx = $derived(editableContext?.isEditable ?? true)
 
   let isSourceView = $state(false);
   let sourceContent = $state('');
   let sourceError = $state('');
   let showModal = $state(false);
 
+  const displayTooltipText = $derived.by(() => {
+    const base = tooltipText ?? 'Toggle Source View';
+    return !isEditableCtx ? `${base} (Editing disabled)` : base;
+  });
+
   const uniqueId = id ?? generateButtonId('SourceToggle');
 
   function toggleSourceView() {
-    if (!editor) return;
+    if(!isEditableCtx || !editor) return;
 
     if (isSourceView) {
       // Switch back to visual editor
@@ -67,22 +66,25 @@
     }
     showModal = false;
   }
+
+  let btnCls = $derived(getDefaultButtonClass(isEditableCtx, className));
 </script>
 
 <button
   onclick={toggleSourceView}
   id={uniqueId}
   type="button"
-  class={cn('cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white', isSourceView ? 'text-gray-900 dark:bg-gray-500 dark:text-white' : '', className)}
+  class={btnCls}
 >
   <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1z" />
   </svg>
   <span class="sr-only">{ariaLabel}</span>
 </button>
-<Tooltip>{tooltipText}</Tooltip>
+<Tooltip>{displayTooltipText}</Tooltip>
 
-<Modal title="Edit HTML Source" bind:open={showModal} autoclose={false} size="xl">
+{#if isEditableCtx}
+<Modal title="Edit HTML Source" bind:open={showModal} autoclose={false} size="md">
   <div class="space-y-4">
     <div class="relative">
       <textarea bind:value={sourceContent} oninput={handleSourceInput} class="focus:ring-primary-500 h-96 w-full resize-y rounded-md border p-4 font-mono text-sm focus:ring-1 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-white" placeholder="Edit HTML source code..."></textarea>
@@ -110,6 +112,7 @@
     </div>
   {/snippet}
 </Modal>
+{/if}
 
 <!--
 @component

@@ -1,11 +1,10 @@
 <script lang="ts">
   import { Tooltip, Modal, Label, Input, Button } from 'flowbite-svelte';
-  import { runImageCommand, cn, generateButtonId } from '$lib';
-  import { type ImageButtonsProps } from '$lib/types';
+  import { runImageCommand, generateButtonId, type ImageButtonsProps, useEditableContext } from '$lib';
 
   let { editor, format = 'basic', tooltipText, ariaLabel, id, imageOptions = { src: 'https://placehold.co/600x400', alt: 'image alt', title: 'image title' }, onAdvancedClick, class: className, ...restProps }: ImageButtonsProps = $props();
 
-  // let { src: imageUrl = 'https://placehold.co/600x400', alt: imageAlt, title: imageTitle } = $derived(imageOptions);
+  const { editableContext, createEditableHandler, getDefaultButtonClass } = useEditableContext();  const isEditableCtx = $derived(editableContext?.isEditable ?? true)
 
   let defaultModal = $state(false);
 
@@ -14,11 +13,14 @@
     advanced: { tooltip: 'Image with settings', aria: 'Add image with settings' }
   };
 
-  const finalTooltipText = tooltipText ?? defaults[format].tooltip;
+  const displayTooltipText = $derived.by(() => {
+    const base = tooltipText ?? defaults[format].tooltip;
+    return !isEditableCtx ? `${base} (Editing disabled)` : base;
+  });
   const finalAriaLabel = ariaLabel ?? defaults[format].aria;
   const uniqueId = id ?? generateButtonId(`Image${format.charAt(0).toUpperCase() + format.slice(1)}`);
 
-  function handleClick() {
+  const handleClick = $derived(createEditableHandler(() => {
     if (format === 'basic') {
       if (imageOptions.src) {
         runImageCommand(editor, 'basic', { src: imageOptions.src });
@@ -26,7 +28,7 @@
     } else {
       defaultModal = true;
     }
-  }
+  }, isEditableCtx));
 
   const svgPaths = {
     basic: [
@@ -47,9 +49,11 @@
     imageOptions.alt = '';
     imageOptions.title = '';
   }
+
+  let btnCls = $derived(getDefaultButtonClass(isEditableCtx, className));
 </script>
 
-<button onclick={handleClick} {...restProps} id={uniqueId} type="button" class={cn('cursor-pointer rounded-sm p-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white', className)}>
+<button onclick={handleClick} {...restProps} id={uniqueId} type="button" class={btnCls}>
   <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
     {#if typeof svgPaths[format] === 'string'}
       <path fill-rule="evenodd" d={svgPaths[format]} clip-rule="evenodd" />
@@ -60,8 +64,9 @@
   </svg>
   <span class="sr-only">{finalAriaLabel}</span>
 </button>
-<Tooltip>{finalTooltipText}</Tooltip>
+<Tooltip>{displayTooltipText}</Tooltip>
 
+{#if isEditableCtx}
 <Modal title="Insert advanced image" bind:open={defaultModal} autoclose size="xs">
   <form class="flex flex-col space-y-6" onsubmit={handleSubmit}>
     <Label class="space-y-2">
@@ -79,6 +84,7 @@
     <Button type="submit" class="w-full">Add image</Button>
   </form>
 </Modal>
+{/if}
 
 <!--
 @component
