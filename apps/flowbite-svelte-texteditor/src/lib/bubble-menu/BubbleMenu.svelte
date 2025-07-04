@@ -1,8 +1,10 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import { runFormatCommand, type BubbleMenuProps } from '$lib';
 
   let { editor, showUnderline = true, showHighlight = true, showBold = true, showItalic = true, showStrike = true }: BubbleMenuProps = $props();
 
+  let bubbleMenuEl: HTMLDivElement | null = null;
   let isBoldActive = $state(false);
   let isItalicActive = $state(false);
   let isStrikeActive = $state(false);
@@ -29,9 +31,23 @@
       editor.off('transaction', update);
     };
   });
+
+  onMount(() => {
+    if (!bubbleMenuEl) return;
+
+    const stop: EventListener = e => e.preventDefault();
+
+    bubbleMenuEl.addEventListener('pointerdown', stop, { passive: false });
+    bubbleMenuEl.addEventListener('touchstart', stop, { passive: false });
+
+    return () => {
+      bubbleMenuEl?.removeEventListener('pointerdown', stop);
+      bubbleMenuEl?.removeEventListener('touchstart', stop);
+    };
+  });
 </script>
 
-<div class="bubble-menu">
+<div bind:this={bubbleMenuEl} class="bubble-menu">
   {#if showBold}
     <button onclick={() => runFormatCommand(editor, 'bold')} class:is-active={isBoldActive}> Bold </button>
   {/if}
