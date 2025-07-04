@@ -33,17 +33,35 @@
   });
 
   onMount(() => {
-    if (!bubbleMenuEl) return;
-
-    const stop: EventListener = e => e.preventDefault();
+    if (!bubbleMenuEl || !editor) return;
+    const stop: EventListener = (e) => e.preventDefault();
 
     bubbleMenuEl.addEventListener('pointerdown', stop, { passive: false });
     bubbleMenuEl.addEventListener('touchstart', stop, { passive: false });
 
-    return () => {
-      bubbleMenuEl?.removeEventListener('pointerdown', stop);
-      bubbleMenuEl?.removeEventListener('touchstart', stop);
-    };
+    // Method 1: Prevent context menu on the editor's DOM element
+    const editorElement = editor.view.dom;
+    if (editorElement) {
+      // Prevent context menu (right-click menu and long-press menu on mobile)
+      editorElement.addEventListener('contextmenu', stop, { passive: false });
+
+      // Prevent selection start on mobile devices
+      editorElement.addEventListener('selectstart', stop, { passive: false });
+
+      // Additional mobile-specific events
+      editorElement.addEventListener(
+        'touchstart',
+        (e) => {
+          // Only prevent if it's a long press (you might want to adjust this logic)
+          // This prevents the mobile selection popup while still allowing scrolling
+          if (e.touches.length === 1) {
+            // You can add additional logic here to detect long press
+            // For now, we'll let touchstart through but prevent contextmenu
+          }
+        },
+        { passive: true }
+      );
+    }
   });
 </script>
 
