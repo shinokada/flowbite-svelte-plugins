@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { TextEditor, AlignmentButtonGroup, FormatButtonGroup, UndoRedoButtonGroup, EditableButton } from '$lib';
+  import { TextEditor, AlignmentButtonGroup, HeadingButtonGroup, UndoRedoButtonGroup, EditableButton } from '$lib';
   import type { Editor } from '@tiptap/core';
 
   let editorInstance = $state<Editor | null>(null);
@@ -17,8 +17,8 @@
 </script>
 
 <TextEditor bind:editor={editorInstance} {content} floatingMenu bubbleMenu {isEditable} contentprops={{ id: 'editable-toggle-ex' }}>
-  <AlignmentButtonGroup editor={editorInstance} />
-  <FormatButtonGroup editor={editorInstance} />
-  <UndoRedoButtonGroup editor={editorInstance} />
   <EditableButton editor={editorInstance} bind:isEditable onToggle={handleEditableToggle} />
+  <AlignmentButtonGroup editor={editorInstance} />
+  <HeadingButtonGroup editor={editorInstance} />
+  <UndoRedoButtonGroup editor={editorInstance} />
 </TextEditor>

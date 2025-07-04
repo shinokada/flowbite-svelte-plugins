@@ -1,4 +1,4 @@
-import type { Editor } from '@tiptap/core';
+import type { Editor, FocusPosition } from '@tiptap/core';
 import { type ClassValue } from 'clsx';
 import type { Snippet } from 'svelte';
 import type { HTMLButtonAttributes, HTMLAttributes } from 'svelte/elements';
@@ -25,9 +25,7 @@ export interface FloatingMenuConfig {
   showImage?: boolean;
 }
 
-// wrappers
-type WrapperClasses = Record<string, ClassValue>;
-
+// TextEditor
 export interface EditorProviderProps {
   children?: Snippet;
   footer?: Snippet;
@@ -51,6 +49,7 @@ export interface EditorProviderProps {
   toc?: boolean;
   contentprops?: ContentProps;
   isEditable?: boolean;
+  autofocusPosition?: FocusPosition; 
 }
 
 type ContentProps = {
@@ -59,6 +58,8 @@ type ContentProps = {
   id?: string;
   dataToc?: string;
 };
+
+// wrappers
 export interface ContentWrapperProps extends HTMLAttributes<HTMLDivElement> {
   children: Snippet;
   contentprops?: ContentProps;

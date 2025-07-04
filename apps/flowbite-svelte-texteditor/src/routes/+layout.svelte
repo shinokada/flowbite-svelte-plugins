@@ -4,6 +4,6 @@
   let { children } = $props();
 </script>
 
-<div class="mx-auto max-w-5xl p-8">
+<div class="mx-auto max-w-5xl p-16">
   {@render children()}
 </div>

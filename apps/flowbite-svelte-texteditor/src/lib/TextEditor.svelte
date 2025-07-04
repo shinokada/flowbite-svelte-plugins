@@ -71,7 +71,8 @@
     draghandleprops,
     toc,
     contentprops,
-    isEditable = true
+    isEditable = true,
+    autofocusPosition = false
   }: EditorProviderProps = $props();
 
   const editableContext: EditableContext = {
@@ -240,6 +241,7 @@
       editor = new Editor({
         element: editorElement,
         extensions,
+        autofocus: autofocusPosition,
         content,
         editorProps: {
           attributes: {

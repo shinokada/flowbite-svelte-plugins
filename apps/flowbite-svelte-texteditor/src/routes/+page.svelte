@@ -10,11 +10,14 @@
 <DarkMode />
 <Heading tag="h1" class="my-8">@flowbite-svelte-plugins/texteditor</Heading>
 
-<Heading tag="h2" class="my-4">New default Text editor</Heading>
-<Examples.DefaultTextEditor />
+<Heading tag="h2" class="my-4">Full Featured Texteditor</Heading>
+<Examples.FullFeaturedTexteditor />
 
 <Heading tag="h2" class="my-4">Alignments</Heading>
 <Examples.Alignments />
+
+<Heading tag="h2" class="my-4">AutoFocus</Heading>
+<Examples.AutoFocus />
 
 <Heading tag="h2" class="my-4">BubbleMenuEx</Heading>
 <Examples.BubbleMenuEx />
