@@ -95,18 +95,6 @@
     box-shadow: var(--shadow);
     display: flex;
     padding: 0.2rem;
-    
-    /* Prevent text selection on the bubble menu itself */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    
-    /* Prevent touch callout on iOS */
-    -webkit-touch-callout: none;
-    
-    /* Prevent highlighting */
-    -webkit-tap-highlight-color: transparent;
   }
 
   .bubble-menu button {
