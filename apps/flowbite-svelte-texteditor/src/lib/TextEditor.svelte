@@ -348,7 +348,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[EditorProviderProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L31)
+[EditorProviderProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L29)
 ## Props
 @prop content
 @prop editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none'
@@ -371,4 +371,5 @@
 @prop toc
 @prop contentprops
 @prop isEditable = true
+@prop autofocusPosition = false
 -->

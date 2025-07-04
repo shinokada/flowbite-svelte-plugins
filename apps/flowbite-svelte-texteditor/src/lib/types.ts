@@ -49,7 +49,7 @@ export interface EditorProviderProps {
   toc?: boolean;
   contentprops?: ContentProps;
   isEditable?: boolean;
-  autofocusPosition?: FocusPosition; 
+  autofocusPosition?: FocusPosition;
 }
 
 type ContentProps = {

@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.23.1
+
+### Patch Changes
+
+- feat: add autofocusPosition prop to TextEditor'
+
 ## 0.23.0
 
 ### Minor Changes
