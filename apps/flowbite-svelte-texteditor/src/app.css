@@ -285,51 +285,51 @@
   }
 
   /* drag handle */
-  [id^="drag-handle-"] ::selection {
+  [id^='drag-handle-'] ::selection {
     background-color: #70cff850;
   }
 
-  [id^="drag-handle-"] .ProseMirror {
+  [id^='drag-handle-'] .ProseMirror {
     padding: 1rem 1rem 1rem 0;
     position: relative;
   }
 
-  [id^="drag-handle-"] .ProseMirror * {
+  [id^='drag-handle-'] .ProseMirror * {
     margin-top: 0.75em;
   }
 
-  [id^="drag-handle-"] .ProseMirror > * {
+  [id^='drag-handle-'] .ProseMirror > * {
     margin-left: 3rem;
   }
 
-  [id^="drag-handle-"] .ProseMirror .ProseMirror-widget * {
+  [id^='drag-handle-'] .ProseMirror .ProseMirror-widget * {
     margin-top: auto;
   }
 
-  [id^="drag-handle-"] .ProseMirror ul,
-  [id^="drag-handle-"] .ProseMirror ol {
+  [id^='drag-handle-'] .ProseMirror ul,
+  [id^='drag-handle-'] .ProseMirror ol {
     padding: 0 1rem;
   }
 
-  [id^="drag-handle-"] .ProseMirror-noderangeselection *::selection {
+  [id^='drag-handle-'] .ProseMirror-noderangeselection *::selection {
     background: transparent;
   }
 
-  [id^="drag-handle-"] .ProseMirror-hideselection *::selection {
+  [id^='drag-handle-'] .ProseMirror-hideselection *::selection {
     background-color: #70cff850 !important;
   }
 
-  [id^="drag-handle-"] .ProseMirror-noderangeselection * {
+  [id^='drag-handle-'] .ProseMirror-noderangeselection * {
     caret-color: transparent;
   }
 
-  [id^="drag-handle-"] .ProseMirror-selectednode,
-  [id^="drag-handle-"] .ProseMirror-selectednoderange {
+  [id^='drag-handle-'] .ProseMirror-selectednode,
+  [id^='drag-handle-'] .ProseMirror-selectednoderange {
     position: relative;
   }
 
-  [id^="drag-handle-"] .ProseMirror-selectednode::before,
-  [id^="drag-handle-"] .ProseMirror-selectednoderange::before {
+  [id^='drag-handle-'] .ProseMirror-selectednode::before,
+  [id^='drag-handle-'] .ProseMirror-selectednoderange::before {
     position: absolute;
     pointer-events: none;
     z-index: -1;
@@ -342,7 +342,7 @@
     border-radius: 0.2rem;
   }
 
-  [id^="drag-handle-"] .drag-handle {
+  [id^='drag-handle-'] .drag-handle {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -361,7 +361,7 @@
     pointer-events: auto !important;
   }
 
-  [id^="drag-handle-"] .drag-handle:hover {
+  [id^='drag-handle-'] .drag-handle:hover {
     transform: scale(1.1) !important;
   }
 
@@ -483,11 +483,9 @@
     top: 1.5rem;
   }
 
-  [id^="drag-handle-"] [data-type='detailsContent'].is-empty::before {
+  [id^='drag-handle-'] [data-type='detailsContent'].is-empty::before {
     top: 0.5rem;
   }
-
-
 
   /* Table-specific styling */
   .tiptap table {

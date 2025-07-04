@@ -104,7 +104,7 @@
   <ToolbarRowWrapper toolbarrawprops={{ top: false }}>
     <TaskListButtonGroup editor={editorInstance} />
   </ToolbarRowWrapper>
-  
+
   <ToolbarRowWrapper toolbarrawprops={{ top: false }}>
     <TableButtonGroup1 editor={editorInstance} />
     <TableButtonGroup2 editor={editorInstance} />

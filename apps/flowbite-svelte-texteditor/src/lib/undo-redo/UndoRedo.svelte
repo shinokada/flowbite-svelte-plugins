@@ -1,15 +1,17 @@
 <script lang="ts">
   import { Tooltip } from 'flowbite-svelte';
-  import { runUndoRedoCommand, cn, type UndoRedoProps, generateButtonId,  useEditableContext } from '$lib';
+  import { runUndoRedoCommand, cn, type UndoRedoProps, generateButtonId, useEditableContext } from '$lib';
 
   let { editor, action, class: className, iconClass, ...restProps }: UndoRedoProps = $props();
 
   const { editableContext, createEditableHandler, getDefaultButtonClass } = useEditableContext();
-  const isEditableCtx = $derived(editableContext?.isEditable ?? true)
+  const isEditableCtx = $derived(editableContext?.isEditable ?? true);
 
-  const handleClick = $derived(createEditableHandler(() => {
-    runUndoRedoCommand(editor, action);
-  }, isEditableCtx));
+  const handleClick = $derived(
+    createEditableHandler(() => {
+      runUndoRedoCommand(editor, action);
+    }, isEditableCtx)
+  );
 
   const config = {
     undo: {
@@ -46,11 +48,11 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[UndoRedoProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L343)
+[UndoRedoProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L364)
 ## Props
 @prop editor
 @prop action
-@prop buttonClass
+@prop class: className
 @prop iconClass
 @prop ...restProps
 -->

@@ -2,12 +2,12 @@
   "name": "UndoRedo",
   "type": {
     "name": "UndoRedoProps",
-    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L343"
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L364"
   },
   "props": [
     ["editor", ""],
     ["action", ""],
-    ["buttonClass", ""],
+    ["class: className", ""],
     ["iconClass", ""]
   ]
 }

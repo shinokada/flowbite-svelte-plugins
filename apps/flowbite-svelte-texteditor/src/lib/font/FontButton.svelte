@@ -8,7 +8,7 @@
   let isOpen = $state(false);
 
   const { editableContext, createEditableHandler, getDefaultButtonClass } = useEditableContext();
-  const isEditableCtx = $derived(editableContext?.isEditable ?? true)
+  const isEditableCtx = $derived(editableContext?.isEditable ?? true);
 
   const defaults = {
     fontFamily: { tooltip: 'Font family', aria: 'Font family' },
@@ -103,50 +103,50 @@
 <Tooltip>{displayTooltipText}</Tooltip>
 
 {#if isEditableCtx}
-<Dropdown bind:isOpen simple triggeredBy="#{uniqueId}">
-  {#if format === 'fontFamily'}
-    {#each fontFamilies as font}
-      <DropdownItem onclick={() => setFontFamily(editor, font.value)} style="font-family: {font.value};">
-        {font.name}
-      </DropdownItem>
-    {/each}
-  {:else if format === 'fontSize'}
-    {#each fontSizes as font}
-      <DropdownItem onclick={() => setFontSize(editor, font.value)} style="font-size: {font.value};">
-        {font.name}
-      </DropdownItem>
-    {/each}
-    <DropdownItem onclick={() => removeFontSizeFormatting(editor)}>Remove formatting</DropdownItem>
-  {:else if format === 'textColor'}
-    <div class="p-2">
-      <div class="group mb-3 grid grid-cols-6 items-center gap-2 rounded-lg p-1.5 hover:bg-gray-100 dark:hover:bg-gray-600">
-        <input
-          type="color"
-          id="color"
-          bind:value={colorValue}
-          onchange={() => setTextColor(editor, colorValue)}
-          class="col-span-3 h-8 w-full rounded-md border border-gray-200 bg-gray-50 p-px px-1 group-hover:bg-gray-50 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-700 dark:group-hover:bg-gray-700"
-        />
-        <label for="color" class="col-span-3 text-sm font-medium text-gray-500 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white">Pick a color</label>
+  <Dropdown bind:isOpen simple triggeredBy="#{uniqueId}">
+    {#if format === 'fontFamily'}
+      {#each fontFamilies as font}
+        <DropdownItem onclick={() => setFontFamily(editor, font.value)} style="font-family: {font.value};">
+          {font.name}
+        </DropdownItem>
+      {/each}
+    {:else if format === 'fontSize'}
+      {#each fontSizes as font}
+        <DropdownItem onclick={() => setFontSize(editor, font.value)} style="font-size: {font.value};">
+          {font.name}
+        </DropdownItem>
+      {/each}
+      <DropdownItem onclick={() => removeFontSizeFormatting(editor)}>Remove formatting</DropdownItem>
+    {:else if format === 'textColor'}
+      <div class="p-2">
+        <div class="group mb-3 grid grid-cols-6 items-center gap-2 rounded-lg p-1.5 hover:bg-gray-100 dark:hover:bg-gray-600">
+          <input
+            type="color"
+            id="color"
+            bind:value={colorValue}
+            onchange={() => setTextColor(editor, colorValue)}
+            class="col-span-3 h-8 w-full rounded-md border border-gray-200 bg-gray-50 p-px px-1 group-hover:bg-gray-50 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-700 dark:group-hover:bg-gray-700"
+          />
+          <label for="color" class="col-span-3 text-sm font-medium text-gray-500 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white">Pick a color</label>
+        </div>
+        <div class="mb-3 grid grid-cols-6 gap-1">
+          {#each textColors as color}
+            <button type="button" onclick={() => setTextColor(editor, color.value)} style="background-color: {color.value}" class="h-6 w-6 rounded-md transition-transform duration-150 hover:scale-110" title={color.name}>
+              <span class="sr-only">{color.name}</span>
+            </button>
+          {/each}
+        </div>
+        <DropdownItem onclick={() => removeTextColorFormatting(editor)} class="text-center">Remove color</DropdownItem>
       </div>
-      <div class="mb-3 grid grid-cols-6 gap-1">
-        {#each textColors as color}
-          <button type="button" onclick={() => setTextColor(editor, color.value)} style="background-color: {color.value}" class="h-6 w-6 rounded-md transition-transform duration-150 hover:scale-110" title={color.name}>
-            <span class="sr-only">{color.name}</span>
-          </button>
-        {/each}
-      </div>
-      <DropdownItem onclick={() => removeTextColorFormatting(editor)} class="text-center">Remove color</DropdownItem>
-    </div>
-  {/if}
-</Dropdown>
+    {/if}
+  </Dropdown>
 {/if}
 
 <!--
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[FontButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L186)
+[FontButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L191)
 ## Props
 @prop editor
 @prop format

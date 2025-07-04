@@ -1,0 +1,17 @@
+{
+  "name": "EditableButton",
+  "type": {
+    "name": "EditableButtonProps",
+    "link": null
+  },
+  "props": [
+    ["editor", ""],
+    ["lockEditor", "'Lock editor'"],
+    ["unlockEditor", "'Unlock editor'"],
+    ["ariaLabel", "'Toggle editor editable state'"],
+    ["id", ""],
+    ["class: className", ""],
+    ["isEditable", "$bindable(true)"],
+    ["onToggle", ""]
+  ]
+}

@@ -5,7 +5,7 @@
   let { editor, action = 'table', tooltipText, id, ariaLabel, class: className }: TableButtonProps = $props();
 
   const { editableContext, createEditableHandler, getDefaultButtonClass } = useEditableContext();
-  const isEditableCtx = $derived(editableContext?.isEditable ?? true)
+  const isEditableCtx = $derived(editableContext?.isEditable ?? true);
 
   const defaults = {
     table: { tooltip: 'Add table', aria: 'Add table' },
@@ -35,9 +35,11 @@
   const finalAriaLabel = ariaLabel ?? defaults[action].aria;
   const uniqueId = id ?? generateButtonId(`Image${action.charAt(0).toUpperCase() + action.slice(1)}`);
 
-  const handleClick = $derived(createEditableHandler(() => {
-    runTableCommand(editor, action);
-  }, isEditableCtx));
+  const handleClick = $derived(
+    createEditableHandler(() => {
+      runTableCommand(editor, action);
+    }, isEditableCtx)
+  );
 
   // SVG paths for different formats
   const svgPaths = {
@@ -84,7 +86,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[TableButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L305)
+[TableButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L326)
 ## Props
 @prop editor
 @prop action = 'table'

@@ -5,10 +5,10 @@ import { cn, type EditableContext } from '$lib';
 
 export function useEditableContext() {
   const editableContext = getContext<EditableContext>('isEditable');
-  
+
   return {
     editableContext,
-    
+
     // Helper function to create editable-aware handlers
     createEditableHandler: (handler: () => void, isEditableCtx: boolean) => {
       return () => {
@@ -27,11 +27,7 @@ export function useEditableContext() {
 
     // Helper function to create editable-aware button classes
     getEditableButtonClass: (isEditableCtx: boolean, baseClass: ClassValue, className?: ClassValue) => {
-      return cn(
-        baseClass,
-        !isEditableCtx && 'opacity-50 cursor-not-allowed hover:bg-transparent hover:text-gray-500 dark:hover:bg-transparent dark:hover:text-gray-400',
-        className
-      );
+      return cn(baseClass, !isEditableCtx && 'opacity-50 cursor-not-allowed hover:bg-transparent hover:text-gray-500 dark:hover:bg-transparent dark:hover:text-gray-400', className);
     },
 
     // Predefined button class for common use case

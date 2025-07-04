@@ -4,7 +4,8 @@
 
   let { editor, format = 'basic', tooltipText, ariaLabel, id, imageOptions = { src: 'https://placehold.co/600x400', alt: 'image alt', title: 'image title' }, onAdvancedClick, class: className, ...restProps }: ImageButtonsProps = $props();
 
-  const { editableContext, createEditableHandler, getDefaultButtonClass } = useEditableContext();  const isEditableCtx = $derived(editableContext?.isEditable ?? true)
+  const { editableContext, createEditableHandler, getDefaultButtonClass } = useEditableContext();
+  const isEditableCtx = $derived(editableContext?.isEditable ?? true);
 
   let defaultModal = $state(false);
 
@@ -20,15 +21,17 @@
   const finalAriaLabel = ariaLabel ?? defaults[format].aria;
   const uniqueId = id ?? generateButtonId(`Image${format.charAt(0).toUpperCase() + format.slice(1)}`);
 
-  const handleClick = $derived(createEditableHandler(() => {
-    if (format === 'basic') {
-      if (imageOptions.src) {
-        runImageCommand(editor, 'basic', { src: imageOptions.src });
+  const handleClick = $derived(
+    createEditableHandler(() => {
+      if (format === 'basic') {
+        if (imageOptions.src) {
+          runImageCommand(editor, 'basic', { src: imageOptions.src });
+        }
+      } else {
+        defaultModal = true;
       }
-    } else {
-      defaultModal = true;
-    }
-  }, isEditableCtx));
+    }, isEditableCtx)
+  );
 
   const svgPaths = {
     basic: [
@@ -67,23 +70,23 @@
 <Tooltip>{displayTooltipText}</Tooltip>
 
 {#if isEditableCtx}
-<Modal title="Insert advanced image" bind:open={defaultModal} autoclose size="xs">
-  <form class="flex flex-col space-y-6" onsubmit={handleSubmit}>
-    <Label class="space-y-2">
-      <span>Image URL</span>
-      <Input type="url" bind:value={imageOptions.src} required />
-    </Label>
-    <Label class="space-y-2">
-      <span>Image alt</span>
-      <Input type="text" bind:value={imageOptions.alt} />
-    </Label>
-    <Label class="space-y-2">
-      <span>Image title</span>
-      <Input type="text" bind:value={imageOptions.title} />
-    </Label>
-    <Button type="submit" class="w-full">Add image</Button>
-  </form>
-</Modal>
+  <Modal title="Insert advanced image" bind:open={defaultModal} autoclose size="xs">
+    <form class="flex flex-col space-y-6" onsubmit={handleSubmit}>
+      <Label class="space-y-2">
+        <span>Image URL</span>
+        <Input type="url" bind:value={imageOptions.src} required />
+      </Label>
+      <Label class="space-y-2">
+        <span>Image alt</span>
+        <Input type="text" bind:value={imageOptions.alt} />
+      </Label>
+      <Label class="space-y-2">
+        <span>Image title</span>
+        <Input type="text" bind:value={imageOptions.title} />
+      </Label>
+      <Button type="submit" class="w-full">Add image</Button>
+    </form>
+  </Modal>
 {/if}
 
 <!--

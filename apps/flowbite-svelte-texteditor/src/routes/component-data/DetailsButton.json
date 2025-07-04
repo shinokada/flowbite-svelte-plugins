@@ -2,13 +2,14 @@
   "name": "DetailsButton",
   "type": {
     "name": "DetailsButtonProps",
-    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L164"
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L169"
   },
   "props": [
     ["editor", ""],
     ["action", ""],
     ["ariaLabel", ""],
     ["id", ""],
+    ["tooltipText", ""],
     ["class: className", ""]
   ]
 }

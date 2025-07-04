@@ -123,7 +123,7 @@ export type DragHandleProps = (Omit<Optional<DragHandlePluginProps, 'pluginKey'>
 // editable
 export type EditableContext = {
   isEditable: boolean;
-}
+};
 
 // Floating menu
 export interface FloatingMenuProps extends FloatingMenuConfig {
@@ -282,7 +282,7 @@ export interface ListButtonGroupProps extends GroupFormatProps {
 }
 
 // source
-export   interface InsertHtmlCodeButtonProps {
+export interface InsertHtmlCodeButtonProps {
   editor: Editor | null;
   tooltipText?: string;
   ariaLabel?: string;
@@ -297,7 +297,7 @@ export interface SourceToggleButtonProps {
   id?: string;
   class?: string;
 }
-  
+
 export interface SourceButtonGroupProps extends GroupFormatProps {
   source?: boolean;
   html?: boolean;

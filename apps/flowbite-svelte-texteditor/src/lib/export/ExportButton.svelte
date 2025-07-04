@@ -6,7 +6,7 @@
   let { editor, format = 'json', tooltipText, ariaLabel, id, class: className }: ExportButtonProps = $props();
 
   const { editableContext, createEditableHandler, getDefaultButtonClass } = useEditableContext();
-  const isEditableCtx = $derived(editableContext?.isEditable ?? true)
+  const isEditableCtx = $derived(editableContext?.isEditable ?? true);
 
   let defaultModal = $state(false);
   let sourceCode = $state('');
@@ -23,10 +23,12 @@
   const finalAriaLabel = ariaLabel ?? defaults[format].aria;
   const uniqueId = id ?? generateButtonId(`Align${format.charAt(0).toUpperCase() + format.slice(1)}`);
 
-  const handleClick = $derived(createEditableHandler(() => {
-    defaultModal = true;
-    sourceCode = exportEditorContent(editor, format as ExportAction);
-  }, isEditableCtx));
+  const handleClick = $derived(
+    createEditableHandler(() => {
+      defaultModal = true;
+      sourceCode = exportEditorContent(editor, format as ExportAction);
+    }, isEditableCtx)
+  );
 
   let value = $state('');
   let success = $state(false);
@@ -72,7 +74,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[ExportButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L175)
+[ExportButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L180)
 ## Props
 @prop editor
 @prop format = 'json'

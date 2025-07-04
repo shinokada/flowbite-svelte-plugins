@@ -6,7 +6,7 @@
 
   let isOpen = $state(false);
   const { editableContext, getDefaultButtonClass } = useEditableContext();
-  const isEditableCtx = $derived(editableContext?.isEditable ?? true)
+  const isEditableCtx = $derived(editableContext?.isEditable ?? true);
 
   // const finalTooltipText = tooltipText ?? 'Heading';
   const displayTooltipText = $derived.by(() => {
@@ -27,7 +27,7 @@
   ];
 
   function setHeading(level: HeadingLevel | null) {
-    if(!isEditableCtx) return;
+    if (!isEditableCtx) return;
     runHeadingCommand(editor, level);
     isOpen = false;
   }
@@ -59,13 +59,13 @@
 <Tooltip>{displayTooltipText}</Tooltip>
 
 {#if isEditableCtx}
-<Dropdown bind:isOpen simple triggeredBy="#{uniqueId}">
-  {#each headingOptions as heading}
-    <DropdownItem onclick={() => setHeading(heading.value)} style={heading.level > 0 ? getHeadingStyle(heading.level) : ''}>
-      {heading.name}
-    </DropdownItem>
-  {/each}
-</Dropdown>
+  <Dropdown bind:isOpen simple triggeredBy="#{uniqueId}">
+    {#each headingOptions as heading}
+      <DropdownItem onclick={() => setHeading(heading.value)} style={heading.level > 0 ? getHeadingStyle(heading.level) : ''}>
+        {heading.name}
+      </DropdownItem>
+    {/each}
+  </Dropdown>
 {/if}
 
 <!--

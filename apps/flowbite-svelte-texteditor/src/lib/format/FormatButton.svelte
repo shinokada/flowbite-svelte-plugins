@@ -5,7 +5,7 @@
   let { editor, format, tooltipText, ariaLabel, id, class: className }: FormatButtonProps = $props();
 
   const { editableContext, createEditableHandlerWithParams, getDefaultButtonClass } = useEditableContext();
-  const isEditableCtx = $derived(editableContext?.isEditable ?? true)
+  const isEditableCtx = $derived(editableContext?.isEditable ?? true);
 
   const defaults = {
     bold: { tooltip: 'Toggle bold', aria: 'Bold' },
@@ -29,14 +29,16 @@
   const finalAriaLabel = ariaLabel ?? defaults[format].aria;
   const uniqueId = id ?? generateButtonId(`Align${format.charAt(0).toUpperCase() + format.slice(1)}`);
 
-  const handleClick = $derived(createEditableHandlerWithParams((format:FormatAction) => {
-    if (format === 'link') {
-      const url = window.prompt('Enter a URL');
-      if (url) runFormatCommand(editor, format, { href: url });
-    } else {
-      runFormatCommand(editor, format);
-    }
-  }, isEditableCtx));
+  const handleClick = $derived(
+    createEditableHandlerWithParams((format: FormatAction) => {
+      if (format === 'link') {
+        const url = window.prompt('Enter a URL');
+        if (url) runFormatCommand(editor, format, { href: url });
+      } else {
+        runFormatCommand(editor, format);
+      }
+    }, isEditableCtx)
+  );
 
   const svgPaths = {
     bold: 'M8 5h4.5a3.5 3.5 0 1 1 0 7H8m0-7v7m0-7H6m2 7h6.5a3.5 3.5 0 1 1 0 7H8m0-7v7m0 0H6',
@@ -67,7 +69,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[FormatButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L199)
+[FormatButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L204)
 ## Props
 @prop editor
 @prop format

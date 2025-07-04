@@ -1,0 +1,16 @@
+{
+  "name": "FloatingMenuButton",
+  "type": {
+    "name": "FloatingButtonProps",
+    "link": null
+  },
+  "props": [
+    ["editor", ""],
+    ["tooltipText", "'Toggle floating menu'"],
+    ["ariaLabel", "'Toggle floating menu'"],
+    ["id", ""],
+    ["class: className", ""],
+    ["isActive", "$bindable(false)"],
+    ["onToggle", ""]
+  ]
+}

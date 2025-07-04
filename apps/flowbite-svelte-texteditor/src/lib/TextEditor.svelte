@@ -75,9 +75,11 @@
   }: EditorProviderProps = $props();
 
   const editableContext: EditableContext = {
-    get isEditable() { return isEditable }
-  }
-  setContext('isEditable', editableContext)
+    get isEditable() {
+      return isEditable;
+    }
+  };
+  setContext('isEditable', editableContext);
 
   let editorElement = $state<HTMLDivElement | null>(null);
   // for bubble menu
@@ -107,7 +109,7 @@
   });
 
   $effect(() => {
-    $inspect('isEdiatble in TextEditor: ', isEditable)
+    $inspect('isEdiatble in TextEditor: ', isEditable);
     if (editorElement && !editor) {
       const extensions: Extensions = [
         StarterKit.configure({ codeBlock: false }),
@@ -366,4 +368,5 @@
 @prop draghandleprops
 @prop toc
 @prop contentprops
+@prop isEditable = true
 -->

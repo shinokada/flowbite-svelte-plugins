@@ -1,5 +1,12 @@
 # flowbite-svelte-texteditor
 
+## 0.23.0
+
+### Minor Changes
+
+- feat: EditableButton
+  feat: all components can be locked
+
 ## 0.22.0
 
 ### Minor Changes

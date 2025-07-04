@@ -4,7 +4,7 @@
   let { editor, action, ariaLabel, id, class: className }: TaskListButtonProps = $props();
 
   const { editableContext, createEditableHandler, getDefaultButtonClass } = useEditableContext();
-  const isEditableCtx = $derived(editableContext?.isEditable ?? true)
+  const isEditableCtx = $derived(editableContext?.isEditable ?? true);
 
   const defaults = {
     toggle: { tooltip: 'Toggle task list', aria: 'Toggle task list' },
@@ -19,9 +19,11 @@
   });
   const uniqueId = id ?? generateButtonId(`TaskList${action.charAt(0).toUpperCase() + action.slice(1)}`);
 
-  const handleClick = $derived(createEditableHandler(() => {
-    runTaskCommand(editor, action);
-  }, isEditableCtx));
+  const handleClick = $derived(
+    createEditableHandler(() => {
+      runTaskCommand(editor, action);
+    }, isEditableCtx)
+  );
 
   const titles = {
     toggle: 'Toggle task list',
@@ -29,7 +31,7 @@
     sink: 'Sink list item',
     lift: 'Lift list item'
   };
-  
+
   let btnCls = $derived(getDefaultButtonClass(isEditableCtx, className));
 </script>
 
@@ -42,7 +44,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[TaskListButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L331)
+[TaskListButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L352)
 ## Props
 @prop editor
 @prop action

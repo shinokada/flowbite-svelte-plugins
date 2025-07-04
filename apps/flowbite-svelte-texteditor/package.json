@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.22.0",
+  "version": "0.23.0",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -183,6 +183,10 @@
       "types": "./dist/drag-handle/DragHandle.svelte.d.ts",
       "svelte": "./dist/drag-handle/DragHandle.svelte"
     },
+    "./EditableButton.svelte": {
+      "types": "./dist/editable/EditableButton.svelte.d.ts",
+      "svelte": "./dist/editable/EditableButton.svelte"
+    },
     "./EmojiList.svelte": {
       "types": "./dist/emoji/EmojiList.svelte.d.ts",
       "svelte": "./dist/emoji/EmojiList.svelte"
@@ -198,6 +202,10 @@
     "./FloatingMenu.svelte": {
       "types": "./dist/floating-menu/FloatingMenu.svelte.d.ts",
       "svelte": "./dist/floating-menu/FloatingMenu.svelte"
+    },
+    "./FloatingMenuButton.svelte": {
+      "types": "./dist/floating-menu/FloatingMenuButton.svelte.d.ts",
+      "svelte": "./dist/floating-menu/FloatingMenuButton.svelte"
     },
     "./FontButton.svelte": {
       "types": "./dist/font/FontButton.svelte.d.ts",

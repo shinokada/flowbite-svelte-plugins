@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Tooltip, Modal, Label, Input, Button } from 'flowbite-svelte';
-  import { runVideoCommand, cn, generateButtonId, generateUniqueId,  type VideoButtonProps, useEditableContext } from '$lib';
+  import { runVideoCommand, cn, generateButtonId, generateUniqueId, type VideoButtonProps, useEditableContext } from '$lib';
 
   let {
     modalChildren,
@@ -23,9 +23,9 @@
   }: VideoButtonProps = $props();
 
   let defaultModal = $state(false);
-  
+
   const { editableContext, createEditableHandler, getDefaultButtonClass } = useEditableContext();
-  const isEditableCtx = $derived(editableContext?.isEditable ?? true)
+  const isEditableCtx = $derived(editableContext?.isEditable ?? true);
 
   const defaults = {
     default: { tooltip: 'Add video', aria: 'Add video' },
@@ -43,20 +43,22 @@
   const widthId = generateButtonId('width');
   const heightId = generateButtonId('height');
 
-  const handleClick = $derived(createEditableHandler(() => {
-    if(!isEditableCtx) return;
-    switch (format) {
-      case 'default':
-        const url = window.prompt('Enter YouTube URL:', 'https://www.youtube.com/watch?v=KaLxCiilHns');
-        if (url) {
-          runVideoCommand(editor, 'default', { src: url });
-        }
-        break;
-      case 'advanced':
-        defaultModal = true;
-        break;
-    }
-  }, isEditableCtx));
+  const handleClick = $derived(
+    createEditableHandler(() => {
+      if (!isEditableCtx) return;
+      switch (format) {
+        case 'default':
+          const url = window.prompt('Enter YouTube URL:', 'https://www.youtube.com/watch?v=KaLxCiilHns');
+          if (url) {
+            runVideoCommand(editor, 'default', { src: url });
+          }
+          break;
+        case 'advanced':
+          defaultModal = true;
+          break;
+      }
+    }, isEditableCtx)
+  );
 
   function handleSubmit(event: Event) {
     event.preventDefault();
@@ -98,31 +100,31 @@
 <Tooltip>{displayTooltipText}</Tooltip>
 
 {#if isEditableCtx}
-<Modal title={modalTitle} bind:open={defaultModal} autoclose size={modalSize}>
-  {#if modalChildren}
-    {@render modalChildren()}
-  {:else}
-    <form id={uniqueFormId} class="flex flex-col space-y-6" onsubmit={handleSubmit}>
-      <div>
-        <Label for="URL" class="space-y-2">
-          <span>Video URL</span>
-          <Input type="url" name="url" id={urlId} bind:value={videoOptions.url} required />
-        </Label>
-      </div>
-      <div class="grid grid-cols-2 gap-4">
-        <Label for="width" class="space-y-2">
-          <span>Video width</span>
-          <Input type="number" name="width" id={widthId} bind:value={videoOptions.width} />
-        </Label>
-        <Label for="height" class="space-y-2">
-          <span>Video height</span>
-          <Input type="number" name="height" id={heightId} bind:value={videoOptions.height} />
-        </Label>
-      </div>
-      <Button type="submit" class="w-full">Add video</Button>
-    </form>
-  {/if}
-</Modal>
+  <Modal title={modalTitle} bind:open={defaultModal} autoclose size={modalSize}>
+    {#if modalChildren}
+      {@render modalChildren()}
+    {:else}
+      <form id={uniqueFormId} class="flex flex-col space-y-6" onsubmit={handleSubmit}>
+        <div>
+          <Label for="URL" class="space-y-2">
+            <span>Video URL</span>
+            <Input type="url" name="url" id={urlId} bind:value={videoOptions.url} required />
+          </Label>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <Label for="width" class="space-y-2">
+            <span>Video width</span>
+            <Input type="number" name="width" id={widthId} bind:value={videoOptions.width} />
+          </Label>
+          <Label for="height" class="space-y-2">
+            <span>Video height</span>
+            <Input type="number" name="height" id={heightId} bind:value={videoOptions.height} />
+          </Label>
+        </div>
+        <Button type="submit" class="w-full">Add video</Button>
+      </form>
+    {/if}
+  </Modal>
 {/if}
 
 <!--

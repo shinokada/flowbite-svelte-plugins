@@ -6,7 +6,7 @@
 
   const { editableContext, createEditableHandler, getDefaultButtonClass } = useEditableContext();
   const isEditableCtx = $derived(editableContext?.isEditable ?? true);
- 
+
   const defaults = {
     left: { tooltip: 'Align left', aria: 'Align left' },
     center: { tooltip: 'Align center', aria: 'Align center' },
@@ -21,9 +21,11 @@
   const finalAriaLabel = ariaLabel ?? defaults[alignment].aria;
   const uniqueId = id ?? generateButtonId(`Align${alignment.charAt(0).toUpperCase() + alignment.slice(1)}`);
 
-  const handleClick = $derived(createEditableHandler(() => {
-    runAlignmentCommand(editor, alignment as AlignmentAction);
-  }, isEditableCtx));
+  const handleClick = $derived(
+    createEditableHandler(() => {
+      runAlignmentCommand(editor, alignment as AlignmentAction);
+    }, isEditableCtx)
+  );
 
   const svgPaths = {
     left: 'M6 6h8m-8 4h12M6 14h8m-8 4h12',
@@ -47,7 +49,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[AlignmentButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L141)
+[AlignmentButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L146)
 ## Props
 @prop editor
 @prop alignment

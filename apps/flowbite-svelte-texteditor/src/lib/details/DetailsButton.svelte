@@ -19,9 +19,11 @@
   const finalAriaLabel = ariaLabel ?? defaults[action].aria;
   const uniqueId = id ?? generateButtonId(`Details${action.charAt(0).toUpperCase() + action.slice(1)}`);
 
-  const handleClick = $derived(createEditableHandler(() => {
-    runDetailsCommand(editor, action as DetailsAction);
-  }, isEditableCtx));
+  const handleClick = $derived(
+    createEditableHandler(() => {
+      runDetailsCommand(editor, action as DetailsAction);
+    }, isEditableCtx)
+  );
 
   const titles = {
     set: 'Set details',
@@ -42,11 +44,12 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[DetailsButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L164)
+[DetailsButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L169)
 ## Props
 @prop editor
 @prop action
 @prop ariaLabel
 @prop id
+@prop tooltipText
 @prop class: className
 -->

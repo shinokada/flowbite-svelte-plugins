@@ -5,7 +5,7 @@
   let { editor, format, tooltipText, ariaLabel, id, class: className }: LayoutButtonProps = $props();
 
   const { editableContext, createEditableHandler, getDefaultButtonClass } = useEditableContext();
-  const isEditableCtx = $derived(editableContext?.isEditable ?? true)
+  const isEditableCtx = $derived(editableContext?.isEditable ?? true);
 
   const defaults = {
     blockquote: { tooltip: 'Toggle blockquote', aria: 'Blockquote' },
@@ -26,9 +26,11 @@
     hr: ['M5 12h14', 'M6 9.5h12m-12 9h12M6 7.5h12m-12 9h12M6 5.5h12m-12 9h12']
   };
 
-  const handleClick = $derived(createEditableHandler(() => {
-    runLayoutsCommand(editor, format);
-  }, isEditableCtx));
+  const handleClick = $derived(
+    createEditableHandler(() => {
+      runLayoutsCommand(editor, format);
+    }, isEditableCtx)
+  );
 
   let btnCls = $derived(getDefaultButtonClass(isEditableCtx, className));
 </script>
@@ -51,7 +53,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[LayoutButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L259)
+[LayoutButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L264)
 ## Props
 @prop editor
 @prop format

@@ -24,6 +24,7 @@
     ["draghandle", ""],
     ["draghandleprops", ""],
     ["toc", ""],
-    ["contentprops", ""]
+    ["contentprops", ""],
+    ["isEditable", "true"]
   ]
 }

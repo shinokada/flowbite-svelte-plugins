@@ -16,20 +16,9 @@
   }
 </script>
 
-<TextEditor 
-  bind:editor={editorInstance} 
-  {content} 
-  floatingMenu
-  bubbleMenu
-  {isEditable}
-  contentprops={{ id: 'editable-toggle-ex' }}
->
+<TextEditor bind:editor={editorInstance} {content} floatingMenu bubbleMenu {isEditable} contentprops={{ id: 'editable-toggle-ex' }}>
   <AlignmentButtonGroup editor={editorInstance} />
   <FormatButtonGroup editor={editorInstance} />
   <UndoRedoButtonGroup editor={editorInstance} />
-  <EditableButton 
-    editor={editorInstance} 
-    bind:isEditable={isEditable}
-    onToggle={handleEditableToggle}
-  />
+  <EditableButton editor={editorInstance} bind:isEditable onToggle={handleEditableToggle} />
 </TextEditor>
