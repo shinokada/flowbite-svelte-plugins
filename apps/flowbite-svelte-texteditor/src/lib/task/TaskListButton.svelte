@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Tooltip } from 'flowbite-svelte';
   import { runTaskCommand, generateButtonId, useEditableContext, type TaskListButtonProps } from '$lib';
 
   let { editor, action, ariaLabel, id, class: className }: TaskListButtonProps = $props();
@@ -39,6 +40,8 @@
   <span class="text-sm font-medium">{titles[action]}</span>
   <span class="sr-only">{displayTooltipText}</span>
 </button>
+
+<Tooltip>{displayTooltipText}</Tooltip>
 
 <!--
 @component
