@@ -15,9 +15,6 @@
 <Heading tag="h2" class="my-4">Alignments</Heading>
 <Examples.Alignments />
 
-<Heading tag="h2" class="my-4">AutoFocus</Heading>
-<Examples.AutoFocus />
-
 <Heading tag="h2" class="my-4">BubbleMenuEx</Heading>
 <Examples.BubbleMenuEx />
 
@@ -63,9 +60,6 @@
 <Heading tag="h2" class="my-4">Images</Heading>
 <Examples.Images />
 
-<Heading tag="h2" class="my-4">InputRules</Heading>
-<Examples.InputRules />
-
 <Heading tag="h2" class="my-4">Invisible</Heading>
 <Examples.Invisible />
 
@@ -92,9 +86,6 @@
 
 <Heading tag="h2" class="my-4">Task</Heading>
 <Examples.Task />
-
-<Heading tag="h2" class="my-4">TocEx</Heading>
-<Examples.TocEx />
 
 <Heading tag="h2" class="my-4">UndoRedo</Heading>
 <Examples.UndoRedo />

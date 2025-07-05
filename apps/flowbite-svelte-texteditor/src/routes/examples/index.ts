@@ -18,7 +18,6 @@ export { default as Fonts } from './Fonts.svelte';
 export { default as Formats } from './Formats.svelte';
 export { default as Heading } from './Heading.svelte';
 export { default as Images } from './Images.svelte';
-export { default as InputRules } from './InputRules.svelte';
 export { default as Invisible } from './Invisible.svelte';
 export { default as Lists } from './Lists.svelte';
 export { default as Layouts } from './Layouts.svelte';

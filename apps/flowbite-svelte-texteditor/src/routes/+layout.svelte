@@ -4,7 +4,7 @@
   let { children } = $props();
 </script>
 
-<div class="mx-auto max-w-5xl px-2">
+<div class="mx-auto max-w-5xl px-2 mb-40">
   <Navbar>
     <NavBrand href="/">
       <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite-Svelte-Texteditor</span>
@@ -12,6 +12,7 @@
     <NavHamburger />
     <NavUl>
       <NavLi href="/">Home</NavLi>
+      <NavLi href="/autofocus">Autofocus</NavLi>
       <NavLi href="/draghandle">Draghandle</NavLi>
       <NavLi href="/editable-button">Editable</NavLi>
       <NavLi href="/toc">Toc</NavLi>
