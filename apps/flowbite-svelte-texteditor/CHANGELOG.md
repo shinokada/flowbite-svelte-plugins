@@ -1,5 +1,12 @@
 # flowbite-svelte-texteditor
 
+## 0.23.2
+
+### Patch Changes
+
+- feat: add TaskList tooltip
+  style: app.css update for details, toc, charactor count
+
 ## 0.23.1
 
 ### Patch Changes

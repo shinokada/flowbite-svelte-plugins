@@ -133,7 +133,7 @@
     margin: 1.5rem;
   }
 
-  .dark .character-count{
+  .dark .character-count {
     color: #777;
   }
 
@@ -740,7 +740,8 @@
     color: var(--gray-5);
   }
 
-  .dark #toc-ex .table-of-contents a,.dark #toc-ex .table-of-contents .is-scrolled-over a {
+  .dark #toc-ex .table-of-contents a,
+  .dark #toc-ex .table-of-contents .is-scrolled-over a {
     color: #888;
   }
 
