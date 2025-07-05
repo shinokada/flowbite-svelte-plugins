@@ -740,6 +740,10 @@
     color: var(--gray-5);
   }
 
+  .dark #toc-ex .table-of-contents a,.dark #toc-ex .table-of-contents .is-scrolled-over a {
+    color: #888;
+  }
+
   #toc-ex .table-of-contents a {
     color: var(--black);
     display: flex;

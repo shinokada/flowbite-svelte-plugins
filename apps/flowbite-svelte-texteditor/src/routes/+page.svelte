@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { DarkMode, Heading } from 'flowbite-svelte';
+  import { Heading } from 'flowbite-svelte';
   import * as Examples from './examples';
 </script>
 
@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/google-dark.min.css" />
 </svelte:head>
 
-<DarkMode />
 <Heading tag="h1" class="my-8">@flowbite-svelte-plugins/texteditor</Heading>
 
 <Heading tag="h2" class="my-4">Full Featured Texteditor</Heading>
