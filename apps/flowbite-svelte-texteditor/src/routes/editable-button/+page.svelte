@@ -22,6 +22,7 @@
     VideoButtonGroup
   } from '$lib';
   import type { Editor } from '@tiptap/core';
+  import { Heading } from 'flowbite-svelte';
 
   let editorInstance = $state<Editor | null>(null);
   let isEditable = $state(true);
@@ -67,6 +68,8 @@
     'Lisa Bonet'
   ];
 </script>
+
+<Heading tag="h1" class="my-8">Editable</Heading>
 
 <TextEditor bind:editor={editorInstance} {content} {mentions} floatingMenu bubbleMenu draghandle file {isEditable} contentprops={{ id: 'drag-handle-editable' }}>
   <ToolbarRowWrapper>

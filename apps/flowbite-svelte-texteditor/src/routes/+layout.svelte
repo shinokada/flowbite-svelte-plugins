@@ -12,6 +12,7 @@
     <NavHamburger />
     <NavUl>
       <NavLi href="/">Home</NavLi>
+      <NavLi href="/draghandle">Draghandle</NavLi>
       <NavLi href="/editable-button">Editable</NavLi>
       <NavLi href="/toc">Toc</NavLi>
       <DarkMode class="p-0 md:ms-8" />

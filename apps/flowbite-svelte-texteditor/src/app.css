@@ -288,8 +288,12 @@
   }
 
   /* drag handle */
-  [id^='drag-handle-'] ::selection {
+  [id^='drag-handle-'] ::selection{
     background-color: #70cff850;
+  }
+
+  .dark [id^='drag-handle-'] .ProseMirror-hideselection *::selection{
+    background-color: #e3508950 !important;
   }
 
   [id^='drag-handle-'] .ProseMirror {
@@ -362,6 +366,11 @@
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
+  }
+
+  .dark [id^='drag-handle-'] .drag-handle {
+    background: #ffffff;
+    color: #179df186;
   }
 
   [id^='drag-handle-'] .drag-handle:hover {
