@@ -7,8 +7,7 @@
 
 <script lang="ts">
   import { onDestroy, setContext } from 'svelte';
-  import { cn } from '$lib';
-  import { type EditorProviderProps, EditorWrapper, ContentWrapper, ToolbarWrapper, SvelteRenderer, BubbleMenu, FloatingMenu, getMenuConfig, DragHandle, Toc, type EditableContext } from '$lib';
+  import { type EditorProviderProps, EditorWrapper, ContentWrapper, ToolbarWrapper, SvelteRenderer, BubbleMenu, FloatingMenu, getMenuConfig, DragHandle, Toc, cn, type EditableContext } from '$lib';
   import { Editor } from '@tiptap/core';
   import type { Extensions } from '@tiptap/core';
   import StarterKit from '@tiptap/starter-kit';
@@ -72,7 +71,12 @@
     toc,
     contentprops,
     isEditable = true,
-    autofocusPosition = false
+    autofocusPosition = false,
+    classes,
+    youtubeOptions,
+    characterCountOptions,
+    subscriptOptions,
+    superscriptOptions
   }: EditorProviderProps = $props();
 
   const editableContext: EditableContext = {
@@ -113,25 +117,117 @@
     $inspect('isEdiatble in TextEditor: ', isEditable);
     if (editorElement && !editor) {
       const extensions: Extensions = [
-        StarterKit.configure({ codeBlock: false }),
-        CharacterCount.configure({
-          limit
+        StarterKit.configure({ 
+          codeBlock: false,
+          // nodes
+          blockquote:{
+            HTMLAttributes: {
+              class: cn(classes?.bockquote),
+            },
+          },
+          bulletList: {
+            HTMLAttributes:{
+              class: cn(classes?.bulletList),
+            }
+          },
+          hardBreak:{
+            HTMLAttributes:{
+              class: cn(classes?.hardBreak),
+            }
+          },
+          heading:{
+            HTMLAttributes:{
+              class: cn(classes?.heading),
+            }
+          },
+          horizontalRule:{
+            HTMLAttributes:{
+              class: cn(classes?.horizontalRule),
+            }
+          },
+          listItem:{
+            HTMLAttributes: {
+              class: cn(classes?.listItem),
+            },
+          },
+          orderedList:{
+            HTMLAttributes: {
+              class: cn(classes?.orderedList),
+            },
+          },
+          paragraph: {
+            HTMLAttributes: {
+              class: cn(classes?.paragraph),
+            },
+          },
+          // marks
+          bold:{
+            HTMLAttributes: {
+              class: cn(classes?.bold),
+            },
+          },
+          code: {
+            HTMLAttributes: {
+              class: cn(classes?.code),
+            },
+          },
+          italic:{
+            HTMLAttributes:{
+              class: cn(classes?.italic),
+            }
+          },
+          strike:{
+            HTMLAttributes:{
+              class: cn(classes?.strike),
+            }
+          }
         }),
-        CodeBlockLowlight.configure({ lowlight }),
+        CharacterCount.configure(characterCountOptions || {}),
+        CodeBlockLowlight.configure({ 
+          lowlight,
+          HTMLAttributes: {
+            class: cn(classes?.bockquote),
+          }
+        }),
         Color,
-        Details.configure({ persist: true, HTMLAttributes: { class: 'details' } }),
-        DetailsSummary,
-        DetailsContent,
+        Details.configure({ 
+          persist: true, 
+          HTMLAttributes: { 
+            class: cn(classes?.details ?? 'details'),
+          } 
+        }),
+        DetailsSummary.configure({
+          HTMLAttributes: { 
+            class: cn(classes?.detailsSummary), 
+          } 
+        }),
+        DetailsContent.configure({
+          HTMLAttributes: { 
+            class: cn(classes?.detailsContent), 
+          } 
+        }),
         Focus,
         FontFamily.configure({ types: ['textStyle'] }),
         FontSizeTextStyle,
-        HardBreak,
-        Highlight,
-        Image,
+        Highlight.configure({
+          HTMLAttributes: { 
+            class: cn(classes?.highlight), 
+          } 
+        }),
+        Image.configure({
+          HTMLAttributes: { 
+            class: cn(classes?.image), 
+          } 
+        }),
         InvisibleCharacters.configure({
           visible: false
         }),
-        Link.configure({ openOnClick: false }),
+        Link.configure({ 
+          openOnClick: false,
+          HTMLAttributes: { 
+            class: cn(classes?.link), 
+          } 
+        }),
         NodeRange.configure({
           // allow to select only on depth 0
           // depth: 0,
@@ -149,17 +245,35 @@
             return placeholder;
           }
         }),
-        Subscript,
-        Superscript,
-        TaskList,
-        TaskItem.configure({ nested: true }),
-        Table.configure({ resizable: true }),
+        Subscript.configure(subscriptOptions || {}),
+        Superscript.configure(superscriptOptions || {}),
+        TaskList.configure({
+          HTMLAttributes: { 
+            class: cn(classes?.taskList), 
+          } 
+        }),
+        TaskItem.configure({ 
+          nested: true,
+          HTMLAttributes: { 
+            class: cn(classes?.taskItem), 
+          } 
+         }),
+        Table.configure({ 
+          resizable: true,
+          HTMLAttributes: { 
+            class: cn(classes?.table), 
+          }
+        }),
         TableRow,
         TableHeader,
         TableCell,
         TextAlign.configure({ types: ['heading', 'paragraph'] }),
-        Underline,
-        Youtube
+        Underline.configure({
+          HTMLAttributes: { 
+            class: cn(classes?.underline), 
+          } 
+        }),
+        Youtube.configure(youtubeOptions || {}),
       ];
 
       if (toc) {
@@ -178,14 +292,20 @@
           Emoji.configure({
             emojis: gitHubEmojis,
             enableEmoticons: true,
-            suggestion: emojiSuggestion
+            suggestion: emojiSuggestion,
+            HTMLAttributes: {
+              class: cn(classes?.emoji),
+            },
           })
         );
       }
       if (mentions) {
         extensions.push(
           Mention.configure({
-            suggestion: createMentionSuggestion(mentions)
+            suggestion: createMentionSuggestion(mentions),
+            HTMLAttributes: {
+              class: cn(classes?.mention),
+            },
           })
         );
       }

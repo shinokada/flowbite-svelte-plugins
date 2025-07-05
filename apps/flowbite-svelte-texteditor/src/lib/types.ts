@@ -2,7 +2,12 @@ import type { Editor, FocusPosition } from '@tiptap/core';
 import { type ClassValue } from 'clsx';
 import type { Snippet } from 'svelte';
 import type { HTMLButtonAttributes, HTMLAttributes } from 'svelte/elements';
+import type { StarterKitOptions } from '@tiptap/starter-kit';
+import type { CharacterCountOptions } from '@tiptap/extension-character-count';
 import type { DragHandlePluginProps } from '@tiptap/extension-drag-handle';
+import type { SubscriptExtensionOptions } from '@tiptap/extension-subscript';
+import type { SuperscriptExtensionOptions } from '@tiptap/extension-superscript';
+import type { YoutubeOptions } from '@tiptap/extension-youtube'
 
 // TextEditor
 export interface BubbleMenuConfig {
@@ -26,6 +31,40 @@ export interface FloatingMenuConfig {
 }
 
 // TextEditor
+type EditorClasses = {
+  // nodes
+  bockquote?: ClassValue;
+  bulletList?: ClassValue;
+  codeBlock?: ClassValue;
+  hardBreak?: ClassValue;
+  heading?: ClassValue;
+  horizontalRule?: ClassValue;
+  listItem?: ClassValue;
+  orderedList?: ClassValue;
+  paragraph?: ClassValue;
+  // marks
+  bold?: ClassValue;
+  code?: ClassValue;
+  italic?: ClassValue;
+  strike?: ClassValue;
+  // extensions marks
+  highlight?: ClassValue;
+  link?: ClassValue;
+  // extensions
+  details?: ClassValue;
+  detailsContent?: ClassValue;
+  detailsSummary?: ClassValue;
+  emoji?: ClassValue;
+  image?: ClassValue;
+  mention?: ClassValue;
+
+  superscript?: ClassValue;
+  table?: ClassValue;
+  taskList?: ClassValue;
+  taskItem?: ClassValue;
+  underline?: ClassValue;
+}
+
 export interface EditorProviderProps {
   children?: Snippet;
   footer?: Snippet;
@@ -50,6 +89,11 @@ export interface EditorProviderProps {
   contentprops?: ContentProps;
   isEditable?: boolean;
   autofocusPosition?: FocusPosition;
+  classes?: EditorClasses;
+  youtubeOptions?: YoutubeOptions;
+  characterCountOptions?: CharacterCountOptions;
+  subscriptOptions?: SubscriptExtensionOptions;
+  superscriptOptions?: SuperscriptExtensionOptions;
 }
 
 type ContentProps = {
