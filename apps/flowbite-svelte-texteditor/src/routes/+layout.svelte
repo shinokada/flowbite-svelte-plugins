@@ -14,7 +14,7 @@
       <NavLi href="/">Home</NavLi>
       <NavLi href="/editable-button">Editable</NavLi>
       <NavLi href="/toc">Toc</NavLi>
-      <NavLi><DarkMode class="p-0 md:ms-8" /></NavLi>
+      <DarkMode class="p-0 md:ms-8" />
     </NavUl>
   </Navbar>
 
