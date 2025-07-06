@@ -4,6 +4,7 @@ export * from './editorCommands';
 export * from './useEditableContext.svelte';
 
 export { default as TextEditor } from './TextEditor.svelte';
+export { default as EditorConfig } from './EditorConfig.svelte';
 export { default as Divider } from './wrappers/Divider.svelte';
 export { default as SvelteRenderer } from './components/SvelteRenderer';
 

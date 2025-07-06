@@ -1,5 +1,6 @@
 import type { Editor } from '@tiptap/core';
-import type { AlignmentAction, DetailsAction, ExportAction, FormatAction, LayoutAction, HeadingLevel, ImageFormat, ImageOptions, ListAction, TableAction, TaskAction, VideoAction, InvisibleAction } from './types';
+import type { SetImageOptions } from '@tiptap/extension-image'
+import type { AlignmentAction, DetailsAction, ExportAction, FormatAction, LayoutAction, HeadingLevel, ImageFormat, ListAction, TableAction, TaskAction, VideoAction, InvisibleAction } from './types';
 
 // alignment
 export function runAlignmentCommand(editor: Editor | null, alignment: AlignmentAction) {
@@ -106,7 +107,7 @@ export function runHeadingCommand(editor: Editor | null, level: HeadingLevel | n
 }
 
 // image
-export function runImageCommand(editor: Editor | null, format: ImageFormat, options?: ImageOptions) {
+export function runImageCommand(editor: Editor | null, format: ImageFormat, options?: SetImageOptions) {
   if (!editor) return;
 
   if (format === 'basic') {

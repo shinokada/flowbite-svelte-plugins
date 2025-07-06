@@ -2,12 +2,59 @@ import type { Editor, FocusPosition } from '@tiptap/core';
 import { type ClassValue } from 'clsx';
 import type { Snippet } from 'svelte';
 import type { HTMLButtonAttributes, HTMLAttributes } from 'svelte/elements';
-import type { StarterKitOptions } from '@tiptap/starter-kit';
-import type { CharacterCountOptions } from '@tiptap/extension-character-count';
-import type { DragHandlePluginProps } from '@tiptap/extension-drag-handle';
+import type { BlockquoteOptions } from '@tiptap/extension-blockquote';
+import type { BulletListOptions } from '@tiptap/extension-list';
+import type { CodeBlockLowlightOptions } from '@tiptap/extension-code-block-lowlight';
+import type { DetailsOptions } from '@tiptap/extension-details';
+import type { DetailsContentOptions } from '@tiptap/extension-details-content';
+import type { DetailsSummaryOptions } from '@tiptap/extension-details-summary';
+import type { EmojiOptions } from '@tiptap/extension-emoji';
+import type { HardBreakOptions } from '@tiptap/extension-hard-break';
+import type { HeadingOptions } from '@tiptap/extension-heading';
+import type { HorizontalRuleOptions } from '@tiptap/extension-horizontal-rule';
+import type { ImageOptions, SetImageOptions } from '@tiptap/extension-image';
+import type { ListItemOptions } from '@tiptap/extension-list';
+import type { MathematicsOptions } from '@tiptap/extension-mathematics';
+import type { MentionOptions } from '@tiptap/extension-mention';
+import type { OrderedListOptions } from '@tiptap/extension-list';
+import type { ParagraphOptions } from '@tiptap/extension-paragraph';
+import type { TableKitOptions } from '@tiptap/extension-table';
+import type { TaskListOptions, TaskItemOptions } from '@tiptap/extension-list';
+import type { YoutubeOptions } from '@tiptap/extension-youtube';
+// marks
+import type { BoldOptions } from '@tiptap/extension-bold';
+import type { CodeOptions } from '@tiptap/extension-code';
+import type { HighlightOptions } from '@tiptap/extension-highlight';
+import type { ItalicOptions } from '@tiptap/extension-italic';
+import type { LinkOptions } from '@tiptap/extension-link';
+import type { StrikeOptions } from '@tiptap/extension-strike';
 import type { SubscriptExtensionOptions } from '@tiptap/extension-subscript';
 import type { SuperscriptExtensionOptions } from '@tiptap/extension-superscript';
-import type { YoutubeOptions } from '@tiptap/extension-youtube'
+import type { UnderlineOptions } from '@tiptap/extension-underline';
+// functionality
+import type { BubbleMenuOptions } from '@tiptap/extension-bubble-menu';
+import type { CharacterCountOptions } from '@tiptap/extension-character-count';
+import type { DragHandlePluginProps } from '@tiptap/extension-drag-handle';
+import type { BackgroundColorOptions } from '@tiptap/extension-text-style';
+import type { ColorOptions } from '@tiptap/extension-text-style';
+import type { DragHandleOptions } from '@tiptap/extension-drag-handle';
+import type { DropcursorOptions } from '@tiptap/extensions';
+import type { FileHandlerOptions } from '@tiptap/extension-file-handler';
+import type { FloatingMenuOptions } from '@tiptap/extension-floating-menu';
+import type { FocusOptions } from '@tiptap/extensions';
+import type { FontFamilyOptions } from '@tiptap/extension-text-style';
+import type { FontSizeOptions } from '@tiptap/extension-text-style';
+import type { InvisibleCharactersOptions } from '@tiptap/extension-invisible-characters';
+import type { LineHeightOptions } from '@tiptap/extension-text-style';
+import type { ListKeymapOptions } from '@tiptap/extension-list';
+import type { PlaceholderOptions } from '@tiptap/extensions';
+import type { SelectionOptions } from '@tiptap/extensions';
+import type { TableOfContentsOptions } from '@tiptap/extension-table-of-contents';
+import type { TextStyleKitOptions } from '@tiptap/extension-text-style';
+import type { TextAlignOptions } from '@tiptap/extension-text-align';
+import type { TrailingNodeOptions } from '@tiptap/extensions';
+import type { TypographyOptions } from '@tiptap/extension-typography';
+import type { UndoRedoOptions } from '@tiptap/extensions';
 
 // TextEditor
 export interface BubbleMenuConfig {
@@ -30,41 +77,65 @@ export interface FloatingMenuConfig {
   showImage?: boolean;
 }
 
-// TextEditor
-type EditorClasses = {
+// EditorConfig
+export interface EditorExtensionConfigs {
   // nodes
-  bockquote?: ClassValue;
-  bulletList?: ClassValue;
-  codeBlock?: ClassValue;
-  hardBreak?: ClassValue;
-  heading?: ClassValue;
-  horizontalRule?: ClassValue;
-  listItem?: ClassValue;
-  orderedList?: ClassValue;
-  paragraph?: ClassValue;
+  blockquoteOptions?: Partial<BlockquoteOptions>;
+  bulletListOptions?: Partial<BulletListOptions>;
+  codeBlockLowlightOptions?: Partial<CodeBlockLowlightOptions>;
+  detailsOptions?: Partial<DetailsOptions>;
+  detailsContentOptions?: Partial<DetailsContentOptions>;
+  detailsSummaryOptions?: Partial<DetailsSummaryOptions>;
+  emojiOptions?: Partial<EmojiOptions>;
+  hardBreakOptions?: Partial<HardBreakOptions>;
+  headingOptions?: Partial<HeadingOptions>;
+  horizontalRuleOptions?: Partial<HorizontalRuleOptions>;
+  imageOptions?: Partial<ImageOptions>;
+  listItemOptions?: Partial<ListItemOptions>;
+  mathematicsOptions?: Partial<MathematicsOptions>;
+  mentionOptions?: Partial<MentionOptions>;
+  orderedListOptions?: Partial<OrderedListOptions>;
+  paragraphOptions?: Partial<ParagraphOptions>;
+  tableKitOptions?: Partial<TableKitOptions>;
+  taskListOptions?: Partial<TaskListOptions>;
+  taskItemOptions?: Partial<TaskItemOptions>;
+  youtubeOptions?: Partial<YoutubeOptions>;
   // marks
-  bold?: ClassValue;
-  code?: ClassValue;
-  italic?: ClassValue;
-  strike?: ClassValue;
-  // extensions marks
-  highlight?: ClassValue;
-  link?: ClassValue;
-  // extensions
-  details?: ClassValue;
-  detailsContent?: ClassValue;
-  detailsSummary?: ClassValue;
-  emoji?: ClassValue;
-  image?: ClassValue;
-  mention?: ClassValue;
-
-  superscript?: ClassValue;
-  table?: ClassValue;
-  taskList?: ClassValue;
-  taskItem?: ClassValue;
-  underline?: ClassValue;
+  boldOptions?: Partial<BoldOptions>;
+  codeOptions?: Partial<CodeOptions>;
+  highlightOptions?: Partial<HighlightOptions>;
+  italicOptions?: Partial<ItalicOptions>;
+  linkOptions?: Partial<LinkOptions>;
+  strikeOptions?: Partial<StrikeOptions>;
+  subscriptOptions?: Partial<SubscriptExtensionOptions>;
+  superscriptOptions?: Partial<SuperscriptExtensionOptions>;
+  underlineOptions?: Partial<UnderlineOptions>;
+  // functionality
+  bubbleMenuOptions?: Partial<BubbleMenuOptions>;
+  characterCountOptions?: Partial<CharacterCountOptions>;
+  backgroundColorOptions?: Partial<BackgroundColorOptions>;
+  colorOptions?: Partial<ColorOptions>;
+  dragHandleOptions?: Partial<DragHandleOptions>;
+  dropcursorOptions?: Partial<DropcursorOptions>;
+  fileHandlerOptions?: Partial<FileHandlerOptions>;
+  floatingMenuOptions?: Partial<FloatingMenuOptions>;
+  focusOptions?: Partial<FocusOptions>;
+  fontFamilyOptions?: Partial<FontFamilyOptions>;
+  fontSizeOptions?: Partial<FontSizeOptions>;
+  invisibleCharactersOptions?: Partial<InvisibleCharactersOptions>;
+  lineHeightOptions?: Partial<LineHeightOptions>;
+  listKeymapOptions?: Partial<ListKeymapOptions>;
+  placeholderOptions?: Partial<PlaceholderOptions>;
+  selectionOptions?: Partial<SelectionOptions>;
+  tableOfContentsOptions?: Partial<TableOfContentsOptions>;
+  textStyleKitOptions?: Partial<TextStyleKitOptions>;
+  textAlignOptions?: Partial<TextAlignOptions>;
+  trailingNodeOptions?: Partial<TrailingNodeOptions>;
+  typographyOptions?: Partial<TypographyOptions>;
+  undoRedoOptions?: Partial<UndoRedoOptions>;
 }
 
+// TextEditor
 export interface EditorProviderProps {
   children?: Snippet;
   footer?: Snippet;
@@ -89,11 +160,7 @@ export interface EditorProviderProps {
   contentprops?: ContentProps;
   isEditable?: boolean;
   autofocusPosition?: FocusPosition;
-  classes?: EditorClasses;
-  youtubeOptions?: YoutubeOptions;
-  characterCountOptions?: CharacterCountOptions;
-  subscriptOptions?: SubscriptExtensionOptions;
-  superscriptOptions?: SuperscriptExtensionOptions;
+
 }
 
 type ContentProps = {
@@ -274,15 +341,10 @@ export interface HeadingButtonGroupProps extends GroupFormatProps {
 
 // image
 export type ImageFormat = 'basic' | 'advanced';
-export interface ImageOptions {
-  src: string;
-  alt?: string;
-  title?: string;
-}
 
 export interface ImageButtonsProps extends EditorBasicProps {
   format?: ImageFormat;
-  imageOptions?: Partial<ImageOptions>;
+  imageOptions?: Partial<SetImageOptions>;
   onAdvancedClick?: () => void;
 }
 
@@ -305,8 +367,13 @@ export interface InvisibleButtonGroupProps extends GroupFormatProps {
 }
 
 // layout
+// import type { LayoutStateConfigType } from './layout/layoutState.svelte';
 export type LayoutAction = 'blockquote' | 'codeblock' | 'hr';
+
 export interface LayoutButtonProps extends EditorBasicProps {
+  blockquoteOptions?: BlockquoteOptions;
+  codeblockOptions?: CodeBlockLowlightOptions;
+  hrOptions?: HorizontalRuleOptions;
   format: LayoutAction;
 }
 export interface LayoutButtonGroupProps extends GroupFormatProps {

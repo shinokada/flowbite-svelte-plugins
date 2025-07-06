@@ -24,9 +24,15 @@
 
   let isVisible = $state(false);
 
+  
+
   function updateVisibility() {
-    if (editor?.storage?.invisibleCharacters?.visibility) {
-      isVisible = editor.storage.invisibleCharacters.visibility();
+    const invisibleCharactersStorage = (editor?.storage as any).invisibleCharacters;
+    if(!invisibleCharactersStorage?.visibility){
+      return ;
+    }
+    if (invisibleCharactersStorage.visibility) {
+      isVisible = invisibleCharactersStorage.visibility();
     }
   }
 

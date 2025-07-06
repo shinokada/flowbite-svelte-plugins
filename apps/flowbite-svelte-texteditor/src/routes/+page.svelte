@@ -24,9 +24,6 @@
 <Heading tag="h2" class="my-4">CharacterCountEx</Heading>
 <Examples.CharacterCountEx />
 
-<Heading tag="h2" class="my-4">Classes</Heading>
-<Examples.Classes />
-
 <Heading tag="h2" class="my-4">Details</Heading>
 <Examples.Details />
 

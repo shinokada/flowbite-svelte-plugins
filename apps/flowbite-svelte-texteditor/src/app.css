@@ -787,4 +787,9 @@
     outline: 3px solid var(--purple);
     transition: outline 0.15s;
   }
+
+  /* confit test */
+  .my-custom-class {
+    border: 2px solid rgb(150, 238, 206);
+  }
 }

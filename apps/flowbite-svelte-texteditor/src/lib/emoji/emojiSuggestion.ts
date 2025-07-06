@@ -1,7 +1,6 @@
 import { mount, unmount } from 'svelte';
-import tippy, { type Instance as TippyInstance } from 'tippy.js';
 import type { Editor } from '@tiptap/core';
-import type { SuggestionOptions, SuggestionProps as TipTapSuggestionProps, SuggestionKeyDownProps } from '@tiptap/suggestion';
+import type { SuggestionOptions, SuggestionProps, SuggestionKeyDownProps } from '@tiptap/suggestion';
 import EmojiList from './EmojiList.svelte';
 
 interface EmojiItem {
@@ -12,21 +11,27 @@ interface EmojiItem {
   fallbackImage?: string;
 }
 
-interface SuggestionContext {
-  editor: Editor;
-  query: string;
-}
-
 export default {
-  items: ({ editor, query }: SuggestionContext): EmojiItem[] => {
+  items: ({ editor, query }: { editor: Editor; query: string }): EmojiItem[] => {
     const cleanQuery = query.toLowerCase().trim().replace(/^:|:$/g, '');
 
-    if (!cleanQuery) {
-      return editor.storage.emoji.emojis.slice(0, 5);
+    // Type assertion to access emoji storage
+    const emojiStorage = (editor.storage as any).emoji;
+    
+    if (!emojiStorage?.emojis) {
+      return [];
     }
 
-    const filtered = editor.storage.emoji.emojis.filter((item: EmojiItem) => {
-      return item.shortcodes.some((shortcode: string) => shortcode.toLowerCase().startsWith(cleanQuery)) || item.tags?.some((tag: string) => tag.toLowerCase().startsWith(cleanQuery));
+    if (!cleanQuery) {
+      return emojiStorage.emojis.slice(0, 5);
+    }
+
+    const filtered = emojiStorage.emojis.filter((item: EmojiItem) => {
+      return item.shortcodes.some((shortcode: string) => 
+        shortcode.toLowerCase().startsWith(cleanQuery)
+      ) || item.tags?.some((tag: string) => 
+        tag.toLowerCase().startsWith(cleanQuery)
+      );
     });
 
     return filtered.slice(0, 5);
@@ -34,10 +39,9 @@ export default {
 
   render: () => {
     let component: any;
-    let popup: TippyInstance;
     let element: HTMLElement;
 
-    const createWrappedCommand = (props: TipTapSuggestionProps) => (args: { name: string }) => {
+    const createWrappedCommand = (props: SuggestionProps<EmojiItem>) => (args: { name: string }) => {
       const emojiItem = props.items.find((item: EmojiItem) => item.name === args.name);
       if (emojiItem) {
         props.command({
@@ -47,7 +51,7 @@ export default {
       }
     };
 
-    const mountComponent = (props: TipTapSuggestionProps) => {
+    const mountComponent = (props: SuggestionProps<EmojiItem>) => {
       if (component) {
         unmount(component);
       }
@@ -62,23 +66,29 @@ export default {
       });
     };
 
-    return {
-      onStart: (props: TipTapSuggestionProps) => {
-        element = document.createElement('div');
-        mountComponent(props);
+    const positionElement = (props: SuggestionProps<EmojiItem>) => {
+      const rect = props.clientRect?.();
+      if (rect && element) {
+        element.style.position = 'absolute';
+        element.style.top = `${rect.bottom + window.scrollY}px`;
+        element.style.left = `${rect.left + window.scrollX}px`;
+        element.style.zIndex = '1000';
+      }
+    };
 
-        popup = tippy(element, {
-          getReferenceClientRect: () => props.clientRect?.() ?? new DOMRect(0, 0, 0, 0),
-          appendTo: () => props.editor.view.dom.ownerDocument.body,
-          content: element,
-          showOnCreate: true,
-          interactive: true,
-          trigger: 'manual',
-          placement: 'bottom-start'
-        });
+    return {
+      onStart: (props: SuggestionProps<EmojiItem>) => {
+        element = document.createElement('div');
+        element.className = 'emoji-suggestion-popup';
+        
+        mountComponent(props);
+        
+        // Append to body and position
+        document.body.appendChild(element);
+        positionElement(props);
       },
 
-      onUpdate: (props: TipTapSuggestionProps) => {
+      onUpdate: (props: SuggestionProps<EmojiItem>) => {
         if (component?.updateItems) {
           component.updateItems(props.items);
           component.updateCommand?.(createWrappedCommand(props));
@@ -86,14 +96,11 @@ export default {
           mountComponent(props);
         }
 
-        popup.setProps({
-          getReferenceClientRect: () => props.clientRect?.() ?? new DOMRect(0, 0, 0, 0)
-        });
+        positionElement(props);
       },
 
       onKeyDown: (props: SuggestionKeyDownProps): boolean => {
         if (props.event.key === 'Escape') {
-          popup.hide();
           return true;
         }
 
@@ -101,7 +108,9 @@ export default {
       },
 
       onExit: () => {
-        popup?.destroy();
+        if (element && element.parentNode) {
+          element.parentNode.removeChild(element);
+        }
         if (component) {
           unmount(component);
         }

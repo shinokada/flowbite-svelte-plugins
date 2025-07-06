@@ -1,6 +1,7 @@
 <script lang="ts">
+  import { getContext } from 'svelte';
   import { Tooltip, Modal, Label, Input, Button } from 'flowbite-svelte';
-  import { runVideoCommand, cn, generateButtonId, generateUniqueId, type VideoButtonProps, useEditableContext } from '$lib';
+  import { runVideoCommand, generateButtonId, generateUniqueId, type VideoButtonProps, useEditableContext, type EditorExtensionConfigs } from '$lib';
 
   let {
     modalChildren,
@@ -11,8 +12,8 @@
     ariaLabel,
     videoOptions = {
       url: 'https://www.youtube.com/watch?v=KaLxCiilHns',
-      width: 640,
-      height: 480
+      width: undefined,
+      height: undefined
     },
     modalTitle = 'Insert advanced video',
     modalSize = 'xs',
@@ -23,6 +24,10 @@
   }: VideoButtonProps = $props();
 
   let defaultModal = $state(false);
+
+  const extensionConfigs = getContext<EditorExtensionConfigs>('editorExtensionConfigs') || {};
+
+  const { youtubeOptions } = extensionConfigs;
 
   const { editableContext, createEditableHandler, getDefaultButtonClass } = useEditableContext();
   const isEditableCtx = $derived(editableContext?.isEditable ?? true);
@@ -50,7 +55,11 @@
         case 'default':
           const url = window.prompt('Enter YouTube URL:', 'https://www.youtube.com/watch?v=KaLxCiilHns');
           if (url) {
-            runVideoCommand(editor, 'default', { src: url });
+            runVideoCommand(editor, 'default', { 
+              src: url,
+              width: youtubeOptions?.width,
+              height: youtubeOptions?.height
+            });
           }
           break;
         case 'advanced':
@@ -65,8 +74,8 @@
     if (videoOptions.url && editor) {
       runVideoCommand(editor, 'advanced', {
         src: videoOptions.url,
-        width: videoOptions.width,
-        height: videoOptions.height
+        width: videoOptions.width ?? youtubeOptions?.width,
+        height: videoOptions.height ?? youtubeOptions?.height,
       });
     }
 
