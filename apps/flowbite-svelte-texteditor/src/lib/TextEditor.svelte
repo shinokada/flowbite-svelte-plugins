@@ -195,6 +195,9 @@
         }),
         Details.configure({
           persist: true,
+          HTMLAttributes: {
+            class: 'details',
+          },
           ...(detailsOptions || {})
         }),
         DetailsSummary.configure(detailsSummaryOptions || {}),

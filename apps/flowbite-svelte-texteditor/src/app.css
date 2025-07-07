@@ -147,10 +147,6 @@
   }
 
   /* floating menu */
-  .tippy-box {
-    max-width: 475px !important;
-  }
-
   .floating-menu {
     display: flex;
     background-color: var(--gray-3);
@@ -221,12 +217,12 @@
     display: none;
   }
 
-  /* texteditor Details */
+  /* Details */
   .tiptap .details {
     display: flex;
     gap: 0.25rem;
     margin: 1.5rem 0;
-    border: 1px solid #d4c8c760;
+    border: 1px solid var(--gray-3);
     border-radius: 0.5rem;
     padding: 0.5rem;
   }
@@ -252,7 +248,7 @@
   }
 
   .tiptap .details > button:hover {
-    background-color: #dedad8d8;
+    background-color: var(--gray-3);
   }
 
   .tiptap .details > button::before {

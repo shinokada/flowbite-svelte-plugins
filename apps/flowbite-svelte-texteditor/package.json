@@ -158,8 +158,7 @@
     "@tiptap/suggestion": "3.0.0-beta.23",
     "flowbite-typography": "^1.0.5",
     "katex": "^0.16.22",
-    "lowlight": "^3.3.0",
-    "tippy.js": "^6.3.7"
+    "lowlight": "^3.3.0"
   },
   "exports": {
     ".": {
