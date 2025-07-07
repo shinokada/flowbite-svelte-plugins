@@ -357,15 +357,15 @@
     height: 1.25rem;
     content: '⠿';
     margin-top: 0.3rem;
-    top: 1rem !important;
+    /* top: 1rem !important; */
     font-weight: 700;
     cursor: grab;
     background: #0d0d0d10;
     color: #0d0d0d;
     border-radius: 0.25rem;
-    opacity: 1 !important;
+    /* opacity: 1 !important;
     visibility: visible !important;
-    pointer-events: auto !important;
+    pointer-events: auto !important; */
   }
 
   .dark [id^='drag-handle-'] .drag-handle {
@@ -398,7 +398,7 @@
   }
 
   /*  mention and emoji */
-  .tippy-box .tippy-content .dropdown-menu button,
+  .emoji-suggestion-popup .dropdown-menu button,
   .tippy-box .tippy-content .mention-dropdown button {
     align-items: center;
     background-color: transparent;
@@ -415,20 +415,24 @@
     background-color: rgba(61, 37, 20, 0.12);
   }
 
+  .emoji-suggestion-popup .dropdown-menu button.is-selected,
   .tippy-box .tippy-content .dropdown-menu button.is-selected,
   .tippy-box .tippy-content .mention-dropdown button.is-selected {
     background-color: rgba(61, 37, 20, 0.08);
   }
 
+  .emoji-suggestion-popup .dropdown-menu button img,
   .tippy-box .tippy-content .dropdown-menu button img {
     height: 1em;
     width: 1em;
   }
 
+  .emoji-suggestion-popup,
   .tippy-box {
     transform-origin: center !important;
   }
 
+  .emoji-suggestion-popup .dropdown-menu,
   .tippy-box .tippy-content .dropdown-menu,
   .tippy-box .tippy-content .mention-dropdown {
     background: #fff;
@@ -584,31 +588,42 @@
     margin-bottom: 0.15em;
   }
 
-  /* math */
-  .tiptap .Tiptap-mathematics-editor {
-    background: #202020;
-    color: #fff;
-    font-family: monospace;
-    padding: 0.2rem 0.5rem;
-  }
-
-  .tiptap .Tiptap-mathematics-render {
+  /* Mathematics extension styles */
+  .tiptap .tiptap-mathematics-render {
     padding: 0 0.25rem;
   }
 
-  .tiptap .Tiptap-mathematics-render--editable {
+  .tiptap .tiptap-mathematics-render--editable {
     cursor: pointer;
     transition: background 0.2s;
   }
 
-  .tiptap .Tiptap-mathematics-render--editable:hover {
+  .tiptap .tiptap-mathematics-render--editable:hover {
     background: #eee;
   }
 
-  .tiptap .Tiptap-mathematics-editor,
-  .tiptap .Tiptap-mathematics-render {
+  .tiptap .tiptap-mathematics-render {
     border-radius: 0.25rem;
+  }
+
+  .tiptap .tiptap-mathematics-render[data-type='inline-math'] {
     display: inline-block;
+  }
+
+  .tiptap .tiptap-mathematics-render[data-type='block-math'] {
+    display: block;
+    margin: 1rem 0;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .tiptap .tiptap-mathematics-render.inline-math-error,
+  .tiptap .tiptap-mathematics-render.block-math-error {
+    background: var(--red-light);
+    color: var(--red);
+    border: 1px solid var(--red-dark);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
   }
 
   /* Task list specific styles */

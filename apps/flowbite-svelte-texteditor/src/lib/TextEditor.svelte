@@ -214,7 +214,36 @@
         HorizontalRule.configure(horizontalRuleOptions || {}),
         Image.configure(imageOptions || {}),
         ListItem.configure(listItemOptions || {}),
-        ...(math ? [Mathematics.configure(mathematicsOptions || {})] : []),
+        ...(math
+          ? [
+              Mathematics.configure({
+                inlineOptions: {
+                  onClick: (node, pos) => {
+                    const katex = prompt('Enter new calculation:', node.attrs.latex);
+                    if (katex) {
+                      editor?.chain().setNodeSelection(pos).updateInlineMath({ latex: katex }).focus().run();
+                    }
+                  }
+                },
+                blockOptions: {
+                  onClick: (node, pos) => {
+                    const katex = prompt('Enter new calculation:', node.attrs.latex);
+                    if (katex) {
+                      editor?.chain().setNodeSelection(pos).updateBlockMath({ latex: katex }).focus().run();
+                    }
+                  }
+                },
+                katexOptions: {
+                  throwOnError: false, // don't throw an error if the LaTeX code is invalid
+                  macros: {
+                    '\\R': '\\mathbb{R}', // add a macro for the real numbers
+                    '\\N': '\\mathbb{N}' // add a macro for the natural numbers
+                  }
+                },
+                ...(mathematicsOptions || {})
+              })
+            ]
+          : []),
         ...(mentions
           ? [
               Mention.configure({
@@ -254,7 +283,6 @@
         CharacterCount.configure(characterCountOptions || {}),
         BackgroundColor.configure(backgroundColorOptions || {}),
         Color.configure(colorOptions || {}),
-
         ...(file
           ? [
               FileHandler.configure({

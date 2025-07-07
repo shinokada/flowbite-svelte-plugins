@@ -3,14 +3,7 @@
   import * as Examples from './examples';
 </script>
 
-<svelte:head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/google-dark.min.css" />
-</svelte:head>
-
 <Heading tag="h1" class="my-8">@flowbite-svelte-plugins/texteditor</Heading>
-
-<Heading tag="h2" class="my-4">Full Featured Texteditor</Heading>
-<Examples.FullFeaturedTexteditor />
 
 <Heading tag="h2" class="my-4">Alignments</Heading>
 <Examples.Alignments />
@@ -68,9 +61,6 @@
 
 <Heading tag="h2" class="my-4">Lists</Heading>
 <Examples.Lists />
-
-<Heading tag="h2" class="my-4">Math</Heading>
-<Examples.Math />
 
 <Heading tag="h2" class="my-4">MentionEx</Heading>
 <Examples.MentionEx />

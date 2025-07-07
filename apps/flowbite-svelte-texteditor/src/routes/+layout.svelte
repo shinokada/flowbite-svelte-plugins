@@ -4,6 +4,10 @@
   let { children } = $props();
 </script>
 
+<svelte:head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/google-dark.min.css" />
+</svelte:head>
+
 <div class="mx-auto max-w-5xl px-2 mb-40">
   <Navbar>
     <NavBrand href="/">
