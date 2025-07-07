@@ -1,7 +1,7 @@
 <script lang="ts">
   import { UndoRedoButtonGroup, TextEditor, ToolbarRowWrapper } from '$lib';
   import type { Editor } from '@tiptap/core';
-  import { Button } from 'flowbite-svelte';
+  import { Button, Heading } from 'flowbite-svelte';
 
   let editorInstance = $state<Editor | null>(null);
 
@@ -48,6 +48,8 @@
     'Lisa Bonet'
   ];
 </script>
+
+<Heading tag="h1" class="my-8">Mention</Heading>
 
 <TextEditor bind:editor={editorInstance} {content} {mentions} contentprops={{ id: 'mention-ex' }}>
   <ToolbarRowWrapper>

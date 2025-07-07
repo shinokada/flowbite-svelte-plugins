@@ -8,20 +8,11 @@
 <Heading tag="h2" class="my-4">Alignments</Heading>
 <Examples.Alignments />
 
-<Heading tag="h2" class="my-4">BubbleMenuEx</Heading>
-<Examples.BubbleMenuEx />
-
-<Heading tag="h2" class="my-4">BubbleMenuEx2</Heading>
-<Examples.BubbleMenuEx2 />
-
 <Heading tag="h2" class="my-4">CharacterCountEx</Heading>
 <Examples.CharacterCountEx />
 
 <Heading tag="h2" class="my-4">Details</Heading>
 <Examples.Details />
-
-<Heading tag="h2" class="my-4">DragHandleEx</Heading>
-<Examples.DragHandleEx />
 
 <Heading tag="h2" class="my-4">EditableButtonEx</Heading>
 <Examples.EditableButtonEx />
@@ -34,12 +25,6 @@
 
 <Heading tag="h2" class="my-4">FileHandlerEx</Heading>
 <Examples.FileHandlerEx />
-
-<Heading tag="h2" class="my-4">FloatingMenuEx</Heading>
-<Examples.FloatingMenuEx />
-
-<Heading tag="h2" class="my-4">FloatingMenuEx2</Heading>
-<Examples.FloatingMenuEx2 />
 
 <Heading tag="h2" class="my-4">Fonts</Heading>
 <Examples.Fonts />

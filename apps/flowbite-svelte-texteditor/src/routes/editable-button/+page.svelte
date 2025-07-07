@@ -71,7 +71,7 @@
 
 <Heading tag="h1" class="my-8">Editable</Heading>
 
-<TextEditor bind:editor={editorInstance} {content} {mentions} floatingMenu bubbleMenu draghandle file {isEditable} contentprops={{ id: 'drag-handle-editable' }}>
+<TextEditor bind:editor={editorInstance} {content} {mentions} {isEditable} contentprops={{ id: 'drag-handle-editable' }}>
   <ToolbarRowWrapper>
     <EditableButton editor={editorInstance} bind:isEditable onToggle={handleEditableToggle} />
     <Divider />
