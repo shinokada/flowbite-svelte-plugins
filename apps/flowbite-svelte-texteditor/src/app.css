@@ -399,7 +399,7 @@
 
   /*  mention and emoji */
   .emoji-suggestion-popup .dropdown-menu button,
-  .tippy-box .tippy-content .mention-dropdown button {
+  .mention-suggestion-popup .mention-dropdown button {
     align-items: center;
     background-color: transparent;
     display: flex;
@@ -408,33 +408,31 @@
     width: 100%;
   }
 
-  .tippy-box .tippy-content .dropdown-menu button:hover,
-  .tippy-box .tippy-content .dropdown-menu button:hover.is-selected,
-  .tippy-box .tippy-content .mention-dropdown button:hover,
-  .tippy-box .tippy-content .mention-dropdown button:hover.is-selected {
+  .emoji-suggestion-popup .dropdown-menu button:hover,
+  .emoji-suggestion-popup .dropdown-menu button:hover.is-selected,
+  .mention-suggestion-popup .mention-dropdown button:hover,
+  .mention-dropdown button:hover.is-selected {
     background-color: rgba(61, 37, 20, 0.12);
   }
 
   .emoji-suggestion-popup .dropdown-menu button.is-selected,
-  .tippy-box .tippy-content .dropdown-menu button.is-selected,
-  .tippy-box .tippy-content .mention-dropdown button.is-selected {
+  .mention-suggestion-popup .mention-dropdown button.is-selected {
     background-color: rgba(61, 37, 20, 0.08);
   }
 
   .emoji-suggestion-popup .dropdown-menu button img,
-  .tippy-box .tippy-content .dropdown-menu button img {
+  .mention-suggestion-popup .dropdown-menu button img {
     height: 1em;
     width: 1em;
   }
 
   .emoji-suggestion-popup,
-  .tippy-box {
+  .mention-suggestion-popup {
     transform-origin: center !important;
   }
 
   .emoji-suggestion-popup .dropdown-menu,
-  .tippy-box .tippy-content .dropdown-menu,
-  .tippy-box .tippy-content .mention-dropdown {
+  .mention-suggestion-popup .mention-dropdown {
     background: #fff;
     border: 1px solid rgba(61, 37, 20, 0.05);
     border-radius: 0.7rem;

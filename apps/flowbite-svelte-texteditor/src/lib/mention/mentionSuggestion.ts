@@ -1,5 +1,4 @@
 import { mount, unmount } from 'svelte';
-import tippy, { type Instance as TippyInstance } from 'tippy.js';
 import type { SuggestionOptions, SuggestionProps as TipTapSuggestionProps, SuggestionKeyDownProps } from '@tiptap/suggestion';
 import MentionList from './MentionList.svelte';
 
@@ -9,8 +8,7 @@ export const createMentionSuggestion = (mentions: string[]) =>
 
     render: () => {
       let component: any;
-      let popup: TippyInstance;
-      let element: HTMLElement;
+      let popup: HTMLElement;
 
       const createWrappedCommand = (props: TipTapSuggestionProps) => (label: string) => {
         props.command({ label });
@@ -20,7 +18,7 @@ export const createMentionSuggestion = (mentions: string[]) =>
         if (component) unmount(component);
 
         component = mount(MentionList, {
-          target: element,
+          target: popup,
           props: {
             items: props.items,
             command: createWrappedCommand(props)
@@ -28,34 +26,40 @@ export const createMentionSuggestion = (mentions: string[]) =>
         });
       };
 
+      const positionPopup = (props: TipTapSuggestionProps) => {
+        const rect = props.clientRect?.();
+        if (rect && popup) {
+          popup.style.position = 'absolute';
+          popup.style.top = `${rect.bottom + window.scrollY}px`;
+          popup.style.left = `${rect.left + window.scrollX}px`;
+          popup.style.zIndex = '1000';
+          popup.style.backgroundColor = 'white';
+          popup.style.border = '1px solid #ccc';
+          popup.style.borderRadius = '4px';
+          popup.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        }
+      };
+
       return {
         onStart: (props: TipTapSuggestionProps) => {
-          element = document.createElement('div');
+          popup = document.createElement('div');
+          popup.className = 'mention-suggestion-popup';
+          document.body.appendChild(popup);
+          
           mountComponent(props);
-
-          popup = tippy(element, {
-            getReferenceClientRect: () => props.clientRect?.() ?? new DOMRect(0, 0, 0, 0),
-            appendTo: () => props.editor.view.dom.ownerDocument.body,
-            content: element,
-            showOnCreate: true,
-            interactive: true,
-            trigger: 'manual',
-            placement: 'bottom-start'
-          });
+          positionPopup(props);
         },
 
         onUpdate: (props: TipTapSuggestionProps) => {
-          component?.updateItems?.(props.items);
-          component?.updateCommand?.(createWrappedCommand(props));
-
-          popup.setProps({
-            getReferenceClientRect: () => props.clientRect?.() ?? new DOMRect(0, 0, 0, 0)
-          });
+          if (component) {
+            component.updateItems?.(props.items);
+            component.updateCommand?.(createWrappedCommand(props));
+          }
+          positionPopup(props);
         },
 
         onKeyDown: (props: SuggestionKeyDownProps): boolean => {
           if (props.event.key === 'Escape') {
-            popup.hide();
             return true;
           }
 
@@ -63,8 +67,12 @@ export const createMentionSuggestion = (mentions: string[]) =>
         },
 
         onExit: () => {
-          popup?.destroy();
-          if (component) unmount(component);
+          if (popup && popup.parentNode) {
+            popup.parentNode.removeChild(popup);
+          }
+          if (component) {
+            unmount(component);
+          }
         }
       };
     }
