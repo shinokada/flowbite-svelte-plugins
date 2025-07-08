@@ -13,8 +13,8 @@
     height: 192,
     autoplay: true,
     modestBranding: true,
-    controls:true,
-    allowFullscreen: true,
+    controls: true,
+    allowFullscreen: true
   };
 </script>
 

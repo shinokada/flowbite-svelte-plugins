@@ -188,7 +188,7 @@
         Details.configure({
           persist: true,
           HTMLAttributes: {
-            class: 'details',
+            class: 'details'
           },
           ...(detailsOptions || {})
         }),
@@ -386,81 +386,77 @@
     }
   });
 
+  function setupFloatingMenu() {
+    if (!editor || floatingMenuRenderer) return;
 
-function setupFloatingMenu() {
-  if (!editor || floatingMenuRenderer) return;
+    setTimeout(() => {
+      const floatingConfig = getMenuConfig(floatingMenu);
+      floatingElement = document.createElement('div');
+      floatingElement.style.zIndex = '50';
+      floatingElement.style.position = 'absolute';
+      floatingElement.style.visibility = 'hidden';
+      floatingElement.style.opacity = '0';
+      floatingElement.style.transition = 'opacity 0.2s ease-in-out';
 
-  setTimeout(() => {
-    const floatingConfig = getMenuConfig(floatingMenu);
-    floatingElement = document.createElement('div');
-    floatingElement.style.zIndex = '50';
-    floatingElement.style.position = 'absolute';
-    floatingElement.style.visibility = 'hidden';
-    floatingElement.style.opacity = '0';
-    floatingElement.style.transition = 'opacity 0.2s ease-in-out';
-    
-    // Add to body initially
-    document.body.appendChild(floatingElement);
+      // Add to body initially
+      document.body.appendChild(floatingElement);
 
-    // Create the floating menu plugin
-    const floatingPlugin = FloatingMenuPlugin({
-      editor: editor!,
-      element: floatingElement,
-      pluginKey: 'floatingMenu',
-      shouldShow: ({ editor, view, state, oldState, from, to }) => {
-        const { selection } = state;
-        const { empty } = selection;
-        const anchor = selection.$anchor;
-        const isRootDepth = anchor.depth === 1;
-        const isEmptyTextBlock = anchor.parent.isTextblock && 
-          !anchor.parent.type.spec.code && 
-          !anchor.parent.textContent && 
-          anchor.parent.childCount === 0;
+      // Create the floating menu plugin
+      const floatingPlugin = FloatingMenuPlugin({
+        editor: editor!,
+        element: floatingElement,
+        pluginKey: 'floatingMenu',
+        shouldShow: ({ editor, view, state, oldState, from, to }) => {
+          const { selection } = state;
+          const { empty } = selection;
+          const anchor = selection.$anchor;
+          const isRootDepth = anchor.depth === 1;
+          const isEmptyTextBlock = anchor.parent.isTextblock && !anchor.parent.type.spec.code && !anchor.parent.textContent && anchor.parent.childCount === 0;
 
-        if (!view.hasFocus() || !empty || !isRootDepth || !isEmptyTextBlock || !editor.isEditable) {
-          return false;
-        }
-
-        return true;
-      },
-      options: {
-        strategy: 'absolute',
-        placement: 'right',
-        offset: 8,
-        flip: true,
-        shift: true,
-        onShow: () => {
-          if (floatingElement) {
-            floatingElement.style.visibility = 'visible';
-            floatingElement.style.opacity = '1';
+          if (!view.hasFocus() || !empty || !isRootDepth || !isEmptyTextBlock || !editor.isEditable) {
+            return false;
           }
+
+          return true;
         },
-        onHide: () => {
-          if (floatingElement) {
-            floatingElement.style.visibility = 'hidden';
-            floatingElement.style.opacity = '0';
+        options: {
+          strategy: 'absolute',
+          placement: 'right',
+          offset: 8,
+          flip: true,
+          shift: true,
+          onShow: () => {
+            if (floatingElement) {
+              floatingElement.style.visibility = 'visible';
+              floatingElement.style.opacity = '1';
+            }
+          },
+          onHide: () => {
+            if (floatingElement) {
+              floatingElement.style.visibility = 'hidden';
+              floatingElement.style.opacity = '0';
+            }
           }
         }
-      }
-    });
+      });
 
-    // Register the plugin with the editor
-    editor!.registerPlugin(floatingPlugin);
+      // Register the plugin with the editor
+      editor!.registerPlugin(floatingPlugin);
 
-    // Create the Svelte renderer
-    floatingMenuRenderer = new SvelteRenderer(FloatingMenu, {
-      target: floatingElement,
-      props: { 
-        editor: editor!, 
-        autoSetup: false, // We'll call setup manually
-        ...floatingConfig 
-      }
-    });
+      // Create the Svelte renderer
+      floatingMenuRenderer = new SvelteRenderer(FloatingMenu, {
+        target: floatingElement,
+        props: {
+          editor: editor!,
+          autoSetup: false, // We'll call setup manually
+          ...floatingConfig
+        }
+      });
 
-    // Setup the floating menu
-    floatingMenuRenderer.setup();
-  }, 100);
-}
+      // Setup the floating menu
+      floatingMenuRenderer.setup();
+    }, 100);
+  }
 
   onDestroy(() => {
     editor?.destroy();
@@ -488,7 +484,7 @@ function setupFloatingMenu() {
         {#if editor}
           <Toc {editor} />
         {:else}
-          <p class="select-none text-gray-500">Loading editor...</p>
+          <p class="text-gray-500 select-none">Loading editor...</p>
         {/if}
       </div>
     {:else}
@@ -499,3 +495,32 @@ function setupFloatingMenu() {
     {/if}
   </ContentWrapper>
 </EditorWrapper>
+
+<!--
+@component
+[Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
+## Type
+[EditorProviderProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L139)
+## Props
+@prop content
+@prop editorClass = 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none'
+@prop editor = $bindable<Editor | null>(null)
+@prop children
+@prop footer
+@prop emoji = true
+@prop class: className
+@prop mentions
+@prop floatingMenu = false
+@prop math = false
+@prop limit
+@prop file
+@prop placeholder = 'Write something ...'
+@prop summary = 'Summary'
+@prop detailsPlaceholder = 'Add details content...'
+@prop draghandle
+@prop draghandleprops
+@prop toc
+@prop contentprops
+@prop isEditable = true
+@prop autofocusPosition = false
+-->

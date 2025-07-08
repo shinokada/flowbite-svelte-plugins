@@ -9,11 +9,11 @@ import tiptapPackage from './node_modules/@tiptap/core/package.json' with { type
 export default defineConfig({
   plugins: [tailwindcss(), devtoolsJson(), sveltekit()],
   define: {
-		__NAME__: JSON.stringify(pkg.name),
-		__VERSION__: JSON.stringify(pkg.version),
-		__GITHUBURL__: JSON.stringify(pkg.repository.url),
-		__TIPTAP__: JSON.stringify(tiptapPackage.version),
-	},
+    __NAME__: JSON.stringify(pkg.name),
+    __VERSION__: JSON.stringify(pkg.version),
+    __GITHUBURL__: JSON.stringify(pkg.repository.url),
+    __TIPTAP__: JSON.stringify(tiptapPackage.version)
+  },
   test: {
     projects: [
       {

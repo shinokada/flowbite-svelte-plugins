@@ -18,9 +18,9 @@
 </script>
 
 <Heading tag="h1" class="my-8">Drag handle</Heading>
-<P class="text-xl text-red-500 dark:text-red-400 my-4">Work in progress.</P>
+<P class="my-4 text-xl text-red-500 dark:text-red-400">Work in progress.</P>
 
 <TextEditor bind:editor={editorInstance} {content} contentprops={{ id: 'drag-handle-wrapper' }}>
   <UndoRedoButtonGroup editor={editorInstance} />
-  <DragHandle editor={editorInstance}/>
+  <DragHandle editor={editorInstance} />
 </TextEditor>

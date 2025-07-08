@@ -24,12 +24,10 @@
 
   let isVisible = $state(false);
 
-  
-
   function updateVisibility() {
     const invisibleCharactersStorage = (editor?.storage as any).invisibleCharacters;
-    if(!invisibleCharactersStorage?.visibility){
-      return ;
+    if (!invisibleCharactersStorage?.visibility) {
+      return;
     }
     if (invisibleCharactersStorage.visibility) {
       isVisible = invisibleCharactersStorage.visibility();
@@ -88,7 +86,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[InvisibleButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L253)
+[InvisibleButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L359)
 ## Props
 @prop editor
 @prop action

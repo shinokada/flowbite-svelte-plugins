@@ -18,7 +18,7 @@ class SvelteRenderer {
     this.component = component;
     this.element = target;
     this.currentProps = props;
-    
+
     this.render();
   }
 
@@ -33,12 +33,12 @@ class SvelteRenderer {
         unmount(this.instance);
         this.instance = null;
       }
-      
+
       if (!this.element || !this.element.parentNode) {
         console.warn('Target element is not in DOM, skipping render');
         return;
       }
-      
+
       this.instance = mount(this.component, {
         target: this.element,
         props: this.currentProps
@@ -54,9 +54,7 @@ class SvelteRenderer {
       return;
     }
 
-    const hasChanged = Object.keys(newProps).some(
-      key => this.currentProps[key] !== newProps[key]
-    );
+    const hasChanged = Object.keys(newProps).some((key) => this.currentProps[key] !== newProps[key]);
 
     if (hasChanged) {
       this.currentProps = { ...this.currentProps, ...newProps };
@@ -117,7 +115,7 @@ class SvelteRenderer {
     try {
       // Call cleanup if available before destroying
       this.cleanup();
-      
+
       if (this.instance) {
         unmount(this.instance);
         this.instance = null;

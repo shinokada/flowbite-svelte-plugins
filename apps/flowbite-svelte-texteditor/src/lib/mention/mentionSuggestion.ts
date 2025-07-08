@@ -45,7 +45,7 @@ export const createMentionSuggestion = (mentions: string[]) =>
           popup = document.createElement('div');
           popup.className = 'mention-suggestion-popup';
           document.body.appendChild(popup);
-          
+
           mountComponent(props);
           positionPopup(props);
         },

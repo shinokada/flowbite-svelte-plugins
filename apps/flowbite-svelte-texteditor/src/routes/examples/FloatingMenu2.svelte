@@ -13,8 +13,8 @@
 
 <Heading tag="h1" class="my-8">Floating menu 2</Heading>
 
-<P class="text-xl text-red-500 dark:text-red-400 my-4">Work in progress.</P>
+<P class="my-4 text-xl text-red-500 dark:text-red-400">Work in progress.</P>
 
-<TextEditor bind:editor={editorInstance} {content} floatingMenu={{ showHorizontalRule: false, showTable: false, showImage: false, showCodeBlock:false, showList:false }} contentprops={{ id: 'floating-menu-ex2' }}>
+<TextEditor bind:editor={editorInstance} {content} floatingMenu={{ showHorizontalRule: false, showTable: false, showImage: false, showCodeBlock: false, showList: false }} contentprops={{ id: 'floating-menu-ex2' }}>
   <UndoRedoButtonGroup editor={editorInstance} />
 </TextEditor>

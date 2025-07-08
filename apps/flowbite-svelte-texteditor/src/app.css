@@ -284,11 +284,11 @@
   }
 
   /* drag handle */
-  [id^='drag-handle-'] ::selection{
+  [id^='drag-handle-'] ::selection {
     background-color: #70cff850;
   }
 
-  .dark [id^='drag-handle-'] .ProseMirror-hideselection *::selection{
+  .dark [id^='drag-handle-'] .ProseMirror-hideselection *::selection {
     background-color: #e3508950 !important;
   }
 
@@ -475,7 +475,7 @@
     pointer-events: none;
   }
 
-  .dark p.is-editor-empty:first-child::before{
+  .dark p.is-editor-empty:first-child::before {
     color: #666;
   }
 

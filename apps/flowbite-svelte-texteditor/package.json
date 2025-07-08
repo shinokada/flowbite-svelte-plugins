@@ -1,6 +1,6 @@
 {
   "name": "@flowbite-svelte-plugins/texteditor",
-  "version": "0.23.2",
+  "version": "0.24.0",
   "description": "Text editor component for Flowbite Svelte",
   "main": "dist/index.js",
   "author": {
@@ -163,6 +163,10 @@
     ".": {
       "types": "./dist/index.d.ts",
       "svelte": "./dist/index.js"
+    },
+    "./EditorConfig.svelte": {
+      "types": "./dist/EditorConfig.svelte.d.ts",
+      "svelte": "./dist/EditorConfig.svelte"
     },
     "./TextEditor.svelte": {
       "types": "./dist/TextEditor.svelte.d.ts",
@@ -332,14 +336,6 @@
       "types": "./dist/undo-redo/UndoRedoButtonGroup.svelte.d.ts",
       "svelte": "./dist/undo-redo/UndoRedoButtonGroup.svelte"
     },
-    "./YoutubeButton.svelte": {
-      "types": "./dist/youtube/YoutubeButton.svelte.d.ts",
-      "svelte": "./dist/youtube/YoutubeButton.svelte"
-    },
-    "./YoutubeButtonGroup.svelte": {
-      "types": "./dist/youtube/YoutubeButtonGroup.svelte.d.ts",
-      "svelte": "./dist/youtube/YoutubeButtonGroup.svelte"
-    },
     "./ContentWrapper.svelte": {
       "types": "./dist/wrappers/ContentWrapper.svelte.d.ts",
       "svelte": "./dist/wrappers/ContentWrapper.svelte"
@@ -359,6 +355,14 @@
     "./ToolbarWrapper.svelte": {
       "types": "./dist/wrappers/ToolbarWrapper.svelte.d.ts",
       "svelte": "./dist/wrappers/ToolbarWrapper.svelte"
+    },
+    "./YoutubeButton.svelte": {
+      "types": "./dist/youtube/YoutubeButton.svelte.d.ts",
+      "svelte": "./dist/youtube/YoutubeButton.svelte"
+    },
+    "./YoutubeButtonGroup.svelte": {
+      "types": "./dist/youtube/YoutubeButtonGroup.svelte.d.ts",
+      "svelte": "./dist/youtube/YoutubeButtonGroup.svelte"
     },
     "./package.json": "./package.json"
   }

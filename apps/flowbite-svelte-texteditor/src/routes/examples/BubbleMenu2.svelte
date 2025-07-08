@@ -18,12 +18,12 @@
 </script>
 
 <Heading tag="h1" class="my-8">Bubble Menu 2</Heading>
-<P class="text-xl text-red-500 dark:text-red-400 my-4">Work in progress.</P>
+<P class="my-4 text-xl text-red-500 dark:text-red-400">Work in progress.</P>
 
 <TextEditor bind:editor={editorInstance} {content} contentprops={{ id: 'bubble-menu-ex2' }}>
   <UndoRedoButtonGroup editor={editorInstance} />
   <AlignmentButtonGroup editor={editorInstance} />
-  <BubbleMenu editor={editorInstance} showStrike={false} showHighlight={false}/>
+  <BubbleMenu editor={editorInstance} showStrike={false} showHighlight={false} />
 </TextEditor>
 
 <div class="mt-4">

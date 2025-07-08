@@ -17,7 +17,7 @@ export default {
 
     // Type assertion to access emoji storage
     const emojiStorage = (editor.storage as any).emoji;
-    
+
     if (!emojiStorage?.emojis) {
       return [];
     }
@@ -27,11 +27,7 @@ export default {
     }
 
     const filtered = emojiStorage.emojis.filter((item: EmojiItem) => {
-      return item.shortcodes.some((shortcode: string) => 
-        shortcode.toLowerCase().startsWith(cleanQuery)
-      ) || item.tags?.some((tag: string) => 
-        tag.toLowerCase().startsWith(cleanQuery)
-      );
+      return item.shortcodes.some((shortcode: string) => shortcode.toLowerCase().startsWith(cleanQuery)) || item.tags?.some((tag: string) => tag.toLowerCase().startsWith(cleanQuery));
     });
 
     return filtered.slice(0, 5);
@@ -80,9 +76,9 @@ export default {
       onStart: (props: SuggestionProps<EmojiItem>) => {
         element = document.createElement('div');
         element.className = 'emoji-suggestion-popup';
-        
+
         mountComponent(props);
-        
+
         // Append to body and position
         document.body.appendChild(element);
         positionElement(props);

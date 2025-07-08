@@ -1,5 +1,5 @@
 import type { Editor } from '@tiptap/core';
-import type { SetImageOptions } from '@tiptap/extension-image'
+import type { SetImageOptions } from '@tiptap/extension-image';
 import type { AlignmentAction, DetailsAction, ExportAction, FormatAction, LayoutAction, HeadingLevel, ImageFormat, ListAction, TableAction, TaskAction, VideoAction, InvisibleAction } from './types';
 
 // alignment

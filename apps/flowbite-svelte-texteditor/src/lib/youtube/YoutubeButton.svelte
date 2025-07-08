@@ -55,7 +55,7 @@
         case 'default':
           const url = window.prompt('Enter YouTube URL:', 'https://www.youtube.com/watch?v=KaLxCiilHns');
           if (url) {
-            runVideoCommand(editor, 'default', { 
+            runVideoCommand(editor, 'default', {
               src: url,
               width: youtubeOptions?.width,
               height: youtubeOptions?.height
@@ -75,7 +75,7 @@
       runVideoCommand(editor, 'advanced', {
         src: videoOptions.url,
         width: videoOptions.width ?? youtubeOptions?.width,
-        height: videoOptions.height ?? youtubeOptions?.height,
+        height: videoOptions.height ?? youtubeOptions?.height
       });
     }
 

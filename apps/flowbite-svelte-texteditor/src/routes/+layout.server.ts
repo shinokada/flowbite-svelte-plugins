@@ -1,11 +1,11 @@
 const json = (r: Response) => r.json();
-import type { LayoutServerLoad } from "./$types";
+import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async ({ fetch }) => {
   try {
-    const allExamples = await fetch("/api").then(json);
+    const allExamples = await fetch('/api').then(json);
     // console.log('allExamples in layout server: ', allExamples)
-    return {allExamples};
+    return { allExamples };
   } catch (error) {
     console.error(`Error in load function for /: ${error}`);
   }

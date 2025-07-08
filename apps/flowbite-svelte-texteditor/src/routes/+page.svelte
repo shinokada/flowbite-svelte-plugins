@@ -32,14 +32,14 @@
   let isEditable = $state(true);
 
   function getEditorContent() {
-    return editorInstance?.getHTML() ?? "";
+    return editorInstance?.getHTML() ?? '';
   }
 
   function setEditorContent(content: string) {
     editorInstance?.commands.setContent(content);
   }
 
-   const content = `<h1>Flowbite-Svelte-Texteditor</h1><p>Flowbite-Svelte is an <strong>open-source library of UI components</strong> based on the utility-first Tailwind CSS framework featuring dark mode support, a Figma design system, and more.</p><p>It includes all of the commonly used components that a website requires, such as buttons, dropdowns, navigation bars, modals, datepickers, advanced charts and the list goes on.</p>
+  const content = `<h1>Flowbite-Svelte-Texteditor</h1><p>Flowbite-Svelte is an <strong>open-source library of UI components</strong> based on the utility-first Tailwind CSS framework featuring dark mode support, a Figma design system, and more.</p><p>It includes all of the commonly used components that a website requires, such as buttons, dropdowns, navigation bars, modals, datepickers, advanced charts and the list goes on.</p>
     <p>Here is an example of a js block:</p><pre><code class="language-javascript">for (var i=1; i <= 20; i++)
 {
   if (i % 15 == 0)
@@ -86,9 +86,9 @@
   ];
 </script>
 
-<Heading tag="h1" class="text-5xl mb-8">{name}</Heading>
+<Heading tag="h1" class="mb-8 text-5xl">{name}</Heading>
 
-<Heading tag="h2" class="text-4xl mb-4">Powered by @tiptap/{tiptapVersion}</Heading>
+<Heading tag="h2" class="mb-4 text-4xl">Powered by @tiptap/{tiptapVersion}</Heading>
 
 <TextEditor bind:editor={editorInstance} {content} {mentions} floatingMenu file {isEditable} contentprops={{ id: 'drag-handle-editable' }}>
   <ToolbarRowWrapper>
@@ -142,5 +142,5 @@
 
 <div class="mt-4">
   <Button onclick={() => console.log(getEditorContent())}>Log Content</Button>
-  <Button onclick={() => setEditorContent("<p>New content!</p>")}>Set Content</Button>
+  <Button onclick={() => setEditorContent('<p>New content!</p>')}>Set Content</Button>
 </div>

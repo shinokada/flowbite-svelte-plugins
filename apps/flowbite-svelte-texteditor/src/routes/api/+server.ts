@@ -1,5 +1,5 @@
 // import { fetchMarkdownPosts, fetchApiCheck } from "../utils";
-import { json } from "@sveltejs/kit";
+import { json } from '@sveltejs/kit';
 
 const convertPath = (path: string): string => {
   return path.replace('/src/routes', '').replace('.svelte', '');
@@ -10,7 +10,7 @@ const getLabel = (path: string): string => {
 };
 
 const fetchExamples = async () => {
-  const exampleFiles = import.meta.glob("/src/routes/examples/*.svelte");
+  const exampleFiles = import.meta.glob('/src/routes/examples/*.svelte');
 
   const iterableExampleFiles = Object.entries(exampleFiles);
   const allExamples = await Promise.all(

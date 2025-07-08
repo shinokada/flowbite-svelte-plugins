@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.24.0
+
+### Minor Changes
+
+- feat: @tiptap beta
+
 ## 0.23.2
 
 ### Patch Changes
