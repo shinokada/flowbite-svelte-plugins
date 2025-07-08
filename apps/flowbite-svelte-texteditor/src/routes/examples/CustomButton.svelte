@@ -9,7 +9,7 @@
   const content = '<p>My content...</p>';
 </script>
 
-<Heading tag="h1" class="my-8">Custom</Heading>
+<Heading tag="h1" class="my-8">Custom Button</Heading>
 
 <TextEditor bind:editor={editorInstance} {content} emoji={true} class="mb-96" contentprops={{ id: 'custom-ex' }}>
   <AlignmentButton editor={editorInstance} alignment="left" />

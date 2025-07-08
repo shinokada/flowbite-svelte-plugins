@@ -404,7 +404,7 @@ function setupFloatingMenu() {
 
     // Create the floating menu plugin
     const floatingPlugin = FloatingMenuPlugin({
-      editor,
+      editor: editor!,
       element: floatingElement,
       pluginKey: 'floatingMenu',
       shouldShow: ({ editor, view, state, oldState, from, to }) => {
@@ -445,13 +445,13 @@ function setupFloatingMenu() {
     });
 
     // Register the plugin with the editor
-    editor?.registerPlugin(floatingPlugin);
+    editor!.registerPlugin(floatingPlugin);
 
     // Create the Svelte renderer
     floatingMenuRenderer = new SvelteRenderer(FloatingMenu, {
       target: floatingElement,
       props: { 
-        editor, 
+        editor: editor!, 
         autoSetup: false, // We'll call setup manually
         ...floatingConfig 
       }
@@ -461,7 +461,6 @@ function setupFloatingMenu() {
     floatingMenuRenderer.setup();
   }, 100);
 }
-
 
   onDestroy(() => {
     editor?.destroy();

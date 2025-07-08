@@ -17,7 +17,7 @@
   }
 </script>
 
-<Heading tag="h1" class="my-8">Editable</Heading>
+<Heading tag="h1" class="my-8">Editable Button</Heading>
 
 <TextEditor bind:editor={editorInstance} {content} {isEditable} contentprops={{ id: 'editable-toggle-ex' }}>
   <EditableButton editor={editorInstance} bind:isEditable onToggle={handleEditableToggle} />

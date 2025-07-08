@@ -82,7 +82,7 @@
   ];
 </script>
 
-<Heading tag="h1" class="my-8">Full featured</Heading>
+<Heading tag="h1" class="my-8">Full Featured TextEditor</Heading>
 
 <TextEditor bind:editor={editorInstance} {content} {mentions} file {isEditable} contentprops={{ id: 'drag-handle-editable' }}>
   <ToolbarRowWrapper>
