@@ -4,6 +4,7 @@
     TextEditor,
     ToolbarRowWrapper,
     AlignmentButtonGroup,
+    BubbleMenu,
     CharacterCount,
     DetailsButtonGroup,
     Divider,
@@ -38,7 +39,7 @@
     editorInstance?.commands.setContent(content);
   }
 
-   const content = `<p>Flowbite-Svelte is an <strong>open-source library of UI components</strong> based on the utility-first Tailwind CSS framework featuring dark mode support, a Figma design system, and more.</p><p>It includes all of the commonly used components that a website requires, such as buttons, dropdowns, navigation bars, modals, datepickers, advanced charts and the list goes on.</p>
+   const content = `<h1>Flowbite-Svelte-Texteditor</h1><p>Flowbite-Svelte is an <strong>open-source library of UI components</strong> based on the utility-first Tailwind CSS framework featuring dark mode support, a Figma design system, and more.</p><p>It includes all of the commonly used components that a website requires, such as buttons, dropdowns, navigation bars, modals, datepickers, advanced charts and the list goes on.</p>
     <p>Here is an example of a js block:</p><pre><code class="language-javascript">for (var i=1; i <= 20; i++)
 {
   if (i % 15 == 0)
@@ -89,9 +90,7 @@
 
 <Heading tag="h2" class="text-4xl mb-4">Powered by @tiptap/{tiptapVersion}</Heading>
 
-<P class="text-xl text-red-500 dark:text-red-400 my-4">Examples use @tiptap/{tiptapVersion}. Floating Menu, Bubble Menu, and Drag Handles are still a work in progress.</P>
-
-<TextEditor bind:editor={editorInstance} {content} {mentions} file {isEditable} contentprops={{ id: 'drag-handle-editable' }}>
+<TextEditor bind:editor={editorInstance} {content} {mentions} floatingMenu file {isEditable} contentprops={{ id: 'drag-handle-editable' }}>
   <ToolbarRowWrapper>
     <EditableButton editor={editorInstance} bind:isEditable onToggle={handleEditableToggle} />
     <Divider />
@@ -138,6 +137,7 @@
       <CharacterCount editor={editorInstance} limit={700} />
     {/if}
   {/snippet}
+  <BubbleMenu editor={editorInstance} />
 </TextEditor>
 
 <div class="mt-4">

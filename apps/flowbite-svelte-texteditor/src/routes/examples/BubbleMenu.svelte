@@ -18,7 +18,6 @@
 </script>
 
 <Heading tag="h1" class="my-8">Bubble menu</Heading>
-<P class="text-xl text-red-500 dark:text-red-400 my-4">Work in progress.</P>
 
 <TextEditor bind:editor={editorInstance} {content} contentprops={{ id: 'bubble-menu-ex' }}>
   <UndoRedoButtonGroup editor={editorInstance} />

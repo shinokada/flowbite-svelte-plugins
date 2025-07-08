@@ -482,9 +482,6 @@ function setupFloatingMenu() {
       <div class="col-group">
         <div class="main">
           <div bind:this={editorElement}></div>
-          {#if draghandle && editor}
-            <DragHandle {editor} {draghandleprops} />
-          {/if}
           {#if footer}
             {@render footer()}
           {/if}
@@ -497,9 +494,6 @@ function setupFloatingMenu() {
       </div>
     {:else}
       <div bind:this={editorElement}></div>
-      {#if draghandle && editor}
-        <DragHandle {editor} {draghandleprops} />
-      {/if}
       {#if footer}
         {@render footer()}
       {/if}
