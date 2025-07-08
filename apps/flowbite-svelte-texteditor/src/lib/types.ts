@@ -6,8 +6,8 @@ import type { BlockquoteOptions } from '@tiptap/extension-blockquote';
 import type { BulletListOptions } from '@tiptap/extension-list';
 import type { CodeBlockLowlightOptions } from '@tiptap/extension-code-block-lowlight';
 import type { DetailsOptions } from '@tiptap/extension-details';
-import type { DetailsContentOptions } from '@tiptap/extension-details-content';
-import type { DetailsSummaryOptions } from '@tiptap/extension-details-summary';
+import type { DetailsContentOptions } from '@tiptap/extension-details';
+import type { DetailsSummaryOptions } from '@tiptap/extension-details';
 import type { EmojiOptions } from '@tiptap/extension-emoji';
 import type { HardBreakOptions } from '@tiptap/extension-hard-break';
 import type { HeadingOptions } from '@tiptap/extension-heading';
@@ -495,7 +495,7 @@ export interface VideoOptions {
   loop?: boolean;
 }
 export type VideoAction = 'default' | 'advanced';
-export interface VideoButtonProps extends EditorBasicProps {
+export interface YoutubeButtonProps extends EditorBasicProps {
   format?: VideoAction;
   onAdvancedClick?: () => void;
   modalTitle?: string;
@@ -505,7 +505,7 @@ export interface VideoButtonProps extends EditorBasicProps {
   videoOptions?: VideoOptions;
 }
 
-export interface VideoButtonGroupProps extends GroupFormatProps {
+export interface YoutubeButtonGroupProps extends GroupFormatProps {
   basic?: boolean;
   advanced?: boolean;
 }

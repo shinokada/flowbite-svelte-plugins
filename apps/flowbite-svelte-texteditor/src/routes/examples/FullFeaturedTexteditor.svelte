@@ -19,10 +19,10 @@
     TableButtonGroup2,
     TaskListButtonGroup,
     UndoRedoButtonGroup,
-    VideoButtonGroup
+    YoutubeButtonGroup
   } from '$lib';
   import type { Editor } from '@tiptap/core';
-  import { Button } from "flowbite-svelte";
+  import { Button, Heading } from "flowbite-svelte";
 
   let editorInstance = $state<Editor | null>(null);
   let isEditable = $state(true);
@@ -82,7 +82,9 @@
   ];
 </script>
 
-<TextEditor bind:editor={editorInstance} {content} {mentions} floatingMenu bubbleMenu draghandle file {isEditable} contentprops={{ id: 'drag-handle-editable' }}>
+<Heading tag="h1" class="my-8">Full featured</Heading>
+
+<TextEditor bind:editor={editorInstance} {content} {mentions} file {isEditable} contentprops={{ id: 'drag-handle-editable' }}>
   <ToolbarRowWrapper>
     <EditableButton editor={editorInstance} bind:isEditable onToggle={handleEditableToggle} />
     <Divider />
@@ -98,7 +100,7 @@
     <Divider />
     <ImageButtonGroup editor={editorInstance} />
     <Divider />
-    <VideoButtonGroup editor={editorInstance} />
+    <YoutubeButtonGroup editor={editorInstance} />
     <Divider />
     <InvisibleButtonGroup editor={editorInstance} />
     <Divider />

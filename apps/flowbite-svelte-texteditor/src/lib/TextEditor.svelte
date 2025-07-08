@@ -30,9 +30,7 @@
   // functionality
   import CharacterCount from '@tiptap/extension-character-count';
   import Color from '@tiptap/extension-color';
-  import Details from '@tiptap/extension-details';
-  import DetailsContent from '@tiptap/extension-details-content';
-  import DetailsSummary from '@tiptap/extension-details-summary';
+  import { Details, DetailsSummary, DetailsContent } from '@tiptap/extension-details';
   import Emoji, { gitHubEmojis } from '@tiptap/extension-emoji';
   import FileHandler from '@tiptap/extension-file-handler';
   import Focus from '@tiptap/extension-focus';
@@ -388,63 +386,125 @@
         }
       });
 
-      if (bubbleMenu) {
-        const bubbleConfig = getMenuConfig(bubbleMenu);
-        bubbleElement = document.createElement('div');
-        document.body.appendChild(bubbleElement);
-
-        const bubblePlugin = BubbleMenuPlugin({
-          editor,
-          element: bubbleElement,
-          pluginKey: 'bubbleMenu',
-          shouldShow: null, // Use default behavior
-          options: {
-            offset: 8,
-            flip: true,
-            shift: true
-          }
-        });
-
-        editor.registerPlugin(bubblePlugin);
-
-        bubbleMenuRenderer = new SvelteRenderer(BubbleMenu, {
-          target: bubbleElement,
-          props: { editor, ...bubbleConfig }
-        });
+      if (bubbleMenu && editor) {
+        setupBubbleMenu();
       }
 
-      if (floatingMenu) {
-        const floatingConfig = getMenuConfig(floatingMenu);
-        floatingElement = document.createElement('div');
-        document.body.appendChild(floatingElement);
-
-        const floatingPlugin = FloatingMenuPlugin({
-          editor,
-          element: floatingElement,
-          pluginKey: 'floatingMenu',
-          shouldShow: null, // Use default behavior
-          options: {
-            placement: 'right',
-            offset: 8,
-            flip: true,
-            shift: true
-          }
-        });
-
-        editor.registerPlugin(floatingPlugin);
-
-        floatingMenuRenderer = new SvelteRenderer(FloatingMenu, {
-          target: floatingElement,
-          props: { editor, ...floatingConfig }
-        });
+      if (floatingMenu && editor) {
+        setupFloatingMenu();
       }
     }
   });
 
+  function setupBubbleMenu() {
+    if (!editor || bubbleMenuRenderer) return;
+
+    setTimeout(() => {
+      const bubbleConfig = getMenuConfig(bubbleMenu);
+      bubbleElement = document.createElement('div');
+      document.body.appendChild(bubbleElement);
+
+      bubbleMenuRenderer = new SvelteRenderer(BubbleMenu, {
+        target: bubbleElement,
+        props: { 
+          editor,
+          autoSetup: false, // We'll call setup manually
+          ...bubbleConfig 
+        }
+      });
+      
+      // Setup the bubble menu plugin
+      bubbleMenuRenderer.setup();
+    }, 100);
+  }
+
+  // Updated setupFloatingMenu function for your TextEditor.svelte
+// Replace the commented-out function with this:
+
+function setupFloatingMenu() {
+  if (!editor || floatingMenuRenderer) return;
+
+  setTimeout(() => {
+    const floatingConfig = getMenuConfig(floatingMenu);
+    floatingElement = document.createElement('div');
+    floatingElement.style.zIndex = '50';
+    floatingElement.style.position = 'absolute';
+    floatingElement.style.visibility = 'hidden';
+    floatingElement.style.opacity = '0';
+    floatingElement.style.transition = 'opacity 0.2s ease-in-out';
+    
+    // Add to body initially
+    document.body.appendChild(floatingElement);
+
+    // Create the floating menu plugin
+    const floatingPlugin = FloatingMenuPlugin({
+      editor,
+      element: floatingElement,
+      pluginKey: 'floatingMenu',
+      shouldShow: ({ editor, view, state, oldState, from, to }) => {
+        const { selection } = state;
+        const { empty } = selection;
+        const anchor = selection.$anchor;
+        const isRootDepth = anchor.depth === 1;
+        const isEmptyTextBlock = anchor.parent.isTextblock && 
+          !anchor.parent.type.spec.code && 
+          !anchor.parent.textContent && 
+          anchor.parent.childCount === 0;
+
+        if (!view.hasFocus() || !empty || !isRootDepth || !isEmptyTextBlock || !editor.isEditable) {
+          return false;
+        }
+
+        return true;
+      },
+      options: {
+        strategy: 'absolute',
+        placement: 'right',
+        offset: 8,
+        flip: true,
+        shift: true,
+        onShow: () => {
+          if (floatingElement) {
+            floatingElement.style.visibility = 'visible';
+            floatingElement.style.opacity = '1';
+          }
+        },
+        onHide: () => {
+          if (floatingElement) {
+            floatingElement.style.visibility = 'hidden';
+            floatingElement.style.opacity = '0';
+          }
+        }
+      }
+    });
+
+    // Register the plugin with the editor
+    editor?.registerPlugin(floatingPlugin);
+
+    // Create the Svelte renderer
+    floatingMenuRenderer = new SvelteRenderer(FloatingMenu, {
+      target: floatingElement,
+      props: { 
+        editor, 
+        autoSetup: false, // We'll call setup manually
+        ...floatingConfig 
+      }
+    });
+
+    // Setup the floating menu
+    floatingMenuRenderer.setup();
+  }, 100);
+}
+
+
   onDestroy(() => {
     editor?.destroy();
     bubbleMenuRenderer?.destroy();
-    bubbleElement?.remove();
+    if (bubbleElement) {
+      bubbleElement.remove();
+      bubbleElement = null;
+    }
+    // bubbleElement?.remove();
     floatingMenuRenderer?.destroy();
     floatingElement?.remove();
   });

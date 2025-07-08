@@ -2,6 +2,7 @@
   import 'katex/dist/katex.min.css';
   import { TextEditor, UndoRedoButtonGroup } from '$lib';
   import type { Editor } from '@tiptap/core';
+  import { Heading } from 'flowbite-svelte';
 
   let editorInstance = $state<Editor | null>(null);
 
@@ -38,6 +39,8 @@
         <p>The math extension also supports block level math nodes:</p>
         <div data-type="block-math" data-latex="\\int_a^b x^2 dx"></div>`;
 </script>
+
+<Heading tag="h1" class="my-8">Math</Heading>
 
 <TextEditor bind:editor={editorInstance} {content} math contentprops={{ id: 'math-ex' }}>
   <UndoRedoButtonGroup editor={editorInstance} />

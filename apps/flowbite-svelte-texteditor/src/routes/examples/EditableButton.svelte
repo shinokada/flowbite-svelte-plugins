@@ -1,6 +1,7 @@
 <script lang="ts">
   import { TextEditor, AlignmentButtonGroup, HeadingButtonGroup, UndoRedoButtonGroup, EditableButton } from '$lib';
   import type { Editor } from '@tiptap/core';
+  import { Heading } from 'flowbite-svelte';
 
   let editorInstance = $state<Editor | null>(null);
   let isEditable = $state(true);
@@ -15,6 +16,8 @@
     console.log('Editor is now:', editable ? 'editable' : 'read-only');
   }
 </script>
+
+<Heading tag="h1" class="my-8">Editable</Heading>
 
 <TextEditor bind:editor={editorInstance} {content} {isEditable} contentprops={{ id: 'editable-toggle-ex' }}>
   <EditableButton editor={editorInstance} bind:isEditable onToggle={handleEditableToggle} />

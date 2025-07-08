@@ -1,7 +1,7 @@
 <script lang="ts">
   import { InvisibleButtonGroup, TextEditor } from '$lib';
   import type { Editor } from '@tiptap/core';
-  import { Button } from 'flowbite-svelte';
+  import { Button, Heading } from 'flowbite-svelte';
 
   let editorInstance = $state<Editor | null>(null);
 
@@ -25,6 +25,8 @@
       </p>
     `;
 </script>
+
+<Heading tag="h1" class="my-8">Invisible</Heading>
 
 <TextEditor bind:editor={editorInstance} {content} contentprops={{ id: 'invisible-ex' }}>
   <InvisibleButtonGroup editor={editorInstance} />

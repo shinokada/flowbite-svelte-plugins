@@ -1,7 +1,7 @@
 <script lang="ts">
   import { getContext } from 'svelte';
   import { Tooltip, Modal, Label, Input, Button } from 'flowbite-svelte';
-  import { runVideoCommand, generateButtonId, generateUniqueId, type VideoButtonProps, useEditableContext, type EditorExtensionConfigs } from '$lib';
+  import { runVideoCommand, generateButtonId, generateUniqueId, type YoutubeButtonProps, useEditableContext, type EditorExtensionConfigs } from '$lib';
 
   let {
     modalChildren,
@@ -21,7 +21,7 @@
     class: className,
     onAdvancedClick,
     ...restProps
-  }: VideoButtonProps = $props();
+  }: YoutubeButtonProps = $props();
 
   let defaultModal = $state(false);
 
@@ -140,7 +140,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[VideoButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L185)
+[YoutubeButtonProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L185)
 ## Props
 @prop modalChildren
 @prop editor

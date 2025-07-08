@@ -1,7 +1,7 @@
 <script lang="ts">
   import { UndoRedoButtonGroup, TextEditor, ToolbarRowWrapper } from '$lib';
   import type { Editor } from '@tiptap/core';
-  import { Button } from 'flowbite-svelte';
+  import { Button, Heading } from 'flowbite-svelte';
 
   let editorInstance = $state<Editor | null>(null);
 
@@ -40,6 +40,8 @@
         <pre><code>In code blocks all emojis are rendered as plain text. 👩‍💻👨‍💻</code></pre>
       `;
 </script>
+
+<Heading tag="h1" class="my-8">Emoji</Heading>
 
 <TextEditor bind:editor={editorInstance} {content} contentprops={{ id: 'emoji-ex' }}>
   <ToolbarRowWrapper>

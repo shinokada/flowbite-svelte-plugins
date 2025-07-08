@@ -14,7 +14,7 @@ pnpm i -D @flowbite-svelte-plugins/texteditor
 
 ```svelte
 <script lang="ts">
-  import { AlignmentButtonGroup, FontButtonGroup, UndoRedoButtonGroup, FormatButtonGroup, LayoutButtonGroup, ImageButtonGroup, ListButtonGroup, VideoButtonGroup, TextEditor, ToolbarRowWrapper, Divider, SourceButton } from '@flowbite-svelte-plugins/texteditor';
+  import { AlignmentButtonGroup, FontButtonGroup, UndoRedoButtonGroup, FormatButtonGroup, LayoutButtonGroup, ImageButtonGroup, ListButtonGroup, YoutubeButtonGroup, TextEditor, ToolbarRowWrapper, Divider, SourceButton } from '@flowbite-svelte-plugins/texteditor';
   import type { Editor } from '@tiptap/core';
   import { Button } from 'flowbite-svelte';
 
@@ -63,7 +63,7 @@ pnpm i -D @flowbite-svelte-plugins/texteditor
     <Divider />
     <ImageButtonGroup editor={editorInstance} />
     <Divider />
-    <VideoButtonGroup editor={editorInstance} />
+    <YoutubeButtonGroup editor={editorInstance} />
     <SourceButton editor={editorInstance} />
   </ToolbarRowWrapper>
 </TextEditor>

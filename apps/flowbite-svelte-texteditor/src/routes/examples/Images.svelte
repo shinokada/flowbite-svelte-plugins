@@ -1,7 +1,7 @@
 <script lang="ts">
   import { ImageButtonGroup, TextEditor } from '$lib';
   import type { Editor } from '@tiptap/core';
-  import { Button } from 'flowbite-svelte';
+  import { Button, Heading } from 'flowbite-svelte';
 
   let editorInstance = $state<Editor | null>(null);
 
@@ -17,6 +17,8 @@
         <img src="https://placehold.co/400x200" />
         <img src="https://placehold.co/400x200/6A00F5/white" />`;
 </script>
+
+<Heading tag="h1" class="my-8">Images</Heading>
 
 <TextEditor bind:editor={editorInstance} {content} contentprops={{ id: 'image-ex' }}>
   <ImageButtonGroup editor={editorInstance} />

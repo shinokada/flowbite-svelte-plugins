@@ -1,7 +1,7 @@
 <script lang="ts">
   import { TaskListButtonGroup, TextEditor } from '$lib';
   import type { Editor } from '@tiptap/core';
-  import { Button } from 'flowbite-svelte';
+  import { Button, Heading } from 'flowbite-svelte';
 
   let editorInstance = $state<Editor | null>(null);
 
@@ -21,6 +21,8 @@
   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi veniam nulla impedit, fugit similique nihil deserunt velit ea, laboriosam sequi!
       `;
 </script>
+
+<Heading tag="h1" class="my-8">Task</Heading>
 
 <TextEditor bind:editor={editorInstance} {content} contentprops={{ id: 'task-ex' }}>
   <TaskListButtonGroup editor={editorInstance} />

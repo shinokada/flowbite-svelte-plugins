@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { SourceButtonGroup, VideoButtonGroup, TextEditor, EditorConfig } from '$lib';
+  import { SourceButtonGroup, YoutubeButtonGroup, TextEditor, EditorConfig } from '$lib';
   import type { YoutubeOptions } from '@tiptap/extension-youtube';
   import type { Editor } from '@tiptap/core';
 
@@ -20,7 +20,7 @@
 
 <EditorConfig {youtubeOptions}>
   <TextEditor bind:editor={editorInstance} {content} contentprops={{ id: 'video-config-ex' }}>
-    <VideoButtonGroup editor={editorInstance} />
+    <YoutubeButtonGroup editor={editorInstance} />
     <SourceButtonGroup editor={editorInstance} />
   </TextEditor>
 </EditorConfig>

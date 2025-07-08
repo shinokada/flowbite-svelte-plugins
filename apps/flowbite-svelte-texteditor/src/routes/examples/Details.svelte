@@ -1,7 +1,7 @@
 <script lang="ts">
   import { DetailsButtonGroup, TextEditor } from '$lib';
   import type { Editor } from '@tiptap/core';
-  import { Button } from 'flowbite-svelte';
+  import { Button, Heading } from 'flowbite-svelte';
 
   let editorInstance = $state<Editor | null>(null);
 
@@ -30,6 +30,8 @@
       </details>
     `;
 </script>
+
+<Heading tag="h1" class="my-8">Details</Heading>
 
 <TextEditor bind:editor={editorInstance} {content} contentprops={{ id: 'details-ex' }}>
   <DetailsButtonGroup editor={editorInstance} />

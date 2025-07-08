@@ -1,7 +1,7 @@
 <script lang="ts">
   import { SourceButtonGroup, TextEditor, ToolbarRowWrapper } from '$lib';
   import type { Editor } from '@tiptap/core';
-  import { Button } from 'flowbite-svelte';
+  import { Button, Heading } from 'flowbite-svelte';
 
   let editorInstance = $state<Editor | null>(null);
 
@@ -26,6 +26,8 @@
     console.log(i);
 }</code></pre><p>Learn more about all components from the <a href="https://flowbite-svelte.com/docs/pages/quickstart">Flowbite-Svelte Docs</a>.</p>`;
 </script>
+
+<Heading tag="h1" class="my-8">Sources</Heading>
 
 <TextEditor bind:editor={editorInstance} {content} contentprops={{ id: 'sources-ex' }}>
   <SourceButtonGroup editor={editorInstance} />
