@@ -7,7 +7,7 @@
 
 <script lang="ts">
   import { onDestroy, setContext, getContext } from 'svelte';
-  import { type EditorProviderProps, EditorWrapper, ContentWrapper, ToolbarWrapper, SvelteRenderer, BubbleMenu, FloatingMenu, getMenuConfig, DragHandle, Toc, cn, type EditableContext, type EditorExtensionConfigs } from '$lib';
+  import { type EditorProviderProps, EditorWrapper, ContentWrapper, ToolbarWrapper, SvelteRenderer, FloatingMenu, getMenuConfig, DragHandle, Toc, cn, type EditableContext, type EditorExtensionConfigs } from '$lib';
   import { Editor } from '@tiptap/core';
   import type { Extensions } from '@tiptap/core';
   import { Blockquote } from '@tiptap/extension-blockquote';
@@ -57,7 +57,6 @@
   import emojiSuggestion from './emoji/emojiSuggestion';
   import Mention from '@tiptap/extension-mention';
   import { createMentionSuggestion } from './mention/mentionSuggestion';
-  import { BubbleMenuPlugin } from '@tiptap/extension-bubble-menu';
   import { FloatingMenuPlugin } from '@tiptap/extension-floating-menu';
   import TableOfContents, { getHierarchicalIndexes } from '@tiptap/extension-table-of-contents';
 
@@ -70,7 +69,6 @@
     emoji = true,
     class: className,
     mentions,
-    bubbleMenu = false,
     floatingMenu = false,
     math = false,
     limit,
@@ -127,7 +125,6 @@
     superscriptOptions,
     underlineOptions,
     // functionality
-    bubbleMenuOptions,
     characterCountOptions,
     backgroundColorOptions,
     colorOptions,
@@ -152,9 +149,6 @@
   } = extensionConfigs;
 
   let editorElement = $state<HTMLDivElement | null>(null);
-  // for bubble menu
-  let bubbleElement: HTMLDivElement | null = null;
-  let bubbleMenuRenderer: SvelteRenderer | null = null;
   // for floating menu
   let floatingElement: HTMLDivElement | null = null;
   let floatingMenuRenderer: SvelteRenderer | null = null;
@@ -386,40 +380,12 @@
         }
       });
 
-      if (bubbleMenu && editor) {
-        setupBubbleMenu();
-      }
-
       if (floatingMenu && editor) {
         setupFloatingMenu();
       }
     }
   });
 
-  function setupBubbleMenu() {
-    if (!editor || bubbleMenuRenderer) return;
-
-    setTimeout(() => {
-      const bubbleConfig = getMenuConfig(bubbleMenu);
-      bubbleElement = document.createElement('div');
-      document.body.appendChild(bubbleElement);
-
-      bubbleMenuRenderer = new SvelteRenderer(BubbleMenu, {
-        target: bubbleElement,
-        props: { 
-          editor,
-          autoSetup: false, // We'll call setup manually
-          ...bubbleConfig 
-        }
-      });
-      
-      // Setup the bubble menu plugin
-      bubbleMenuRenderer.setup();
-    }, 100);
-  }
-
-  // Updated setupFloatingMenu function for your TextEditor.svelte
-// Replace the commented-out function with this:
 
 function setupFloatingMenu() {
   if (!editor || floatingMenuRenderer) return;
@@ -499,12 +465,6 @@ function setupFloatingMenu() {
 
   onDestroy(() => {
     editor?.destroy();
-    bubbleMenuRenderer?.destroy();
-    if (bubbleElement) {
-      bubbleElement.remove();
-      bubbleElement = null;
-    }
-    // bubbleElement?.remove();
     floatingMenuRenderer?.destroy();
     floatingElement?.remove();
   });
