@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { TextEditor, UndoRedoButtonGroup, FloatingMenu } from '$lib';
+  import { TextEditor, UndoRedoButtonGroup } from '$lib';
   import type { Editor } from '@tiptap/core';
-  import { Heading, P } from 'flowbite-svelte';
+  import { Heading } from 'flowbite-svelte';
 
   let editorInstance = $state<Editor | null>(null);
 
@@ -12,8 +12,6 @@
 </script>
 
 <Heading tag="h1" class="my-8">Floating menu</Heading>
-
-<P class="my-4 text-xl text-red-500 dark:text-red-400">Work in progress.</P>
 
 <TextEditor bind:editor={editorInstance} {content} floatingMenu contentprops={{ id: 'floating-menu-ex' }}>
   <UndoRedoButtonGroup editor={editorInstance} />
