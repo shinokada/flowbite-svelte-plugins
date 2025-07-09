@@ -147,15 +147,12 @@ export interface EditorProviderProps {
   class?: ClassValue;
   mentions?: string[];
   math?: boolean;
-  limit?: number;
   file?: boolean;
   bubbleMenu?: boolean | BubbleMenuConfig;
   floatingMenu?: boolean | FloatingMenuConfig;
   placeholder?: string;
   summary?: string;
   detailsPlaceholder?: string;
-  draghandle?: boolean;
-  draghandleprops?: DragHandleProps;
   toc?: boolean;
   contentprops?: ContentProps;
   isEditable?: boolean;

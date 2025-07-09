@@ -10,9 +10,9 @@ test('alignments page has expected h1', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Alignments', level: 1 })).toBeVisible();
 });
 
-test('Autofocus page has expected h1', async ({ page }) => {
-  await page.goto('/examples/Autofocus');
-  await expect(page.getByRole('heading', { name: 'Autofocus', level: 1 })).toBeVisible();
+test('AutoFocus page has expected h1', async ({ page }) => {
+  await page.goto('/examples/AutoFocus');
+  await expect(page.getByRole('heading', { name: 'AutoFocus', level: 1 })).toBeVisible();
 });
 
 test('BubbleMenu page has expected h1', async ({ page }) => {
@@ -23,6 +23,11 @@ test('BubbleMenu page has expected h1', async ({ page }) => {
 test('BubbleMenu2 page has expected h1', async ({ page }) => {
   await page.goto('/examples/BubbleMenu2');
   await expect(page.getByRole('heading', { name: 'Bubble Menu 2', level: 1 })).toBeVisible();
+});
+
+test('CharacterCount page has expected h1', async ({ page }) => {
+  await page.goto('/examples/CharacterCount');
+  await expect(page.getByRole('heading', { name: 'Character Count', level: 1 })).toBeVisible();
 });
 
 test('CustomButton page has expected h1', async ({ page }) => {

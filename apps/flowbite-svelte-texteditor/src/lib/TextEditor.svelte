@@ -7,7 +7,7 @@
 
 <script lang="ts">
   import { onDestroy, setContext, getContext } from 'svelte';
-  import { type EditorProviderProps, EditorWrapper, ContentWrapper, ToolbarWrapper, SvelteRenderer, FloatingMenu, getMenuConfig, DragHandle, Toc, cn, type EditableContext, type EditorExtensionConfigs } from '$lib';
+  import { type EditorProviderProps, EditorWrapper, ContentWrapper, ToolbarWrapper, SvelteRenderer, FloatingMenu, getMenuConfig, Toc, cn, type EditableContext, type EditorExtensionConfigs } from '$lib';
   import { Editor } from '@tiptap/core';
   import type { Extensions } from '@tiptap/core';
   import { Blockquote } from '@tiptap/extension-blockquote';
@@ -19,7 +19,7 @@
   import { HorizontalRule } from '@tiptap/extension-horizontal-rule';
   import { Italic } from '@tiptap/extension-italic';
   import { Link } from '@tiptap/extension-link';
-  import { BulletList, ListItem, ListKeymap, ListKit, OrderedList } from '@tiptap/extension-list';
+  import { BulletList, ListItem, ListKeymap, OrderedList } from '@tiptap/extension-list';
   import { Paragraph } from '@tiptap/extension-paragraph';
   import { Strike } from '@tiptap/extension-strike';
   import { Text } from '@tiptap/extension-text';
@@ -71,13 +71,10 @@
     mentions,
     floatingMenu = false,
     math = false,
-    limit,
     file,
     placeholder = 'Write something ...',
     summary = 'Summary',
     detailsPlaceholder = 'Add details content...',
-    draghandle,
-    draghandleprops,
     toc,
     contentprops,
     isEditable = true,
@@ -119,7 +116,6 @@
     codeOptions,
     highlightOptions,
     italicOptions,
-    linkOptions,
     strikeOptions,
     subscriptOptions,
     superscriptOptions,
@@ -128,21 +124,12 @@
     characterCountOptions,
     backgroundColorOptions,
     colorOptions,
-    dragHandleOptions,
-    dropcursorOptions,
-    fileHandlerOptions,
-    floatingMenuOptions,
     focusOptions,
     fontFamilyOptions,
-    fontSizeOptions,
     invisibleCharactersOptions,
     lineHeightOptions,
     listKeymapOptions,
     placeholderOptions,
-    selectionOptions,
-    tableOfContentsOptions,
-    textStyleKitOptions,
-    textAlignOptions,
     trailingNodeOptions,
     typographyOptions,
     undoRedoOptions
