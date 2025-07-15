@@ -1,5 +1,6 @@
 <script lang="ts">
   import '../app.css';
+  import { RunesMetaTags, deepMerge } from 'runes-meta-tags';
   import { DarkMode, Navbar, NavBrand, NavLi, NavUl, NavHamburger, Sidebar, SidebarGroup, SidebarItem, SidebarButton, uiHelpers } from 'flowbite-svelte';
   import { page } from '$app/state';
 
@@ -13,14 +14,24 @@
   const demoSidebarUi = uiHelpers();
   let isDemoOpen = $state(false);
   const closeDemoSidebar = demoSidebarUi.close;
+
+  // meta tag
+  function buildMetaTags() {
+    return page.data.pageMetaTags
+      ? deepMerge(page.data.layoutMetaTags, page.data.pageMetaTags)
+      : data.layoutMetaTags;
+  }
+
+  let metaTags = $state(buildMetaTags());
   $effect(() => {
+    metaTags = buildMetaTags();
     isDemoOpen = demoSidebarUi.isOpen;
     activeUrl = page.url.pathname;
   });
   const activeClass = 'flex items-center p-1 text-base font-normal text-white bg-primary-600 dark:bg-primary-700 rounded-lg dark:text-white hover:bg-primary-800 dark:hover:bg-primary-800';
   const nonActiveClass = 'flex items-center p-1 text-base font-normal text-green-900 rounded-lg dark:text-white hover:bg-green-100 dark:hover:bg-green-700';
 </script>
-
+<RunesMetaTags {...metaTags} />
 <svelte:head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/google-dark.min.css" />
 </svelte:head>
