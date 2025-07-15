@@ -499,13 +499,10 @@
 @prop mentions
 @prop floatingMenu = false
 @prop math = false
-@prop limit
 @prop file
 @prop placeholder = 'Write something ...'
 @prop summary = 'Summary'
 @prop detailsPlaceholder = 'Add details content...'
-@prop draghandle
-@prop draghandleprops
 @prop toc
 @prop contentprops
 @prop isEditable = true

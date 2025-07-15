@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.25.0
+
+### Minor Changes
+
+- fix: tiptap@v3.0.1 except drag-handle
+
 ## 0.24.0
 
 ### Minor Changes

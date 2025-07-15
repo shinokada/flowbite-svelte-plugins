@@ -11,7 +11,7 @@
 @component
 [Go to docs](https://flowbite-svelte.com/docs/plugins/wysiwyg)
 ## Type
-[DividerProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L201)
+[DividerProps](https://github.com/shinokada/flowbite-svelte-plugins/blob/main/src/lib/types.ts#L197)
 ## Props
 @prop divClass
 @prop spanClass

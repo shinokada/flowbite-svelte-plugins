@@ -7,7 +7,7 @@ export const load: LayoutServerLoad = async ({ fetch, url }) => {
   try {
     // Server-side data fetching
     const allExamples = await fetch('/api').then(json);
-    
+
     // Meta tags generation
     const title = 'Flowbite-Svelte-TextEditor';
     const basicDesc = 'Tiptap powered text editor for Svelte';
@@ -46,7 +46,7 @@ export const load: LayoutServerLoad = async ({ fetch, url }) => {
     };
   } catch (error) {
     console.error(`Error in load function for /: ${error}`);
-    
+
     // Return meta tags even if API call fails
     const title = metaTitle(url.pathname, __NAME__);
     const basicDesc = 'Meta tags for Runes.';

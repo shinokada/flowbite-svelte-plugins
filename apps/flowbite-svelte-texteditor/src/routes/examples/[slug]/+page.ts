@@ -28,8 +28,8 @@ export const load: PageLoad = async ({ params, url }) => {
     }
   };
 
-  return { 
+  return {
     content,
-    pageMetaTags 
+    pageMetaTags
   };
 };

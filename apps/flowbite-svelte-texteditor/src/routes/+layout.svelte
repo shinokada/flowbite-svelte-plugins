@@ -17,9 +17,7 @@
 
   // meta tag
   function buildMetaTags() {
-    return page.data.pageMetaTags
-      ? deepMerge(page.data.layoutMetaTags, page.data.pageMetaTags)
-      : data.layoutMetaTags;
+    return page.data.pageMetaTags ? deepMerge(page.data.layoutMetaTags, page.data.pageMetaTags) : data.layoutMetaTags;
   }
 
   let metaTags = $state(buildMetaTags());
@@ -31,6 +29,7 @@
   const activeClass = 'flex items-center p-1 text-base font-normal text-white bg-primary-600 dark:bg-primary-700 rounded-lg dark:text-white hover:bg-primary-800 dark:hover:bg-primary-800';
   const nonActiveClass = 'flex items-center p-1 text-base font-normal text-green-900 rounded-lg dark:text-white hover:bg-green-100 dark:hover:bg-green-700';
 </script>
+
 <RunesMetaTags {...metaTags} />
 <svelte:head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/google-dark.min.css" />

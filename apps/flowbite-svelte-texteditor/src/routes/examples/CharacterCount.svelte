@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { CharacterCount, UndoRedoButtonGroup, TextEditor } from "$lib";
-  import type { Editor } from "@tiptap/core";
-  import { Heading } from "flowbite-svelte";
+  import { CharacterCount, UndoRedoButtonGroup, TextEditor } from '$lib';
+  import type { Editor } from '@tiptap/core';
+  import { Heading } from 'flowbite-svelte';
 
   let editorInstance = $state<Editor | null>(null);
 

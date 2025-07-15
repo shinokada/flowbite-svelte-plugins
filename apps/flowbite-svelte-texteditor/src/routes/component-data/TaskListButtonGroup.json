@@ -2,7 +2,7 @@
   "name": "TaskListButtonGroup",
   "type": {
     "name": "TaskListButtonGroupProps",
-    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L468"
+    "link": "https://github.com/themesberg/flowbite-svelte/blob/main/src/lib/types.ts#L464"
   },
   "props": [
     ["editor", ""],
