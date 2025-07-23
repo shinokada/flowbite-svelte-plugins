@@ -1,5 +1,17 @@
 # flowbite-svelte-texteditor
 
+## 0.25.2
+
+### Patch Changes
+
+- chore: @tiptap@latest except @tiptap/extension-drag-handle
+
+## 0.25.1
+
+### Patch Changes
+
+- fix: @tiptap@v3.0.7
+
 ## 0.25.0
 
 ### Minor Changes
