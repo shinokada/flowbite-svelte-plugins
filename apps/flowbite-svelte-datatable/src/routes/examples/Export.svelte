@@ -6,45 +6,89 @@
   import items from './data/sample.json';
 
   let tableComponent: any;
+  let dataTableInstance = $state<any>(null);
+
+  const getDataTableInstance = () => {
+    console.log('dataTableInstance:', dataTableInstance);
+    
+    if (dataTableInstance) {
+      return dataTableInstance;
+    }
+    
+    console.error('DataTable instance not found');
+    return null;
+  };
 
   const handleCSV = () => {
-    if (tableComponent?.dataTableInstance) {
-      exportCSV(tableComponent.dataTableInstance, {
-        download: true,
-        lineDelimiter: '\n',
-        columnDelimiter: ';'
-      });
+    console.log('clicked handleCSV');
+    
+    const instance = getDataTableInstance();
+    if (instance) {
+      try {
+        exportCSV(instance, {
+          download: true,
+          lineDelimiter: '\n',
+          columnDelimiter: ';'
+        });
+        console.log('CSV export successful');
+      } catch (error) {
+        console.error('CSV export failed:', error);
+      }
     }
   };
 
   const handleSQL = () => {
-    if (tableComponent?.dataTableInstance) {
-      exportSQL(tableComponent.dataTableInstance, {
-        download: true,
-        tableName: 'export_table'
-      });
+    console.log('clicked handleSQL');
+    
+    const instance = getDataTableInstance();
+    if (instance) {
+      try {
+        exportSQL(instance, {
+          download: true,
+          tableName: 'export_table'
+        });
+        console.log('SQL export successful');
+      } catch (error) {
+        console.error('SQL export failed:', error);
+      }
     }
   };
 
   const handleTXT = () => {
-    if (tableComponent?.dataTableInstance) {
-      exportTXT(tableComponent.dataTableInstance, {
-        download: true
-      });
+    console.log('clicked handleTXT');
+    
+    const instance = getDataTableInstance();
+    if (instance) {
+      try {
+        exportTXT(instance, {
+          download: true
+        });
+        console.log('TXT export successful');
+      } catch (error) {
+        console.error('TXT export failed:', error);
+      }
     }
   };
 
   const handleJSON = () => {
-    if (tableComponent?.dataTableInstance) {
-      exportJSON(tableComponent.dataTableInstance, {
-        download: true,
-        space: 3
-      });
+    console.log('clicked handleJSON');
+    
+    const instance = getDataTableInstance();
+    if (instance) {
+      try {
+        exportJSON(instance, {
+          download: true,
+          space: 3
+        });
+        console.log('JSON export successful');
+      } catch (error) {
+        console.error('JSON export failed:', error);
+      }
     }
   };
 </script>
 
-<Table bind:this={tableComponent} {items} />
+<Table bind:this={tableComponent} {items} bind:dataTableInstance />
 
 <div class="mt-4 space-x-2">
   <Button onclick={handleCSV}>Export CSV</Button>
