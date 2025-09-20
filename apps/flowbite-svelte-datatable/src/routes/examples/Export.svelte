@@ -10,18 +10,18 @@
 
   const getDataTableInstance = () => {
     console.log('dataTableInstance:', dataTableInstance);
-    
+
     if (dataTableInstance) {
       return dataTableInstance;
     }
-    
+
     console.error('DataTable instance not found');
     return null;
   };
 
   const handleCSV = () => {
     console.log('clicked handleCSV');
-    
+
     const instance = getDataTableInstance();
     if (instance) {
       try {
@@ -39,7 +39,7 @@
 
   const handleSQL = () => {
     console.log('clicked handleSQL');
-    
+
     const instance = getDataTableInstance();
     if (instance) {
       try {
@@ -56,7 +56,7 @@
 
   const handleTXT = () => {
     console.log('clicked handleTXT');
-    
+
     const instance = getDataTableInstance();
     if (instance) {
       try {
@@ -72,7 +72,7 @@
 
   const handleJSON = () => {
     console.log('clicked handleJSON');
-    
+
     const instance = getDataTableInstance();
     if (instance) {
       try {

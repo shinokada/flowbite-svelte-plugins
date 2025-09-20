@@ -1,5 +1,11 @@
 # flowbite-svelte-texteditor
 
+## 0.25.5
+
+### Patch Changes
+
+- chore: @tiptap@3.4.4
+
 ## 0.25.4
 
 ### Patch Changes
