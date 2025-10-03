@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { Table } from '$lib';
+  import { Table } from '@flowbite-svelte-plugins/datatable';
   import items from './data/simple.json';
-  import type { DataTableOptions } from 'simple-datatables';
+  import type { DataTableOptions } from '@flowbite-svelte-plugins/datatable';
 
   const dataTableOptions: DataTableOptions = {
     perPageSelect: [5, 10, 15, ['All', -1]],

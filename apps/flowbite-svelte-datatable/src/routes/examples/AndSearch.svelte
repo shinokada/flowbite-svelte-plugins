@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { Table } from '$lib';
+  import { Table } from '@flowbite-svelte-plugins/datatable';
   import andsearch from './data/andsearch.json';
-  import type { DataTableOptions } from 'simple-datatables';
+  import type { DataTableOptions } from '@flowbite-svelte-plugins/datatable';
 
   // Define the types for the template function parameters
   interface TemplateOptions {

@@ -3,9 +3,16 @@ import { svelteTesting } from '@testing-library/svelte/vite';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 import devtoolsJson from 'vite-plugin-devtools-json';
+import path from 'path';
 
 export default defineConfig({
   plugins: [tailwindcss(), devtoolsJson(), sveltekit()],
+  resolve: {
+    alias: {
+      '@flowbite-svelte-plugins/datatable': path.resolve(process.cwd(), './src/lib/index.ts')
+    },
+    conditions: process.env.VITEST ? ['browser'] : undefined
+  },
   test: {
     projects: [
       {

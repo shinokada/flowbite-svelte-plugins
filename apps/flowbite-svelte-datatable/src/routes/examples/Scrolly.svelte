@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { Table } from '$lib';
+  import { Table } from '@flowbite-svelte-plugins/datatable';
   import products from './data/products.json';
-  import type { DataTableOptions } from 'simple-datatables';
+  import type { DataTableOptions } from '@flowbite-svelte-plugins/datatable';
 
   const scrollyOptions: DataTableOptions = {
     paging: false,

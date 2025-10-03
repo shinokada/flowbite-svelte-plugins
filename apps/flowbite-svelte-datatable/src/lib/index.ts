@@ -6,3 +6,6 @@ export { default as TableBodyCell } from './TableBodyCell.svelte';
 export { default as TableBodyRow } from './TableBodyRow.svelte';
 export { default as TableHeadCell } from './TableHeadCell.svelte';
 export { default as TableHead } from './TableHead.svelte';
+
+// Re-export simple-datatables API
+export { exportJSON, exportCSV, exportTXT, exportSQL, type DataTable, type DataTableOptions } from 'simple-datatables';

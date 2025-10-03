@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { Table } from '$lib';
+  import { Table } from '@flowbite-svelte-plugins/datatable';
   import aimodels from './data/aimodels.json';
-  import type { DataTableOptions } from 'simple-datatables';
+  import type { DataTableOptions } from '@flowbite-svelte-plugins/datatable';
 
   const paginationOptions: DataTableOptions = {
     paging: true,

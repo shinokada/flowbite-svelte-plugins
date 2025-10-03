@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { Table } from '$lib';
-  import type { DataTableOptions } from 'simple-datatables';
+  import { Table } from '@flowbite-svelte-plugins/datatable';
+  import type { DataTableOptions } from '@flowbite-svelte-plugins/datatable';
 
   // Define types for the render function parameters
   interface CellNode {

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Table } from '$lib';
+  import { Table } from '@flowbite-svelte-plugins/datatable';
   import items from './data/sample.json';
 </script>
 

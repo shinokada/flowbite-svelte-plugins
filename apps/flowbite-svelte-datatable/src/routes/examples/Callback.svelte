@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { Table } from '$lib';
+  import { Table } from '@flowbite-svelte-plugins/datatable';
   import items from './data/sample.json';
-  import type { DataTable } from 'simple-datatables';
+  import type { DataTable } from '@flowbite-svelte-plugins/datatable';
   import { Spinner } from 'flowbite-svelte';
 
   let isTableLoading = $state(true);
@@ -52,23 +52,8 @@
   };
 </script>
 
-The DataTable component exposes callback props that allow you to hook into the underlying simple-datatables library events. These callbacks provide access to the table lifecycle and user interactions.
-### Initialization Events #### `onInitStart` Called when table initialization begins. Useful for showing loading indicators. ```ts typescriptonInitStart?: () => void ```
-
 {#if isTableLoading}
   <Spinner />
 {/if}
 
-<Table
-  {items}
-  bind:isLoading={isTableLoading}
-  bind:dataTableInstance={tableInstance}
-  onInitStart={handleInitStart}
-  onInitComplete={handleInitComplete}
-  onInitError={handleInitError}
-  onSort={handleSort}
-  onSearch={handleSearch}
-  onSelectRow={handleRowSelect}
-  selectable={true}
-  dataTableOptions={selectRowsOptions}
-/>
+<Table {items} bind:isLoading={isTableLoading} bind:dataTableInstance={tableInstance} onInitStart={handleInitStart} onInitComplete={handleInitComplete} onInitError={handleInitError} onSort={handleSort} onSearch={handleSearch} onSelectRow={handleRowSelect} selectable={true} dataTableOptions={selectRowsOptions} />

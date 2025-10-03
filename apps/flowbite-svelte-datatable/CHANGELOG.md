@@ -1,5 +1,11 @@
 # @codewithshin/flowbite-svelte-datatable
 
+## 0.4.1
+
+### Patch Changes
+
+- fix: re-export simple-datatables API
+
 ## 0.4.0
 
 ### Minor Changes
