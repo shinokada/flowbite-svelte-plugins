@@ -116,6 +116,7 @@
     codeOptions,
     highlightOptions,
     italicOptions,
+    linkOptions,
     strikeOptions,
     subscriptOptions,
     superscriptOptions,
@@ -254,7 +255,7 @@
         Italic.configure(italicOptions || {}),
         Link.configure({
           openOnClick: false,
-          ...(italicOptions || {})
+          ...(linkOptions || {})
         }),
         Strike.configure(strikeOptions || {}),
         Subscript.configure(subscriptOptions || {}),
