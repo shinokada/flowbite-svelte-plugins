@@ -161,7 +161,6 @@
   });
 
   $effect(() => {
-    $inspect('isEdiatble in TextEditor: ', isEditable);
     if (editorElement && !editor) {
       const extensions: Extensions = [
         Document,
