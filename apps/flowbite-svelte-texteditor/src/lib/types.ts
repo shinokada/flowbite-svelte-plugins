@@ -1,5 +1,5 @@
 import type { Editor, FocusPosition } from '@tiptap/core';
-import { type ClassValue } from 'clsx';
+import type { ClassValue } from 'clsx';
 import type { Snippet } from 'svelte';
 import type { HTMLButtonAttributes, HTMLAttributes } from 'svelte/elements';
 import type { BlockquoteOptions } from '@tiptap/extension-blockquote';

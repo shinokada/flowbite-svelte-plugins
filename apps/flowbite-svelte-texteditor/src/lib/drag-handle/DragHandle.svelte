@@ -2,7 +2,7 @@
   import { onMount, onDestroy } from 'svelte';
   import type { Node } from '@tiptap/pm/model';
   import type { Editor } from '@tiptap/core';
-  import { type DragHandleProps } from '$lib';
+  import type { DragHandleProps } from '$lib';
   import { DragHandlePlugin, dragHandlePluginDefaultKey } from '@tiptap/extension-drag-handle';
 
   // Accept editor and draghandleprops as separate props

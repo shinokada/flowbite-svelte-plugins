@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { type BubbleMenuConfig, type FloatingMenuConfig } from '$lib';
+import type { BubbleMenuConfig, FloatingMenuConfig } from '$lib';
 
 /**
  * Combines clsx and tailwind-merge for intelligent class merging

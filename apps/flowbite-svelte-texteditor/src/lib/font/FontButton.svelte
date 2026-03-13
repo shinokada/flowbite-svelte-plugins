@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Tooltip, Dropdown, DropdownItem } from 'flowbite-svelte';
   import { setFontFamily, setFontSize, removeFontSizeFormatting, setTextColor, removeTextColorFormatting, generateButtonId, useEditableContext } from '$lib';
-  import { type FontButtonProps } from '$lib/types';
+  import type { FontButtonProps } from '$lib/types';
 
   let { editor, format, tooltipText, ariaLabel, colorValue = '#e66465', id, class: className }: FontButtonProps = $props();
 
