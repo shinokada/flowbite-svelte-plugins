@@ -1,7 +1,8 @@
 // lib/utils/useEditableContext.svelte.ts
 import { getContext } from 'svelte';
 import { type ClassValue } from 'clsx';
-import { cn, type EditableContext } from '$lib';
+import { cn } from '$lib';
+import type { EditableContext } from '$lib/types'
 
 export function useEditableContext() {
   const editableContext = getContext<EditableContext>('isEditable');

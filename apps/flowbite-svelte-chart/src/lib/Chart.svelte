@@ -8,9 +8,16 @@
 
   function initChart(node: HTMLElement, options: ApexOptions) {
     let chart: ApexCharts;
+    let destroyed = false;
 
     async function asyncInitChart() {
       const ApexCharts = (await import('apexcharts')).default;
+
+      // Component may unmount before the dynamic import resolves in tests.
+      if (destroyed || !node.isConnected) {
+        return;
+      }
+
       chart = new ApexCharts(node, options);
       chart.render();
     }
@@ -24,6 +31,7 @@
         }
       },
       destroy() {
+        destroyed = true;
         if (chart) {
           chart.destroy();
         }

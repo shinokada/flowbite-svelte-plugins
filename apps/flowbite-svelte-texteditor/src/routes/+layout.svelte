@@ -1,6 +1,6 @@
 <script lang="ts">
   import '../app.css';
-  import { RunesMetaTags, deepMerge } from 'runes-meta-tags';
+  import { MetaTags, deepMerge } from 'runes-meta-tags';
   import { DarkMode, Navbar, NavBrand, NavLi, NavUl, NavHamburger, Sidebar, SidebarGroup, SidebarItem, SidebarButton, uiHelpers } from 'flowbite-svelte';
   import { page } from '$app/state';
 
@@ -30,7 +30,7 @@
   const nonActiveClass = 'flex items-center p-1 text-base font-normal text-green-900 rounded-lg dark:text-white hover:bg-green-100 dark:hover:bg-green-700';
 </script>
 
-<RunesMetaTags {...metaTags} />
+<MetaTags {...metaTags} />
 <svelte:head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/google-dark.min.css" />
 </svelte:head>

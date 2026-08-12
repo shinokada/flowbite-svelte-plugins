@@ -1,10 +1,10 @@
 <script lang="ts">
   import type { PageProps } from './$types';
-  import { RunesMetaTags } from 'runes-meta-tags';
+  import { MetaTags } from 'runes-meta-tags';
 
   let { data }: PageProps = $props();
   let Content = $derived(data.content);
 </script>
 
-<RunesMetaTags {...data.pageMetaTags} />
+<MetaTags {...data.pageMetaTags} />
 <Content />

@@ -3,7 +3,7 @@
   import type { Node } from '@tiptap/pm/model';
   import type { Editor } from '@tiptap/core';
   import { type DragHandleProps } from '$lib';
-  import { DragHandlePlugin, dragHandlePluginDefaultKey } from '@tiptap/extension-drag-handle';
+  import { DragHandlePlugin, dragHandlePluginDefaultKey, normalizeNestedOptions } from '@tiptap/extension-drag-handle';
 
   // Accept editor and draghandleprops as separate props
   let {
@@ -11,7 +11,7 @@
     draghandleprops = {}
   }: {
     editor: Editor | null;
-    draghandleprops?: Omit<DragHandleProps, 'editor'>;
+    draghandleprops?: Partial<Omit<DragHandleProps, 'editor'>>;
   } = $props();
 
   // Extract individual props from draghandleprops with defaults
@@ -65,6 +65,7 @@
         pluginKey,
         editor,
         element: dragElement,
+        nestedOptions: normalizeNestedOptions(undefined),
         onNodeChange: (data) => {
           // console.log('DragHandle - Node change:', data);
           // console.log('DragHandle - Node type:', data.node?.type?.name);

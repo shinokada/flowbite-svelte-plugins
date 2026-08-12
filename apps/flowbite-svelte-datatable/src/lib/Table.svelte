@@ -56,6 +56,12 @@
           const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
 
           const { DataTable } = await import('simple-datatables');
+
+          if (!tableElement || !tableElement.isConnected) {
+            isLoading = false;
+            return;
+          }
+
           dataTableInstance = new DataTable(tableElement, defaultOptions);
 
           // Set up all event listeners
